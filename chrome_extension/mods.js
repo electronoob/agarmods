@@ -14,7 +14,7 @@ nodeDiv.style.borderRadius = "10px";
 nodeDiv.style.color = "#dddddd";
 nodeDiv.innerHTML = "<small>Agariomods' evergreen server script for team play. Version 1.1 <a target=\"_blank\" href=\"http://www.agarmods.com/\">Agariomods.com</a>.</p>";
 nodeDiv.innerHTML += "<p><small>There is a new <a target=\"_blank\" href=\"https://www.reddit.com/r/Agario/comments/3590rk/want_to_team_up_join_the_unofficial_mumble_server/\">Mumble chat here.</a></small>";
-nodeDiv.innerHTML += "<u>connections steps</u>";
+nodeDiv.innerHTML += "<u>connections steps. little changed</u>";
 nodeDiv.innerHTML += "\
 <ul>\
   <li>1: Get ip address from friend.</li>\
@@ -40,6 +40,7 @@ nodeSpan.style.paddingTop = "5px";
 nodeSpan.style.paddingLeft = "15px";
 nodeSpan.addEventListener("click", function (e) {
     if (modBlocking == false) {
+		
                       console.log ("clicked refresh");
                       jQuery('#region').val("EU-London");
                       jQuery('#region').change();

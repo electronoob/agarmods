@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "AgarMods_Beta",
+  "version": "1.0.0.1",
+  "description": "Mods for Agar.io to make gameplay easier",
+  "author": "Inumedia / AgarMods.com / ",
+  "permissions": ["tabs",
+    "http://agar.io/",
+    "http://m.agar.io/",
+    "webRequest",
+    "webRequestBlocking",
+    "*://*.agar.io/",
+    "*://agar.io/"
+  ],
+  "background":{
+    "scripts": ["blocking.js"],
+    "persistent": true
+  },
+  "web_accessible_resources": ["main_out.js"],
+  "content_scripts": [
+    {
+      "matches": ["http://agar.io/*"],
+      "js": ["bootstrap.js", "mods.user.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "short_name": "AgarMods"
+}
