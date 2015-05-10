@@ -25,6 +25,12 @@ nodeDiv.innerHTML += "\
 \
 ";
 
+$( document ).ready(function() {
+hd = document.getElementById("helloDialog");
+cachedhd = hd.innerHTML;
+hd.innerHTML = cachedhd.replace("<center>Hello</center>", "<center>AgarioMods.com Evergreen Scripts</center>");
+});
+
 jQuery('#region').parent().get(0).appendChild(document.createElement("br"));
 jQuery('#region').parent().get(0).appendChild(nodeDiv);
 
