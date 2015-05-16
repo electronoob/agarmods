@@ -3,7 +3,7 @@ Agarmods Evergreen Server Selector.
 
 [![Join the chat at https://gitter.im/electronoob/agarmods](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/electronoob/agarmods?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Navigation: [Website][4] | **Script Repository** | [Agar Game][5]
+Navigation: [Website][4] | **Script Repository** | [Agar Game][5] | [Forum][6]
 
 ![electronoob as a skin playing agar.io](http://agariomods.com/preview.gif "electronoob playing agar.io with our script.")
 
@@ -15,12 +15,14 @@ We are presently rolling out custom skins!
 [3]: http://botb.club/~e/agar.io/mods.user.js.html
 [4]: http://agarmods.com/
 [5]: http://agar.io
-[6]: https://github.com/electronoob/agarmods/blob/master/LICENSE
-[7]: https://github.com/Irraquated
-[8]: https://github.com/shipguy55
-[9]: https://github.com/electronoob
-[10]: https://github.com/IntelHD400
-[11]: https://github.com/HYDROagar
+[6]: http://forum.agariomods.com/index.php
+[7]: https://github.com/electronoob/agarmods/blob/master/LICENSE
+[8]: https://github.com/Irraquated
+[9]: https://github.com/shipguy55
+[10]: https://github.com/electronoob
+[11]: https://github.com/IntelHD400
+[12]: https://github.com/HYDROagar
+[13]: https://github.com/JBoughter
 
 
 Introduction
@@ -53,5 +55,6 @@ Credits
  - [Shipguy55][8]
  - [IntelHD400][10]
  - [HYDRO][11]
+ - [F0rZ3r0][13]
 
 
