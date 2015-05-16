@@ -3,7 +3,7 @@ Agarmods Evergreen Server Selector.
 
 [![Join the chat at https://gitter.im/electronoob/agarmods](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/electronoob/agarmods?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Navigation: [Website][4] | **Script Repository** | [Agar Game][5]
+Navigation: [Website][4] | **Script Repository** | [Agar Game][5] | Forum[12]
 
 ![electronoob as a skin playing agar.io](http://agariomods.com/preview.gif "electronoob playing agar.io with our script.")
 
@@ -21,6 +21,8 @@ We are presently rolling out custom skins!
 [9]: https://github.com/electronoob
 [10]: https://github.com/IntelHD400
 [11]: https://github.com/HYDROagar
+[12]: http://forum.agariomods.com
+[13]: https://github.com/JBoughter
 
 
 Introduction
