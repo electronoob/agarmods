@@ -92,6 +92,7 @@ nodeDiv.innerHTML += "<h3><a target=\"_blank\" href=\"http://forum.agariomods.co
 	<b>Disable adblocking software!</b>&nbsp;<small>We finally tracked down an issue to adblocking software, Turns out that it breaks the game and our modifications in random and unexpected ways. Beside Zeach provides this game free and we all need to support him!</small>\
 	</div>\
 	";
+	
 	jQuery('#region').parent().get(0).appendChild(document.createElement("br"));
 	jQuery('#region').parent().get(0).appendChild(nodeDiv);
 	var selector = jQuery('#region');
