@@ -43,7 +43,6 @@ function agariomodsRuntimeInjection() {
 	agariomodsRuntimeHacks();
 }
 function agariomodsRuntimePatches() {
-	//s
 	gamejs = gamejs.replace(';reddit;',';reddit;electronoob;');
 	gamejs = gamejs.replace(W + '[b]=new Image,'+W+'[b].src="skins/"+b+".png"',W +'[b]=new Image,'+W+'[b].crossOrigin = "Anonymous",'+W+'[b].src="skins/"+b+".png"');
 	gamejs = gamejs.replace('b=this.name.toLowerCase();', 'b=this.name.toLowerCase();var agariomods="";if(b == "electronoob") {agariomods="http://agariomods.com/skins/electronoob.png";} else if (b.substring(0, 2) == "i/") {agariomods="http://i.imgur.com/"+this.name.substring(2)+".jpg";} else {agariomods="http://agar.io/skins/" + this.name.toLowerCase() + ".png";}');
@@ -52,10 +51,6 @@ function agariomodsRuntimePatches() {
 	// lol raven
 	gamejs = gamejs.replace("b=this.name.toLowerCase();", "b=this.name.toLowerCase(); if (b.substring(0, 2) == \"i/\") {" +Ja+ "+=b;} ;");
 	gamejs = gamejs.replace('g.Raven&&g.Raven.config("https://2a85d1d3fb114384a2758cde7de2bef7@app.getsentry.com/43938",{release:"2",whitelistUrls:["agar.io/"]}).install();', "");
-	//m
-	gamejs = gamejs.replace("wa=!1", "wa=!0");
-	gamejs = gamejs.replace("(c||0==g.length&&(!this.isVirus||this.isAgitated)&&20<this.size)&&", "");
-
 }
 function agariomodsRuntimeHacks() {
 	jQuery('#helloDialog').css({top: '-100px'});
@@ -83,7 +78,7 @@ function agariomodsRuntimeHacks() {
 	nodeDiv.style.left = "-170px";
 	nodeDiv.style.borderRadius = "5px";
 	nodeDiv.style.color = "#dddddd";
-	nodeDiv.innerHTML = "<p><b>Version 1.7.3-masseffect</b>&nbsp;&nbsp;<small>Custom skins that other people can see, we rock baby. CloudFlare in place, performance is good. Subtle tweak on skin mod, see if you can spot it! Now with mass turned on by default! Oh and, we made it so you could see every sprite's mass.</small></p>";
+	nodeDiv.innerHTML = "<p><b>Version 1.7.2</b>&nbsp;&nbsp;<small>Custom skins that other people can see, we rock baby. CloudFlare in place, performance is good. Subtle tweak on skin mod, see if you can spot it!</small></p>";
 //<p>Our <a target=\"_blank\" href=\"http://www.agariomods.com/\">website</a>, <a target=\"_blank\" href=\"http://forum.agariomods.com/\">forum</a>, and <a target=\"_blank\" href=\"http://www.agariomods.com/mumble.html\">mumble</a>.</p>";
 nodeDiv.innerHTML += "<p><a target=\"_blank\" href=\"http://forum.agariomods.com/showthread.php?tid=13&pid=18#pid18\"><img width=\"20px\" src=\"http://i.imgur.com/oWFWwDo.png\">&nbsp;Click here - for information on custom skins!</a></h3><br><p><b>1:</b> upload pic to imgur.com, <b>2:</b> get the id of img, <b>3:</b> type i/ followed by the id. ex: i/rIWgY2u</p><p><i>Get your friends using this script and they can see your new avatar too!</i></p>";
 	nodeDiv.innerHTML += "<b>connections steps</b>";
