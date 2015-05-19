@@ -18,133 +18,231 @@
 			<style>
 				/* BODY STYLE */
 				body {
-					background: #000000;
-					color: #dadada;
-					font-family: 'Ubuntu', sans-serif;
-					padding: 0px;
-					margin: 0px;
-					position: absolute;
-					width: 100%;
-				}
-				/* HEADER STYLE */
-				header {
-					position: fixed;
-					text-align: center;
-					height: 35px;
-					width: 100%;
-					background: linear-gradient(rgba(215, 18, 162, 1),  rgba(76, 0, 153, 1));
-				}
-				/* HEADER STYLE */
-				#logo {
-					height: 40px;
-					text-align: center;
-				}
-				/* NAVIGATION LINKS STYLE */
-				nav {
-					width: 100%;
-					margin-top: 35px;
-					text-align: center;
-					position: fixed;
-					padding: 15px;
-					background: linear-gradient(rgba(76, 0, 153, 1), rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0));
-				}
-				/* NAVIGATION LINKS STYLE */
-				.globallinktext {
-					border: 1px solid black;
-					box-shadow: blue;
-					margin-left: 10px;
-					margin-right: 10px;
-					text-decoration: none;
-					padding: 5px 15px;
-					color: rgba(255, 255, 255, .8);
-					background: radial-gradient(ellipse, rgba(76, 0, 153, .1) 5%, rgba(48, 48, 48, .9));
-					border-radius: 25px 25px 25px 25px;
-				}
-				/* NAVIGATION LINKS STYLE */
-				.globallinktext:hover {
-					background: radial-gradient(ellipse, rgba(76, 0, 153, .5) 15%, rgba(16, 16, 16, .3));
-				}
-				/* NAVIGATION LINKS STYLE */
-				.globallinktext:active {
-					background: radial-gradient(ellipse, rgba(76, 0, 153, 1) 10%, rgba(16, 16, 16, 1));
-				}
-				/* INSTALL BUTTON STYLE */
-				#ScriptButton {
-					background-color: rgba(255,140,0, 0.3);
-					border-radius: 25px;
-					border: 5px solid rgb(255,165,0);
-					padding: 10px;
-					color: rgba(255, 255, 255, 1);
-					font-weight: 900;
-					text-decoration: none;
-				}
-				/* INSTALL BUTTON STYLE */
-				#ScriptButton:hover {
-					background-color: rgba(255,215,0, 0.7);
-					border-radius: 25px;
-					padding: 10px;
-				}
-				/* TEMPORARY FIX */
-				#information {
-					padding-top: 10px;
-				}
-				/* gothic dude speaking head */
-				iframe.gothic {
-					right: -100px;
-					bottom: 0px;
-					position: fixed;
-					z-index: -1;
-				}
+        font-family: Arial, 'lucida Sans Unicode';
+        line-height: 1.5;
+        line-align: left;
+        font-size: 87.5%
+    }
+    
+    .body {
+        margin: 0 auto;
+        width: 70%;
+        clear: both;
+    }
+    
+    .mainheader img {
+        width: 50%;
+        height: auto;
+        margin: 2% 0;
+        background-color: #666;
+        border-radius: 5px;
+        border-radius: 5px;
+        border-radius: 5px;
+    }
+    
+    .mainheader nav {
+        background-color: #666;
+        height: 40px;
+        border-radius: 5px;
+        border-radius: 5px;
+        border-radius: 5px;
+    }
+    
+    .mainhaeder nav ul {
+        list-style: none;
+        margin: 0 auto;
+    }
+    
+    .mainheader nav ul li {
+        float: left;
+        display: inline;
+    }
+    
+    .mainheader nav a:link, .mainheader a:visited {
+        color: #fff;
+        display: inline-block;
+        padding: 10px 25px;
+        height: 20px;
+    }
+    
+    .mainheader nav a:hover, mainheader nav a:active,
+    .mainheader nav .active a:link, .mainhaeader nav .active a:visited {
+        background-color: #CF5C3F;
+        text-shadow: none;
+    }
+    
+    .mainheader nav ul li a {
+        border-radius: 5px;
+        border-radius: 5px;
+        border-radius: 5px;
+    }
+    
+    .maincontent {
+        line-height: 25px;
+        border-radius: 5px;
+        border-radius: 5px;
+        border-radius: 5px;
+    }
+    
+    .content {
+        width: 70%;
+        float: left;
+        border-radius: 5px;
+        border-radius: 5px;
+        border-radius: 5px;
+    }
+    
+    .topcontent {
+        background-color: #fff;
+        border-radius: 5px;
+        border-radius: 5px;
+        border-radius: 5px;
+        padding: 3% 5%;
+        margin-top: 2px;
+    }
+    
+    .bottomcontent {
+        background-color: #fff;
+        border-radius: 5px;
+        border-radius: 5px;
+        border-radius: 5px;
+        padding: 3% 5%;
+        margin-top: 2px;
+    }
+    
+    .top-sidebar {
+        width 27%;
+        background-color: #fff;
+        border-radius: 5px;
+        moz-border-radius: 5px;
+        webkit-border-radius: 5px;
+        margin: 2% 0 2% 3%;
+        padding: 2% 3%
+    }
+    
+    .middle-sidebar {
+        width 27%;
+        background-color: #fff;
+        border-radius: 5px;
+        moz-border-radius: 5px;
+        webkit-border-radius: 5px;
+        margin: 2% 0 2% 3%;
+        padding: 2% 3%
+    }
+    
+    .mainfooter {
+        width: 100%;
+        float: left;
+        border-radius: 5px;
+        border-radius: 5px;
+        border-radius: 5px;
+        background-color: #666;
+        margin-top: 2%;
+        margin-bottom: 2%
+    }
+    
+    .mainfooter p {
+        width: 92%;
+        margin: 2% auto;
+        color: #fff;
+    }
+    
+    .button {
+       background-color: rgba(255,140,0, 0.3);
+	   border-radius: 25px;
+	   border: 5px solid rgb(255,165,0);
+	   padding: 10px;
+	   color: rgba(255, 255, 255, 1);
+	   font-weight: 900;
+	   text-decoration: none;
+}
+    .button:hover {
+	   background-color: rgba(255,215,0, 0.7);
+	   border-radius: 25px;
+	   padding: 10px;
+       border: 5px solid rgb(255,165,0);
+}
+    
+    .head2 {
+       color: black;
+    }
+    
+    .updates {
+        color: #fff;
+        background-color: #666;
+        border-radius: 5px;
+        border-radius: 5px;
+        border-radius: 5px;   
+    }
 
 			</style>
 		</head>
 		<!--DIVISION MARKER: HEAD - BODY-->
-		<body>
-			<!-- giggles and shits -->
-		<!--	<iframe class="gothic" id="gothic" width="240" height="135" src="https://www.youtube.com/embed/R8eQjnlSkd4?autoplay=1&rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe> -->
-			<!--Header-->
-			<header>
-				<img id="logo" src="http://i.imgur.com/vUa6ZqF.png">
-			</header>
-			<!--Navigation Links-->
-			<nav id="globallinks">
-				<a class="globallinktext" href="http://agariomods.com/">HOME</a>
-				<a class="globallinktext" href="http://forum.agariomods.com/" target="_blank">FORUM</a>
-				<a class="globallinktext" href="https://github.com/electronoob/agarmods" target="_blank">CONTRIBUTE</a>
-				<a class="globallinktext" href="http://agariomods.com/mumble.html">MUMBLE</a>
-				<a class="globallinktext" href="https://twitter.com/Agariomods" target="_blank">TWITTER</a>
-				<a class="globallinktext" href="http://agariomods.com/about.html">ABOUT</a>
-				<a class="globallinktext" href="http://agar.io" target="_blank">PLAY</a>
-			</nav>
-			<center>
-			<p id="information">
-			<br><br><br>
-						<h2><a href="https://www.reddit.com/r/Agario/">/r/Agario - Official Subreddit</a></h2>
-						<h1>electronoob's evergreen agario scripts</h1>
-						<br>
-				Features Include:<br><p style="font-size: 15">
-				- NO CHEATS<br>
-				- Connect with friends (of course)<br>
-				- Show mass on player is selected on start up<br>
-				- Easier mehtod of connecting with freinds using server data<br>
-				- Ability to use custom skins that will be seen by other script users<br></p>
-
-				
-						<br><h3><a id="ScriptButton" target="_blank" href="http://agariomods.com/pull.html">CLICK HERE TO INSTALL THE SCRIPT!</a></h3>
-				<div style="font-size: 10">*Approved by the r/Agario Moderation Team</div><br>
-						<small>To run this script you require either tampermonkey or greasemonkey installed in your browser first.</small><br>
-						<small>This is an evergreen script, as in, it automatically updates when changes are available so once installed doesn't need reinstalling ever. :)</small>
-						<h2><a href="http://forum.agariomods.com/showthread.php?tid=13&pid=18#pid18">Please click here for information on how to use the custom skins mod.</a></h2>
-
-							<iframe width="560" height="315" src="//www.youtube.com/embed/lJ-O4H6o9oQ?stupidyoutubeshizzle" frameborder="0" allowfullscreen></iframe>
-			
-			<br><a href="http://forum.agariomods.com/showthread.php?tid=47">Current Version 1.7.3</a><br>
-									<br><br><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-						<input type="hidden" name="cmd" value="_s-xclick">
-						<input type="hidden" name="hosted_button_id" value="TJBQTYEC9NWZS">
-						<input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
-						<img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
-						</form></center>
-
-		</body>
+		<body class="body">
+    <div class="background">
+    <header class="mainheader">
+        <center><img id="logo" src="http://i.imgur.com/vUa6ZqF.png"></center>
+        
+        <nav><ul>
+            <li class="active"><a href="http://agariomods.com">Home</a></li>
+            <li><a href="http://forum.agariomods.com/">Forum</a></li>
+            <li><a href="https://www.paypal.com/uk/cgi-bin/webscr?cmd=_flow&SESSION=J50nOjBeHPK1fN1o7EsbJi7FEP1eIhXxNKK-qsimuxDXNBIEB11RBABV9eu&dispatch=5885d80a13c0db1f8e263663d3faee8d99e4111b56ef0eae45e68b8988f5b2dd">Donate</a></li>
+            <li><a href="indexteam.html">About The Team</a></li>
+            <li><a href="http://agar.io/">Try out the script!</a></li>
+        </ul></nav>
+    </header>
+    
+    <div class="maincontent">
+        <div class="content">
+            <article class="topcontent">
+                <header>
+                    <h1><a class="head2" title="First post">Download</a></h1>
+                </header>
+                
+                <footer>
+                    <p class="postinfo"><center><h3 class="button"><a id="ScriptButton" target="_blank" href="http://agariomods.com/mods.user.js.html">CLICK HERE TO INSTALL THE SCRIPT!</a></h3></center></p>
+                </footer>
+                
+                <content>
+                    <p><h3>To run this script you require either tampermonkey or greasemonkey installed in your browser first.
+This is an evergreen script, as in, it automatically updates when changes are available so once installed doesn't need reinstalling ever. :)
+Please click here for information on how to use the custom skins mod.</h3></p>
+                </content>
+            </article>
+        
+           <article class="bottomcontent">
+                <header>
+                    <h1><a class="head2" title="First post">Having trubles installing script? Watch this video:]</a></h1>
+                </header>
+                
+                <footer>
+                    <p class="postinfo2"></p>
+                </footer>
+                
+                <content>
+                    <p><h3><iframe width="560" height="315" 
+src="//forum.agariomods.com//embed/lJ-O4H6o9oQ?stupidyoutubeshizzle" frameborder="0" allowfullscreen></iframe></h3></p>
+                </content>
+            </article>
+        </div>
+    </div>
+    
+    <aside class="top-sidebar">
+        <article>
+            <h1 class="updates">Recent Updates</h1>
+            <p><h1>Mass Effect!</h1>The agariomods.com team has just rolled out the "mass effect". You can now see other players mass and the viruses mass around you. Enjoy :]</p>
+        </article>
+    </aside>
+    
+    <aside class="middle-sidebar">
+        <article>
+            <h1>Custom Skins</h1>
+            <p>electronoob has been working hard on custom skins and is happy to present it to you. you can now use any image and use it as your skin. thank you electronoob!</p>
+        </article>
+    </aside>
+    
+    <footer class="mainfooter">
+        <p>coryright &copy; 2015<a href="#" title="1stwebdesigner.com"</a></p>
+    </footer>
+</body>
 	</html>
