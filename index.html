@@ -13,15 +13,22 @@
 </script>
 		<head>
 			<title>AGARIOMODS - HOME</title>
-			<link href='http://fonts.googleapis.com/css?family=Ubuntu:700' rel='stylesheet' type='text/css'>
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 			<!--WEBSITE STYLES-->
 			<style>
 				/* BODY STYLE */
 				body {
 					background: rgba(0, 0, 0, 1);
 					font-family: 'Ubuntu', sans-serif;
-					padding: 0px;
+					padding: 10px;
 					margin: 0px;
+					color: aliceblue;
 				}
 				/* CONTENT STYLE */
 				main {
@@ -35,42 +42,9 @@
 					padding-left: 20px;
 					max-width: 1000px;
 				}
-				/* HEADER STYLE */
-				#lid {
-					position: fixed;
-					text-align: center;
-					height: 35px;
-					width: 100%;
-					background: linear-gradient(rgba(215, 18, 162, 1),  rgba(76, 0, 153, 1));
-				}
 				#logo {
-					height: 40px;
-					text-align: center;
-				}
-				/* NAVIGATION LINKS STYLE */
-				nav {
-					width: 100%;
-					margin-top: 35px;
-					text-align: center;
-					position: fixed;
-					padding: 15px;
-					background: linear-gradient(rgba(76, 0, 153, 1), rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0));
-				}
-				.globallinktext {
-					box-shadow: 0px 0px 10px rgba(255, 255, 255, .5);
-					margin-left: 10px;
-					margin-right: 10px;
-					text-decoration: none;
-					padding: 5px 15px;
-					color: rgba(255, 255, 255, .8);
-					background: radial-gradient(ellipse, rgba(64, 64, 64, .1) 15%, rgba(128, 128, 128, .2) 60%);
-					border-radius: 25px 25px 25px 25px;
-				}
-				.globallinktext:hover {
-					background: radial-gradient(ellipse, rgba(76, 0, 153, .5) 15%, rgba(16, 16, 16, .3));
-				}
-				.globallinktext:active {
-					background: radial-gradient(ellipse, rgba(76, 0, 153, 1) 10%, rgba(16, 16, 16, 1));
+					vertical-align: middle;
+					height: 30px;
 				}
 				/* INSTALL BUTTON STYLE */
 				#ScriptButton {
@@ -89,7 +63,7 @@
 				}
 				/* TEMPORARY FIX */
 				#information {
-					padding-top: 10px;
+					padding-top: 35px;
 				}
 				/* gothic dude speaking head */
 				iframe.gothic {
@@ -103,24 +77,29 @@
 		<!--DIVISION MARKER: HEAD - BODY-->
 		<body>
 			<!-- giggles and shits -->
-			<iframe class="gothic" id="gothic" width="240" height="135" src="https://www.youtube.com/embed/R8eQjnlSkd4?autoplay=0&rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-			<!--Header-->
-			<header id="lid">
-				<img id="logo" src="http://i.imgur.com/vUa6ZqF.png">
-			</header>
+			<iframe class="gothic" id="gothic" width="240" height="135" src="https://www.youtube.com/embed/R8eQjnlSkd4?autoplay=0&rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>-->
 			<!--Navigation Links-->
-			<nav id="globallinks">
-				<a class="globallinktext" href="http://agariomods.com/">HOME</a>
-				<a class="globallinktext" href="http://forum.agariomods.com/" target="_blank">FORUM</a>
-				<a class="globallinktext" href="https://github.com/electronoob/agarmods" target="_blank">CONTRIBUTE</a>
-				<a class="globallinktext" href="http://agariomods.com/mumble.html">MUMBLE</a>
-				<a class="globallinktext" href="https://twitter.com/Agariomods" target="_blank">TWITTER</a>
-				<a class="globallinktext" href="http://agariomods.com/about.html">ABOUT</a>
-				<a class="globallinktext" href="http://agariomods.com/links.html">LINKS</a>
-				<a class="globallinktext" href="http://agar.io" target="_blank">PLAY</a>
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+			  <div class="container-fluid">
+			    <div class="navbar-header">
+				 <button type="button" class="navbar-toggle navbar-right btn-lg " data-toggle="collapse" data-target="#myNavbar" style="background-color: rgba(128, 128, 128, .75)">
+				   <span class="icon-bar"></span>
+				   <span class="icon-bar"></span>
+				   <span class="icon-bar"></span>
+				 </button>
+				 <a class="navbar-brand"><img id="logo" src="http://i.imgur.com/vUa6ZqF.png"></a>
+			    </div>
+			    <div class="collapse navbar-collapse" id="myNavbar">
+				 <ul class="nav navbar-nav">
+				   <li class="active"><a href="http://agariomods.com/index.html">Home</a></li>
+				   <li><a href="http://agariomods.com/mumble.html">Mumble</a></li>
+				   <li><a href="http://agariomods.com/about.html">About</a></li> 
+				   <li><a href="http://agariomods.com/links.html">Links</a></li> 
+				 </ul>
+			    </div>
+			  </div>
 			</nav>
 			<main id="information">
-			<br><br><br>
 						<h2><a href="https://www.reddit.com/r/Agario/">/r/Agario - Official Subreddit</a></h2>
 						<h1>electronoob's evergreen agario scripts</h1>
 						<br>
@@ -133,7 +112,7 @@
 
 				
 						<br><h3><a id="ScriptButton" target="_blank" href="http://agariomods.com/pull.html">CLICK HERE TO INSTALL THE SCRIPT!</a></h3>
-				<div style="font-size: 10">*Approved by the r/Agario Moderation Team</div><br>
+				<br><div style="font-size: 10">*Approved by the r/Agario Moderation Team</div><br>
 						<small>To run this script you require either tampermonkey or greasemonkey installed in your browser first.</small><br>
 						<small>This is an evergreen script, as in, it automatically updates when changes are available so once installed doesn't need reinstalling ever. :)</small>
 						<h2><a href="http://forum.agariomods.com/showthread.php?tid=13&pid=18#pid18">Please click here for information on how to use the custom skins mod.</a></h2>
