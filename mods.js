@@ -1,4 +1,10 @@
-var ourskins = "1up;8ball;LLhyy5H;agariomods.com;albania;android;anonymous;apple;atari;awesome;baka;bandaid;bane;baseball;basketball;batman;beats;bender;bert;bitcoin;blobfish;bobross;bobsaget;boo;boogie2988;borg;bp;breakfast;buckballs;burgundy;butters;byzantium;charmander;chechenya;chickfila;chocolate;chrome;cj;coca cola;cokacola;controless;converse;cornella;creeper;cyprus;czechrepublic;deadpool;deal with it;deathstar;derp;dickbutt;doge;doggie;dolan;domo;domokun;dong;donut;dreamcast;drunken;ebin;egg;egoraptor;egypt;electrokitty;epicface;expand;eye;facebook;fast forward;fastforward;fbi;fidel;finn;firefox;fishies;flash;florida;freeman;freemason;friesland;frogout;fuckfacebook;gaben;garfield;gaston;getinmybelly;getinthebox;gimper;github;giygas;gnomechild;gonzo;grayhat;halflife;halflife3;halo;handicapped;hap;hatty;hebrew;heisenburg;helix;hipsterwhale;hitler;honeycomb;hydro;iceland;ie;illuminati;imgur;imperial japan;imperialjapan;instagram;isaac;isis;isreal;itchyfeetleech;ivysaur;james bond;java;jew;jewnose;jimmies;kappa;kenny;kingdomoffrance;kingjoffrey;kirby;kitty;klingon;knightstemplar;knowyourmeme;kyle;ladle;lenny;lgbt;libertyy;liechtenstien;linux;love;luigi;macedonia;malta;mario;mars;maryland;masterball;mastercheif;mcdonalds;meatboy;meatwad;megamilk;mike tyson;mlg;moldova;mortalkombat;mr burns;mr.bean;mr.popo;n64;nasa;nazi;nick;nickelodeon;nipple;northbrabant;nosmoking;notch;nsa;obey;osu;ouch;pandaexpress;pedo;pedobear;peka;pepe;pepsi;pewdiepie;pi;pig;piggy;pika;pinkfloyd;pinkstylist;piratebay;pizza;playstation;poop;potato;quantum leap;rageface;rewind;rockstar;rolfharris;rss;satan;serbia;shell;shine;shrek;sinistar;sir;skull;skype;skyrim;slack;slovakia;slovenia;slowpoke;smash;snafu;snapchat;soccer;soliare;solomid;somalia;space;spawn;spiderman;spongegar;spore;spy;squirtle;starbucks;starrynight;stitch;stupid;summit1g;superman;taco;teamfortress;tintin;transformers;triforce;trollface;tubbymcfatfuck;turkey;twitch;twitter;ukip;uppercase;uruguay;utorrent;voyager;wakawaka;wewlad;white  light;windows;wwf;wykop;yinyang;ylilauta;yourmom;youtube;zoella;zoidberg";
+var ourskins = "1up;8ball;transformer;agariomods.com;albania;android;anonymous;apple;atari;awesome;baka;bandaid;bane;baseball;basketball;batman;beats;bender;bert;bitcoin;blobfish;bobross;bobsaget;boo;boogie2988;borg;bp;breakfast;buckballs;burgundy;butters;byzantium;charmander;chechenya;chickfila;chocolate;chrome;cj;coca cola;cokacola;controless;converse;cornella;creeper;cyprus;czechrepublic;deadpool;deal with it;deathstar;derp;dickbutt;doge;doggie;dolan;domo;domokun;dong;donut;dreamcast;drunken;ebin;egg;egoraptor;egypt;electrokitty;epicface;expand;eye;facebook;fast forward;fastforward;fbi;fidel;finn;firefox;fishies;flash;florida;freeman;freemason;friesland;frogout;fuckfacebook;gaben;garfield;gaston;getinmybelly;getinthebox;gimper;github;giygas;gnomechild;gonzo;grayhat;halflife;halflife3;halo;handicapped;hap;hatty;hebrew;heisenburg;helix;hipsterwhale;hitler;honeycomb;hydro;iceland;ie;illuminati;imgur;imperial japan;imperialjapan;instagram;isaac;isis;isreal;itchyfeetleech;ivysaur;james bond;java;jew;jewnose;jimmies;kappa;kenny;kingdomoffrance;kingjoffrey;kirby;kitty;klingon;knightstemplar;knowyourmeme;kyle;ladle;lenny;lgbt;libertyy;liechtenstien;linux;love;luigi;macedonia;malta;mario;mars;maryland;masterball;mastercheif;mcdonalds;meatboy;meatwad;megamilk;mike tyson;mlg;moldova;mortalkombat;mr burns;mr.bean;mr.popo;n64;nasa;nazi;nick;nickelodeon;nipple;northbrabant;nosmoking;notch;nsa;obey;osu;ouch;pandaexpress;pedo;pedobear;peka;pepe;pepsi;pewdiepie;pi;pig;piggy;pika;pinkfloyd;pinkstylist;piratebay;pizza;playstation;poop;potato;quantum leap;rageface;rewind;rockstar;rolfharris;rss;satan;serbia;shell;shine;shrek;sinistar;sir;skull;skype;skyrim;slack;slovakia;slovenia;slowpoke;smash;snafu;snapchat;soccer;soliare;solomid;somalia;space;spawn;spiderman;spongegar;spore;spy;squirtle;starbucks;starrynight;stitch;stupid;summit1g;superman;taco;teamfortress;tintin;transformers;triforce;trollface;tubbymcfatfuck;turkey;twitch;twitter;ukip;uppercase;uruguay;utorrent;voyager;wakawaka;wewlad;white  light;windows;wwf;wykop;yinyang;ylilauta;yourmom;youtube;zoella;zoidberg";
+
+var showsh = false;
+
+var showfps = false;
+
+setInterval(function(){if (showsh) DrawStats(false);},500);
 
 var gamejs = "", modBlocking = true;
 var tester = document.getElementsByTagName("script");
@@ -8,6 +14,35 @@ var Ja = '';
 var b = '';
 var c3eg2 = '';
 
+		
+/*bgm*/
+var bgmusic = '';
+$('#audiotemplate').clone()[0];
+var tracks = ['BotB 17936 Isolation Tank.mp3','BotB 17934 bubblybubblebubblingbubbles.mp3','BotB 17935 bloblobloblboblbolboblboblbobolbloblob.mp3','BotB 17937 Woofytunes.mp3','BotB 17938 slowgrow.mp3'];
+/*sfx*/
+var sfxs = [
+    'pellet',
+    'split',
+    'eat',
+    'spawn',
+    'bounce',
+    'merge',
+    'virusfeed',
+    'virusshoot',
+    'virushit',
+    'gameover'
+];
+function sfx_event(id) {
+    if (document.getElementById("sfx").value==0) return;
+	var event = sfxs[id];
+    var sfx = new Audio("http://skins.agariomods.com/botb/sfx/" + event + ".mp3");
+    sfx.loop = false;
+	sfx.volume = document.getElementById("sfx").value;
+    sfx.play();
+    sfx.onended = function() {
+        $(this).remove();
+    }
+}
 /* lets start to deal with regressions */
 var test = 0;
 var passed = 0;
@@ -85,6 +120,8 @@ function agariomodsRuntimeInjection() {
 	script.innerHTML = gamejs;
 	document.head.appendChild(script);
 	agariomodsRuntimeHacks();
+	bgmusic = $('#audiotemplate').clone()[0];
+	bgmusic.volume = 0.2;
 	window.onbeforeunload = function() {
 		return 'Are you sure you want to quit agar.io?';
 	};
@@ -96,6 +133,9 @@ function agariomodsRuntimeInjection() {
                 event.preventDefault();
         });
         $("#chart-container-agariomods").on('mousedown', function(event){
+                event.preventDefault();
+        });
+        $("#fps-agariomods").on('mousedown', function(event){
                 event.preventDefault();
         });
 
@@ -168,8 +208,10 @@ jQuery('#helloDialog').css({width: '450px'});
 	nodeDiv.style.borderRadius = "5px";
 	nodeDiv.style.color = "#dddddd";
 	nodeDiv.style.margin = "10px";
-	nodeDiv.innerHTML += "\
-	";
+	nodeDiv.style.maxHeight = "250px"; //The settings and the ad are being pushed down too far on some screens (1366*768). ~Mevin1
+	nodeDiv.style.overflow = "auto"; //add scroll bar
+	nodeDiv.innerHTML += `
+	`;
 	jQuery('#region').parent().get(0).appendChild(document.createElement("br"));
 	jQuery('#region').parent().get(0).appendChild(nodeDiv);
 	var selector = jQuery('#region');
@@ -216,6 +258,10 @@ jQuery('#helloDialog').css({width: '450px'});
 	jQuery(playBtn).parent().get(0).appendChild(nodeInput);
 	jQuery(playBtn).parent().get(0).appendChild(nodeSpan);
 	jQuery(playBtn).parent().get(0).appendChild(nodeBr);
+	jQuery(playBtn).parent().prepend("<b>Current Server IP: </b><span id='ip'></span>");
+	var nodeAudio = document.createElement("audio");		
+	nodeAudio.id = 'audiotemplate';		
+	jQuery(playBtn).parent().get(0).appendChild(nodeAudio);
 	jQuery('#iphack').change(function() {
 		if (jQuery('#iphack').val() == "") {
 			modBlocking = true;
@@ -237,21 +283,18 @@ jQuery('#helloDialog').css({width: '450px'});
 	window.WebSocket = function(data) {
 		if (modBlocking == true) {
 			newWebSocket = new window.WebSocket_original(data);
-			jQuery('#includedContent').html("v1.8.2: <font color=\"yellow\">Thanks to mikeyk730 for the fantastic stats!</font>\
-<br><br>Here is the IP address of the server you are connected to currently, pass it to your friends for team playing.<h1>" + data.replace('ws://', '') + "</h1>\
-                Get IP from friend.\
-                Put in box below.\
-                Press the swirly icon.\
-                <br><b>Note:</b> Check with your friend to see whos #1 on the leaderboard\
-        <div style=\"background-color: #ffffff; color: #000000; padding: 2px; margin: 0px;\">\
-                <small><b>Disable ad blockers</b>&nbsp;- They are breaking the game and our modifications in random and unexpected ways.</small>\
-        </div>\
-");
+			jQuery('#includedContent').html(`v1.8.5: <font color="pink">Thanks mikeyk730 for the <u>fantastic</u> stats. Checkbox settings are now saved automatically thanks to mevin1 and programjm on the agariomods team. oh, we now have bgm and sfx <s>which you can't turn off. - sound removed for now.</s></font>
+        <div style="background-color: #ffffff; color: #000000; padding: 2px; margin: 0px;">
+                <small><b>Disable ad blockers</b>&nbsp;- They are breaking the game and our modifications in random and unexpected ways.</small>
+        </div>`); //backticks for multiline strings, cannot be used for single line strings. (oh now I have to un-escape everything) ~Mevin1
+		//This div started to become a box where we threw a bunch of information into, it was starting to get too big for the smallest pc display that is still HD.
+		jQuery('#ip').html(data.replace('ws://', ''));
 		} else {
 			console.log("HAXXED: connecting to " + jQuery('#iphack').val() + "(ignoring: " + data + ")");
 			newWebSocket = new window.WebSocket_original("ws://" + jQuery('#iphack').val());
 			jQuery('#includedContent').html("<h3>Connected to " +  jQuery('#iphack').val() + "</h3><br>Check leaderboard with your friend to ensure you are both on the exact world on the sameserver.<br><br>If you cannot see the same people in the leaderboard as your friend, press the swirly icon next the ip box to try another world on the same game server.");
-        	}
+        	jQuery('#ip').html(jQuery('#iphack').val());
+			}
         	return newWebSocket;
 	};
 })(window);
@@ -354,43 +397,20 @@ function secondsToHms(d)
     return ((h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s);
 }
 ////////////////////////////////////////////////////////////////
-
-function AppendCheckbox(e, id, label, checked, on_change)
-{
-    e.append('<label><input type="checkbox" id="'+id+'">'+label+'</label>');
-    jQuery('#'+id).attr('checked', checked);
-    jQuery('#'+id).change(function(){
-        on_change(this.checked);
-		alert(this.checked);    
-	});
-    on_change(checked);
-}
-
 jQuery(document).ready(function() 
 {
-    jQuery('body').append('<div id="chart-container" style="display:none; position:absolute; height:176px; width:300px; left:10px; bottom:44px"></div>\
-			   <div id="chart-container-agariomods" style="opacity: 0.7; position:absolute; height:20px; width:300px; right:10px; bottom:10px;">&nbsp;agariomods.com - modding <b>without</b> cheating</div>\
-');
-    var checkbox_div = jQuery('#settings input[type=checkbox]').closest('div');
-    AppendCheckbox(checkbox_div, 'chart-checkbox', 'Show chart', display_chart, OnChangeDisplayChart);
-    AppendCheckbox(checkbox_div, 'stats-checkbox', 'Show stats', display_stats, OnChangeDisplayStats);
-    jQuery('#overlays').append('<div id="stats" style="opacity: 0.85; position: absolute; top:330px; left: 460px; width: 480px; background-color: #FFFFFF; border-radius: 15px; padding: 5px 15px 5px 15px; transform: translate(0,-50%); white-space: nowrap; overflow:hidden;"><div id="statArea" style="vertical-align:top; width:250px; display:inline-block;"></div><div id="pieArea" style="vertical-align: top; width:200px; height:150px; display:inline-block; vertical-align:top"> </div><div id="gainArea" style="width:500px;  vertical-align:top"></div><div id="lossArea" style="width:500px; "></div><div id="chartArea" style="width:450px; display:inline-block; vertical-align:top"></div></div>');
+    jQuery('body').append(`<div id="chart-container" style="display:none; position:absolute; height:176px; width:300px; left:10px; bottom:44px"></div>
+			   <div id="chart-container-agariomods" style="opacity: 0.7; position:absolute; height:20px; width:300px; right:10px; bottom:10px;">&nbsp;agariomods.com - modding <b>without</b> cheating</div>
+			   <div id="fps-agariomods" style="color: white; position:absolute; height:20px; width:300px; top:5px; left:10px; display: none;"><b>FPS: </b><span>0</span></div>
+			   `);
+  	var checkbox_div = jQuery('#settings input[type=checkbox]').closest('div');
+    checkbox_div.append('<label><input type="checkbox" onchange="setAcid($(this).is(\':checked\'));">Acid</label>');
+	checkbox_div.append('<label><input type="checkbox" onchange="if(this.checked){jQuery(\'#chart-container\').show()}else{jQuery(\'#chart-container\').hide()}">Show chart</label>');
+	checkbox_div.append('<label>SFX<input id="sfx" type="range" value="0" step=".1" min="0" max="1"></label>');
+	checkbox_div.append('<label>BGM<input type="range" id="bgm" value="0" step=".1" min="0" max="1" oninput="volBGM(this.value);"></label>');
+    jQuery('#overlays').append('<div id="stats" style="opacity: 0.85; position: absolute; top:330px; left: 460px; width: 480px; display: none; background-color: #FFFFFF; border-radius: 15px; padding: 5px 15px 5px 15px; transform: translate(0,-50%); white-space: nowrap; overflow:hidden;"><div id="statArea" style="vertical-align:top; width:250px; display:inline-block;"></div><div id="pieArea" style="vertical-align: top; width:200px; height:150px; display:inline-block; vertical-align:top"> </div><div id="gainArea" style="width:500px;  vertical-align:top"></div><div id="lossArea" style="width:500px; "></div><div id="chartArea" style="width:450px; display:inline-block; vertical-align:top"></div></div>');
     jQuery('#stats').hide(0);   
 });
-
-function OnChangeDisplayChart(display)
-{
-    LS_setValue('display_chart', display ? 'true' : 'false');
-    display_chart = display;
-    display ? jQuery('#chart-container').show() : jQuery('#chart-container').hide();
-}
-
-function OnChangeDisplayStats(display)
-{
-    LS_setValue('display_stats', display ? 'true' : 'false');
-    display_stats = display;
-    RenderStats(false);
-}
 
 function ResetChart() 
 {
@@ -472,11 +492,13 @@ function OnGainMass(me, other)
     var mass = other.size * other.size;
     if (other.isVirus){
         stats.viruses.num++;
-        stats.viruses.mass += mass; /*TODO: shouldn't add if  game mode is teams*/
+        if (document.getElementById("gamemode").value!=":teams") stats.viruses.mass += mass; /*DONE: shouldn't add if game mode is teams. TODO: Find a better way of doing this. ~Mevin1*/
+		sfx_event(8);
     }
     else if (Math.floor(mass) <= 400 && !other.name){
         stats.pellets.num++;
         stats.pellets.mass += mass;
+		sfx_event(0);
     }
 	/* heuristic to determine if mass is 'w', not perfect */
     else if (!other.name && mass <= 1444 && (mass >= 1369 || (other.x == other.ox && other.y == other.oy))){
@@ -485,6 +507,7 @@ function OnGainMass(me, other)
             stats.w.num++;
             stats.w.mass += mass;
         }
+		sfx_event(2);
     }
     else { 
 	    /*console.log('cell', mass, other.name, other);*/
@@ -495,6 +518,7 @@ function OnGainMass(me, other)
             stats.gains[key] = {num: 0, mass: 0};
         stats.gains[key].num++;
         stats.gains[key].mass += mass;
+		sfx_event(2);
     }
 }
 
@@ -506,6 +530,7 @@ function OnLoseMass(me, other)
         stats.losses[key] = {num: 0, mass: 0};;
     stats.losses[key].num++;
     stats.losses[key].mass += mass;
+    sfx_event(2);
 }
 
 function DrawPie(pellet, w, cells, viruses)
@@ -564,7 +589,7 @@ function AppendTopN(n, p, list)
 
 function DrawStats(game_over)
 {
-    if (!stats) return;
+    //if (!stats) return;
             
 	jQuery('#statArea').empty();
     jQuery('#pieArea').empty();
@@ -574,8 +599,10 @@ function DrawStats(game_over)
     jQuery('#stats').show();
     
     if (game_over){
-        stats.time_of_death = Date.now();
+        sfx_event(9);
+		StopBGM();
 	}
+	stats.time_of_death = Date.now();
     var time = stats.time_of_death ? stats.time_of_death : Date.now();
     var seconds = (time - stats.birthday)/1000;
 	
@@ -698,11 +725,52 @@ window.OnGameStart = function(cells)
     ResetChart();
     ResetStats();
     RenderStats(true);
+	DrawStats(false);
+	if (kd == true) {
+		showsh = false;
+		document.getElementById("overlays").style.display = "none";
+		document.getElementById("overlays").style.backgroundColor = "rgba(0,0,0,.498039)";
+		document.getElementById("helloDialog").style.display = "block";
+		kd = false;
+	}
+	StartBGM();
+	sfx_event(3);
+}
+
+window.StartBGM = function ()
+{
+    var track = tracks[Math.floor(Math.random() * tracks.length)];
+    bgmusic.src = "http://skins.agariomods.com/botb/" + track;
+	bgmusic.volume = document.getElementById("bgm").value;
+    bgmusic.play();
+    bgmusic.loop = false;
+    bgmusic.onended = function() {
+        var track = tracks[Math.floor(Math.random() * tracks.length)];
+        bgmusic.src = "http://skins.agariomods.com/botb/" + track;
+        bgmusic.play();
+    }
+}
+
+window.StopBGM = function ()
+{
+    bgmusic.pause();
+}
+
+window.volBGM = function (vol)
+{
+    bgmusic.volume = document.getElementById("bgm").value;
 }
 
 window.OnShowOverlay = function(game_in_progress)
 {
     DrawStats(!game_in_progress);
+	if (!game_in_progress && kd == true) {
+		showsh = false;
+		document.getElementById("overlays").style.display = "block";
+		document.getElementById("overlays").style.backgroundColor = "rgba(0,0,0,.498039)";
+		document.getElementById("helloDialog").style.display = "block";
+		kd = false;
+	}
 }
 
 window.OnUpdateMass = function(mass) 
@@ -732,5 +800,95 @@ window.OnLeaderboard = function(position)
 
 window.OnDraw = function(context)
 {
+	if (showfps) document.getElementById("fps-agariomods").children[1].innerHTML = countFPS();
     display_stats && stat_canvas && context.drawImage(stat_canvas, 10, 10);   
 }
+
+window.countFPS = (function () {
+  var lastLoop = (new Date()).getMilliseconds();
+  var count = 1;
+  var fps = 0;
+
+  return function () {
+    var currentLoop = (new Date()).getMilliseconds();
+    if (lastLoop > currentLoop) {
+      fps = count;
+      count = 1;
+    } else {
+      count += 1;
+    }
+    lastLoop = currentLoop;
+    return fps;
+  };
+}());
+
+window.onpageshow = function() {
+    $("div#settings label").change(function() {
+        $("div#settings.checkbox input").each(function() {
+            localStorage.setItem("setting"+$(this).parent().text().replace(" ","_"),this.checked);
+        });
+        $("div#settings input[type=range]").each(function() {
+            localStorage.setItem("setting"+$(this).parent().text().replace(" ","_"),this.value);
+        });
+    });
+    var evt = document.createEvent("HTMLEvents");
+    evt.initEvent("change", false, true);
+	$("div#settings input").each(function() {
+            this.dispatchEvent(evt);
+	});
+}
+
+$(document).ready(function() {
+	$("div#settings.checkbox input").each(function() {
+			$(this).attr("checked",(localStorage.getItem("setting"+$(this).parent().text().replace(" ","_")))=="true");
+	});
+	$("div#settings input[type=range]").each(function() {
+			$(this).attr("value",(localStorage.getItem("setting"+$(this).parent().text().replace(" ","_"))));
+	});
+});
+
+var kd = false;
+$(document).keydown(function(e) {
+	//Stats Shortcut
+	if (e.keyCode == 9) {
+		e.preventDefault();
+		if (kd == false && document.getElementById("overlays").style.display == 'none') {
+			kd = true;
+			document.getElementById("overlays").style.display = "block";
+			document.getElementById("overlays").style.backgroundColor = "rgba(0,0,0,0)";
+			document.getElementById("helloDialog").style.display = "none";
+			showsh = true;
+			DrawStats(false);
+		}
+	}
+	//FPS Hotkey
+	if (e.keyCode == 49) {
+		e.preventDefault();
+		showfps = !showfps;
+		document.getElementById("fps-agariomods").style.display = showfps?"block":"none";
+	}
+	//Firefox Fullscreen
+	if (e.ctrlKey && e.keyCode === 70 && navigator.userAgent.match("Firefox")) {
+		e.preventDefault();
+		if (document.mozFullScreenElement)
+		{
+			document.mozCancelFullScreen();
+		}
+		else
+		{
+			document.getElementById("overlays").mozRequestFullScreen();
+		}
+	}
+});
+$(document).keyup(function(e) {
+	if (e.keyCode == 9) {
+		e.preventDefault();
+		if (kd == true) {
+			kd = false;
+			document.getElementById("overlays").style.display = "none";
+			document.getElementById("overlays").style.backgroundColor = "rgba(0,0,0,.498039)";
+			document.getElementById("helloDialog").style.display = "block";
+			showsh = false;
+		}
+	}
+});
