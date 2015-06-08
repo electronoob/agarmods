@@ -851,7 +851,7 @@ $(document).ready(function() {
 var kd = false;
 $(document).keydown(function(e) {
 	//Stats Shortcut
-	if (e.keyCode == 9) {
+	if (e.keyCode == 192) {
 		e.preventDefault();
 		if (kd == false && document.getElementById("overlays").style.display == 'none') {
 			kd = true;
@@ -882,7 +882,7 @@ $(document).keydown(function(e) {
 	}
 });
 $(document).keyup(function(e) {
-	if (e.keyCode == 9) {
+	if (e.keyCode == 192) {
 		e.preventDefault();
 		if (kd == true) {
 			kd = false;
