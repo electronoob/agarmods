@@ -441,6 +441,7 @@ jQuery(document).ready(function()
     checkbox_div.append('<label><input type="checkbox" onchange="setAcid($(this).is(\':checked\'));">Acid</label>');
 	checkbox_div.append('<label><input id="imgur" type="checkbox">Imgur Skins</label>');
 	checkbox_div.append('<label><input type="checkbox" onchange="if(this.checked){jQuery(\'#chart-container\').show()}else{jQuery(\'#chart-container\').hide()}">Show chart</label>');
+	checkbox_div.append('<label><input type="checkbox" onchange="if(this.checked){jQuery(\'div#timer\').show()}else{jQuery(\'div#timer\').hide()}">Show timer</label>');
 	checkbox_div.append('<label><input type="checkbox" onchange="setVColors($(this).is(\':checked\'));">Colorless Viruses</label>');
 	checkbox_div.append('<div id="sliders"><label>SFX<input id="sfx" type="range" value="0" step=".1" min="0" max="1"></label><label>BGM<input type="range" id="bgm" value="0" step=".1" min="0" max="1" oninput="volBGM(this.value);"></label></div>');    jQuery('#overlays').append('<div id="stats" style="opacity: 0.85; position: absolute; top:330px; left: 460px; width: 480px; display: none; background-color: #FFFFFF; border-radius: 15px; padding: 5px 15px 5px 15px; transform: translate(0,-50%); white-space: nowrap; overflow:hidden;"><div id="statArea" style="vertical-align:top; width:250px; display:inline-block;"></div><div id="pieArea" style="vertical-align: top; width:200px; height:150px; display:inline-block; vertical-align:top"> </div><div id="gainArea" style="width:500px;  vertical-align:top"></div><div id="lossArea" style="width:500px; "></div><div id="chartArea" style="width:450px; display:inline-block; vertical-align:top"></div></div>');
     jQuery('#stats').hide(0);   
@@ -772,6 +773,7 @@ window.OnGameStart = function(cells)
 	}
 	StartBGM();
 	sfx_play(0);
+	timersetup();
 }
 
 window.StartBGM = function ()
@@ -827,6 +829,14 @@ window.OnUpdateMass = function(mass)
 {
     stats.high_score = Math.max(stats.high_score, mass);
     UpdateChart(mass, GetRgba(my_cells[0].color,0.4));
+	mass = Math.floor(mass/100);
+	for (var i=0; i<mass_benchmarks.length; i++) {
+		if ((massPrev < mass_benchmarks[i]) && (mass >= mass_benchmarks[i])) { //Check if mass has passed from below benchmark to above benchmark
+			logBenchmark(mass_benchmarks[i]+"mass");
+		}
+	}
+	
+massPrev = mass;
 }
 
 window.OnCellEaten = function(predator, prey)
@@ -846,6 +856,13 @@ window.OnCellEaten = function(predator, prey)
 window.OnLeaderboard = function(position)
 {
     stats.top_slot = Math.min(stats.top_slot, position);
+	for (var i=0; i<rank_benchmarks.length; i++) {
+		if ((massPrev > rank_benchmarks[i]) && (position <= rank_benchmarks[i])) {
+			logBenchmark("Rank"+rank_benchmarks[i])
+		}
+	
+	}
+	rankPrev = position;
 }
 
 window.OnDraw = function(context)
@@ -1001,3 +1018,132 @@ $(document).keyup(function(e) {
 		}
 	}
 });
+
+//Agar.io Timer Mod [v0.5] by /u/programjm123
+
+//Create global vars
+var m,s,time_elapsed,timerloop;
+var benchmarks = ["200mass","500mass","1000mass","Rank10","Rank1"];
+var mass_benchmarks = [200, 500, 1000];
+var rank_benchmarks = [10, 1];
+var massPrev=0, rankPrev=11;
+
+$("body").append('<div id="timer"></div>');
+console.log("Timer script initialized");
+
+
+function timersetup() {
+//Reset vars
+s=0; //seconds
+time_elapsed="0:00";
+console.log("Timer started.");
+
+
+clearInterval(timerloop);
+timerloop = window.setInterval(timercount, 1000);
+
+//Style div
+$("div#timer").css({
+	"backgroundColor":"rgba(0,0,0,0.4)",
+	"color":"white",
+	"fontFamily":"Ubuntu,Arial,sans-serif",
+	"position":"fixed",
+	"left":"5px",
+	"top":"5px",
+	"padding":"10px",
+	"text-align":"center"
+});
+
+//Create HTML to be added to div
+var newHTML = '<table>' +
+'<h3>Timer</h3>' +
+'<span>Time Elapsed: -----</span>' +
+'<tr><th>Benchmark</th><th>Time</th><th>Best</th></tr>' + //Headers
+'<tr id="200mass"><td>200 Mass</td><td class="time">-----</td><td class="best">-----</td></tr>' + //200 Mass
+'<tr id="500mass"><td>500 Mass</td><td class="time">-----</td><td class="best">-----</td></tr>' + //500 Mass
+'<tr id="1000mass"><td>1000 Mass</td><td class="time">-----</td><td class="best">-----</td></tr>' + //1000 Mass
+'<tr id="Rank10"><td>Rank 10</td><td class="time">-----</td><td class="best">-----</td></tr>' + //Rank 10
+'<tr id="Rank1"><td>Rank 1</td><td class="time">-----</td><td class="best">-----</td></tr>' + //Rank 1
+'</table>' +
+'<a>Delete best scores</a>';
+$("div#timer").html(newHTML);
+
+//Load local storage --- best times
+for (var i=0; i<benchmarks.length; i++) {
+	if (localStorage.getItem("best_"+benchmarks[i])) {
+		$("#"+benchmarks[i]+" .best").html(SecondsToString(localStorage.getItem("best_"+benchmarks[i])));
+	}
+}
+
+
+
+//The rest of this function is styling
+//Style the table
+$("div#timer table").css({
+	"margin":"8px",
+	"padding":"8px"
+});
+
+//Centering
+$("div#timer h3").css("text-align","center");
+$("div#timer span").css({"text-align":"center","display":"inline-block"});
+
+//Cells
+$("td,th").css({"padding":"5px","text-align":"left"});
+
+
+//Delete scores
+$("div#timer a").css({
+	"cursor":"pointer",
+	"color":"#81D4F7"
+});
+
+$("div#timer a").click(deleteScores);
+
+}
+
+
+function timercount() {  //Occurs every second
+s++;
+
+time_elapsed = SecondsToString(s);
+
+$("div#timer span").html("Time Elapsed: "+time_elapsed);
+}
+
+
+function SecondsToString(x) { //Turns seconds into XX:XX format
+	if ((x%60)>9) {
+	return (parseInt((x/60),10) + ":" + (x%60));
+	} else {
+	return (parseInt((x/60),10) + ":0" + (x%60));
+	}
+}
+
+function StringToSeconds (y) { //Turns XX:XX to seconds
+	return (60*((y.split(":"))[0])+1*((y.split(":"))[1]));
+}
+
+
+function logBenchmark(benchmark) { //Manuallly record benchmark.
+	if ($("#"+benchmark+" .time").html()=="-----") { //Checks if the benchmark time is recorded yet
+		console.log("Benchmark set: "+benchmark+" at "+time_elapsed);
+		$("#"+benchmark+" .time").html(time_elapsed); //Record time
+		if (($("#"+benchmark+" .best").html()=="-----") ||  (s < StringToSeconds($("#"+benchmark+" .best").html()))) { //Checks if best time is beaten or undefined
+			console.log("Best time set: "+benchmark+" at "+time_elapsed);
+			$("#"+benchmark+" .best").html(time_elapsed); //Record time
+			localStorage.setItem("best_"+benchmark,s); //Save to local storage
+		}
+	}
+}
+
+
+function deleteScores() {
+var prompt = confirm("Are you sure you want to delete your best times?");
+if (prompt==true) {
+	for (var i=0; i<benchmarks.length; i++) {
+		localStorage.removeItem("best_"+benchmarks[i]);
+		$("#"+benchmarks[i] + " .best").html("-----");
+}
+}
+}
