@@ -686,13 +686,13 @@ function DrawStats(game_over)
     var seconds = (time - stats.birthday)/1000;
 	
 	var list = jQuery('<ul>');
-    list.append('<li style="font-size: 12px; ">Game time: ' + secondsToHms(seconds) + '</li>');
-    list.append('<li style="font-size: 12px; ">High score: ' + ~~(stats.high_score/100) + '</li>');
+    list.append('<li style="font-size: 12px; ">Game time: ' + secondsToHms(seconds) + ' (Best: ' + secondsToHms(best("time",seconds))  + ')</li>');
+    list.append('<li style="font-size: 12px; ">High score: ' + ~~(stats.high_score/100) + ' (Best: ' + best("highscore",~~(stats.high_score/100)) + ')</li>');
     if (stats.top_slot == Number.POSITIVE_INFINITY){
-        list.append('<li style="font-size: 12px; ">You didn\'t make the leaderboard</li>');
+        list.append('<li style="font-size: 12px; ">You didn\'t make the leaderboard. (Best: ' + bestLow("rank",11) + ')</li>');
     }
     else{
-        list.append('<li style="font-size: 12px; ">Leaderboard max: ' + stats.top_slot + '</li>');
+        list.append('<li style="font-size: 12px; ">Leaderboard max: ' + stats.top_slot + '<br>(Best: ' + bestLow("rank",stats.top_slot) + ')</li>');
     }
     list.append('<li style="font-size: 12px; padding-top: 15px">' + stats.pellets.num + " pellets eaten (" + ~~(stats.pellets.mass/100) + ' mass)</li>');
     list.append('<li style="font-size: 12px; ">' + stats.cells.num + " cells eaten (" + ~~(stats.cells.mass/100) + ' mass)</li>');
@@ -1232,4 +1232,25 @@ function benchcheck(mass) {
             logBenchmark(mass_benchmarks[i] + "mass", mToMs(Date.now() - stats.birthday));
         }
     }
+}
+function best(name,data) { //For when the best is the highest number
+	var oldData = localStorage.getItem("best_"+name);
+	if (typeof localStorage.getItem("best_"+name) == 'undefined') {
+		oldData = 0;
+	}
+	if (data > oldData) {
+		localStorage.setItem("best_"+name,data);
+	}
+	return localStorage.getItem("best_"+name);
+}
+function bestLow(name,data) { //For when the best is the lowest number
+	var oldData = localStorage.getItem("best_"+name);
+	if (typeof localStorage.getItem("best_"+name) == 'undefined') {
+		oldData = 11;
+	}
+	if (data < oldData) {
+		localStorage.setItem("best_"+name,data);
+	}
+	
+	return localStorage.getItem("best_"+name);
 }
