@@ -1244,11 +1244,11 @@ function best(name,data) { //For when the best is the highest number
 	return localStorage.getItem("best_"+name);
 }
 function bestLow(name,data) { //For when the best is the lowest number
-	var oldData = localStorage.getItem("best_"+name);
+	var oldDataLow = localStorage.getItem("best_"+name);
 	if (typeof localStorage.getItem("best_"+name) == 'undefined') {
-		oldData = 11;
+		oldDataLow = 11;
 	}
-	if (data < oldData) {
+	if (data < oldDataLow) {
 		localStorage.setItem("best_"+name,data);
 	}
 	
