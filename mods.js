@@ -69,8 +69,10 @@ for (i=0;i<50;i++) {
 	pellets.push(newsfx);
 }
 function play_pellet(){
+	if (document.getElementById("sfx").value==0) return;
 	pellet++
 	if(pellet>49)pellet=0;
+	pellets[pellet].volume = document.getElementById("sfx").value;
 	pellets[pellet].play()
 }
 
@@ -1163,6 +1165,8 @@ $("body").append('<div id="benchmarker"></div>');
 function initbench(first) {
     //Style div
     $("div#benchmarker").css({
+        "right": "5px",
+        "bottom": "5px",
         "backgroundColor": "rgba(0,0,0,0.4)" /*"transparent"*/ ,
         "opacity": "1.0",
         "color": "white",
@@ -1230,16 +1234,8 @@ function initbench(first) {
 }
 function bstyle(over){
 	over?$("div#benchmarker").css({
-        "left": "",
-        "top": "",
-        "right": "5px",
-        "bottom": "5px",
 		"z-index": "1000"
 	}):$("div#benchmarker").css({
-        "left": "5px",
-        "top": "5px",
-        "right": "",
-        "bottom": "",
 		"z-index": "1"
 	});
 }
