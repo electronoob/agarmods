@@ -13,9 +13,7 @@ if(noob){
 	localStorage.clear();
 	localStorage.setItem("settingShow_Chart","true");
 	localStorage.setItem("showt","true");
-}else if(updated){
-	localStorage.setItem("settingShow_Chart","true");
-}
+}else if(updated){}
 ////END VERSION CODE////
 
 var showsh = false;
@@ -217,7 +215,7 @@ function agariomodsRuntimePatches() {
 	gamejs_patch('c=null:c=null;','c=null:c=null;if(imgur&&'+b+'.substring(0,2)=="i/"){c=null;}','Stop showing of imgur skins(when enabled)');
 		gamejs_patch(';reddit;', ';reddit;'+ourskins+';', "add our skinlist to the original game skinlist.");
         gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();var agariomods="";var ourskins = "'+ourskins+'";if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}else if('+b+'.substring(0,2)=="i/"){if(!imgur){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";}}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}', "add check for which skin mode we are in. be it no skin, default skin, imgur skin, or an agariomods skin.");
-		gamejs_patch('ya=!1', 'zz=!1,yq=!1,xx=!1,xz=!1,ya=!1,ts=!1,imgur=!1', "adding variables");
+		gamejs_patch('=1E4,', '=1E4,'+'zz=!1,yq=!1,xx=!1,xz=!1,ts=!1,imgur=!1'+',', "adding variables");
         gamejs_patch(W +'['+b+'].src="skins/"+'+b+'+".png"', W+'['+b+'].src=agariomods', "check for agariomods img src variable");
         gamejs_patch("this."+pandb+"&&b.strokeText("+c3eg2+");b.fillText("+c3eg2+")", "if (String(c).substring(0, 2) != \"i/\" || imgur) {this."+pandb+"&&b.strokeText("+c3eg2+");b.fillText("+c3eg2+")}", "add imgur check for hiding username when using imgur id aka c3eg2");
         gamejs_patch(b+"=this.name.toLowerCase();", b+"=this.name.toLowerCase(); if ("+b+".substring(0, 2) == \"i/\" && !imgur) {" +Ja+ "+="+b+";} ;", "add imgur check #2.");
@@ -516,10 +514,23 @@ function secondsToHms(d)
     return ((h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s);
 }
 ////////////////////////////////////////////////////////////////
+function tst(a){
+	a?$("#chart-container-agariomods").css({
+		"bottom": "5px",
+		"right": "5px",
+		"top": "",
+		"left": ""
+	}):$("#chart-container-agariomods").css({
+		"bottom": "",
+		"right": "",
+		"top": "3px",
+		"left": "5px"
+	});
+}
 jQuery(document).ready(function() 
 {
     jQuery('body').append('<div id="chart-container" style="display:none; position:absolute; height:176px; width:300px; left:10px; bottom:44px"></div>\
-			   <div id="chart-container-agariomods" style="opacity: 0.7; position:absolute; height:20px; width:300px; right:10px; bottom:10px;">&nbsp;agariomods.com - modding <b>without</b> cheating</div>\
+			   <div id="chart-container-agariomods" style="position:absolute; font-size:15px; right:5px; bottom:5px;">&nbsp;agariomods.com - modding <b>without</b> cheating</div>\
 			   <div id="debug" style="position:absolute; top:5px; left:10px;">\
 			   <div id="fps-agariomods" style="color: white; display: none; background-color: rgba(0,0,0,.5); padding:0 4px;"><b>FPS: </b><span>0</span></div>\
 			   <div id="pio-agariomods" style="color: white; display: none;  background-color: rgba(0,0,0,.5); padding:0 4px;"><b>PI/O/s: </b><span>0</span>/<span>0</span></div>\
@@ -899,7 +910,8 @@ window.volBGM = function (vol)
 
 window.OnShowOverlay = function(game_in_progress)
 {
-	bstyle(true);
+	tst(true);
+	document.getElementById("benchmarker").style.bottom="25px";
 	if (!game_in_progress) in_game = false;
     DrawStats(!game_in_progress);
 	if (kd == true) {
@@ -926,8 +938,9 @@ var fired = false; //for some reason OnHideOverlay fires twice
 window.OnHideOverlay = function()
 {
 	if (fired == true) {fired = false; return;} else {fired = true;} //Only continue on first fire
-	bstyle(false);
 	if (showsh == true) showsh = false;
+	tst(showfps+showpio>0);
+	document.getElementById("benchmarker").style.bottom=showfps+showpio>0?"25px":"10px";
 }
 
 window.OnUpdateMass = function(mass) 
@@ -1092,11 +1105,15 @@ $(document).keydown(function(e) {
 	if (e.altKey && e.keyCode == 49) {
 		showfps = !showfps;
 		document.getElementById("fps-agariomods").style.display = showfps?"block":"none";
+		tst(showfps+showpio>0);
+		document.getElementById("benchmarker").style.bottom=showfps+showpio>0?"25px":"10px";
 	}
 	//Packets In Per Second Hotkey
 	if (e.altKey && e.keyCode == 50) {
 		showpio = !showpio;
 		document.getElementById("pio-agariomods").style.display = showpio?"block":"none";
+		tst(showfps+showpio>0);
+		document.getElementById("benchmarker").style.bottom=showfps+showpio>0?"25px":"10px";
 	}
 	//Suicide
 	if (e.altKey && e.keyCode == 81 && in_game) {
@@ -1167,8 +1184,8 @@ $("body").append('<div id="benchmarker"></div>');
 function initbench(first) {
     //Style div
     $("div#benchmarker").css({
-        "right": "5px",
-        "bottom": "5px",
+        "right": "7px",
+        "bottom": "25px",
         "backgroundColor": "rgba(0,0,0,0.4)" /*"transparent"*/ ,
         "opacity": "1.0",
         "color": "white",
@@ -1180,7 +1197,6 @@ function initbench(first) {
 		"display": "none"*/
     });
 	if(first){
-		bstyle(true);
 		showt?$("div#benchmarker").css({
 			"display": "block"
 		}):
@@ -1233,13 +1249,6 @@ function initbench(first) {
     $("div#benchmarker h3").css({
         "margin-top": "4px"
     });
-}
-function bstyle(over){
-	over?$("div#benchmarker").css({
-		"z-index": "1000"
-	}):$("div#benchmarker").css({
-		"z-index": "1"
-	});
 }
 function count() { //Occurs every second
 	if (showt&&in_game){
