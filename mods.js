@@ -58,13 +58,19 @@ var sfxlist = [
 ];
 var sfxs = [];
 for (i=0;i<sfxlist.length;i++) {
-	var newsfx = new Audio("//skins.agariomods.com/botb/sfx/" + sfxlist[i] + ".mp3");
-	newsfx.loop = false;
-	newsfx.onended = function() {
-        $(this).remove();
-    }
-	sfxs.push(newsfx);
+        var newsfx = null;
+        if(sfxlist[i] == 'pellet') {
+                newsfx = new Audio('data:audio/mp3;base64,SUQzAwAAAAAAIlRSQ0sAAAACAAAAOFRJVDIAAAAMAAAAQXVkaW8gVHJhY2v/8yTEAAcAQph5SRAAAMuAAnOc5z/mwmFwBgDA2TvWD4PyjpQ5vlHcH+9/fK8aWTj/8yTEBwlocqgBmtAA0HYmGCTgm37MUrTnLZjRhwJ0wNQRg5EY8gXae+xVQhZevYv/8yTEBAewXpghzwABX2fMStQ1DTRLaQUW0QkTU6o7CyvRX4gpvwQWTEFNRTMuOTn/8yTECAAAA0gAAAAALjOqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqo=');
+        } else {
+                var newsfx = new Audio("//skins.agariomods.com/botb/sfx/" + sfxlist[i] + ".mp3");
+        }
+        newsfx.loop = false;
+        newsfx.onended = function() {
+                $(this).remove();
+        }
+        sfxs.push(newsfx);
 }
+
 function sfx_event(id) {
     if (document.getElementById("sfx").value==0) return;
 	var event = jQuery.clone(sfxs[id]);
