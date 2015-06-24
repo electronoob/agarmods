@@ -1060,7 +1060,6 @@ window.onpageshow = function() {
 	initbench(true);
 	document.getElementById("bgimg").checked=false;
 		jQuery('#helloDialog').css({transform: ''});
-		jQuery('#helloDialog').css({scale: ''});
     $("div#settings label").change(function() {
         $("div#settings.checkbox input").each(function() {
 			if (this.id=="bgimg")return;
