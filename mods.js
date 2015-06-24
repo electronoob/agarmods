@@ -1056,7 +1056,7 @@ window.onpageshow = function() {
 	$("div#settings input").each(function() {
             check(this);
 	});
-	document.getElementById("ustat").src = 'http://kelvin.gq/agariomods?'+Date.now();
+	document.getElementById("ustat").src = 'http://tiny.cc/agariomods?'+Date.now();
 }
 
 window.check = function(elem){
