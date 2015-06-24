@@ -26,6 +26,7 @@ if(updated){
 
 var showsh = false;
 var showt = localStorage.getItem("showt")=="true";
+var extToggled = false;
 
 var ldown = false;
 
@@ -33,6 +34,7 @@ var s = new Image();
 var showfps = false;
 var showpio = false; //packets in/out per second
 
+window.addEventListener('message', function(e){if(e.data=="ScriptDisable"){extToggled=true;window.top.location=window.top.location;}}, false); //Prevent Reload Prompt When Disabling The Extension.
 
 if(showt===null){localStorage.setItem("showt","true");showt=true;}
 
@@ -205,7 +207,7 @@ function agariomodsRuntimeInjection() {
         bgmusic.play();
     }
 	window.onbeforeunload = function() {
-		return 'Are you sure you want to quit agar.io?';
+		if(!extToggled)return 'Are you sure you want to quit agar.io?';
 	};
 	// as a trackpad user, this fix should reduce the frequency at which I am killed.
 	$("#canvas").on('mousedown', function(event){
