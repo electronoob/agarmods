@@ -6,7 +6,7 @@ var version = 197; //DO NOT USE PERIODS
 var old_version = localStorage.getItem("version");
 var updated = false;
 var noob = false;
-(old_version==version)||(updated=true,localStorage.setItem("version",version),(old_version==null)||(updated=true,noob=true));
+(old_version==version)||(updated=true,localStorage.setItem("version",version),(old_version!=null)||(updated=true,noob=true));
 
 //Version Related Code//
 if(noob){
@@ -418,12 +418,12 @@ function addFunctions(script) {
 }
 
 function addCanvasBGHook(script) {
-    var match = script.match(/rRect\(0,0,(\w),(\w)\)/);
+    var match = script.match(/(\w)\.clearRect\(0,0,(\w),(\w)\)/);
 	var split = script.split(match[0]);
-	script = split[0]+'rRect(0,0,'+match[1]+','+match[2]+');xx&&!xz?g.clearRect(0, 0, r, s):'+split[1].substr(1);
-    var match = script.match(/BFF";/);
-	var split = script.split(match[0]);
-	return split[0]+'BFF";xx&&xz?g.clearRect(0,0,r,s):'+split[1];
+	script = split[0]+match[1]+'.clearRect(0,0,'+match[2]+','+match[3]+');xx&&!xz?'+match[1]+'.clearRect(0,0,'+match[2]+','+match[3]+'):'+split[1].substr(1);
+    var match2 = script.match(/BFF";/);
+	var split = script.split(match2[0]);
+	return split[0]+'BFF";xx&&xz?'+match[1]+'.clearRect(0,0,'+match[2]+','+match[3]+'):'+split[1];
 }
 
 function addVirusColorHook(script) {
