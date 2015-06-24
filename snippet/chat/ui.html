@@ -1,29 +1,33 @@
 <html>
-    <head>
-        <style>body{background-color: #ffffff;}
-            input[type="text"]#textInput{
-                background-color: transparent;
-                border: 0px;
-                outline: none;
-                -webkit-box-shadow: none;
-                -moz-box-shadow: none;
-                box-shadow: none;
-                width:600px;
-                color: rgba(0, 0, 0, 0.6);
-                cursor:default;
-                visibility:hidden;
-                position: absolute;
-                top:10px;
-                left:10px;
-                font-family: "Arial", "Helvetica", "sans-serif";
-                font-size: 20px;
-            }  
-        </style>
-    </head>
-    <body>
-        <canvas id="canvas" width="600px" height="200px" style="border:1px solid rgba(0, 0, 0, 0.2);"></canvas>
-        <div id=""><input id="textInput" type="text" value="" placeholder="text"></div>
-        <script>
+<head>
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+
+        input[type="text"]#textInput {
+            background-color: transparent;
+            border: 0px;
+            outline: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+            width: 600px;
+            color: rgba(0, 0, 0, 0.6);
+            cursor: default;
+            visibility: hidden;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-family: "Arial", "Helvetica", "sans-serif";
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600px" height="200px" style="border:1px solid rgba(0, 0, 0, 0.2);"></canvas>
+    <div id=""><input id="textInput" type="text" value="" placeholder="text"></div>
+    <script>
             var canvas = document.getElementById("canvas");
             var ctx = canvas.getContext("2d");
             ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
@@ -56,7 +60,7 @@
             for (var i=0;i<messages.length;i++) {
                 switch (messages[i].type) {
                     case "privmsg":
-                        chatctx.fillText("<"+messages[i].username+"> "+messages[i].message, 4,(chatlineHeight * i ) + lineHeight);        
+                        chatctx.fillText("<"+messages[i].username+"> "+messages[i].message, 4,(chatlineHeight * i ) + lineHeight);
                         break;
                     case "join":
                         chatctx.fillText("*** "+messages[i].username+" has joined the lobby", 4,(chatlineHeight * i ) + lineHeight);
@@ -99,8 +103,8 @@
                         }
                 }
             }
-        </script>
-    </body>
+    </script>
+</body>
 </html>
 
 
