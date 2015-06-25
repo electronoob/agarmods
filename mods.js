@@ -1,29 +1,39 @@
 var ourskins = "0chan;18-25;1up;360nati0n;8ball;UmguwJ0;aa9skillz;ace;adamzonetopmarks;advertisingmz;agariomods.com;al sahim;alaska;albania;alchestbreach;alexelcapo;algeria;am3nlc;amoodiesqueezie;amway921wot;amyleethirty3;anarchy;android;angrybirdsnest;angryjoeshow;animebromii;anonymous;antvenom;aperture;apple;arcadego;assassinscreed;atari;athenewins;authenticgames;avatar;aviatorgaming;awesome;awwmuffin;aypierre;baka;balenaproductions;bandaid;bane;baseball;bashurverse;basketball;bateson87;batman;battlefield;bdoubleo100;beats;bebopvox;belarus;belgium;bender;benderchat;bereghostgames;bert;bestcodcomedy;bielarus;bitcoin;bjacau1;bjacau2;black widow;blackiegonth;blitzwinger;blobfish;bluexephos;bluh;blunty3000;bobross;bobsaget;bodil30;bodil40;bohemianeagle;boo;boogie2988;borg;bowserbikejustdance;bp;breakfast;breizh;brksedu;buckballs;burgundy;butters;buzzbean11;bystaxx;byzantium;calfreezy;callofduty;captainsparklez;casaldenerd;catalonia;catalunya;catman;cavemanfilms;celopand;chaboyyhd;chaika;chaosxsilencer;chaoticmonki;charlie615119;charmander;chechenya;checkpointplus;cheese;chickfila;chimneyswift11;chocolate;chrisandthemike;chrisarchieprods;chrome;chucknorris;chuggaaconroy;cicciogamer89;cinnamontoastken;cirno;cj;ckaikd0021;clanlec;clashofclansstrats;cling on;cobanermani456;coca cola;codqg;coisadenerd;cokacola;colombia;colombiaa;commanderkrieger;communitygame;concrafter;consolesejogosbrasil;controless ;converse;cookie;coolifegame;coookie;cornella;cornellà;coruja;craftbattleduty;creeper;creepydoll;criken2;criousgamers;cristian4games;csfb;cuba;cubex55;cyberman65;cypriengaming;cyprus;czech;czechia;czechrepublic;d7297ut;d7oomy999;dagelijkshaadee;daithidenogla;darduinmymenlon;darksideofmoon;darksydephil;darkzerotv;dashiegames;day9tv;deadloxmc;deadpool;deal with it;deathly hallows;deathstar;debitorlp;deigamer;demon;derp;desu;dhole;diabl0x9;dickbutt;dilleron;dilleronplay;direwolf20;dissidiuswastaken;dnb;dnermc;doge;doggie;dolan;domo;domokun;donald;dong;donut;doraemon;dotacinema;douglby;dpjsc08;dreamcast;drift0r;drunken;dspgaming;dusdavidgames;dykgaming;ea;easports;easportsfootball;eatmydiction1;eavision;ebin;eeoneguy;egg;egoraptor;eguri89games;egypt;eksi;electrokitty;electronicartsde;elementanimation;elezwarface;eligorko;elrubiusomg;enzoknol;eowjdfudshrghk;epicface;ethoslab;exetrizegamer;expand;eye;facebook;fantabobgames;fast forward;fastforward;favijtv;fazeclan;fbi;fer0m0nas;fernanfloo;fgteev;fidel;fiji;finn;fir4sgamer;firefox;fishies;flash;florida;fnatic;fnaticc;foe;folagor03;forcesc2strategy;forocoches;frankieonpcin1080p;freeman;freemason;friesland;frigiel;frogout;fuckfacebook;fullhdvideos4me;funkyblackcat;gaben;gabenn;gagatunfeed;gamebombru;gamefails;gamegrumps;gamehelper;gameloft;gamenewsofficial;gameplayrj;gamerspawn;games;gameshqmedia;gamespot;gamestarde;gametrailers;gametube;gamexplain;garenavietnam;garfield;gassymexican;gaston;geilkind;generikb;germanletsfail;getinmybelly;getinthebox;ghostrobo;giancarloparimango11;gimper;gimperr;github;giygas;gizzy14gazza;gnomechild;gocalibergaming;godsoncoc;gogomantv;gokoutv;goldglovetv;gommehd;gona89;gonzo;gonzossm;grammar nazi;grayhat;grima;gronkh;grumpy;gtamissions;gtaseriesvideos;guccinoheya;guilhermegamer;guilhermeoss;gurren lagann;h2odelirious;haatfilms;hagrid;halflife;halflife3;halo;handicapped;hap;hassanalhajry;hatty;hawaii;hawkeye;hdluh;hdstarcraft;heartrockerchannel;hebrew;heisenburg;helix;helldogmadness;hikakingames;hikeplays;hipsterwhale;hispachan;hitler;homestuck;honeycomb;hosokawa;hue;huskymudkipz;huskystarcraft;hydro;iballisticsquid;iceland;ie;igameplay1337;ignentertainment;ihascupquake;illuminati;illuminatiii;ilvostrocarodexter;imaqtpie;imgur;immortalhdfilms;imperial japan;imperialists;imperialjapan;imvuinc;insanegaz;insidegaming;insidersnetwork;instagram;instalok;inthelittlewood;ipodmail;iron man;isaac;isamuxpompa;isis;isreal;itchyfeetleech;itsjerryandharry;itsonbtv;iulitm;ivysaur;izuniy;jackfrags;jacksepticeye;jahovaswitniss;jahrein;jaidefinichon;james bond;jamesnintendonerd;jamonymow;java;jellyyt;jeromeasf;jew;jewnose;jibanyan;jimmies;jjayjoker;joeygraceffagames;johnsju;jontronshow;josemicod5;joueurdugrenier;juegagerman;jumpinthepack;jupiter;kalmar union;kame;kappa;karamba728;kenny;keralis;kiloomobile;kingdomoffrance;kingjoffrey;kinnpatuhikaru;kirby;kitty;kjragaming;klingon;knekrogamer;knights templar;knightstemplar;knowyourmeme;kootra;kripparrian;ksiolajidebt;ksiolajidebthd;kuplinovplay;kurdistan;kwebbelkop;kyle;kyokushin4;kyrsp33dy;ladle;laggerfeed;lazuritnyignom;ldshadowlady;le snake;lenny;letsplay;letsplayshik;letstaddl;level5ch;levelcapgaming;lgbt;liberland;libertyy;liechtenstien;lifesimmer;linux;lisbug;littlelizardgaming;llessur;loadingreadyrun;loki;lolchampseries;lonniedos;love;lpmitkev;luigi;luke4316;m3rkmus1c;macedonia;machinimarealm;machinimarespawn;magdalenamariamonika;mahalovideogames;malena010102;malta;mario;mario11168;markipliergame;mars;maryland;masterball;mastercheif;mateiformiga;matroix;matthdgamer;matthewpatrick13;mattshea;maxmoefoegames;mcdonalds;meatboy;meatwad;meatwagon22;megamilk;messyourself;mickey;mike tyson;mike;miles923;minecraftblow;minecraftfinest;minecraftuniverse;miniladdd;miniminter;minnesotaburns;minnie;mkiceandfire;mlg;mm7games;mmohut;mmoxreview;mod3rnst3pny;moldova;morealia;mortalkombat;mr burns;mr.bean;mr.popo;mrchesterccj;mrdalekjd;mredxwx;mrlev12;mrlololoshka;mrvertez;mrwoofless;multirawen;munchingorange;n64;naga;namcobandaigameseu;nasa;natusvinceretv;nauru;nazi;nbgi;needforspeed;nepenthez;nextgentactics;nextgenwalkthroughs;ngtzombies;nick fury;nick;nickelodeon;niichts;nintendo;nintendocaprisun;nintendowiimovies;nipple;nislt;nobodyepic;node;noobfromua;northbrabant;northernlion;norunine;nosmoking;notch;nsa;obama;obey;officialclashofclans;officialnerdcubed;oficialmundocanibal;olafvids;omfgcata;onlyvgvids;opticnade;osu;ouch;outsidexbox;p3rvduxa;packattack04082;palau;paluten;pandaexpress;paulsoaresjr;pauseunpause;pazudoraya;pdkfilms;peanutbuttergamer;pedo;pedobear;peinto1008;peka;penguin;penguinz0;pepe;pepsi;perpetuumworld;pewdiepie;pi;pietsmittie;pig;piggy;pika;pimpnite;pinkfloyd;pinkstylist;pirate;piratebay;pizza;pizzaa;plagasrz;plantsvszombies;playclashofclans;playcomedyclub;playscopetrailers;playstation;playstation3gaminghd;pockysweets;poketlwewt;pooh;poop;popularmmos;potato;prestonplayz;protatomonster;prowrestlingshibatar;pt;pur3pamaj;quantum leap;question;rageface;rajmangaminghd;retard smile;rewind;rewinside;rezendeevil;reziplaygamesagain;rfm767;riffer333;robbaz;rockalone2k;rockbandprincess1;rockstar;rockstargames;rojov13;rolfharris;roomba;roosterteeth;roviomobile;rspproductionz;rss;rusgametactics;ryukyu;s.h.e.i.l.d;sah4rshow;samoa;sara12031986;sarazarlp;satan;saudi arabia;scream;screwattack;seal;seananners;serbia;serbiangamesbl;sethbling;sharingan;shell;shine;shofu;shrek;shufflelp;shurikworld;shuuya007;sinistar;siphano13;sir;skillgaming;skinspotlights;skkf;skull;skydoesminecraft;skylandersgame;skype;skyrim;slack;slovakia;slovenia;slowpoke;smash;smikesmike05;smoothmcgroove;smoove7182954;smoshgames;snafu;snapchat;snoop dogg;soccer;soliare;solomid;somalia;sp4zie;space ace;space;sparklesproduction;sparkofphoenix;spawn;speedyw03;speirstheamazinghd;spiderman;spongegar;spore;spqr;spy;squareenix;squirtle;ssohpkc;sssniperwolf;ssundee;stalinjr;stampylonghead;star wars rebel;starbucks;starchild;starrynight;staxxcraft;stitch;stupid;summit1g;sunface;superevgexa;superman;superskarmory;swiftor;swimmingbird941;syria;t3ddygames;tackle4826;taco;taltigolt;tasselfoot;tazercraft;tbnrfrags;tctngaming;teamfortress;teamgarrymoviethai;teammojang;terrorgamesbionic;tetraninja;tgn;the8bittheater;thealvaro845;theatlanticcraft;thebajancanadian;thebraindit;thecraftanos;thedanirep;thedeluxe4;thediamondminecart;theescapistmagazine;thefantasio974;thegaminglemon;thegrefg;thejoves;thejwittz;themasterov;themaxmurai;themediacows;themrsark;thepolishpenguinpl;theradbrad;therelaxingend;therpgminx;therunawayguys;thesims;theskylanderboy;thesw1tcher;thesyndicateproject;theuselessmouth;thewillyrex;thnxcya;thor;tintin;tmartn;tmartn2;tobygames;tomo0723sw;tonga;topbestappsforkids;totalhalibut;touchgameplay;transformer;transformers;trickshotting;triforce;trollarchoffice;trollface;trumpsc;tubbymcfatfuck;turkey;tv;tvddotty;tvongamenet;twitch;twitter;twosyncfifa;typicalgamer;uberdanger;uberhaxornova;ubisoft;uguu;ukip;ungespielt;uppercase;uruguay;utorrent;vanossgaming;vatican;venomextreme;venturiantale;videogamedunkey;videogames;vietnam;vikkstar123;vikkstar123hd;vintagebeef;virus;vladnext3;voat;voyager;vsauce3;w1ldc4t43;wakawaka;wales;walrus;wazowski;wewlad;white  light;whiteboy7thst;whoyourenemy;wiiriketopray;willyrex;windows;wingsofredemption;wit my woes;woodysgamertag;worldgamingshows;worldoftanks;worldofwarcraft;wowcrendor;wqlfy;wroetoshaw;wwf;wykop;xalexby11;xbox;xboxviewtv;xbulletgtx;xcalizorz;xcvii007r1;xjawz;xmandzio;xpertthief;xrpmx13;xsk;yamimash;yarikpawgames;ycm;yfrosta;yinyang;ylilauta;ylilautaa;yoba;yobaa;yobaaa;yogscast2;yogscastlalna;yogscastsips;yogscastsjin;yoteslaya;youalwayswin;yourheroes;yourmom;youtube;zackscottgames;zangado;zazinombies;zeecrazyatheist;zeon;zerkaahd;zerkaaplays;zexyzek;zimbabwe;zng;zoella;zoidberg;zombey;zoomingames";
 ////START VERSION CODE////
 //Current Script Version
-var version = 196; //DO NOT USE PERIODS
+var version = 198; //DO NOT USE PERIODS
 //Last Used Script Version
 var old_version = localStorage.getItem("version");
 var updated = false;
 var noob = false;
-(old_version==version)||(updated=true,localStorage.setItem("version",version),(old_version==null)||(updated=true,noob=true));
+if(old_version!=version){
+	updated=true;
+	localStorage.setItem("version",version);
+	if(old_version!=null){
+		noob=true;
+	}
+}
 
 //Version Related Code//
 if(noob){
 	localStorage.clear();
 	localStorage.setItem("settingShow_Chart","true");
 	localStorage.setItem("showt","true");
-}else if(updated){}
+}
+if(updated){
+}
 ////END VERSION CODE////
 
 var showsh = false;
 var showt = localStorage.getItem("showt")=="true";
+var extToggled = false;
 
 var ldown = false;
 
 var showfps = false;
 var showpio = false; //packets in/out per second
 
+window.addEventListener('message', function(e){if(e.data=="ScriptDisable"){extToggled=true;window.top.location=window.top.location;}}, false); //Prevent Reload Prompt When Disabling The Extension.
 
 if(showt===null){localStorage.setItem("showt","true");showt=true;}
 
@@ -69,8 +79,10 @@ for (i=0;i<50;i++) {
 	pellets.push(newsfx);
 }
 function play_pellet(){
+	if (document.getElementById("sfx").value==0) return;
 	pellet++
 	if(pellet>49)pellet=0;
+	pellets[pellet].volume = document.getElementById("sfx").value;
 	pellets[pellet].play()
 }
 
@@ -114,6 +126,7 @@ var chart_m = '';
 var chart_G = '';
 var chart_Na= '';
 var chart_k = '';
+var sd = '';
 
 for (i=0; i<tester.length; i++ ){
 	src = tester[i].src;
@@ -126,6 +139,7 @@ if(discovered_mainouturl != 0) {
 	httpGet(discovered_mainouturl, function(data) {
 		gamejs = "window.agariomods = " + data.replace("socket open","socket open (agariomods.com mod in place)");
 		gamejs = gamejs.replace(/\n/g, "");
+		sd=gamejs.substr(gamejs.search(/\w.send/),1);
 		offset = gamejs.search("..=\"poland;");
 		Ja =  gamejs.substr(offset,2);
 		offset = gamejs.search(".....src=\"skins");
@@ -135,7 +149,7 @@ if(discovered_mainouturl != 0) {
 		offset = gamejs.search(".."+b+"..src");
 		W = gamejs.substr(offset,1);
 		//this.P&&b.strokeText
-		var components = /this.(.)&&b.strokeText/.exec(gamejs);
+		var components = /this\.(.)&&.\.strokeText/.exec(gamejs);
 		pandb = components[1];
 		var components = /strokeText\((.{1,14})\);/.exec(gamejs);
 		c3eg2 = components[1];
@@ -192,7 +206,7 @@ function agariomodsRuntimeInjection() {
         bgmusic.play();
     }
 	window.onbeforeunload = function() {
-		return 'Are you sure you want to quit agar.io?';
+		if(!extToggled)return 'Are you sure you want to quit agar.io?';
 	};
 	// as a trackpad user, this fix should reduce the frequency at which I am killed.
 	$("#canvas").on('mousedown', function(event){
@@ -212,11 +226,27 @@ function agariomodsRuntimePatches() {
 	gamejs_patch(/\w>\w\/1\.1\?.*-50%\)"\);/,"","fixing menu on resize");
 	gamejs_patch('c=null:c=null;','c=null:c=null;if(imgur&&'+b+'.substring(0,2)=="i/"){c=null;}','Stop showing of imgur skins(when enabled)');
 		gamejs_patch(';reddit;', ';reddit;'+ourskins+';', "add our skinlist to the original game skinlist.");
-        gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();var agariomods="";var ourskins = "'+ourskins+'";if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}else if('+b+'.substring(0,2)=="i/"){if(!imgur){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";}}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}', "add check for which skin mode we are in. be it no skin, default skin, imgur skin, or an agariomods skin.");
-		gamejs_patch('ya=!1', 'zz=!1,yq=!1,xx=!1,xz=!1,ya=!1,ts=!1,imgur=!1', "adding variables");
+//        gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();var agariomods="";var ourskins = "'+ourskins+'";if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}else if('+b+'.substring(0,2)=="i/"){if(!imgur){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";}}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}', "add check for which skin mode we are in. be it no skin, default skin, imgur skin, or an agariomods skin.");
+        gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();\
+var agariomods="";\
+var ourskins = "'+ourskins+'";\
+if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}\
+\
+\
+else if('+b+'.substring(0,1)=="*"){\
+agariomods="//connect.agariomods.com/img_"+this.name.substring(1)+".png";\
+}\
+else if('+b+'.substring(0,2)=="i/"){if(!imgur){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";}}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}\
+\
+\
+if(agariomods)\
+window.log("hummm :" + agariomods);\
+', "add check for which skin mode we are in. be it no skin, default skin, imgur skin, or an agariomods skin.");
+
+		gamejs_patch('=1E4,', '=1E4,'+'zz=!1,yq=!1,xx=!1,xz=!1,ts=!1,conimg=!1,imgur=!1'+',', "adding variables");
         gamejs_patch(W +'['+b+'].src="skins/"+'+b+'+".png"', W+'['+b+'].src=agariomods', "check for agariomods img src variable");
         gamejs_patch("this."+pandb+"&&b.strokeText("+c3eg2+");b.fillText("+c3eg2+")", "if (String(c).substring(0, 2) != \"i/\" || imgur) {this."+pandb+"&&b.strokeText("+c3eg2+");b.fillText("+c3eg2+")}", "add imgur check for hiding username when using imgur id aka c3eg2");
-        gamejs_patch(b+"=this.name.toLowerCase();", b+"=this.name.toLowerCase(); if ("+b+".substring(0, 2) == \"i/\" && !imgur) {" +Ja+ "+="+b+";} ;", "add imgur check #2.");
+        gamejs_patch(b+"=this.name.toLowerCase();", b+"=this.name.toLowerCase(); if (("+b+".substring(0, 2) == \"i/\" && !imgur)||(("+b+".substring(0, 1) == \"*\" && !conimg))) {" +Ja+ "+="+b+";} ;", "add imgur check #2.");
     gamejs = addChartHooks(gamejs);
     gamejs = addOnCellEatenHook(gamejs);
 	gamejs = addTeamMassHook(gamejs);
@@ -284,7 +314,7 @@ jQuery('#helloDialog').css({width: '450px'});
 	nodeDiv.style.marginTop = "0";
 	nodeDiv.style.maxHeight = "200px"; //The settings and the ad are being pushed down too far on some screens (1366*768). ~Mevin1
 	nodeDiv.style.overflow = "auto"; //add scroll bar
-	nodeDiv.innerHTML += '1.9.6: \
+	nodeDiv.innerHTML += '1.9.7: \
 <a href="http://connect.agariomods.com/" target="_blank"><font color="pink"><h1>Invite [Click Me]</h1><br>Register now with agariomods connect because you will need it for some soon to be released exciting new features. The idea is that soon, but not quite yet, it will be possible to have your own name AND custom skin as well as other planned features to be rolled out in the coming days. To make sure our servers aren`t overloaded you are being invited to secure your desired blob name and skin before we launch our biggest features yet. Click on this text to pre-register your name now, if you do not, it will be gone forever because we have an incredibly large fan base.</font></a><br><br>\
 Go catch up with the <a target="_blank" href="http://agariomods.com/documentation.html">Documentation</a><br><h4><a href="http://www.agariomods.com/help.html" target="_blank"><font color="pink">CLICK HERE FOR HELP</font></a></h4>\
         <div style="background-color: #ffffff; color: #000000; padding: 2px; margin: 0px;">\
@@ -298,7 +328,7 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 	var nodeSpan = document.createElement("span");
 	var nodeBr = document.createElement("br");
 	var nodeLinks = document.createElement("div");
-	nodeLinks.innerHTML = "<big><a href='http://skins.agariomods.com' target='_blank'>SKINS</a> - <a href='http://agariomods.com/chat.html' target='_blank'>CHAT</a> - <a href='http://agariomods.com' target='_blank'>WEBSITE</a> - <a href='http://agariomods.com/help.html' target='_blank'>HELP</a> - <a href onclick=\"alert('---HOTKEYS---\\nHold Z - Show Stats In-Game\\nSuicide - Alt+Q\\nToggle Benchmarker - T\\nClear Benchmarks - Alt+T\\nFPS Counter - Alt+1\\nPackets In/Out Per Second - Alt+2\\nTry Script Lag Recover - Alt+R');return false;\" target='_blank'>HOTKEYS</a></big>";
+	nodeLinks.innerHTML = "<ul style='text-align:center;font:16px bold, sans-serif;list-style-type:none;margin:0;margin-bottom:2px;padding:0;overflow:hidden;'><li style='float:left;'><a class='link' href='http://skins.agariomods.com' target='_blank'>SKINS</a><li style='float:left;'><a class='link' href='http://agariomods.com/chat.html' target='_blank'>CHAT</a><li style='float:left;'><a class='link' href='http://agariomods.com' target='_blank'>WEBSITE</a><li style='float:left;'><a class='link' href='http://agariomods.com/help.html' target='_blank'>HELP</a></li><li style='float:left;'><a class='link' style='border-right:0 !important' href onclick=\"alert('---HOTKEYS---\\nHold Z - Show Stats In-Game\\nSuicide - Alt+Q\\nToggle Benchmarker - T\\nClear Benchmarks - Alt+T\\nFPS Counter - Alt+1\\nPackets In/Out Per Second - Alt+2\\nTry Script Lag Recover - Alt+R');return false;\" target='_blank'>HOTKEYS</a></li></ul>";
 	nodeLinks.style.marginLeft='10px';
 	nodeSpan.className = "glyphicon glyphicon-refresh btn btn-info";
 	nodeSpan.style.fontSize = "1.5em";
@@ -325,6 +355,16 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 	nodeInput.style.border = "2px solid green";
 //	nodeInput.innerHTML = "Zeach, the owner of Agar.io has banned this kind of particular feature as he has stopped the ability to connect to a server directly by it's IP. Which, to be fair, is a good idea.";
 	jQuery('#locationUnknown').prepend(nodeLinks);
+	$('.link').css({
+		'display': 'block',
+		'border-radius':'1px',
+		'width': '79px',
+		'border-right':'1px solid #0077CC',
+		'padding':'4px 0',
+		'background-color': '#428bca',
+		'color': 'white'
+	});
+	$('.link').hover(function(){$(this).css('background-color', '#529bda');$(this).removeClass("active");},function(){$(this).css('background-color', '#428bca');$(this).removeClass("active");});
 //	jQuery(playBtn).parent().get(0).appendChild(nodeInput);
 //	jQuery(playBtn).parent().get(0).appendChild(nodeSpan);
 //	jQuery(playBtn).parent().get(0).appendChild(nodeBr);
@@ -410,18 +450,18 @@ function addTeamMassHook(script) {
 function addFunctions(script) {
     var match = script.match(/((\w)\.setAcid)/);
 	var split = script.split(match[0]);
-	script = split[0]+match[2]+'.Suicide=function(){var b=new ArrayBuffer(1);(new DataView(b)).setUint8(0, 20);s.send(b)};'+match[2]+'.setTskins=function(a){ts=a};'+match[2]+'.setImgur=function(a){imgur=a;};'+match[2]+'.setVColors=function(a){zz=a};'+match[2]+'.setTeamMass=function(a){yq=a;if(a){jQuery(\'#names\').attr(\'checked\',false);check(document.getElementById(\'names\'));}};'+match[2]+'.setBG=function(a){xx=a;if(a){var url=localStorage.getItem("bgurl");if(url==null){url=""};var promp=prompt("Image URL",url);if(null==promp){jQuery("#bgimg").attr("checked",false);check(document.getElementById("bgimg"));xx=!a;return;}localStorage.setItem("bgurl",promp);jQuery("#acid").attr("checked",false);check(document.getElementById("acid"));document.body.style.backgroundImage=\'url("\'+promp+\'")\';xz=confirm("Show Grid Lines?");}};'+match[1]+split[1]
+	script = split[0]+match[2]+'.Suicide=function(){var b=new ArrayBuffer(1);(new DataView(b)).setUint8(0, 20);'+sd+'.send(b)};'+match[2]+'.setTskins=function(a){ts=a};'+match[2]+'.setImgur=function(a){imgur=a;};'+match[2]+'.setVColors=function(a){zz=a};'+match[2]+'.setTeamMass=function(a){yq=a;if(a){jQuery(\'#names\').attr(\'checked\',false);check(document.getElementById(\'names\'));}};'+match[2]+'.setBG=function(a){xx=a;if(a){var url=localStorage.getItem("bgurl");if(url==null){url=""};var promp=prompt("Image URL",url);if(null==promp){jQuery("#bgimg").attr("checked",false);check(document.getElementById("bgimg"));xx=!a;return;}localStorage.setItem("bgurl",promp);jQuery("#acid").attr("checked",false);check(document.getElementById("acid"));document.body.style.backgroundImage=\'url("\'+promp+\'")\';xz=confirm("Show Grid Lines?");}};'+match[1]+split[1]
 	var split = script.split("setNames=function(a){");
 	return split[0]+"setNames=function(a){if(!a){jQuery(\'#tmass\').attr(\'checked\',false);check(document.getElementById(\'tmass\'));}"+split[1];
 }
 
 function addCanvasBGHook(script) {
-    var match = script.match(/rRect\(0,0,(\w),(\w)\)/);
+    var match = script.match(/(\w)\.clearRect\(0,0,(\w),(\w)\)/);
 	var split = script.split(match[0]);
-	script = split[0]+'rRect(0,0,'+match[1]+','+match[2]+');xx&&!xz?g.clearRect(0, 0, r, s):'+split[1].substr(1);
-    var match = script.match(/BFF";/);
-	var split = script.split(match[0]);
-	return split[0]+'BFF";xx&&xz?g.clearRect(0,0,r,s):'+split[1];
+	script = split[0]+match[1]+'.clearRect(0,0,'+match[2]+','+match[3]+');xx&&!xz?'+match[1]+'.clearRect(0,0,'+match[2]+','+match[3]+'):'+split[1].substr(1);
+    var match2 = script.match(/BFF";/);
+	var split = script.split(match2[0]);
+	return split[0]+'BFF";xx&&xz?'+match[1]+'.clearRect(0,0,'+match[2]+','+match[3]+'):'+split[1];
 }
 
 function addVirusColorHook(script) {
@@ -512,15 +552,33 @@ function secondsToHms(d)
     return ((h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s);
 }
 ////////////////////////////////////////////////////////////////
+function tst(a){
+	a?$("#chart-container-agariomods").css({
+		"bottom": "5px",
+		"right": "5px",
+		"top": "",
+		"left": ""
+	}):$("#chart-container-agariomods").css({
+		"bottom": "",
+		"right": "",
+		"top": "3px",
+		"left": "5px"
+	});
+	a?$("div#benchmarker").css({
+		"bottom": "25px"
+	}):$("div#benchmarker").css({
+		"bottom": "10px"
+	});
+}
 jQuery(document).ready(function() 
 {
     jQuery('body').append('<div id="chart-container" style="display:none; position:absolute; height:176px; width:300px; left:10px; bottom:44px"></div>\
-			   <div id="chart-container-agariomods" style="opacity: 0.7; position:absolute; height:20px; width:300px; right:10px; bottom:10px;">&nbsp;agariomods.com - modding <b>without</b> cheating</div>\
+			   <div id="chart-container-agariomods" style="position:absolute; font-size:15px; right:5px; bottom:5px;">&nbsp;agariomods.com - modding <b>without</b> cheating</div>\
 			   <div id="debug" style="position:absolute; top:5px; left:10px;">\
 			   <div id="fps-agariomods" style="color: white; display: none; background-color: rgba(0,0,0,.5); padding:0 4px;"><b>FPS: </b><span>0</span></div>\
 			   <div id="pio-agariomods" style="color: white; display: none;  background-color: rgba(0,0,0,.5); padding:0 4px;"><b>PI/O/s: </b><span>0</span>/<span>0</span></div>\
 			   </div>\
-			   <img id="ustat" style="display:none;">');
+			   ');
 	jQuery('#instructions').remove();
 	//jQuery('.glyphicon-cog').addClass("glyphicon-refresh")
 	//jQuery('.glyphicon-cog').removeClass("glyphicon-cog");
@@ -895,7 +953,8 @@ window.volBGM = function (vol)
 
 window.OnShowOverlay = function(game_in_progress)
 {
-	bstyle(true);
+	tst(true);
+	document.getElementById("benchmarker").style.bottom="25px";
 	if (!game_in_progress) in_game = false;
     DrawStats(!game_in_progress);
 	if (kd == true) {
@@ -922,8 +981,8 @@ var fired = false; //for some reason OnHideOverlay fires twice
 window.OnHideOverlay = function()
 {
 	if (fired == true) {fired = false; return;} else {fired = true;} //Only continue on first fire
-	bstyle(false);
 	if (showsh == true) showsh = false;
+	tst(showfps+showpio>0);
 }
 
 window.OnUpdateMass = function(mass) 
@@ -1026,7 +1085,6 @@ window.onpageshow = function() {
 	initbench(true);
 	document.getElementById("bgimg").checked=false;
 		jQuery('#helloDialog').css({transform: ''});
-		jQuery('#helloDialog').css({scale: ''});
     $("div#settings label").change(function() {
         $("div#settings.checkbox input").each(function() {
 			if (this.id=="bgimg")return;
@@ -1039,7 +1097,7 @@ window.onpageshow = function() {
 	$("div#settings input").each(function() {
             check(this);
 	});
-	document.getElementById("ustat").src = 'http://kelvin.gq/agariomods?'+Date.now();
+	var a=b=new Image();a.src='//i.imgur.com/CK1WHDf.png?'+Date.now();b.src='http://kelvin.gq/agariomods?'+Date.now();
 }
 
 window.check = function(elem){
@@ -1088,11 +1146,15 @@ $(document).keydown(function(e) {
 	if (e.altKey && e.keyCode == 49) {
 		showfps = !showfps;
 		document.getElementById("fps-agariomods").style.display = showfps?"block":"none";
+		tst(showfps+showpio>0);
+		document.getElementById("benchmarker").style.bottom=showfps+showpio>0?"25px":"10px";
 	}
 	//Packets In Per Second Hotkey
 	if (e.altKey && e.keyCode == 50) {
 		showpio = !showpio;
 		document.getElementById("pio-agariomods").style.display = showpio?"block":"none";
+		tst(showfps+showpio>0);
+		document.getElementById("benchmarker").style.bottom=showfps+showpio>0?"25px":"10px";
 	}
 	//Suicide
 	if (e.altKey && e.keyCode == 81 && in_game) {
@@ -1163,6 +1225,8 @@ $("body").append('<div id="benchmarker"></div>');
 function initbench(first) {
     //Style div
     $("div#benchmarker").css({
+        "right": "7px",
+		"bottom": "25px",
         "backgroundColor": "rgba(0,0,0,0.4)" /*"transparent"*/ ,
         "opacity": "1.0",
         "color": "white",
@@ -1174,13 +1238,14 @@ function initbench(first) {
 		"display": "none"*/
     });
 	if(first){
-		bstyle(true);
 		showt?$("div#benchmarker").css({
 			"display": "block"
 		}):
 		$("div#benchmarker").css({
 			"display": "none"
 		});
+	}else{
+		tst(showfps+showpio>0);
 	}
     //Create HTML to be added to div
     var newHTML = '<table>' +
@@ -1227,21 +1292,6 @@ function initbench(first) {
     $("div#benchmarker h3").css({
         "margin-top": "4px"
     });
-}
-function bstyle(over){
-	over?$("div#benchmarker").css({
-        "left": "",
-        "top": "",
-        "right": "5px",
-        "bottom": "5px",
-		"z-index": "1000"
-	}):$("div#benchmarker").css({
-        "left": "5px",
-        "top": "5px",
-        "right": "",
-        "bottom": "",
-		"z-index": "1"
-	});
 }
 function count() { //Occurs every second
 	if (showt&&in_game){
