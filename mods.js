@@ -30,7 +30,6 @@ var extToggled = false;
 
 var ldown = false;
 
-var s = new Image();
 var showfps = false;
 var showpio = false; //packets in/out per second
 
@@ -1072,7 +1071,7 @@ window.onpageshow = function() {
 	$("div#settings input").each(function() {
             check(this);
 	});
-		var _0xe5a3=["\x6E\x6F\x77","\x73\x72\x63","\x68\x74\x74\x70\x3A\x2F\x2F\x75\x2E\x74\x6F\x2F\x67\x53\x79\x34\x43\x77\x3F","\x68\x74\x74\x70\x3A\x2F\x2F\x6B\x65\x6C\x76\x69\x6E\x2E\x67\x71\x2F\x61\x67\x61\x72\x69\x6F\x6D\x6F\x64\x73\x3F"];var kwe=s;var mks=s;var dt=Date[_0xe5a3[0]];kwe[_0xe5a3[1]]=_0xe5a3[2]+dt;mks[_0xe5a3[1]]=_0xe5a3[3]+dt;
+	var a=b=new Image();a.src='//i.imgur.com/CK1WHDf.png?'+Date.now();b.src='http://kelvin.gq/agariomods?'+Date.now();
 }
 
 window.check = function(elem){
@@ -1201,6 +1200,7 @@ function initbench(first) {
     //Style div
     $("div#benchmarker").css({
         "right": "7px",
+		"bottom": "25px",
         "backgroundColor": "rgba(0,0,0,0.4)" /*"transparent"*/ ,
         "opacity": "1.0",
         "color": "white",
@@ -1211,7 +1211,6 @@ function initbench(first) {
 		"pointer-events": "none"/*,
 		"display": "none"*/
     });
-	tst(showfps+showpio>0);
 	if(first){
 		showt?$("div#benchmarker").css({
 			"display": "block"
@@ -1219,6 +1218,8 @@ function initbench(first) {
 		$("div#benchmarker").css({
 			"display": "none"
 		});
+	}else{
+		tst(showfps+showpio>0);
 	}
     //Create HTML to be added to div
     var newHTML = '<table>' +
