@@ -226,11 +226,27 @@ function agariomodsRuntimePatches() {
 	gamejs_patch(/\w>\w\/1\.1\?.*-50%\)"\);/,"","fixing menu on resize");
 	gamejs_patch('c=null:c=null;','c=null:c=null;if(imgur&&'+b+'.substring(0,2)=="i/"){c=null;}','Stop showing of imgur skins(when enabled)');
 		gamejs_patch(';reddit;', ';reddit;'+ourskins+';', "add our skinlist to the original game skinlist.");
-        gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();var agariomods="";var ourskins = "'+ourskins+'";if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}else if('+b+'.substring(0,2)=="i/"){if(!imgur){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";}}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}', "add check for which skin mode we are in. be it no skin, default skin, imgur skin, or an agariomods skin.");
-		gamejs_patch('=1E4,', '=1E4,'+'zz=!1,yq=!1,xx=!1,xz=!1,ts=!1,imgur=!1'+',', "adding variables");
+//        gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();var agariomods="";var ourskins = "'+ourskins+'";if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}else if('+b+'.substring(0,2)=="i/"){if(!imgur){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";}}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}', "add check for which skin mode we are in. be it no skin, default skin, imgur skin, or an agariomods skin.");
+        gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();\
+var agariomods="";\
+var ourskins = "'+ourskins+'";\
+if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}\
+\
+\
+else if('+b+'.substring(0,1)=="*"){\
+agariomods="//connect.agariomods.com/img_"+this.name.substring(1)+".png";\
+}\
+else if('+b+'.substring(0,2)=="i/"){if(!imgur){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";}}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}\
+\
+\
+if(agariomods)\
+window.log("hummm :" + agariomods);\
+', "add check for which skin mode we are in. be it no skin, default skin, imgur skin, or an agariomods skin.");
+
+		gamejs_patch('=1E4,', '=1E4,'+'zz=!1,yq=!1,xx=!1,xz=!1,ts=!1,conimg=!1,imgur=!1'+',', "adding variables");
         gamejs_patch(W +'['+b+'].src="skins/"+'+b+'+".png"', W+'['+b+'].src=agariomods', "check for agariomods img src variable");
         gamejs_patch("this."+pandb+"&&b.strokeText("+c3eg2+");b.fillText("+c3eg2+")", "if (String(c).substring(0, 2) != \"i/\" || imgur) {this."+pandb+"&&b.strokeText("+c3eg2+");b.fillText("+c3eg2+")}", "add imgur check for hiding username when using imgur id aka c3eg2");
-        gamejs_patch(b+"=this.name.toLowerCase();", b+"=this.name.toLowerCase(); if ("+b+".substring(0, 2) == \"i/\" && !imgur) {" +Ja+ "+="+b+";} ;", "add imgur check #2.");
+        gamejs_patch(b+"=this.name.toLowerCase();", b+"=this.name.toLowerCase(); if (("+b+".substring(0, 2) == \"i/\" && !imgur)||(("+b+".substring(0, 1) == \"*\" && !conimg))) {" +Ja+ "+="+b+";} ;", "add imgur check #2.");
     gamejs = addChartHooks(gamejs);
     gamejs = addOnCellEatenHook(gamejs);
 	gamejs = addTeamMassHook(gamejs);
@@ -298,7 +314,7 @@ jQuery('#helloDialog').css({width: '450px'});
 	nodeDiv.style.marginTop = "0";
 	nodeDiv.style.maxHeight = "200px"; //The settings and the ad are being pushed down too far on some screens (1366*768). ~Mevin1
 	nodeDiv.style.overflow = "auto"; //add scroll bar
-	nodeDiv.innerHTML += '1.9.7: \
+	nodeDiv.innerHTML += '1.9.8: <h2>Connect, stage 2:</h2>Enter your agariomods connect username above, with a * infront of it, for me it would be *electronoob. This will show my skin to everyone. Stage 3 coming soon!<br>\
 <a href="http://connect.agariomods.com/" target="_blank"><font color="pink"><h1>Invite [Click Me]</h1><br>Register now with agariomods connect because you will need it for some soon to be released exciting new features. The idea is that soon, but not quite yet, it will be possible to have your own name AND custom skin as well as other planned features to be rolled out in the coming days. To make sure our servers aren`t overloaded you are being invited to secure your desired blob name and skin before we launch our biggest features yet. Click on this text to pre-register your name now, if you do not, it will be gone forever because we have an incredibly large fan base.</font></a><br><br>\
 Go catch up with the <a target="_blank" href="http://agariomods.com/documentation.html">Documentation</a><br><h4><a href="http://www.agariomods.com/help.html" target="_blank"><font color="pink">CLICK HERE FOR HELP</font></a></h4>\
         <div style="background-color: #ffffff; color: #000000; padding: 2px; margin: 0px;">\
