@@ -686,7 +686,7 @@ function DrawStats(game_over)
     var seconds = (time - stats.birthday)/1000;
 	
 	var list = jQuery('<ul>');
-    list.append('<li style="font-size: 12px; ">Game time: ' + secondsToHms(seconds) + ' (Best: ' + secondsToHms(best("time",seconds))  + ')</li>');
+    list.append('<li style="font-size: 12px; ">Game time: ' + secondsToHms(seconds) + ' (Best: ' + secondsToHms(best("time",seconds))  + ')<br>(Total time played: ' + secondsToHms(alltime(seconds)) + ')</li>');
     list.append('<li style="font-size: 12px; ">High score: ' + ~~(stats.high_score/100) + ' (Best: ' + best("highscore",~~(stats.high_score/100)) + ')</li>');
     if (stats.top_slot == Number.POSITIVE_INFINITY){
         list.append('<li style="font-size: 12px; ">You didn\'t make the leaderboard.<br>(Best: ' + bestLow("rank",11) + ')</li>');
@@ -1253,4 +1253,9 @@ function bestLow(name,data) { //For when the best is the lowest number
 	}
 	
 	return localStorage.getItem("best_"+name);
+}
+function alltime(s) {
+	if (typeof localStorage.getItem("alltime") == 'undefined') {localStorage.setItem("alltime",0);}
+	localStorage.setItem("alltime",1*((localStorage.getItem("alltime")*1)+s*1));
+	return 1*(localStorage.getItem("alltime"));
 }
