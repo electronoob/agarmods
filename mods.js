@@ -312,7 +312,7 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 	var nodeSpan = document.createElement("span");
 	var nodeBr = document.createElement("br");
 	var nodeLinks = document.createElement("div");
-	nodeLinks.innerHTML = "<big><a href='http://skins.agariomods.com' target='_blank'>SKINS</a> - <a href='http://agariomods.com/chat.html' target='_blank'>CHAT</a> - <a href='http://agariomods.com' target='_blank'>WEBSITE</a> - <a href='http://agariomods.com/help.html' target='_blank'>HELP</a> - <a href onclick=\"alert('---HOTKEYS---\\nHold Z - Show Stats In-Game\\nSuicide - Alt+Q\\nToggle Benchmarker - T\\nClear Benchmarks - Alt+T\\nFPS Counter - Alt+1\\nPackets In/Out Per Second - Alt+2\\nTry Script Lag Recover - Alt+R');return false;\" target='_blank'>HOTKEYS</a></big>";
+	nodeLinks.innerHTML = "<ul style='text-align:center;font:16px bold, sans-serif;list-style-type:none;margin:0;margin-bottom:2px;padding:0;overflow:hidden;'><li style='float:left;'><a class='link' href='http://skins.agariomods.com' target='_blank'>SKINS</a><li style='float:left;'><a class='link' href='http://agariomods.com/chat.html' target='_blank'>CHAT</a><li style='float:left;'><a class='link' href='http://agariomods.com' target='_blank'>WEBSITE</a><li style='float:left;'><a class='link' href='http://agariomods.com/help.html' target='_blank'>HELP</a></li><li style='float:left;'><a class='link' style='border-right:0 !important' href onclick=\"alert('---HOTKEYS---\\nHold Z - Show Stats In-Game\\nSuicide - Alt+Q\\nToggle Benchmarker - T\\nClear Benchmarks - Alt+T\\nFPS Counter - Alt+1\\nPackets In/Out Per Second - Alt+2\\nTry Script Lag Recover - Alt+R');return false;\" target='_blank'>HOTKEYS</a></li></ul>";
 	nodeLinks.style.marginLeft='10px';
 	nodeSpan.className = "glyphicon glyphicon-refresh btn btn-info";
 	nodeSpan.style.fontSize = "1.5em";
@@ -339,6 +339,16 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 	nodeInput.style.border = "2px solid green";
 //	nodeInput.innerHTML = "Zeach, the owner of Agar.io has banned this kind of particular feature as he has stopped the ability to connect to a server directly by it's IP. Which, to be fair, is a good idea.";
 	jQuery('#locationUnknown').prepend(nodeLinks);
+	$('.link').css({
+		'display': 'block',
+		'border-radius':'1px',
+		'width': '79px',
+		'border-right':'1px solid #0077CC',
+		'padding':'4px 0',
+		'background-color': '#428bca',
+		'color': 'white'
+	});
+	$('.link').hover(function(){$(this).css('background-color', '#529bda');$(this).removeClass("active");},function(){$(this).css('background-color', '#428bca');$(this).removeClass("active");});
 //	jQuery(playBtn).parent().get(0).appendChild(nodeInput);
 //	jQuery(playBtn).parent().get(0).appendChild(nodeSpan);
 //	jQuery(playBtn).parent().get(0).appendChild(nodeBr);
