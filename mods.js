@@ -314,7 +314,7 @@ jQuery('#helloDialog').css({width: '450px'});
 	nodeDiv.style.marginTop = "0";
 	nodeDiv.style.maxHeight = "200px"; //The settings and the ad are being pushed down too far on some screens (1366*768). ~Mevin1
 	nodeDiv.style.overflow = "auto"; //add scroll bar
-	nodeDiv.innerHTML += '1.9.7: \
+	nodeDiv.innerHTML += '1.9.8: <h2>Connect, stage 2:</h2>Enter your agariomods connect username above, with a * infront of it, for me it would be *electronoob. This will show my skin to everyone. Stage 3 coming soon!<br>\
 <a href="http://connect.agariomods.com/" target="_blank"><font color="pink"><h1>Invite [Click Me]</h1><br>Register now with agariomods connect because you will need it for some soon to be released exciting new features. The idea is that soon, but not quite yet, it will be possible to have your own name AND custom skin as well as other planned features to be rolled out in the coming days. To make sure our servers aren`t overloaded you are being invited to secure your desired blob name and skin before we launch our biggest features yet. Click on this text to pre-register your name now, if you do not, it will be gone forever because we have an incredibly large fan base.</font></a><br><br>\
 Go catch up with the <a target="_blank" href="http://agariomods.com/documentation.html">Documentation</a><br><h4><a href="http://www.agariomods.com/help.html" target="_blank"><font color="pink">CLICK HERE FOR HELP</font></a></h4>\
         <div style="background-color: #ffffff; color: #000000; padding: 2px; margin: 0px;">\
