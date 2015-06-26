@@ -1,139 +1,357 @@
+<!DOCTYPE html>
 <html>
 <head>
-<title>Agariomods Documentation</title>
-<style>
-ol>li{
-font-weight: bold;
-}
-ul>li{
-font-weight: normal;
-}
-</style>
+    <title>Agariomods Documentation</title>
+    <style>
+	ol *{
+		font-weight: normal;
+	}
+	ol>li{
+		font-weight: bold;
+    }
+    ol>li>ul{
+		list-style-type:disc;
+    }
+    ol>li>ul>li>ul>{
+		list-style-type:square;
+    }
+    ol>li>ul>li>ul>li>ul{
+		list-style-type:circle;
+    }
+    ol>li>ul>li>ul>li ul{
+		list-style-type:circle;
+    }
+    </style>
 </head>
 <body>
-<h1>Agariomods Features</h1>
-<ol>
-<li>Current Mass
-<ul><li>The 'Score' counter in the vanilla game only showed your high score. That has been replaced with a counter of how much mass you currently have, with the 'Score' counter renamed to 'High Score' to the right. 
-</ul><li>Connect to server by IP 
-<ul><li>Enter an IP into the textbox, under Play button, then click the refresh icon beside it to connect to the server at that IP. 
-<li>The IP if the server you are currently on is displayed above the Play button. 
-</ul><li>Additional Skins 
-<ul><li>This adds additional skins to the game that can be used by using a certain name for your cell. 
-<li>These skins are not visible to those who don't use this mod. 
-<li>The list of additional skins can be found at http://skins.agariomods.com/ 
-</ul><li>Custom Imgur Skins 
-<ul><li>Name your cell with the Imgur photo id and 'i/' before it. 
-<li>Ex. If your image is http://imgur.com/eCUKe0f.png then your name would be i/eCUKe0f.
-<li>The image will only be seen by other users of this mod. 
-<li>The name will be hidden for everyone with the mod who has the 'No Imgur Skins' setting disabled, i.e. i/eCUKe0f will not show up for other Agariomods users, but will show up for everyone else. 
-<li>You can turn this on and off with the "No Imgur Skins" setting.
-<li>There is <b>no</b> filtering of Imgur images. If you are in an environment where NSFW images can cause issue, it is recommended to disable this feature.
-</ul><li>Auto-saving of settings 
-<ul><li>Settings are saved automatically every time you make a change. 
-<li>This does not apply to the Custom Background Image. 
-</ul><li>Laptop touchpad fix to prevent accidental freezing 
-<ul><li>Done by disabling clicking and click dragging in-game. 
-</ul><li>Warning when you try to Reload/Leave Agar.io 
-<ul><li>Popup box shows up asking, "Do you really want to leave this page?" 
-</ul><li>Mass graph 
-<ul><li>While in game, there is a line graph in the bottom left above the scores that displays your mass over time. 
-<li>Can be toggled with the "Show Chart" setting. 
-</ul><li>Current Game Statistics 
-<ul><li>While in game, bringing up the menu(Esc), or holding 'Z' will show a box with your stats for that play. 
-<li>On death, the main menu will show the stats of your last game. 
-<li>Stats
-<ul><li>Top 5 Gains 
-<ul><li>Players that gave you the most mass from eating their their cells. 
-<li>Beside their name in parentheses is how much mass you gained from them. 
-</ul><li>Top 5 Losses 
-<ul><li>Players that took the most mass from eating your cells. 
-<li>Beside their name in parentheses is how much mass they took from you. 
-</ul><li>Mass Sources 
-<ul><li>List showing your how much of each source you ate, and how much you gained from each source. 
-<li>Pie chart showing how much each source of mass contributed to the total mass you gained. 
-<li>Sources 
-<ul><li>Viruses/Spawners 
-<li>Pellets 
-<li>Ejected Mass 
-<li>Cells 
-</ul></ul><li>Game Summary 
-<ul><li>Game time 
-<li>High Score 
-<li>Highest Place in Leaderboard 
-</ul><li>Line Graph 
-<ul><li>Colored area displays the change in your mass over your play through. 
-<li>The red line displays how many different cells you were split into over your play through. 
-</ul></ul></ul><li>Debug Options 
-<ul><li>FPS Counter 
-<ul><li>Toggled with Alt+1 
-</ul><li>Packets In/Out Per Second 
-<ul><li>Toggled with Alt+2 
-</ul></ul><li>Firefox Fullscreen Mode 
-<ul><li>Only works on Firefox. 
-<li>Firefox's Fullscreen Mode toggled with F11 will still have a hidden address bar, that pops down from the top when you put your cursor near the top of your screen, this work around that by making the window Fullscreen like a video is playing. 
-<li>Toggled with Ctrl+F 
-<li>Fullscreen can be exited with Esc, but will also bring up the Menu Screen. 
-</ul><li>Audio 
-<ul><li>Sound Effects 
-<ul><li>Volume can be adjusted with the SFX slider in settings 
-<ul><li>Turning the volume all the way down will turn off SFX. (It won't be loaded) 
-</ul><li>SFX Events 
-<ul><li>Game Start 
-<li>Game Over 
-<li>You Eat A Pellet 
-<li>You Eat Ejected Mass 
-<li>You Eat A Cell 
-<li>You Do Something To a Virus 
-<li>You Split 
-<li>You Merge 
-</ul></ul><li>BGM  
-<ul><li>Volume can be adjusted with the BGM slider in settings 
-<ul><li>Turning the volume all the way down will turn off BGM. (It won't be loaded, and will be unloaded) 
-</ul><li>Randomly cycles through 5 royalty free songs. 
-</ul></ul><li>Acid Mode 
-<ul><li>Hidden built-in feature. 
-<li>Toggled with the 'Acid' setting. 
-</ul><li>Custom Background 
-<ul><li>Enabling the Custom Background setting will bring up a prompt asking you for the image url to display. A proceeding prompt will ask of you want to keep the grid lines enabled. 
-<li>Setting state will not be saved, however, the last used url will. 
-<li>Direct uploads are not, and cannot be supported.(Within reason)  
-<li>Doesn't work with Acid mode, enabling this setting will disable the Acid mode, and vice-versa. 
-<li>Some URLs may not work this often happens with websites that redirect you to a website when you try to view the image file, try another website.
-<li>Supported Filetypes 
-<ul><li>.png 
-<li>.jpg 
-<li>.gif 
-<li>.svg 
-<li>.bmp 
-<li>Other filetypes may work with the use of plug-ins. 
-</ul></ul><li>Benchmarker 
-<ul><li>Shown by default 
-<li>Toggled with the 'T' Key 
-<li>Clear best times with Alt+T 
-<li>Records how long it takes for you to reach a certain mass, and saves your best times. 
-<li>Benchmarks 
-<ul><li>250 Mass 
-<li>500 Mass 
-<li>1,000 Mass 
-<li>5,000 Mass 
-</ul></ul><li>Teams Mode Allied Cell's Mass
-<ul><li>Toggled with the 'Show Teamed Mass' setting 
-<li>On Teams Mode, players that are on your team will have their mass displayed beside their name in [square brackets]. 
-<li>Doesn't work with the 'No Names' setting, enabling this setting will disable the 'No Names' setting, and vice-versa. 
-</ul><li>Colorless Viruses 
-<ul><li>Toggled with the 'Colorless Viruses' setting. 
-<li>Makes viruses greyscale, light grey in the center, darker grey at the borders. Works the same way as the 'Show Colors' setting.  
-<li>Does not make viruses colored if the setting is deselected and 'Show Colors' is selected. 
-</ul><li>Skins in Teams Mode
-<ul><li>Toggled with the 'Team Skins' setting.
-<li>Turns on Skins in Teams Mode. Teams can still be distinguished by their cells' border color.
-</ul><li>Suicide 
-<ul><li>Performed with Alt+Q 
-<li>If you are at least 35 mass, you will self-destruct by launching ejected mass everywhere. 
-</ul><li>Attempt Lag Recovery 
-<ul><li>Performed with Alt+R 
-<li>Will momentary stop script execution(less than a second), which should cause the client to catch up with the server, assuming the lag isn't being caused by slow/bad internet. 
-</ul></ol>
+    <h1>Agariomods Features</h1>
+    <ol>
+        <li>Current Mass
+            <ul>
+                <li>The 'Score' counter in the vanilla game only showed your
+                high score. That has been replaced with a counter of how much
+                mass you currently have, with the 'Score' counter renamed to
+                'High Score' to the right.</li>
+            </ul>
+        </li>
+        <li>Connect to server by IP
+            <ul>
+                <li>Enter an IP into the textbox, under Play button, then click
+                the refresh icon beside it to connect to the server at that
+                IP.</li>
+                <li>The IP if the server you are currently on is displayed
+                above the Play button.</li>
+            </ul>
+        </li>
+        <li>Additional Skins
+            <ul>
+                <li>This adds additional skins to the game that can be used by
+                using a certain name for your cell.</li>
+                <li>These skins are not visible to those who don't use this
+                mod.</li>
+                <li>The list of additional skins can be found at
+                http://skins.agariomods.com/</li>
+            </ul>
+        </li>
+        <li>Custom Skins
+            <ul>
+                <li>Custom Skins will only bee seen by other Agariomods
+                users</li>
+                <li>You can turn custom skins on and off with the "No Custom
+                Skins" setting.</li>
+                <li>There is <b>no</b> filtering of Custom images. If you are
+                in an environment where NSFW images can cause issue, it is
+                recommended to disable this feature.</li>
+                <li>Connect Skins
+                    <ul>
+                        <li>Name your cell "*" followed by a connect username.
+                            <ul>
+                                <li>i.e. For the account named "electronoob",
+                                you would name your cell "*electronoob".</li>
+                            </ul>
+                        </li>
+                        <li>If the user exists, and that user has uploaded a
+                        skin to their account, the cell's will have that user's
+                        skin.</li>
+                        <li>There may be a report system for connect skins in
+                        the future, but not at the moment.</li>
+                        <li>Learn more about connect skins at <a href=
+                        'http://connect.agariomods.com/'>connect.agariomods.com</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>Imgur Skins
+                    <ul>
+                        <li>Name your cell "i/", followed by the Imgur Image
+                        ID.</li>
+                        <li>i.e. If your image is http://imgur.com/<span style=
+                        "text-decoration: underline">eCUKe0f</span>.png then
+                        your name would be i/<span style=
+                        "text-decoration: underline">eCUKe0f</span>.</li>
+                        <li>The name will not be shown on your cell for
+                        everyone with the mod who has the 'No Custom Skins'
+                        setting disabled.
+                            <ul>
+                                <li>Your name will still show up on the
+                                leaderboard.</li>
+                                <li>i.e. i/eCUKe0f will not show up for other
+                                Agariomods users, but will show up for everyone
+                                else.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Auto-saving of settings
+            <ul>
+                <li>Settings are saved automatically every time you make a
+                change.</li>
+                <li>This does not apply to the Custom Background Image.</li>
+            </ul>
+        </li>
+        <li>Laptop touchpad fix to prevent accidental freezing
+            <ul>
+                <li>Done by disabling clicking and click dragging in-game.</li>
+            </ul>
+        </li>
+        <li>Warning when you try to Reload/Leave Agar.io
+            <ul>
+                <li>Popup box shows up asking, "Do you really want to leave
+                this page?"</li>
+            </ul>
+        </li>
+        <li>Mass graph
+            <ul>
+                <li>While in game, there is a line graph in the bottom left
+                above the scores that displays your mass over time.</li>
+                <li>Can be toggled with the "Show Chart" setting.</li>
+            </ul>
+        </li>
+        <li>Current Game Statistics
+            <ul>
+                <li>While in game, bringing up the menu(Esc), or holding 'Z'
+                will show a box with your stats for that play.</li>
+                <li>On death, the main menu will show the stats of your last
+                game.</li>
+                <li>Stats
+                    <ul>
+                        <li>Top 5 Gains
+                            <ul>
+                                <li>Players that gave you the most mass from
+                                eating their their cells.</li>
+                                <li>Beside their name in parentheses is how
+                                much mass you gained from them.</li>
+                            </ul>
+                        </li>
+                        <li>Top 5 Losses
+                            <ul>
+                                <li>Players that took the most mass from eating
+                                your cells.</li>
+                                <li>Beside their name in parentheses is how
+                                much mass they took from you.</li>
+                            </ul>
+                        </li>
+                        <li>Mass Sources
+                            <ul>
+                                <li>List showing your how much of each source
+                                you ate, and how much you gained from each
+                                source.</li>
+                                <li>Pie chart showing how much each source of
+                                mass contributed to the total mass you
+                                gained.</li>
+                                <li>Sources
+                                    <ul>
+                                        <li>Viruses/Spawners</li>
+                                        <li>Pellets</li>
+                                        <li>Ejected Mass</li>
+                                        <li>Cells</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Game Summary
+                            <ul>
+                                <li>Game time</li>
+                                <li>High Score</li>
+                                <li>Highest Place in Leaderboard</li>
+                            </ul>
+                        </li>
+                        <li>Line Graph
+                            <ul>
+                                <li>Colored area displays the change in your
+                                mass over your play through.</li>
+                                <li>The red line displays how many different
+                                cells you were split into over your play
+                                through.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Debug Options
+            <ul>
+                <li>FPS Counter
+                    <ul>
+                        <li>Toggled with Alt+1</li>
+                    </ul>
+                </li>
+                <li>Packets In/Out Per Second
+                    <ul>
+                        <li>Toggled with Alt+2</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Firefox Fullscreen Mode
+            <ul>
+                <li>Only works on Firefox.</li>
+                <li>Firefox's Fullscreen Mode toggled with F11 will still have
+                a hidden address bar, that pops down from the top when you put
+                your cursor near the top of your screen, this work around that
+                by making the window Fullscreen like a video is playing.</li>
+                <li>Toggled with Ctrl+F</li>
+                <li>Fullscreen can be exited with Esc, but will also bring up
+                the menu.</li>
+                <li>While in fullscreen, pressing the DELETE key will also show
+                the menu, without exiting fullscreen.</li>
+            </ul>
+        </li>
+        <li>Audio
+            <ul>
+                <li>Sound Effects
+                    <ul>
+                        <li>Volume can be adjusted with the SFX slider in
+                        settings
+                            <ul>
+                                <li>Turning the volume all the way down will
+                                turn off SFX. (It won't be loaded)</li>
+                            </ul>
+                        </li>
+                        <li>SFX Events
+                            <ul>
+                                <li>Game Start</li>
+                                <li>Game Over</li>
+                                <li>You Eat A Pellet</li>
+                                <li>You Eat Ejected Mass</li>
+                                <li>You Eat A Cell</li>
+                                <li>You Do Something To a Virus</li>
+                                <li>You Split</li>
+                                <li>You Merge</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>BGM
+                    <ul>
+                        <li>Volume can be adjusted with the BGM slider in
+                        settings
+                            <ul>
+                                <li>Turning the volume all the way down will
+                                turn off BGM. (It won't be loaded, and will be
+                                unloaded)</li>
+                            </ul>
+                        </li>
+                        <li>Randomly cycles through 5 royalty free songs.</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Acid Mode
+            <ul>
+                <li>Hidden built-in feature.</li>
+                <li>Toggled with the 'Acid' setting.</li>
+            </ul>
+        </li>
+        <li>Custom Background
+            <ul>
+                <li>Enabling the Custom Background setting will bring up a
+                prompt asking you for the image url to display. A proceeding
+                prompt will ask of you want to keep the grid lines
+                enabled.</li>
+                <li>Setting state will not be saved, however, the last used url
+                will.</li>
+                <li>Direct uploads are not, and cannot be supported.(Within
+                reason)</li>
+                <li>Doesn't work with Acid mode, enabling this setting will
+                disable the Acid mode, and vice-versa.</li>
+                <li>Some URLs may not work this often happens with websites
+                that redirect you to a website when you try to view the image
+                file, try another website.</li>
+                <li>Supported Filetypes
+                    <ul>
+                        <li>.png</li>
+                        <li>.jpg</li>
+                        <li>.gif</li>
+                        <li>.svg</li>
+                        <li>.bmp</li>
+                        <li>Other filetypes may work with the use of
+                        plug-ins.</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Benchmarker
+            <ul>
+                <li>Shown by default</li>
+                <li>Toggled with the 'T' Key</li>
+                <li>Clear best times with Alt+T</li>
+                <li>Records how long it takes for you to reach a certain mass,
+                and saves your best times.</li>
+                <li>Benchmarks
+                    <ul>
+                        <li>250 Mass</li>
+                        <li>500 Mass</li>
+                        <li>1,000 Mass</li>
+                        <li>5,000 Mass</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Teams Mode Allied Cell's Mass
+            <ul>
+                <li>Toggled with the 'Show Teamed Mass' setting</li>
+                <li>On Teams Mode, players that are on your team will have
+                their mass displayed beside their name in [square
+                brackets].</li>
+                <li>Doesn't work with the 'No Names' setting, enabling this
+                setting will disable the 'No Names' setting, and
+                vice-versa.</li>
+            </ul>
+        </li>
+        <li>Colorless Viruses
+            <ul>
+                <li>Toggled with the 'Colorless Viruses' setting.</li>
+                <li>Makes viruses greyscale, light grey in the center, darker
+                grey at the borders. Works the same way as the 'Show Colors'
+                setting.</li>
+                <li>Does not make viruses colored if the setting is deselected
+                and 'Show Colors' is selected.</li>
+            </ul>
+        </li>
+        <li>Skins in Teams Mode
+            <ul>
+                <li>Toggled with the 'Team Skins' setting.</li>
+                <li>Turns on Skins in Teams Mode. Teams can still be
+                distinguished by their cells' border color.</li>
+            </ul>
+        </li>
+        <li>Suicide
+            <ul>
+                <li>Performed with Alt+Q</li>
+                <li>If you are at least 35 mass, you will self-destruct by
+                launching ejected mass everywhere.</li>
+            </ul>
+        </li>
+        <li>Attempt Lag Recovery
+            <ul>
+                <li>Performed with Alt+R</li>
+                <li>Will momentary stop script execution(less than a second),
+                which should cause the client to catch up with the server,
+                assuming the lag isn't being caused by slow/bad internet.</li>
+            </ul>
+        </li>
+    </ol>
 </body>
-</head>
+</html>
