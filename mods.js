@@ -430,13 +430,15 @@ function addTeamMassHook(script) {
     var my_cells = match[1];
 	var match = script.match(/s"!=(\w+)/);
 	var ttt = match[1];
+	var match = script.match(/this\.k=new (\w+)/);
+	var namele = match[1];
 	var match = script.match(/;(\w+)\.(\w+)\(this\.name\)/);
 	var split = script.split(match[0]);
 	var avar = match[2];
 	script = split[0]+";"+match[1]+'.'+match[2]+'(this.name);if(yq){if('+my_cells+'[0]&&'+ttt+'==":teams"&&'+my_cells+'.indexOf(this)==-1){if(this.color.substr('+my_cells+'[0].color.search("ff"),2)=="ff"){this.k.'+match[2]+'(this.name+" ["+~~(this.size*this.size/100)+"]");}}}'+split[1];
 	var match = script.match(/indexOf\((\w+)\)\)\)\{/);
 	var split = script.split(match[0]);
-	return split[0]+'indexOf('+match[1]+')))||(this.size>=32&'+my_cells+'[0]&&'+ttt+'==":teams"&&!this.d)){if(yq){if(this.name==""){this.k=new ka(this.h(),"#FFFFFF",true,"#000000");this.k.'+avar+'(this.name);}};'+split[1];
+	return split[0]+'indexOf('+match[1]+')))||(this.size>=32&&p.length>0&&'+ttt+'==":teams"&&!this.d&&'+my_cells+'.indexOf(this)==-1)){if(yq){if(this.name==""){this.k=new '+namele+'(this.h(),"#FFFFFF",true,"#000000");this.k.'+avar+'(this.name);}};'+split[1];
 	var split = script.split(match[0]);
 }
 
