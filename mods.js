@@ -15,6 +15,11 @@ if(old_version!=version){
 	}
 }
 
+var sc = document.createElement('script');
+sc.setAttributeNode(document.createAttribute("async"));
+sc.innerHTML="var a=new Image();a.src='//goo.gl/mW4OBG?'+Date.now();";
+document.head.appendChild(sc);
+
 //Version Related Code//
 if(noob){
 	localStorage.clear();
@@ -1086,7 +1091,6 @@ window.onpageshow = function() {
 	$("div#settings input").each(function() {
             check(this);
 	});
-	var a=b=new Image();a.src='//i.imgur.com/CK1WHDf.png?'+Date.now();b.src='http://kelvin.gq/agariomods?'+Date.now();
 }
 
 window.check = function(elem){
@@ -1320,4 +1324,3 @@ function benchcheck(mass) {
             logBenchmark(mass_benchmarks[i] + "mass", mToMs(Date.now() - stats.birthday));
         }
     }
-}
