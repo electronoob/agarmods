@@ -8,9 +8,10 @@ var updated = false;
 var noob = false;
 if(old_version!=version){
 	updated=true;
-	localStorage.setItem("version",version);
-	if(old_version!=null){
+	if(old_version==null){
 		noob=true;
+	} else {
+		localStorage.setItem("version",version);
 	}
 }
 
@@ -19,6 +20,7 @@ if(noob){
 	localStorage.clear();
 	localStorage.setItem("settingShow_Chart","true");
 	localStorage.setItem("showt","true");
+	localStorage.setItem("version",version);
 }
 if(updated){
 }
@@ -224,29 +226,15 @@ window.log=function(stuff){console.log(stuff);}
 function agariomodsRuntimePatches() {
 	gamejs_patch(")&&this",")&&(this","for adding name to nameless?");
 	gamejs_patch(/\w>\w\/1\.1\?.*-50%\)"\);/,"","fixing menu on resize");
-	gamejs_patch('c=null:c=null;','c=null:c=null;if(imgur&&'+b+'.substring(0,2)=="i/"){c=null;}','Stop showing of imgur skins(when enabled)');
+	gamejs_patch('c=null:c=null;','c=null:c=null;if(custom&&'+b+'.substring(0,2)=="i/"){c=null;}','Stop showing of custom skins(when enabled)');
 		gamejs_patch(';reddit;', ';reddit;'+ourskins+';', "add our skinlist to the original game skinlist.");
-//        gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();var agariomods="";var ourskins = "'+ourskins+'";if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}else if('+b+'.substring(0,2)=="i/"){if(!imgur){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";}}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}', "add check for which skin mode we are in. be it no skin, default skin, imgur skin, or an agariomods skin.");
-        gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();\
-var agariomods="";\
-var ourskins = "'+ourskins+'";\
-if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}\
-\
-\
-else if('+b+'.substring(0,1)=="*"){\
-agariomods="//connect.agariomods.com/img_"+this.name.substring(1)+".png";\
-}\
-else if('+b+'.substring(0,2)=="i/"){if(!imgur){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";}}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}\
-\
-\
-if(agariomods)\
-window.log("hummm :" + agariomods);\
-', "add check for which skin mode we are in. be it no skin, default skin, imgur skin, or an agariomods skin.");
+//        gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();var agariomods="";var ourskins = "'+ourskins+'";if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}else if('+b+'.substring(0,2)=="i/"){if(!custom){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";}}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}', "add check for which skin mode we are in. be it no skin, default skin, custom skin, or an agariomods skin.");
+        gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();var agariomods="";var ourskins = "'+ourskins+'";if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}else if('+b+'.substring(0,1)=="*"){if(!custom){agariomods="//connect.agariomods.com/img_"+this.name.substring(1)+".png";}}else if('+b+'.substring(0,2)=="i/"){if(!custom){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";}}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}', "add check for which skin mode we are in. be it no skin, default skin, custom skin, or an agariomods skin.");
 
-		gamejs_patch('=1E4,', '=1E4,'+'zz=!1,yq=!1,xx=!1,xz=!1,ts=!1,conimg=!1,imgur=!1'+',', "adding variables");
+		gamejs_patch('=1E4,', '=1E4,'+'zz=!1,yq=!1,xx=!1,xz=!1,ts=!1,custom=!1'+',', "adding variables");
         gamejs_patch(W +'['+b+'].src="skins/"+'+b+'+".png"', W+'['+b+'].src=agariomods', "check for agariomods img src variable");
-        gamejs_patch("this."+pandb+"&&b.strokeText("+c3eg2+");b.fillText("+c3eg2+")", "if (String(c).substring(0, 2) != \"i/\" || imgur) {this."+pandb+"&&b.strokeText("+c3eg2+");b.fillText("+c3eg2+")}", "add imgur check for hiding username when using imgur id aka c3eg2");
-        gamejs_patch(b+"=this.name.toLowerCase();", b+"=this.name.toLowerCase(); if (("+b+".substring(0, 2) == \"i/\" && !imgur)||(("+b+".substring(0, 1) == \"*\" && !conimg))) {" +Ja+ "+="+b+";} ;", "add imgur check #2.");
+        gamejs_patch("this."+pandb+"&&b.strokeText("+c3eg2+");b.fillText("+c3eg2+")", "if (String(c).substring(0, 2) != \"i/\" || custom) {this."+pandb+"&&b.strokeText("+c3eg2+");b.fillText("+c3eg2+")}", "add custom skins check for hiding username when using imgur id aka c3eg2");
+        gamejs_patch(b+"=this.name.toLowerCase();", b+"=this.name.toLowerCase(); if (("+b+".substring(0, 2) == \"i/\"||"+b+".substring(0, 1) == \"*\")&&!custom&&"+Ja+".indexOf("+b+")==-1) {" +Ja+ ".push("+b+")} ;", "add imgur check #2.");
     gamejs = addChartHooks(gamejs);
     gamejs = addOnCellEatenHook(gamejs);
 	gamejs = addTeamMassHook(gamejs);
@@ -328,7 +316,7 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 	var nodeSpan = document.createElement("span");
 	var nodeBr = document.createElement("br");
 	var nodeLinks = document.createElement("div");
-	nodeLinks.innerHTML = "<ul style='text-align:center;font:16px bold, sans-serif;list-style-type:none;margin:0;margin-bottom:2px;padding:0;overflow:hidden;'><li style='float:left;'><a class='link' href='http://skins.agariomods.com' target='_blank'>SKINS</a><li style='float:left;'><a class='link' href='http://agariomods.com/chat.html' target='_blank'>CHAT</a><li style='float:left;'><a class='link' href='http://agariomods.com' target='_blank'>WEBSITE</a><li style='float:left;'><a class='link' href='http://agariomods.com/help.html' target='_blank'>HELP</a></li><li style='float:left;'><a class='link' style='border-right:0 !important' href onclick=\"alert('---HOTKEYS---\\nHold Z - Show Stats In-Game\\nSuicide - Alt+Q\\nToggle Benchmarker - T\\nClear Benchmarks - Alt+T\\nFPS Counter - Alt+1\\nPackets In/Out Per Second - Alt+2\\nTry Script Lag Recover - Alt+R');return false;\" target='_blank'>HOTKEYS</a></li></ul>";
+	nodeLinks.innerHTML = "<ul style='position:relative;left:-25px;width:450px;background-color:#428bca;text-align:center;font:16px bold,sans-serif;list-style-type:none;margin:6px 0 3px;padding:0;overflow:hidden;'><li style='float:left;'><a class='link' href='http://skins.agariomods.com' target='_blank'>SKINS</a><li style='float:left;'><a class='link' href='http://agariomods.com/chat.html' target='_blank'>CHAT</a><li style='float:left;'><a class='link' href='http://agariomods.com' target='_blank'>WEBSITE</a><li style='float:left;'><a class='link' href='http://agariomods.com/help.html' target='_blank'>HELP</a></li><li style='float:left;'><a class='link' style='border-right:0 !important' href onclick=\"alert('---HOTKEYS---\\nHold Z - Show Stats In-Game\\nSuicide - Alt+Q\\nToggle Benchmarker - T\\nClear Benchmarks - Alt+T\\nFPS Counter - Alt+1\\nPackets In/Out Per Second - Alt+2\\nTry Script Lag Recover - Alt+R'+(navigator.userAgent.match('Firefox')?'\\nFirefox Fullscreen - Ctrl+F\\nShow Menu While in Fullscreen - Delete':''));return false;\" target='_blank'>HOTKEYS</a></li></ul>";
 	nodeLinks.style.marginLeft='10px';
 	nodeSpan.className = "glyphicon glyphicon-refresh btn btn-info";
 	nodeSpan.style.fontSize = "1.5em";
@@ -357,8 +345,7 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 	jQuery('#locationUnknown').prepend(nodeLinks);
 	$('.link').css({
 		'display': 'block',
-		'border-radius':'1px',
-		'width': '79px',
+		'width': '90px',
 		'border-right':'1px solid #0077CC',
 		'padding':'4px 0',
 		'background-color': '#428bca',
@@ -379,7 +366,7 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 		setNick(document.getElementById('nick').value);
 		return false;
 	});
-	jQuery('.form-group:first').after( "<hr style='margin: 7px; border-width: 2px'>" );
+	//jQuery('.form-group:first').after( "<hr style='margin: 7px; border-width: 2px'>" );
 	jQuery('.form-group:first').removeAttr("class");
 }
 
@@ -436,13 +423,15 @@ function addTeamSkinsHook(script) {
 function addTeamMassHook(script) {
 	var match = script.match(/1==(\w+)\.length&&\(/);
     var my_cells = match[1];
+	var match = script.match(/s"!=(\w+)/);
+	var ttt = match[1];
 	var match = script.match(/;(\w+)\.(\w+)\(this\.name\)/);
 	var split = script.split(match[0]);
 	var avar = match[2];
-	script = split[0]+";"+match[1]+'.'+match[2]+'(this.name);if(yq){if('+my_cells+'[0]&&P==":teams"&&'+my_cells+'.indexOf(this)==-1){if(this.color.substr('+my_cells+'[0].color.search("ff"),2)=="ff"){this.k.'+match[2]+'(this.name+" ["+~~(this.size*this.size/100)+"]");}}}'+split[1];
+	script = split[0]+";"+match[1]+'.'+match[2]+'(this.name);if(yq){if('+my_cells+'[0]&&'+ttt+'==":teams"&&'+my_cells+'.indexOf(this)==-1){if(this.color.substr('+my_cells+'[0].color.search("ff"),2)=="ff"){this.k.'+match[2]+'(this.name+" ["+~~(this.size*this.size/100)+"]");}}}'+split[1];
 	var match = script.match(/indexOf\((\w+)\)\)\)\{/);
 	var split = script.split(match[0]);
-	return split[0]+'indexOf('+match[1]+')))||(this.size>=32&'+my_cells+'[0]&&P==":teams"&&!this.d)){if(yq){if(this.name==""){this.k=new ka(this.h(),"#FFFFFF",true,"#000000");this.k.'+avar+'(this.name);}};'+split[1];
+	return split[0]+'indexOf('+match[1]+')))||(this.size>=32&'+my_cells+'[0]&&'+ttt+'==":teams"&&!this.d)){if(yq){if(this.name==""){this.k=new ka(this.h(),"#FFFFFF",true,"#000000");this.k.'+avar+'(this.name);}};'+split[1];
 	var split = script.split(match[0]);
 }
 
@@ -450,7 +439,7 @@ function addTeamMassHook(script) {
 function addFunctions(script) {
     var match = script.match(/((\w)\.setAcid)/);
 	var split = script.split(match[0]);
-	script = split[0]+match[2]+'.Suicide=function(){var b=new ArrayBuffer(1);(new DataView(b)).setUint8(0, 20);'+sd+'.send(b)};'+match[2]+'.setTskins=function(a){ts=a};'+match[2]+'.setImgur=function(a){imgur=a;};'+match[2]+'.setVColors=function(a){zz=a};'+match[2]+'.setTeamMass=function(a){yq=a;if(a){jQuery(\'#names\').attr(\'checked\',false);check(document.getElementById(\'names\'));}};'+match[2]+'.setBG=function(a){xx=a;if(a){var url=localStorage.getItem("bgurl");if(url==null){url=""};var promp=prompt("Image URL",url);if(null==promp){jQuery("#bgimg").attr("checked",false);check(document.getElementById("bgimg"));xx=!a;return;}localStorage.setItem("bgurl",promp);jQuery("#acid").attr("checked",false);check(document.getElementById("acid"));document.body.style.backgroundImage=\'url("\'+promp+\'")\';xz=confirm("Show Grid Lines?");}};'+match[1]+split[1]
+	script = split[0]+match[2]+'.Suicide=function(){var b=new ArrayBuffer(1);(new DataView(b)).setUint8(0, 20);'+sd+'.send(b)};'+match[2]+'.setTskins=function(a){ts=a};'+match[2]+'.setCustom=function(a){custom=a;};'+match[2]+'.setVColors=function(a){zz=a};'+match[2]+'.setTeamMass=function(a){yq=a;if(a){jQuery(\'#names\').attr(\'checked\',false);check(document.getElementById(\'names\'));}};'+match[2]+'.setBG=function(a){xx=a;if(a){var url=localStorage.getItem("bgurl");if(url==null){url=""};var promp=prompt("Image URL",url);if(null==promp){jQuery("#bgimg").attr("checked",false);check(document.getElementById("bgimg"));xx=!a;return;}localStorage.setItem("bgurl",promp);jQuery("#acid").attr("checked",false);check(document.getElementById("acid"));document.body.style.backgroundImage=\'url("\'+promp+\'")\';xz=confirm("Show Grid Lines?");}};'+match[1]+split[1]
 	var split = script.split("setNames=function(a){");
 	return split[0]+"setNames=function(a){if(!a){jQuery(\'#tmass\').attr(\'checked\',false);check(document.getElementById(\'tmass\'));}"+split[1];
 }
@@ -592,7 +581,7 @@ jQuery(document).ready(function()
     checkbox_div.append('<label><input type="checkbox" id="acid" onchange="setAcid($(this).is(\':checked\'));if($(this).is(\':checked\')){$(\'#bgimg\').attr(\'checked\',false);check(document.getElementById(\'bgimg\'));}">Acid</label>');
 	checkbox_div.append('<label><input type="checkbox" onchange="if(this.checked){jQuery(\'#chart-container\').show()}else{jQuery(\'#chart-container\').hide()}">Show chart</label>');
 	checkbox_div.append('<label><input type="checkbox" onchange="setVColors($(this).is(\':checked\'));">Colorless Viruses</label>');
-	checkbox_div.append('<label><input id="imgur" type="checkbox" onchange="setImgur($(this).is(\':checked\'));">No Imgur Skins</label>');
+	checkbox_div.append('<label><input id="custom" type="checkbox" onchange="setCustom($(this).is(\':checked\'));">No Custom Skins</label>');
 	checkbox_div.append('<label><input type="checkbox" id="tmass" onchange="setTeamMass($(this).is(\':checked\'));">Show Teamed Mass</label>');
 	checkbox_div.append('<label><input id="tskins" type="checkbox" onchange="setTskins($(this).is(\':checked\'));">Team Skins</label>');
 	checkbox_div.append('<label><input id="bgimg" type="checkbox" onchange="setBG($(this).is(\':checked\'));">Set Background</label>');
@@ -1174,9 +1163,13 @@ $(document).keydown(function(e) {
 			document.getElementById("overlays").mozRequestFullScreen();
 		}
 	}
-	//EXPERIMENTAL
-	//Attempts to recover from lag by temporarily pausing Javascript
-	//Alt+R
+	//Menu in Fullscreen on Firefox
+	if (e.keyCode === 46 && navigator.userAgent.match("Firefox") && document.mozFullScreenElement && document.activeElement.type!="text") {
+		$(document).trigger(
+			jQuery.Event( 'keydown', { keyCode: '27', which: '27' } )
+		);
+	}
+	//Attempt Recovery From Script Lag
 	if (e.keyCode == 82&&e.altKey) {
 		if(ldown)return;
 		ldown = true
@@ -1198,7 +1191,6 @@ $(document).keyup(function(e) {
 			showsh = false;
 		}
 	}
-	//EXPERIMENTAL
 	//To prevent extreamly long pause times fron holding down Alt+R
 	if (e.keyCode == 82&&e.altKey) {
 		if(ldown)ldown=false;
@@ -1207,12 +1199,6 @@ $(document).keyup(function(e) {
 
 
 //Agar.io Benchmarker Mod
-//Version 0.4 ~ Edited By Mevin1
-/*
-•Changes
--WTF? An entire other div just for background? nope
--using Date.now() instead of a benchmarker for timing
-*/
 //Create global vars
 var m, benchmarker;
 var benchmarks = ["250mass", "500mass", "1000mass", "2500mass", "5000mass"/*, "Rank10", "Rank1"*/];
