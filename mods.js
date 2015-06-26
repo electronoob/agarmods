@@ -1324,3 +1324,4 @@ function benchcheck(mass) {
             logBenchmark(mass_benchmarks[i] + "mass", mToMs(Date.now() - stats.birthday));
         }
     }
+}
