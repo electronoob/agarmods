@@ -1224,7 +1224,8 @@ function initbench(first) {
         "position": "fixed",
         "padding": "10px",
         "text-align": "center",
-		"pointer-events": "none"/*,
+		"pointer-events": "none",
+		"z-index": "1000"/*,
 		"display": "none"*/
     });
 	if(first){
