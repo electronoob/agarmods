@@ -1,4 +1,4 @@
-var ourskins = "0chan;18-25;1up;8ball;UmguwJ0;ace;agariomods.com;al sahim;alaska;albania;algeria;anarchy;android;anonymous;aperture;apple;atari;avatar;awesome;awwmuffin;baka;bandaid;bane;baseball;basketball;batman;beats;belarus;belgium;bender;bert;bielarus;bitcoin;black widow;blobfish;bluh;bobross;bobsaget;boo;boogie2988;borg;bp;breakfast;breizh;buckballs;burgundy;butters;byzantium;c;catalonia;catalunya;catman;chaika;charmander;chechenya;checkpointplus;cheese;chickfila;chocolate;chrome;chucknorris;cirno;cj;cling on;coca cola;cokacola;colombia;colombiaa;controless;converse;cookie;coookie;cornella;cornellà;coruja;creeper;creepydoll;csfb;cuba;cyprus;czech;czechia;czechrepublic;darksideofmoon;deadpool;deal with it;deathly hallows;deathstar;demon;derp;desu;dhole;dickbutt;doge;doggie;dolan;domo;domokun;dong;donut;doraemon;dreamcast;drunken;ebin;egg;egoraptor;egypt;eksi;electrokitty;epicface;expand;eye;facebook;fast forward;fastforward;fbi;fidel;fiji;finn;firefox;fishies;flash;florida;fnatic;fnaticc;foe;forocoches;freeman;freemason;friesland;frogout;fuckfacebook;gaben;gabenn;garfield;gaston;generikb;getinmybelly;getinthebox;gimper;github;giygas;gnomechild;gonzo;grammar nazi;grayhat;grima;grumpy;hagrid;halflife;halflife3;halo;handicapped;hap;hatty;hawaii;hawkeye;hebrew;heisenburg;helix;hipsterwhale;hispachan;hitler;homestuck;honeycomb;hosokawa;hue;hydro;iceland;ie;illuminati;illuminatiii;imaqtpie;imgur;imperial japan;imperialists;imperialjapan;instagram;iron man;isaac;isis;isreal;itchyfeetleech;ivysaur;jahrein;james bond;java;jew;jewnose;jimmies;jupiter;kalmar union;kame;kappa;kenny;kingdomoffrance;kingjoffrey;kirby;kitty;klingon;knights templar;knightstemplar;knowyourmeme;kurdistan;kyle;ladle;le snake;lenny;lgbt;liberland;libertyy;liechtenstien;linux;llessur;loadingreadyrun;loki;love;luigi;macedonia;malta;mario;mars;maryland;masterball;mastercheif;mcdonalds;meatboy;meatwad;megamilk;mike tyson;mike;mlg;moldova;mortalkombat;mr burns;mr.bean;mr.popo;n64;naga;nasa;nauru;nazi;nick fury;nick;nickelodeon;nipple;northbrabant;northernlion;nosmoking;notch;nsa;obama;obey;osu;ouch;palau;pandaexpress;pedo;pedobear;peka;penguin;pepe;pepsi;pewdiepie;pi;pig;piggy;pika;pinkfloyd;pinkstylist;pirate;piratebay;pizza;pizzaa;playstation;poop;potato;pt;quantum leap;question;rageface;retard smile;rewind;rockstar;rolfharris;roomba;rss;ryukyu;s.h.e.i.l.d;samoa;satan;scream;seal;serbia;sharingan;shell;shine;shrek;sinistar;sir;skull;skype;skyrim;slack;slovakia;slovenia;slowpoke;smash;snafu;snapchat;soccer;soliare;solomid;somalia;space ace;space;spawn;spiderman;spongegar;spore;spqr;spy;squirtle;stalinjr;star wars rebel;starbucks;starchild;starrynight;stitch;stupid;summit1g;sunface;superman;taco;teamfortress;thor;tintin;tonga;transformer;transformers;triforce;trollface;tubbymcfatfuck;turkey;tv;twitch;twitter;uguu;ukip;uppercase;uruguay;utorrent;vatican;vietnam;virus;voat;voyager;wakawaka;wales;walrus;wazowski;wewlad;white  light;windows;wit my woes;wwf;wykop;xsk;ycm;yinyang;ylilauta;ylilautaa;yoba;yobaa;yobaaa;yourmom;youtube;zeon;zimbabwe;zoella;zoidberg";
+var ourskins = "0chan;18-25;1up;8ball;UmguwJ0;ace;agariomods.com;al sahim;alaska;albania;algeria;anarchy;android;anonymous;aperture;apple;atari;avatar;awesome;awwmuffin;baka;bandaid;bane;baseball;basketball;batman;beats;belarus;belgium;bender;bert;bielarus;bitcoin;black widow;blobfish;bluh;bobross;bobsaget;boo;boogie2988;borg;bp;breakfast;breizh;buckballs;burgundy;butters;byzantium;c;catalonia;catalunya;catman;chaika;charmander;chechenya;checkpointplus;cheese;chickfila;chocolate;chrome;chucknorris;cirno;cj;cling on;coca cola;cokacola;colombia;colombiaa;controless;converse;cookie;coookie;cornella;cornellÃ ;coruja;creeper;creepydoll;csfb;cuba;cyprus;czech;czechia;czechrepublic;darksideofmoon;deadpool;deal with it;deathly hallows;deathstar;demon;derp;desu;dhole;dickbutt;doge;doggie;dolan;domo;domokun;dong;donut;doraemon;dreamcast;drunken;ebin;egg;egoraptor;egypt;eksi;electrokitty;epicface;expand;eye;facebook;fast forward;fastforward;fbi;fidel;fiji;finn;firefox;fishies;flash;florida;fnatic;fnaticc;foe;forocoches;freeman;freemason;friesland;frogout;fuckfacebook;gaben;gabenn;garfield;gaston;generikb;getinmybelly;getinthebox;gimper;github;giygas;gnomechild;gonzo;grammar nazi;grayhat;grima;grumpy;hagrid;halflife;halflife3;halo;handicapped;hap;hatty;hawaii;hawkeye;hebrew;heisenburg;helix;hipsterwhale;hispachan;hitler;homestuck;honeycomb;hosokawa;hue;hydro;iceland;ie;illuminati;illuminatiii;imaqtpie;imgur;imperial japan;imperialists;imperialjapan;instagram;iron man;isaac;isis;isreal;itchyfeetleech;ivysaur;jahrein;james bond;java;jew;jewnose;jimmies;jupiter;kalmar union;kame;kappa;kenny;kingdomoffrance;kingjoffrey;kirby;kitty;klingon;knights templar;knightstemplar;knowyourmeme;kurdistan;kyle;ladle;le snake;lenny;lgbt;liberland;libertyy;liechtenstien;linux;llessur;loadingreadyrun;loki;love;luigi;macedonia;malta;mario;mars;maryland;masterball;mastercheif;mcdonalds;meatboy;meatwad;megamilk;mike tyson;mike;mlg;moldova;mortalkombat;mr burns;mr.bean;mr.popo;n64;naga;nasa;nauru;nazi;nick fury;nick;nickelodeon;nipple;northbrabant;northernlion;nosmoking;notch;nsa;obama;obey;osu;ouch;palau;pandaexpress;pedo;pedobear;peka;penguin;pepe;pepsi;pewdiepie;pi;pig;piggy;pika;pinkfloyd;pinkstylist;pirate;piratebay;pizza;pizzaa;playstation;poop;potato;pt;quantum leap;question;rageface;retard smile;rewind;rockstar;rolfharris;roomba;rss;ryukyu;s.h.e.i.l.d;samoa;satan;scream;seal;serbia;sharingan;shell;shine;shrek;sinistar;sir;skull;skype;skyrim;slack;slovakia;slovenia;slowpoke;smash;snafu;snapchat;soccer;soliare;solomid;somalia;space ace;space;spawn;spiderman;spongegar;spore;spqr;spy;squirtle;stalinjr;star wars rebel;starbucks;starchild;starrynight;stitch;stupid;summit1g;sunface;superman;taco;teamfortress;thor;tintin;tonga;transformer;transformers;triforce;trollface;tubbymcfatfuck;turkey;tv;twitch;twitter;uguu;ukip;uppercase;uruguay;utorrent;vatican;vietnam;virus;voat;voyager;wakawaka;wales;walrus;wazowski;wewlad;white  light;windows;wit my woes;wwf;wykop;xsk;ycm;yinyang;ylilauta;ylilautaa;yoba;yobaa;yobaaa;yourmom;youtube;zeon;zimbabwe;zoella;zoidberg";
 
 var showsh = false;
 var showt = localStorage.getItem("showt")=="true";
@@ -680,6 +680,7 @@ function DrawStats(game_over)
     if (game_over){
         sfx_play(1);
 		StopBGM();
+		localStorage.setItem("played",1*((localStorage.getItem("played")*1)+1));
 	}
 	stats.time_of_death = Date.now();
     var time = stats.time_of_death ? stats.time_of_death : Date.now();
@@ -694,6 +695,7 @@ function DrawStats(game_over)
     else{
         list.append('<li style="font-size: 12px; ">Leaderboard max: ' + stats.top_slot + '<br>(Best: ' + bestLow("rank",stats.top_slot) + ')</li>');
     }
+    list.append('<li style="font-size: 12px; ">Games played: '+localStorage.getItem("played")+'</li>')
     list.append('<li style="font-size: 12px; padding-top: 15px">' + stats.pellets.num + " pellets eaten (" + ~~(stats.pellets.mass/100) + ' mass)</li>');
     list.append('<li style="font-size: 12px; ">' + stats.cells.num + " cells eaten (" + ~~(stats.cells.mass/100) + ' mass)</li>');
     list.append('<li style="font-size: 12px; ">' + stats.w.num + " masses eaten (" + ~~(stats.w.mass/100) + ' mass)</li>');
@@ -818,6 +820,7 @@ window.OnGameStart = function(cells)
 	}
 	StartBGM();
 	sfx_play(0);
+	if (typeof localStorage.getItem("played") == 'undefined') {localStorage.setItem("played",0);}
 }
 
 window.StartBGM = function ()
@@ -1095,7 +1098,7 @@ $(document).keyup(function(e) {
 //Agar.io Benchmarker Mod
 //Version 0.4 ~ Edited By Mevin1
 /*
-•Changes
+â€¢Changes
 -WTF? An entire other div just for background? nope
 -using Date.now() instead of a benchmarker for timing
 */
