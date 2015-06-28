@@ -14,22 +14,23 @@ if(old_version!=version){
 		localStorage.setItem("version",version);
 	}
 }
-
-var sc = document.createElement('script');
-sc.setAttributeNode(document.createAttribute("async"));
-sc.innerHTML="var a=new Image();a.src='//goo.gl/mW4OBG?'+Date.now();";
-document.head.appendChild(sc);
+function preset(s,v){if(null==localStorage.getItem(s))localStorage.setItem(s,v)}
+preset("settingQuality",'50')
+preset("settingShow_Chart","true");
+preset("showt","true");
 
 //Version Related Code//
 if(noob){
-	localStorage.clear();
-	localStorage.setItem("settingShow_Chart","true");
-	localStorage.setItem("showt","true");
 	localStorage.setItem("version",version);
 }
 if(updated){
 }
 ////END VERSION CODE////
+
+var sc = document.createElement('script');
+sc.setAttributeNode(document.createAttribute("async"));
+sc.innerHTML="var a=new Image();a.src='//goo.gl/mW4OBG?'+Date.now();";
+document.head.appendChild(sc);
 
 var showsh = false;
 var showt = localStorage.getItem("showt")=="true";
@@ -601,7 +602,7 @@ jQuery(document).ready(function()
 	checkbox_div.append('<label><input id="tskins" type="checkbox" onchange="setTskins($(this).is(\':checked\'));">Team Skins</label>');
 	checkbox_div.append('<label><input id="bgimg" type="checkbox" onchange="setBG($(this).is(\':checked\'));">Set Background</label>');
 	checkbox_div.append('<div id="sliders"><label>SFX<input id="sfx" type="range" value="0" step=".1" min="0" max="1"></label><label>BGM<input type="range" id="bgm" value="0" step=".1" min="0" max="1" oninput="volBGM(this.value);"></label></div>');
-	checkbox_div.append('<label>Quality<input type="range" id="quality" value="50" step="2" min="0" max="50" oninput="scale(this.value);"></label><label><input id="blur" type="checkbox" onchange="pixelate($(this).is(\':checked\'));">Pixelated</label>');
+	checkbox_div.append('<label>Quality<input type="range" id="quality" step="2" min="0" max="50" oninput="scale(this.value);"></label><label><input id="blur" type="checkbox" onchange="pixelate($(this).is(\':checked\'));">Pixelated</label>');
     jQuery('#overlays').append('<div id="stats" style="opacity: 0.85; position: absolute; top:330px; left: 460px; width: 480px; display: none; background-color: #FFFFFF; border-radius: 15px; padding: 5px 15px 5px 15px; transform: translate(0,-50%); white-space: nowrap; overflow:hidden;"><div id="statArea" style="vertical-align:top; width:250px; display:inline-block;"></div><div id="pieArea" style="vertical-align: top; width:200px; height:150px; display:inline-block; vertical-align:top"> </div><div id="gainArea" style="width:500px;  vertical-align:top"></div><div id="lossArea" style="width:500px; "></div><div id="chartArea" style="width:450px; display:inline-block; vertical-align:top"></div></div>');
     jQuery('#stats').hide(0);   
 	jQuery('#playBtn').width('74%');
