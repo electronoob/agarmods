@@ -15,7 +15,7 @@ if(old_version!=version){
 	}
 }
 function preset(s,v){if(null==localStorage.getItem(s))localStorage.setItem(s,v)}
-preset("settingQuality",'50')
+//preset("settingQuality",'50')
 preset("settingShow_Chart","true");
 preset("showt","true");
 
