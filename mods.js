@@ -197,6 +197,7 @@ function agariomodsRuntimeInjection() {
 	oldhtml = oldhtml.replace('-ms-transform:translate(-50%,-50%);', '');
 	oldhtml = oldhtml.replace('transform:translate(-50%,-50%);', '');
 	oldhtml = oldhtml.replace('top:50%;left:50%;','margin:10px;');
+	oldhtml = oldhtml.replace('width:100%;height:100%;', '');
 	tester[0].innerHTML = oldhtml;
 	var script = document.createElement("script");
 	agariomodsRuntimePatches();
@@ -246,6 +247,7 @@ function agariomodsRuntimePatches() {
 	gamejs = addTeamSkinsHook(gamejs);
 	gamejs = addCanvasBGHook(gamejs);
 	gamejs = addVirusColorHook(gamejs);
+	gamejs = addScaleHook(gamejs);
 	gamejs = addFunctions(gamejs);
     gamejs = addOnShowOverlayHook(gamejs);
     gamejs = addOnHideOverlayHook(gamejs); //Because I don't want to detect when we hide it, only when the game does.
@@ -425,6 +427,12 @@ function addTeamSkinsHook(script) {
 	return split[0]+'(":teams"!='+match[1]+'||ts)'+split[1];
 }
 
+function addScaleHook(script){
+	var match = script.match(/innerHeight;(\w+)\(\)/);
+	var split = script.split(match[0]);
+	return split[0]+'innerHeight;'+match[1]+'();scale(document.getElementById("quality").value)'+split[1];
+}
+
 function addTeamMassHook(script) {
 	var match = script.match(/1==(\w+)\.length&&\(/);
     var my_cells = match[1];
@@ -592,10 +600,31 @@ jQuery(document).ready(function()
 	checkbox_div.append('<label><input type="checkbox" id="tmass" onchange="setTeamMass($(this).is(\':checked\'));">Show Teamed Mass</label>');
 	checkbox_div.append('<label><input id="tskins" type="checkbox" onchange="setTskins($(this).is(\':checked\'));">Team Skins</label>');
 	checkbox_div.append('<label><input id="bgimg" type="checkbox" onchange="setBG($(this).is(\':checked\'));">Set Background</label>');
-	checkbox_div.append('<div id="sliders"><label>SFX<input id="sfx" type="range" value="0" step=".1" min="0" max="1"></label><label>BGM<input type="range" id="bgm" value="0" step=".1" min="0" max="1" oninput="volBGM(this.value);"></label></div>');    jQuery('#overlays').append('<div id="stats" style="opacity: 0.85; position: absolute; top:330px; left: 460px; width: 480px; display: none; background-color: #FFFFFF; border-radius: 15px; padding: 5px 15px 5px 15px; transform: translate(0,-50%); white-space: nowrap; overflow:hidden;"><div id="statArea" style="vertical-align:top; width:250px; display:inline-block;"></div><div id="pieArea" style="vertical-align: top; width:200px; height:150px; display:inline-block; vertical-align:top"> </div><div id="gainArea" style="width:500px;  vertical-align:top"></div><div id="lossArea" style="width:500px; "></div><div id="chartArea" style="width:450px; display:inline-block; vertical-align:top"></div></div>');
+	checkbox_div.append('<div id="sliders"><label>SFX<input id="sfx" type="range" value="0" step=".1" min="0" max="1"></label><label>BGM<input type="range" id="bgm" value="0" step=".1" min="0" max="1" oninput="volBGM(this.value);"></label></div>');
+	checkbox_div.append('<label>Quality<input type="range" id="quality" value="50" step="2" min="0" max="50" oninput="scale(this.value);"></label><label><input id="blur" type="checkbox" onchange="pixelate($(this).is(\':checked\'));">Pixelated</label>');
+    jQuery('#overlays').append('<div id="stats" style="opacity: 0.85; position: absolute; top:330px; left: 460px; width: 480px; display: none; background-color: #FFFFFF; border-radius: 15px; padding: 5px 15px 5px 15px; transform: translate(0,-50%); white-space: nowrap; overflow:hidden;"><div id="statArea" style="vertical-align:top; width:250px; display:inline-block;"></div><div id="pieArea" style="vertical-align: top; width:200px; height:150px; display:inline-block; vertical-align:top"> </div><div id="gainArea" style="width:500px;  vertical-align:top"></div><div id="lossArea" style="width:500px; "></div><div id="chartArea" style="width:450px; display:inline-block; vertical-align:top"></div></div>');
     jQuery('#stats').hide(0);   
 	jQuery('#playBtn').width('74%');
 });
+
+window.pixelate=function(enabled){
+  enabled?$("#canvas").css({"image-rendering":"optimizeSpeed",
+  "image-rendering":"-moz-crisp-edges",
+  "image-rendering":"-o-crisp-edges",
+  "image-rendering":"-webkit-optimize-contrast",
+  "image-rendering":"optimize-contrast",
+  "image-rendering":"crisp-edges",
+  "image-rendering":"pixelated"}):$("#canvas").css("image-rendering","");
+  }
+
+window.scale=function(scale){
+	var scale = 150-parseFloat(scale);
+	var c=document.getElementById('canvas');
+	c.height=c.height;var cx=c.getContext('2d');
+	cx.clearRect(0,0,c.height,c.width);
+	cx.scale(100/scale,100/scale);
+	c.style.zoom=scale+'%';
+}
 
 function ResetChart() 
 {
