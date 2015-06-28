@@ -624,7 +624,9 @@ window.scale=function(scale){
 	c.height=c.height;var cx=c.getContext('2d');
 	cx.clearRect(0,0,c.height,c.width);
 	cx.scale(100/scale,100/scale);
-	c.style.zoom=scale+'%';
+	//c.style.zoom=scale+'%'; //cuz firefox can't handle the simplicity
+	c.style.transformOrigin='0 0';
+	c.style.transform='scale('+scale/100+')';
 }
 
 function ResetChart() 
