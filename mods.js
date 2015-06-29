@@ -1367,27 +1367,75 @@ function benchcheck(mass) {
 
 window.openServerbrowser=function() {
 	$('#serverBrowser').fadeIn();
-	$("#serverRegion").text(jQuery('#region').val())
+	getServers();
 }
-
 window.closeServerbrowser=function() {
 	$('#serverBrowser').fadeOut();
 }
-
 var st = document.createElement("style");
-st.innerHTML = ".overlay{line-height:1.2;margin:0;font-family:sans-serif;text-align:center;position:absolute;top:0;left:0;width:100%;height:100%;z-index:1000;background-color:rgba(0,0,0,0.2)}.popupbox{position:absolute;height:100%;width:60%;left:20%;background-color:rgba(255,255,255,0.95);box-shadow:0 0 20px #000}.popheader{position:absolute;top:0;width:100%;height:50px;background-color:rgba(200,200,200,0.5)}.browserfilter{position:absolute;padding:5px;top:50px;width:100%;height:60px;background-color:rgba(200,200,200,0.5)}.scrollable{position:absolute;border-top:#eee 1px solid;border-bottom:#eee 1px solid;width:100%;top:50px;bottom:50px;overflow:auto}.popupbuttons{background-color:rgba(200,200,200,0.4);height:50px;position:absolute;bottom:0;width:100%}.popupbox td,th{padding:5px}.popupbox tbody tr{border-top:#ccc solid 1px}#tooltip{display:inline;position:relative}#tooltip:hover:after{background:#333;background:rgba(0,0,0,.8);border-radius:5px;bottom:26px;color:#fff;content:attr(title);left:20%;padding:5px 15px;position:absolute;z-index:98;width:220px}#chat{z-index:2000;width:500px;position:absolute;right:15px;bottom:50px}#chatinput{bottom:0;position:absolute;opacity:.8}#chatlines a{color:#086A87}#chatlines{position:absolute;bottom:40px;width:500px;color:#333;word-wrap:break-word;box-shadow:0 0 10px #111;background-color:rgba(0,0,0,0.1);border-radius:5px;padding:5px;height:200px;overflow:auto}.listing>span{display:block;font-size:11px;font-weight:400;color:#999}.list{padding:0 0;list-style:none;display:block;font:12px/20px 'Lucida Grande',Verdana,sans-serif}.listing{border-bottom:1px solid #e8e8e8;display:block;padding:10px 12px;font-weight:700;color:#555;text-decoration:none;cursor:pointer;line-height:18px}li:last-child > .listing{border-radius:0 0 3px 3px}.listing:hover{background:#e5e5e5}";
+st.innerHTML = ".overlay{line-height:1.2;margin:0;font-family:sans-serif;text-align:center;position:absolute;top:0;left:0;width:100%;height:100%;z-index:1000;background-color:rgba(0,0,0,0.2)}.popupbox{position:absolute;height:100%;width:60%;left:20%;background-color:rgba(255,255,255,0.95);box-shadow:0 0 20px #000}.serveritem {border-bottom: 1px solid #ccc;padding:10px;}.serveritem:hover {background-color:#E9FCFF;}.popheader{position:absolute;top:0;width:100%;height:50px;background-color:rgba(200,200,200,0.5)}.scrollable{position:absolute;border-top:#eee 1px solid;border-bottom:#eee 1px solid;width:100%;top:50px;bottom:50px;overflow:auto}.popupbuttons{background-color:rgba(200,200,200,0.4);height:50px;position:absolute;bottom:0;width:100%}";
 document.head.appendChild(st);
+var script = document.createElement('script');
+script.src = "https://cdn.socket.io/socket.io-1.3.5.js";
+document.getElementsByTagName('head')[0].appendChild(script);
+var locations = new Array("Amsterdam", "Frankfurt", "London", "Paris", "Atlanta", "Chicago", "Dallas", "Los Angeles", "Miami", "New Jersey", "Seattle", "Silicon Valley", "Sydney", "Tokyo");
+locations.sort();
+function getServers() {
+	$('#serverlist').empty();
+	var latencylist = Array();
+	$.each(locations, function(index, value) {
+		for (var i = 1; i <= 2; i++) {
+			port = (1500 + i)
+			serverid = value.toLowerCase().replace(" ", "") + port;
+			$('#serverlist').append('<div class="serveritem" id="' + serverid + '" onclick="connect(\'ws://' + value.toLowerCase().replace(" ", "") + '.iomods.com:' + port + '\', \'\');closeServerbrowser();"><b style="color: #222">' + value + ' #' + i + '</b><br>\
+			<i style="color: #999"><span id="player">fetching data...</span> | <span id="latency">-</span></i></div>');
+			latencylist.push(new Array(value.toLowerCase().replace(" ", ""), port));
+		};
 
-jQuery(document).ready(function() {
-	// CODE
-	jQuery('body').append('<div id="serverBrowser" class="overlay" style="display:none"><div class="valign">\
-	<div class="popupbox"><div class="popheader"><h3>Serverbrowser</h3></div>\
-	<div class="scrollable"><center><ol class="list"><li><a href class="listing" onclick="connect(\'ws://amsterdam.iomods.com:1501\');return false">Amsterdam #1</a></li><li><a href class="listing" onclick="connect(\'ws://amsterdam.iomods.com:1502\');return false">Amsterdam #2</a></li><li><a href class="listing" onclick="connect(\'ws://atlanta.iomods.com:1501\');return false">Atlanta #1</a></li><li><a href class="listing" onclick="connect(\'ws://atlanta.iomods.com:1502\');return false">Atlanta #2</a></li><li><a href class="listing" onclick="connect(\'ws://chicago.iomods.com:1501\');return false">Chicago #1</a></li><li><a href class="listing" onclick="connect(\'ws://chicago.iomods.com:1502\');return false">Chicago #2</a></li><li><a href class="listing" onclick="connect(\'ws://dallas.iomods.com:1501\');return false">Dallas #1</a></li><li><a href class="listing" onclick="connect(\'ws://dallas.iomods.com:1502\');return false">Dallas #2</a></li><li><a href class="listing" onclick="connect(\'ws://frankfurt.iomods.com:1501\');return false">Frankfurt #1</a></li<li><a href class="listing" onclick="connect(\'ws://frankfurt.iomods.com:1502\');return false">Frankfurt #2</a></li><li><a href class="listing" onclick="connect(\'ws://london.iomods.com:1501\');return false">London #1</a></li><li><a href class="listing" onclick="connect(\'ws://london.iomods.com:1502\');return false">London #2</a></li><li><a href class="listing" onclick="connect(\'ws://losangeles.iomods.com:1501\');return false">Los Angeles #1</a></li><li><a href class="listing" onclick="connect(\'ws://losangeles.iomods.com:1502\');return false">Los Angeles #2</a></li><li><a href class="listing" onclick="connect(\'ws://miami.iomods.com:1501\');return false">Miami #1</a></li><li><a href class="listing" onclick="connect(\'ws://miami.iomods.com:1502\');return false">Miami #2</a></li><li><a href class="listing" onclick="connect(\'ws://newjersy.iomods.com:1501\');return false">New Jersy #1</a></li><li><a href class="listing" onclick="connect(\'ws://newjersy.iomods.com:1502\');return false">New Jersy #2</a></li><li><a href class="listing" onclick="connect(\'ws://paris.iomods.com:1501\');return false">Paris #1</a></li><li><a href class="listing" onclick="connect(\'ws://paris.iomods.com:1502\');return false">Paris #2</a></li><li><a href class="listing" onclick="connect(\'ws://seattle.iomods.com:1501\');return false">Seattle #1</a></li><li><a href class="listing" onclick="connect(\'ws://seattle.iomods.com:1502\');return false">Seattle #2</a></li><li><a href class="listing" onclick="connect(\'ws://siliconvalley.iomods.com:1501\');return false">Silicone Valley #1</a></li><li><a href class="listing" onclick="connect(\'ws://siliconvalley.iomods.com:1502\');return false">Silicone Valley #2</a></li><li><a href class="listing" onclick="connect(\'ws://tokyo.iomods.com:1501\');return false">Tokyo #1</a></li><li><a href class="listing" onclick="connect(\'ws://tokyo.iomods.com:1502\');return false">Tokyo #2</a></li></ol></center></div>\
-	<div class="popupbuttons"><button onclick="closeServerbrowser()" type="button" style="margin: 4px" class="btn btn-danger">Back</button>\
-	</div></div></div></div>\
-	');
-	jQuery('#instructions').remove();
-	jQuery('#settings').show();
-	jQuery('#settings').prepend('<button type="button" id="opnBrowser" onclick="openServerbrowser();" style="width: 100%" class="btn btn-default">Serverbrowser</button><br><br>')
-
+	});
+	serverinfo(latencylist, 0);
+}
+function serverinfo(list, index) {
+	if (index >= list.length)
+		return;
+	value = list[index];
+	serversocket = io.connect("http://" + value[0] + '.iomods.com:' + (10000 + value[1]), {
+		forceNew : true,
+		reconnection : false
+	});
+	var started = Date.now();
+	serversocket.emit("ping");
+	serversocket.on('connect_error', function() {
+		$('#' + (value[0] + value[1]) + ' #player').text("No information");
+		$('#' + (value[0] + value[1]) + ' #latency').css("color", "#f00");
+		$('#' + (value[0] + value[1]) + ' #latency').text("Failed");
+		serverinfo(list, index+1);
+	});
+	serversocket.on('disconnect', function() {
+		serverinfo(list, index+1);
+	});
+	serversocket.on('info', function(data) {
+		$('#' + (value[0] + value[1]) + ' #player').text(data.player + " Player");
+		serversocket.disconnect();
+	});
+	serversocket.on('pong', function() {
+		latency = (Date.now() - started);
+		if(latency < 120) {
+			$('#' + (value[0] + value[1]) + ' #latency').css("color", "#19A652");
+		}
+		else if(latency < 250) {
+			$('#' + (value[0] + value[1]) + ' #latency').css("color", "#E1BD2C");
+		}
+		else {
+			$('#' + (value[0] + value[1]) + ' #latency').css("color", "#F00");
+		}
+		$('#' + (value[0] + value[1]) + ' #latency').text(latency + "ms");
+		serversocket.emit('receive');
+	});
+}
+$(document).ready(function() {
+	$('body').append('<div id="serverBrowser" class="overlay" style="display:none"><div class="valign"><div class="popupbox"><div class="popheader"><h3>Serverbrowser</h3></div>\
+	<div class="scrollable"><center><div id="serverlist"></div></center></div>	<div class="popupbuttons"><button onclick="closeServerbrowser()" type="button" style="margin: 4px"\
+	 class="btn btn-danger">Back</button></div></div></div></div>');
+	$('#settings').prepend('<button type="button" id="opnBrowser" onclick="openServerbrowser();" style="width: 100%" class="btn btn-default">Serverbrowser</button><br><br>')
 });
