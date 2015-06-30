@@ -289,6 +289,7 @@ function agariomodsRuntimeHacks() {
 
 jQuery('#helloDialog').css({opacity: '0.85'});	
 jQuery('#helloDialog').css({width: '450px'});
+jQuery('#helloDialog').css({transform: 'none !important'});
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundRepeat = 'no-repeat';
 	document.body.style.backgroundAttachment = "fixed";
