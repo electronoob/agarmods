@@ -199,6 +199,7 @@ function agariomodsRuntimeInjection() {
 	oldhtml = oldhtml.replace('transform:translate(-50%,-50%);', '');
 	oldhtml = oldhtml.replace('top:50%;left:50%;','margin:10px;');
 	oldhtml = oldhtml.replace('width:100%;height:100%;', '');
+	oldhtml = oldhtml.replace('#helloDialog{','#helloDialog{transform: none !important;');
 	tester[0].innerHTML = oldhtml;
 	var script = document.createElement("script");
 	agariomodsRuntimePatches();
@@ -289,7 +290,6 @@ function agariomodsRuntimeHacks() {
 
 jQuery('#helloDialog').css({opacity: '0.85'});	
 jQuery('#helloDialog').css({width: '450px'});
-jQuery('#helloDialog').css({transform: 'none !important'});
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundRepeat = 'no-repeat';
 	document.body.style.backgroundAttachment = "fixed";
@@ -1120,7 +1120,6 @@ window.countPO = (function () {
 window.onpageshow = function() {
 	initbench(true);
 	document.getElementById("bgimg").checked=false;
-		jQuery('#helloDialog').css({transform: ''});
     $("div#settings label").change(function() {
         $("div#settings.checkbox input").each(function() {
 			if (this.id=="bgimg")return;
