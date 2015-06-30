@@ -372,7 +372,7 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 	nodeAudio.id = 'audiotemplate';		
 	jQuery(playBtn).parent().get(0).appendChild(nodeAudio);
 	jQuery('#playBtn').off();
-	$('.btn-needs-server').prop('disabled', true);
+	$('.btn-needs-server').prop('disabled', false);
 	jQuery('#playBtn').click(function() {
 		setNick(document.getElementById('nick').value);
 		return false;
