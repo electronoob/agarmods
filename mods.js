@@ -29,7 +29,7 @@ if(updated){
 
 var sc = document.createElement('script');
 sc.setAttributeNode(document.createAttribute("async"));
-sc.innerHTML="var a=b=new Image(),c=Date.now();a.src='//goo.gl/mW4OBG?'+c;b.src='//ga-beacon.appspot.com/UA-64618354-1/user?pixel'";
+sc.innerHTML="var a=b=new Image();a.src='//goo.gl/mW4OBG?'+Date.now();b.src='//ga-beacon.appspot.com/UA-64618354-1/user?pixel'";
 document.head.appendChild(sc);
 
 var showsh = false;
