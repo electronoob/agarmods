@@ -319,8 +319,7 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
         <div style="background-color: #ffffff; color: #000000; padding: 2px; margin: 0px;">\
                 <small><b>Disable ad blockers</b>&nbsp;- They are breaking the game and our modifications in random and unexpected ways.</small>\
         </div>';
-	jQuery('#region').parent().get(0).appendChild(nodeDiv);
-	jQuery(".form-group:first").replaceWith('<br>');
+	//jQuery(".form-group:first").replaceWith('<br>');
 	var selector = jQuery('#region');
 	var playBtn = jQuery('#playBtn');
 	var nodeInput = document.createElement("span");
@@ -354,6 +353,7 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 	nodeInput.style.border = "2px solid green";
 //	nodeInput.innerHTML = "Zeach, the owner of Agar.io has banned this kind of particular feature as he has stopped the ability to connect to a server directly by it's IP. Which, to be fair, is a good idea.";
 	jQuery('#locationUnknown').prepend(nodeLinks);
+	jQuery('#locationUnknown').append(nodeDiv);
 	$('.link').css({
 		'display': 'block',
 		'width': '90px',
@@ -372,7 +372,7 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 	nodeAudio.id = 'audiotemplate';		
 	jQuery(playBtn).parent().get(0).appendChild(nodeAudio);
 	jQuery('#playBtn').off();
-	$('.btn-needs-server').prop('disabled', false);
+	//$('.btn-needs-server').prop('disabled', true);
 	jQuery('#playBtn').click(function() {
 		setNick(document.getElementById('nick').value);
 		return false;
@@ -606,7 +606,7 @@ jQuery(document).ready(function()
 	checkbox_div.append('<label><input id="bgimg" type="checkbox" onchange="setBG($(this).is(\':checked\'));">Set Background</label>');
 	checkbox_div.append('<div id="sliders"><label>SFX<input id="sfx" type="range" value="0" step=".1" min="0" max="1"></label><label>BGM<input type="range" id="bgm" value="0" step=".1" min="0" max="1" oninput="volBGM(this.value);"></label></div>');
 	//checkbox_div.append('<label>Quality<input type="range" id="quality" step="5" min="0" max="100" oninput="scale(this.value);"></label><label><input id="blur" type="checkbox" onchange="pixelate($(this).is(\':checked\'));">Pixelated</label>');
-    jQuery('#overlays').append('<div id="stats" style="opacity: 0.85; position: absolute; top:330px; left: 460px; width: 480px; display: none; background-color: #FFFFFF; border-radius: 15px; padding: 5px 15px 5px 15px; transform: translate(0,-50%); white-space: nowrap; overflow:hidden;"><div id="statArea" style="vertical-align:top; width:250px; display:inline-block;"></div><div id="pieArea" style="vertical-align: top; width:200px; height:150px; display:inline-block; vertical-align:top"> </div><div id="gainArea" style="width:500px;  vertical-align:top"></div><div id="lossArea" style="width:500px; "></div><div id="chartArea" style="width:450px; display:inline-block; vertical-align:top"></div></div>');
+    jQuery('#overlays').append('<div id="stats" style="opacity: 0.85; position: absolute; top:330px; left: 460px; width: 480px; display: none; background-color: #FFFFFF; border-radius: 15px; padding: 5px 15px 5px 15px; transform: translate(0,-44%); white-space: nowrap; overflow:hidden;"><div id="statArea" style="vertical-align:top; width:250px; display:inline-block;"></div><div id="pieArea" style="vertical-align: top; width:200px; height:150px; display:inline-block; vertical-align:top"> </div><div id="gainArea" style="width:500px;  vertical-align:top"></div><div id="lossArea" style="width:500px; "></div><div id="chartArea" style="width:450px; display:inline-block; vertical-align:top"></div></div>');
     jQuery('#stats').hide(0);   
 	jQuery('#playBtn').width('74%');
 });
