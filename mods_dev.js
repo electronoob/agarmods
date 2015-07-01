@@ -364,7 +364,7 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 		'background-color': '#428bca',
 		'color': 'white'
 	});
-	jQuery('#locationUnknown').prepend('<input id="apikey" value="'+getCookie("apikey")+'" type="password" style="margin-top: 2px" class="form-control" placeholder="Api Key | Required to use chat" />');
+	jQuery('#locationUnknown').prepend('<input id="apikey" value="'+getCookie("apikey")+'" type="password" style="margin-top: 2px; display: none;" class="form-control" placeholder="Api Key | Required to use chat" />');
 	$('.link').hover(function(){$(this).css('background-color', '#529bda');$(this).removeClass("active");},function(){$(this).css('background-color', '#428bca');$(this).removeClass("active");});
 //	jQuery(playBtn).parent().get(0).appendChild(nodeInput);
 //	jQuery(playBtn).parent().get(0).appendChild(nodeSpan);
