@@ -1424,7 +1424,7 @@ function useChat(state) {
 	chatEnabled = state;
 }
 
-function connectPrivate(location, i) {
+window.connectPrivate = function(location, i) {
 	ip = location.toLowerCase().replace(" ", "") + '.iomods.com';
 	var port = (1500+parseInt(i));
 	connect("ws://"+ ip + ":" + port, "");
@@ -1518,7 +1518,7 @@ function getServers() {
 		for (var i = 1; i <= 2; i++) {
 
 			serverid = value.toLowerCase().replace(" ", "") + i;
-			$('#serverlist').append('<a href class="serveritem" id="' + serverid + '" onclick="connectPrivate(\''+value+'\', \''+i+'\');closeServerbrowser();return false;><b style="color: #222">' + value + ' #' + i + '</b><br>\
+			$('#serverlist').append('<a href class="serveritem" id="' + serverid + '" onclick="connectPrivate(\''+value+'\', \''+i+'\');closeServerbrowser();return false;"><b style="color: #222">' + value + ' #' + i + '</b><br>\
 			<i style="color: #999"><span id="player">fetching data...</span> <i style="color: #ccc" class="fa fa-users" /> | </i><span id="latency"><i class="fa fa-signal"></i> <span id="latencyres"></span></span></a>'); //</i>
 
 			latencylist.push(new Array(value.toLowerCase().replace(" ", ""), i));
