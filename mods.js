@@ -15,7 +15,7 @@ if(old_version!=version){
 	}
 }
 function preset(s,v){if(null==localStorage.getItem(s))localStorage.setItem(s,v)}
-preset("settingQuality",'50')
+//preset("settingQuality",'50')
 preset("settingShow_Chart","true");
 preset("showt","true");
 
@@ -49,7 +49,7 @@ setInterval(function(){if(showsh)DrawStats(false);if(showt)count();},300);
 
 var gamejs = "", modBlocking = true;
 var tester = document.getElementsByTagName("script");
-var i = 0, main_out_url = document.location.protocol+"//agar.io/main_out.js", discovered_mainouturl = 0;
+var i = 0;
 var W = '';
 var Ja = '';
 var b = '';
@@ -135,46 +135,38 @@ var chart_G = '';
 var chart_Na= '';
 var chart_k = '';
 var sd = '';
+var mainout = window.location.protocol+"//agar.io/main_out.js";
 
-for (i=0; i<tester.length; i++ ){
-	src = tester[i].src;
-	if (src.substring(0, main_out_url.length ) == main_out_url) {
-		discovered_mainouturl = src.replace("//agar.io/","");
-	}
-}
-
-if(discovered_mainouturl != 0) {
-	httpGet(discovered_mainouturl, function(data) {
-		gamejs = "window.agariomods = " + data.replace("socket open","socket open (agariomods.com mod in place)");
-		gamejs = gamejs.replace(/\n/g, "");
-		sd=gamejs.substr(gamejs.search(/\w.send/),1);
-		offset = gamejs.search("..=\"poland;");
-		Ja =  gamejs.substr(offset,2);
-		offset = gamejs.search(".....src=\"skins");
-		b = gamejs.substr(offset+2,1);
-		offset = gamejs.search(/\w+\.indexOf\(.\)\?/);
-		sk = gamejs.substr(offset,2);
-		offset = gamejs.search(".."+b+"..src");
-		W = gamejs.substr(offset,1);
-		//this.P&&b.strokeText
-		var components = /this\.(.)&&.\.strokeText/.exec(gamejs);
-		pandb = components[1];
-		var components = /strokeText\((.{1,14})\);/.exec(gamejs);
-		c3eg2 = components[1];
-		var components = /\((.)\=..x,.\=..y\)/.exec(gamejs);		
-		chart_s = components[1];
-		var components = /\(.\=(.).x,.\=..y\)/.exec(gamejs);
-		chart_m = components[1];
-		var components = /(.)\=Math.max\(.,..\(\)\);/.exec(gamejs);
-		chart_G = components[1];
-		var components = /.\=Math.max\(.,(..)\(\)\);/.exec(gamejs);
-		chart_Na = components[1];
-		var components = /(.)\[0\]\.name\&\&\(/.exec(gamejs);
-		chart_k = components[1];
-		//console.log ("chartmod info: chart_m = "+chart_m+";  chart_s = "+chart_s+"; chart_G = "+chart_G+"; chart_Na = "+chart_Na+"; chart_k = "+chart_k);
-		agariomodsRuntimeInjection();
-	});
-}
+httpGet(mainout, function(data) {
+	gamejs = "window.agariomods = " + data.replace("socket open","socket open (agariomods.com mod in place)");
+	gamejs = gamejs.replace(/\n/g, "");
+	sd=gamejs.substr(gamejs.search(/\w.send/),1);
+	offset = gamejs.search("..=\"poland;");
+	Ja =  gamejs.substr(offset,2);
+	offset = gamejs.search(".....src=\"skins");
+	b = gamejs.substr(offset+2,1);
+	offset = gamejs.search(/\w+\.indexOf\(.\)\?/);
+	sk = gamejs.substr(offset,2);
+	offset = gamejs.search(".."+b+"..src");
+	W = gamejs.substr(offset,1);
+	//this.P&&b.strokeText
+	var components = /this\.(.)&&.\.strokeText/.exec(gamejs);
+	pandb = components[1];
+	var components = /strokeText\((.{1,14})\);/.exec(gamejs);
+	c3eg2 = components[1];
+	var components = /\((.)\=..x,.\=..y\)/.exec(gamejs);		
+	chart_s = components[1];
+	var components = /\(.\=(.).x,.\=..y\)/.exec(gamejs);
+	chart_m = components[1];
+	var components = /(.)\=Math.max\(.,..\(\)\);/.exec(gamejs);
+	chart_G = components[1];
+	var components = /.\=Math.max\(.,(..)\(\)\);/.exec(gamejs);
+	chart_Na = components[1];
+	var components = /(.)\[0\]\.name\&\&\(/.exec(gamejs);
+	chart_k = components[1];
+	//console.log ("chartmod info: chart_m = "+chart_m+";  chart_s = "+chart_s+"; chart_G = "+chart_G+"; chart_Na = "+chart_Na+"; chart_k = "+chart_k);
+	agariomodsRuntimeInjection();
+});
 
 // XMLHttp, because apparently raven is doing funky stuff with jQuery
 function httpGet(theUrl, callback) {
@@ -313,20 +305,20 @@ jQuery('#helloDialog').css({width: '450px'});
 	nodeDiv.style.marginTop = "0";
 	nodeDiv.style.maxHeight = "200px"; //The settings and the ad are being pushed down too far on some screens (1366*768). ~Mevin1
 	nodeDiv.style.overflow = "auto"; //add scroll bar
-	nodeDiv.innerHTML += '1.9.9: New agariomods private servers, accessable, through the server browser.\
+	nodeDiv.innerHTML += '1.9.9: New agariomods private servers, accessable, through the server browser. \
 <b>Use custom skins by putting *YOURACCOUNTNAME</b><br><h3>THIS IS NOT STAGE 3</h3><a href="http://connect.agariomods.com/" target="_blank"><font color="pink">Register now with agariomods connect because you will need it for some soon to be released exciting new features.</font></a><br>\
 Go catch up with the <a target="_blank" href="http://agariomods.com/documentation.html">Documentation</a><br><h4><a href="http://www.agariomods.com/help.html" target="_blank"><font color="pink">CLICK HERE FOR HELP</font></a></h4>\
         <div style="background-color: #ffffff; color: #000000; padding: 2px; margin: 0px;">\
                 <small><b>Disable ad blockers</b>&nbsp;- They are breaking the game and our modifications in random and unexpected ways.</small>\
         </div>';
-	//jQuery(".form-group:first").replaceWith('<br>');
+	jQuery(".form-group:first").replaceWith('<br>');
 	var selector = jQuery('#region');
 	var playBtn = jQuery('#playBtn');
 	var nodeInput = document.createElement("span");
 	var nodeSpan = document.createElement("span");
 	var nodeBr = document.createElement("br");
 	var nodeLinks = document.createElement("div");
-	nodeLinks.innerHTML = "<ul style='position:relative;left:-25px;width:450px;background-color:#428bca;text-align:center;font:16px bold,sans-serif;list-style-type:none;margin:-8px 0 3px;padding:0;overflow:hidden;'><li style='float:left;'><a class='link' href='http://skins.agariomods.com' target='_blank'>SKINS</a><li style='float:left;'><a class='link' href='http://agariomods.com/chat.html' target='_blank'>CHAT</a><li style='float:left;'><a class='link' href='http://agariomods.com' target='_blank'>WEBSITE</a><li style='float:left;'><a class='link' href='http://agariomods.com/help.html' target='_blank'>HELP</a></li><li style='float:left;'><a class='link' style='border-right:0 !important' href onclick=\"alert('---HOTKEYS---\\nHold Z - Show Stats In-Game\\nSuicide - Alt+Q\\nToggle Benchmarker - T\\nClear Benchmarks - Alt+T\\nFPS Counter - Alt+1\\nPackets In/Out Per Second - Alt+2\\nTry Script Lag Recover - Alt+R'+(navigator.userAgent.match('Firefox')?'\\nFirefox Fullscreen - Ctrl+F\\nShow Menu While in Fullscreen - Delete':''));return false;\" target='_blank'>HOTKEYS</a></li></ul>";
+	nodeLinks.innerHTML = "<ul style='position:relative;left:-25px;width:450px;background-color:#428bca;text-align:center;font:16px bold,sans-serif;list-style-type:none;margin:6px 0 3px;padding:0;overflow:hidden;'><li style='float:left;'><a class='link' href='http://skins.agariomods.com' target='_blank'>SKINS</a><li style='float:left;'><a class='link' href='http://agariomods.com/chat.html' target='_blank'>CHAT</a><li style='float:left;'><a class='link' href='http://agariomods.com' target='_blank'>WEBSITE</a><li style='float:left;'><a class='link' href='http://agariomods.com/help.html' target='_blank'>HELP</a></li><li style='float:left;'><a class='link' style='border-right:0 !important' href onclick=\"alert('---HOTKEYS---\\nHold Z - Show Stats In-Game\\nSuicide - Alt+Q\\nToggle Benchmarker - T\\nClear Benchmarks - Alt+T\\nFPS Counter - Alt+1\\nPackets In/Out Per Second - Alt+2\\nTry Script Lag Recover - Alt+R'+(navigator.userAgent.match('Firefox')?'\\nFirefox Fullscreen - Ctrl+F\\nShow Menu While in Fullscreen - Delete':''));return false;\" target='_blank'>HOTKEYS</a></li></ul>";
 	nodeLinks.style.marginLeft='10px';
 	nodeSpan.className = "glyphicon glyphicon-refresh btn btn-info";
 	nodeSpan.style.fontSize = "1.5em";
@@ -456,9 +448,12 @@ function addTeamMassHook(script) {
 
 
 function addFunctions(script) {
+	var match = script.match(/(\w+)\("#connecting"\)\.show\(\),(\w+)\(\)/);
+	var one = match[1];
+	var two = match[2];
     var match = script.match(/((\w)\.setAcid)/);
 	var split = script.split(match[0]);
-	script = split[0]+match[2]+'.Suicide=function(){var b=new ArrayBuffer(1);(new DataView(b)).setUint8(0, 20);'+sd+'.send(b)};'+match[2]+'.setTskins=function(a){ts=a};'+match[2]+'.setCustom=function(a){custom=a;};'+match[2]+'.setVColors=function(a){zz=a};'+match[2]+'.setTeamMass=function(a){yq=a;if(a){jQuery(\'#names\').attr(\'checked\',false);check(document.getElementById(\'names\'));}};'+match[2]+'.setBG=function(a){xx=a;if(a){var url=localStorage.getItem("bgurl");if(url==null){url=""};var promp=prompt("Image URL",url);if(null==promp){jQuery("#bgimg").attr("checked",false);check(document.getElementById("bgimg"));xx=!a;return;}localStorage.setItem("bgurl",promp);jQuery("#acid").attr("checked",false);check(document.getElementById("acid"));document.body.style.backgroundImage=\'url("\'+promp+\'")\';xz=confirm("Show Grid Lines?");}};'+match[1]+split[1]
+	script = split[0]+match[2]+'.setR=function(){'+one+'("#connecting").show(),'+two+'()};'+match[2]+'.Suicide=function(){var b=new ArrayBuffer(1);(new DataView(b)).setUint8(0, 20);'+sd+'.send(b)};'+match[2]+'.setTskins=function(a){ts=a};'+match[2]+'.setCustom=function(a){custom=a;};'+match[2]+'.setVColors=function(a){zz=a};'+match[2]+'.setTeamMass=function(a){yq=a;if(a){jQuery(\'#names\').attr(\'checked\',false);check(document.getElementById(\'names\'));}};'+match[2]+'.setBG=function(a){xx=a;if(a){var url=localStorage.getItem("bgurl");if(url==null){url=""};var promp=prompt("Image URL",url);if(null==promp){jQuery("#bgimg").attr("checked",false);check(document.getElementById("bgimg"));xx=!a;return;}localStorage.setItem("bgurl",promp);jQuery("#acid").attr("checked",false);check(document.getElementById("acid"));document.body.style.backgroundImage=\'url("\'+promp+\'")\';xz=confirm("Show Grid Lines?");}};'+match[1]+split[1]
 	var split = script.split("setNames=function(a){");
 	return split[0]+"setNames=function(a){if(!a){jQuery(\'#tmass\').attr(\'checked\',false);check(document.getElementById(\'tmass\'));}"+split[1];
 }
@@ -588,13 +583,14 @@ jQuery(document).ready(function()
 			   </div>\
 			   ');
 	jQuery('#instructions').remove();
-	//jQuery('.glyphicon-cog').addClass("glyphicon-refresh")
-	//jQuery('.glyphicon-cog').removeClass("glyphicon-cog");
-	//jQuery('.btn-settings').attr('onclick','connect("ws://"+document.getElementById("ip").innerHTML);if(in_game)OnShowOverlay(false);');
-	//jQuery('.btn-settings').attr('type','button');
+	jQuery('.glyphicon-cog').addClass("glyphicon-refresh")
+	jQuery('.glyphicon-cog').removeClass("glyphicon-cog");
+	jQuery('.btn-settings').attr('onclick','setR()');
+	jQuery('.btn-settings').attr('type','button');
 	//jQuery('#gamemode').removeAttr('required');
-	//jQuery('.btn-settings').removeClass("btn-settings");
-	jQuery('.btn-settings').hide();
+	jQuery('.btn-settings').css({'width':'15%','height': '35px'});
+	jQuery('.btn-settings').removeClass("btn-settings");
+	//jQuery('.btn-settings').hide();
 	jQuery('#settings').show();
   	var checkbox_div = jQuery('#settings input[type=checkbox]').closest('div');
     checkbox_div.append('<label><input type="checkbox" id="acid" onchange="setAcid($(this).is(\':checked\'));if($(this).is(\':checked\')){$(\'#bgimg\').attr(\'checked\',false);check(document.getElementById(\'bgimg\'));}">Acid</label>');
@@ -608,7 +604,7 @@ jQuery(document).ready(function()
 	//checkbox_div.append('<label>Quality<input type="range" id="quality" step="5" min="0" max="100" oninput="scale(this.value);"></label><label><input id="blur" type="checkbox" onchange="pixelate($(this).is(\':checked\'));">Pixelated</label>');
     jQuery('#overlays').append('<div id="stats" style="opacity: 0.85; position: absolute; top:330px; left: 460px; width: 480px; display: none; background-color: #FFFFFF; border-radius: 15px; padding: 5px 15px 5px 15px; transform: translate(0,-44%); white-space: nowrap; overflow:hidden;"><div id="statArea" style="vertical-align:top; width:250px; display:inline-block;"></div><div id="pieArea" style="vertical-align: top; width:200px; height:150px; display:inline-block; vertical-align:top"> </div><div id="gainArea" style="width:500px;  vertical-align:top"></div><div id="lossArea" style="width:500px; "></div><div id="chartArea" style="width:450px; display:inline-block; vertical-align:top"></div></div>');
     jQuery('#stats').hide(0);   
-	jQuery('#playBtn').width('74%');
+	//jQuery('#playBtn').width('74%');
 });
 
 /*window.pixelate=function(enabled){
