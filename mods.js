@@ -18,7 +18,6 @@ if(old_version!=version){
 }
 function preset(s,v){if(null==localStorage.getItem(s))localStorage.setItem(s,v)}
 //preset("settingQuality",'50')
-preset("settingUse_Chat","true");
 preset("settingShow_Chart","true");
 preset("showt","true");
 
@@ -246,7 +245,6 @@ function agariomodsRuntimePatches() {
         gamejs_patch(W +'['+b+'].src="skins/"+'+b+'+".png"', W+'['+b+'].src=agariomods', "check for agariomods img src variable");
         gamejs_patch("this."+pandb+"&&b.strokeText("+c3eg2+");b.fillText("+c3eg2+")", "if (String(c).substring(0, 2) != \"i/\" || custom) {this."+pandb+"&&b.strokeText("+c3eg2+");b.fillText("+c3eg2+")}", "add custom skins check for hiding username when using imgur id aka c3eg2");
         gamejs_patch(b+"=this.name.toLowerCase();", b+"=this.name.toLowerCase(); if (("+b+".substring(0, 2) == \"i/\"||"+b+".substring(0, 1) == \"*\")&&!custom&&"+Ja+".indexOf("+b+")==-1) {" +Ja+ ".push("+b+")} ;", "add imgur check #2.");
-    gamejs = addKeyboardHook(gamejs);
     gamejs = addChartHooks(gamejs);
     gamejs = addOnCellEatenHook(gamejs);
 	gamejs = addTeamMassHook(gamejs);
@@ -364,7 +362,6 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 		'background-color': '#428bca',
 		'color': 'white'
 	});
-	jQuery('#locationUnknown').prepend('<input id="apikey" value="'+getCookie("apikey")+'" type="password" style="margin-top: 2px" class="form-control" placeholder="Api Key | Required to use chat" />');
 	$('.link').hover(function(){$(this).css('background-color', '#529bda');$(this).removeClass("active");},function(){$(this).css('background-color', '#428bca');$(this).removeClass("active");});
 //	jQuery(playBtn).parent().get(0).appendChild(nodeInput);
 //	jQuery(playBtn).parent().get(0).appendChild(nodeSpan);
@@ -413,12 +410,6 @@ var g_display_width = 220;
 var g_layout_width = g_display_width;
 
 ////////////////////////////////////////////////////////////////
-function addKeyboardHook(script) {
-    var match = script.match(/onkeydown=function\(d\){/);
-    var split = script.split(match[0]);
-    return split[0] + match[0] + ' if(isVisible()) return;' + split[1];
-}
-
 function addChartHooks(script) {
     var match = script.match(/max\((\w+),(\w+)\(/);
     var high = match[1];
@@ -512,12 +503,10 @@ function addOnShowOverlayHook(script) {
 }
 
 function addConnectHook(script) {
-	var match = script.match(/console\.log\("Connecting to "\+a\);/);
+return script;
+    var match = script.match(/console\.log\("Connecting to "\+a\);/);
     var split = script.split(match[0]);
-    return split[0] + match[0] + 'if(typeof socket != "undefined" && socket.connected) { closeChat(); }' + split[1];
-    // var match = script.match(/console\.log\("Connecting to "\+a\);/);
-    // var split = script.split(match[0]);
-    // return split[0] + match[0] + 'document.getElementById("ip").innerHTML=a.replace(/wss?:\\/\\//,"");' + split[1];
+    return split[0] + match[0] + 'document.getElementById("ip").innerHTML=a.replace(/wss?:\\/\\//,"");' + split[1];
 }
 
 function addRecieveHook(script) {
@@ -613,7 +602,6 @@ jQuery(document).ready(function()
 	jQuery('#settings').show();
   	var checkbox_div = jQuery('#settings input[type=checkbox]').closest('div');
     checkbox_div.append('<label><input type="checkbox" id="acid" onchange="setAcid($(this).is(\':checked\'));if($(this).is(\':checked\')){$(\'#bgimg\').attr(\'checked\',false);check(document.getElementById(\'bgimg\'));}">Acid</label>');
-	checkbox_div.append('<label><input type="checkbox" onchange="useChat(this.checked);">Use chat</label>');
 	checkbox_div.append('<label><input type="checkbox" onchange="if(this.checked){jQuery(\'#chart-container\').show()}else{jQuery(\'#chart-container\').hide()}">Show chart</label>');
 	checkbox_div.append('<label><input type="checkbox" onchange="setVColors($(this).is(\':checked\'));">Colorless Viruses</label>');
 	checkbox_div.append('<label><input id="custom" type="checkbox" onchange="setCustom($(this).is(\':checked\'));">No Custom Skins</label>');
@@ -1384,196 +1372,53 @@ function benchcheck(mass) {
     }
 }
 
-
-
-// CPTDALV
-var st = document.createElement("style");
-st.innerHTML = ".serveritem {border-bottom: 1px solid #ccc;padding:10px;}.serveritem:hover {background-color:#E9FCFF;}.overlay{line-height:1.2;margin:0;font-family:sans-serif;text-align:center;position:absolute;top:0;left:0;width:100%;height:100%;z-index:1000;background-color:rgba(0,0,0,0.2)}.popupbox{position:absolute;height:100%;width:60%;left:20%;background-color:rgba(255,255,255,0.95);box-shadow:0 0 20px #000}.popheader{position:absolute;top:0;width:100%;height:50px;background-color:rgba(200,200,200,0.5)}.browserfilter{position:absolute;padding:5px;top:50px;width:100%;height:60px;background-color:rgba(200,200,200,0.5)}.scrollable{position:absolute;border-top:#eee 1px solid;border-bottom:#eee 1px solid;width:100%;top:50px;bottom:50px;overflow:auto}.popupbuttons{background-color:rgba(200,200,200,0.4);height:50px;position:absolute;bottom:0;width:100%}.popupbox td,th{padding:5px}.popupbox tbody tr{border-top:#ccc solid 1px}#tooltip{display:inline;position:relative}#tooltip:hover:after{background:#333;background:rgba(0,0,0,.8);border-radius:5px;bottom:26px;color:#fff;content:attr(title);left:20%;padding:5px 15px;position:absolute;z-index:98;width:220px}#chat{z-index:2000;width:500px;position:absolute;right:15px;bottom:50px}#chatinput{bottom:0;position:absolute;opacity:.8}#chatlines a{color:#086A87}#chatlines{position:absolute;bottom:40px;width:500px;color:#333;word-wrap:break-word;box-shadow:0 0 10px #111;background-color:rgba(0,0,0,0.1);border-radius:5px;padding:5px;height:200px;overflow:auto}.listing>span{display:block;font-size:11px;font-weight:400;color:#999}.list{padding:0 0;list-style:none;display:block;font:12px/20px 'Lucida Grande',Verdana,sans-serif}.listing{border-bottom:1px solid #e8e8e8;display:block;padding:10px 12px;font-weight:700;color:#555;text-decoration:none;cursor:pointer;line-height:18px}li:last-child > .listing{border-radius:0 0 3px 3px}.listing:hover{background:#e5e5e5}";
-document.head.appendChild(st);
-
-var fontawesome=document.createElement("link");
-fontawesome.setAttribute("rel", "stylesheet");
-fontawesome.setAttribute("type", "text/css");
-fontawesome.setAttribute("href", "http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
-document.head.appendChild(fontawesome);
-
-var socketscript=document.createElement('script');
-socketscript.setAttribute("type","text/javascript");
-socketscript.setAttribute("src", "https://cdn.socket.io/socket.io-1.3.5.js");
-(document.body || document.head || document.documentElement).appendChild(socketscript);
-
-//-----------------CHAT---------------//
-
-var socket;
-var chatEnabled = localStorage.getItem("settingUse_Chat");
-
-$(document).keypress(function(e) {
-    if(e.which == 13) {
-       	if ($('#chatinput').is(':visible')) { 
-       		if($('#chatinputfield').val() != "")
-       			sendMSG();
-       		$('#chatinput').fadeToggle("fast");      			
-       		
-       	}
-       	else {
-       		$('#chatinput').fadeToggle("fast"); 
-       		$('#chatinputfield').focus();
-       	}
-    }
-});
-
-function useChat(state) {
-	chatEnabled = state;
+function players(){
+var servers = document.getElementsByClassName("list")[0].children;
+for(i=0;i<servers.length;i++){
+	var url = '';
+	var elem = servers[i].children[0];
+	if(!elem.id||elem.id=='')continue;
+	if(elem.id.substr(1)=='montreal'){url="http://agar.likcoras.party:808"+elem.id.substr(0,1)}else
+	{url = "http://"+elem.id.substr(1)+".iomods.com:808"+elem.id.substr(0,1)}
+	getplayers(url,elem);
+}
 }
 
-function connectPrivate(location, i) {
-	ip = location.toLowerCase().replace(" ", "") + '.iomods.com';
-	var port = (1500+parseInt(i));
-	connect("ws://"+ ip + ":" + port, "");
-	var apikey = $('#apikey').val();
-	if(chatEnabled) {
-		socket = io.connect("http://"+ip+":" + (12040+parseInt(i)), {
-			forceNew : true,
-			reconnection : false
-		});
-		socket.on('disconnect', function() {
-		});
-	  	socket.on('connect', function() {
-	  		socket.emit("auth", {
-	  			key: apikey
-	  		});
-	  	});
-	  	socket.on('init', function () {
-	  		document.cookie="apikey=" + apikey;
-   			$('#chat').fadeIn();
-   			$('#chatlines').empty();
-   			addServer("<b>You are now connected to: " + location + ' #' + i + "</b>");
-		});
-		socket.on('chat', function (data) {
-   			addLine(data);
-		});
-		
-		socket.on('info', function (data) {
-   			addServer(data.msg);
-		});
-  	}
-}
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0; i<ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1);
-        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
-    }
-    return "";
+function getplayers(url,elem){
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			var vals = JSON.parse(xmlhttp.responseText);
+			elem.children[0].innerHTML=vals["current_players"]+" Players";
+		}
+	}
+	xmlhttp.open("GET", url, true);
+	xmlhttp.send();
 }
 
-function closeChat() {
-	$('#chat').fadeOut();
-	socket.disconnect();
-}
-
-function addServer(msg) {
-	jQuery('#chatlines').append(' *** ' + msg + '<br>');
- 	$("#chatlines").animate({ scrollTop: $("#chatlines")[0].scrollHeight});
-}
-
-function addLine(data) {
-	if(data.name == "")
-		data.name = "Unnamed";
-	var escapedname = $("<div>").text(data.name).html();
-	var escapedmsg = $("<div>").text(data.text).html();
-	jQuery('#chatlines').append('<b><a href="#">' + escapedname + '</a>:</b> <span>'+escapedmsg+'</span><br>');
- 	$("#chatlines").animate({ scrollTop: $("#chatlines")[0].scrollHeight});
-}
-
-function sendMSG() {
-	var msg = jQuery('#chatinputfield').val();
-	jQuery('#chatinputfield').val('');
-	socket.emit('chat', { text: msg });
-}
-
-
-function isVisible() {
-	if($('#chatinput').is(':visible'))
-		return true;
-	else
-		return false;
-}
-
-
-
-
-
-
-//-------------------BROWSER-------------//
 window.openServerbrowser=function() {
 	$('#serverBrowser').fadeIn();
-	getServers();
+	players();
+	$("#serverRegion").text(jQuery('#region').val())
 }
 
 window.closeServerbrowser=function() {
 	$('#serverBrowser').fadeOut();
 }
-var locations = new Array("Amsterdam", "Frankfurt", "London", "Quebec", "Paris", "Atlanta", "Chicago", "Dallas", "Los Angeles", "Miami", "New Jersey", "Seattle", "Silicon Valley", "Sydney", "Tokyo");
-locations.sort();
-function getServers() {
-	$('#serverlist').empty();
-	var latencylist = Array();
-	$.each(locations, function(index, value) {
-		for (var i = 1; i <= 2; i++) {
 
-			serverid = value.toLowerCase().replace(" ", "") + i;
-			$('#serverlist').append('<div class="serveritem" id="' + serverid + '" onclick="connectPrivate(\''+value+'\', \''+i+'\'); closeServerbrowser();"><b style="color: #222">' + value + ' #' + i + '</b><br>\
-			<i style="color: #999"><span id="player">fetching data...</span> <i style="color: #ccc" class="fa fa-users" /> | </i><span id="latency"><i class="fa fa-signal"></i> <span id="latencyres"></span></span></div>'); //</i>
-
-			latencylist.push(new Array(value.toLowerCase().replace(" ", ""), i));
-		};
-	});
-	serverinfo(latencylist, 0);
-}
-function serverinfo(list, index) {
-	if (index >= list.length)
-		return;
-	value = list[index];
-	started = Date.now();
-	statsurl = 'http://' + value[0] + '.iomods.com:' + (8080 + value[1]);
-	$.ajax({
-		url: statsurl,
-		dataType: 'json',
-		success: function(data){
-			$('#' + (value[0] + value[1]) + ' #player').text(data.current_players + "");
-			latency = (Date.now() - started);
-			if(latency < 100) {
-				$('#' + (value[0] + value[1]) + ' #latency').css("color", "#19A652");
-			}
-			else if(latency < 250) {
-				$('#' + (value[0] + value[1]) + ' #latency').css("color", "#E1BD2C");
-			}
-			else {
-				$('#' + (value[0] + value[1]) + ' #latency').css("color", "#F00");
-			}
-			$('#' + (value[0] + value[1]) + ' #latencyres').text(latency + "ms");
-		},
-		error: function(data) {
-			$('#' + (value[0] + value[1]) + ' #player').text("No information");
-			$('#' + (value[0] + value[1]) + ' #latency').css("color", "#f00");
-			$('#' + (value[0] + value[1]) + ' #latency').text("Failed");
-		},
-		complete: function(data) {
-            serverinfo(list, index+1);
-        }
-	});
-}
-
+var st = document.createElement("style");
+st.innerHTML = ".overlay{line-height:1.2;margin:0;font-family:sans-serif;text-align:center;position:absolute;top:0;left:0;width:100%;height:100%;z-index:1000;background-color:rgba(0,0,0,0.2)}.popupbox{position:absolute;height:100%;width:60%;left:20%;background-color:rgba(255,255,255,0.95);box-shadow:0 0 20px #000}.popheader{position:absolute;top:0;width:100%;height:50px;background-color:rgba(200,200,200,0.5)}.browserfilter{position:absolute;padding:5px;top:50px;width:100%;height:60px;background-color:rgba(200,200,200,0.5)}.scrollable{position:absolute;border-top:#eee 1px solid;border-bottom:#eee 1px solid;width:100%;top:50px;bottom:50px;overflow:auto}.popupbuttons{background-color:rgba(200,200,200,0.4);height:50px;position:absolute;bottom:0;width:100%}.popupbox td,th{padding:5px}.popupbox tbody tr{border-top:#ccc solid 1px}#tooltip{display:inline;position:relative}#tooltip:hover:after{background:#333;background:rgba(0,0,0,.8);border-radius:5px;bottom:26px;color:#fff;content:attr(title);left:20%;padding:5px 15px;position:absolute;z-index:98;width:220px}#chat{z-index:2000;width:500px;position:absolute;right:15px;bottom:50px}#chatinput{bottom:0;position:absolute;opacity:.8}#chatlines a{color:#086A87}#chatlines{position:absolute;bottom:40px;width:500px;color:#333;word-wrap:break-word;box-shadow:0 0 10px #111;background-color:rgba(0,0,0,0.1);border-radius:5px;padding:5px;height:200px;overflow:auto}.listing>span{color:#00CC00;display:block;font-size:11px;font-weight:400;/*color:#999*/}.list{padding:0 0;list-style:none;display:block;font:12px/20px 'Lucida Grande',Verdana,sans-serif}.listing{border-bottom:1px solid #e8e8e8;display:block;padding:3px;font-weight:700;color:#555;text-decoration:none;cursor:pointer;line-height:18px}li:last-child > .listing{border-radius:0 0 3px 3px}.listing:hover{background:#e5e5e5}";
+document.head.appendChild(st);
 
 jQuery(document).ready(function() {
-	$('body').append('<div id="serverBrowser" class="overlay" style="display:none"><div class="valign"><div class="popupbox"><div class="popheader"><h3>Serverbrowser</h3></div>\
-	<div class="scrollable"><center><div id="serverlist"></div></center></div>	<div class="popupbuttons"><button onclick="closeServerbrowser()" type="button" style="margin: 4px"\
-	class="btn btn-danger">Back</button></div></div></div></div>');
-	jQuery('#settings').prepend('<button type="button" id="opnBrowser" onclick="openServerbrowser();" style="position:relative;top:-8px;width:100%" class="btn btn-success">Agariomods Private Servers</button><br>');
-	jQuery('body').append('<div id="chat" style="display:none"><div id="chatlines"></div><div id="chatinput" style="display:none" class="input-group">\
-	<input type="text" id="chatinputfield" class="form-control" maxlength="120"><span class="input-group-btn">\
-	<button onclick="sendMSG()" class="btn btn-default" type="button">Send</button></span></div></div>');
+	// CODE
+	jQuery('body').append('<div id="serverBrowser" class="overlay" style="display:none"><div class="valign">\
+	<div class="popupbox"><div class="popheader"><h3>Agariomods Ogar Server Browser</h3></div>\
+	<div class="scrollable"><center><ol class="list"><li><a href class="listing" id="1amsterdam" onclick="connect(\'ws://amsterdam.iomods.com:1501\',\'\');return false">Amsterdam #1<span></span></a></li><li><a href class="listing" id="2amsterdam" onclick="connect(\'ws://amsterdam.iomods.com:1502\',\'\');return false">Amsterdam #2<span></span></a></li><li><a href class="listing" id="1atlanta" onclick="connect(\'ws://atlanta.iomods.com:1501\',\'\');return false">Atlanta #1<span></span></a></li><li><a href class="listing" id="2atlanta" onclick="connect(\'ws://atlanta.iomods.com:1502\',\'\');return false">Atlanta #2<span></span></a></li><li><a href class="listing" id="1chicago" onclick="connect(\'ws://chicago.iomods.com:1501\',\'\');return false">Chicago #1<span></span></a></li><li><a href class="listing" id="2chicago" onclick="connect(\'ws://chicago.iomods.com:1502\',\'\');return false">Chicago #2<span></span></a></li><li><a href class="listing" id="1dallas" onclick="connect(\'ws://dallas.iomods.com:1501\',\'\');return false">Dallas #1<span></span></a></li><li><a href class="listing" id="2dallas" onclick="connect(\'ws://dallas.iomods.com:1502\',\'\');return false">Dallas #2<span></span></a></li><li><a href class="listing" id="1frankfurt" onclick="connect(\'ws://frankfurt.iomods.com:1501\',\'\');return false">Frankfurt #1<span></span></a></li><li><a href class="listing" id="2frankfurt" onclick="connect(\'ws://frankfurt.iomods.com:1502\',\'\');return false">Frankfurt #2<span></span></a></li><li><a href class="listing" id="1london" onclick="connect(\'ws://london.iomods.com:1501\',\'\');return false">London #1<span></span></a></li><li><a href class="listing" id="2london" onclick="connect(\'ws://london.iomods.com:1502\',\'\');return false">London #2<span></span></a></li><li><a href class="listing" id="1losangeles" onclick="connect(\'ws://losangeles.iomods.com:1501\',\'\');return false">Los Angeles #1<span></span></a></li><li><a href class="listing" id="2losangeles" onclick="connect(\'ws://losangeles.iomods.com:1502\',\'\');return false">Los Angeles #2<span></span></a></li><li><a href class="listing" id="1miami" onclick="connect(\'ws://miami.iomods.com:1501\',\'\');return false">Miami #1<span></span></a></li><li><a href class="listing" id="2miami" onclick="connect(\'ws://miami.iomods.com:1502\',\'\');return false">Miami #2<span></span></a></li><li><a href class="listing" id="1montreal" onclick="connect(\'ws://agar.likcoras.party:1501\',\'\');return false">Montreal #1<span></span></a></li><li><a href class="listing" id="2montreal" onclick="connect(\'ws://agar.likcoras.party:1502\',\'\');return false">Montreal #2<span></span></a></li><li><a href class="listing" id="1newjersey" onclick="connect(\'ws://newjersey.iomods.com:1501\',\'\');return false">New Jersey #1<span></span></a></li><li><a href class="listing" id="2newjersey" onclick="connect(\'ws://newjersey.iomods.com:1502\',\'\');return false">New Jersey #2<span></span></a></li><li><a href class="listing" id="1paris" onclick="connect(\'ws://paris.iomods.com:1501\',\'\');return false">Paris #1<span></span></a></li><li><a href class="listing" id="2paris" onclick="connect(\'ws://paris.iomods.com:1502\',\'\');return false">Paris #2<span></span></a></li><li><a href class="listing" id="1quebec" onclick="connect(\'ws://quebec.iomods.com:1501\',\'\');return false">Quebec #1<span></span></a></li><li><a href class="listing" id="2quebec" onclick="connect(\'ws://quebec.iomods.com:1502\',\'\');return false">Quebec #2<span></span></a></li><li><a href class="listing" id="1seattle" onclick="connect(\'ws://seattle.iomods.com:1501\',\'\');return false">Seattle #1<span></span></a></li><li><a href class="listing" id="2seattle" onclick="connect(\'ws://seattle.iomods.com:1502\',\'\');return false">Seattle #2<span></span></a></li><li><a href class="listing" id="1siliconvalley" onclick="connect(\'ws://siliconvalley.iomods.com:1501\',\'\');return false">Silicon Valley #1<span></span></a></li><li><a href class="listing" id="2siliconvalley" onclick="connect(\'ws://siliconvalley.iomods.com:1502\',\'\');return false">Silicon Valley #2<span></span></a></li><li><a href class="listing" id="1sydney" onclick="connect(\'ws://sydney.iomods.com:1501\',\'\');return false">Sydney #1<span></span></a></li><li><a href class="listing" id="2sydney" onclick="connect(\'ws://sydney.iomods.com:1502\',\'\');return false">Sydney #2<span></span></a></li><li><a href class="listing" id="1tokyo" onclick="connect(\'ws://tokyo.iomods.com:1501\',\'\');return false">Tokyo #1<span></span></a></li><li><a href class="listing" id="2tokyo" onclick="connect(\'ws://tokyo.iomods.com:1502\',\'\');return false">Tokyo #2<span></span></a></li></ol></center></div>\
+	<div class="popupbuttons"><button onclick="closeServerbrowser()" type="button" style="margin: 4px" class="btn btn-danger">Back</button>\
+	</div></div></div></div>\
+	');
+	jQuery('#instructions').remove();
+	jQuery('#settings').show();
+	jQuery('#settings').prepend('<button type="button" id="opnBrowser" onclick="openServerbrowser();" style="position:relative;top:-8px;width:100%" class="btn btn-success">Agariomods Private Servers</button><br>')
 });
