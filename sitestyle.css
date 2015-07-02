@@ -15,6 +15,17 @@
 .install {
 	background-color: rgba(50, 175, 125, 0.2);
 }
+.ff {
+	display: none;
+}
+@-moz-document url-prefix() {
+	.ff {
+		display: block;
+	}	
+	.nff {
+		display: none;
+	}		
+}
 .featureshead {
 	display: block;
 	font-weight: 600;
