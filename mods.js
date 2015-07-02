@@ -1398,7 +1398,7 @@ function getplayers(url,elem){
 
 window.openServerbrowser=function() {
 	$('#serverBrowser').fadeIn();
-	players();
+	//players();
 	$("#serverRegion").text(jQuery('#region').val())
 }
 
