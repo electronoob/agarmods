@@ -107,11 +107,10 @@
 	background-image: linear-gradient(to bottom,#71bf00,#4da100);
 }
 .inline{
-	transform: scale(2);
 	transform-origin: 0 0;
-	padding: 0 20px 0 20px;
+	padding: 3px 20px 0 20px;
 	display: inline-block;
-	height: 28px;
+	height: 35px;
 	border-radius: 2px;
 	cursor: pointer;
 	line-height: 28px;
