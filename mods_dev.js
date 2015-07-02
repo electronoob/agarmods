@@ -1544,7 +1544,7 @@ function serverinfo(list, index) {
 		url: statsurl,
 		dataType: 'json',
 		success: function(data){
-			$('#' + (value[0] + value[1]) + ' #player').text(data.current_players + "");
+			$('#' + (value[0] + value[1]) + ' #player').text(data.current_players + "/64");
 			latency = (Date.now() - started);
 			if(latency < 100) {
 				jQuery('#' + (value[0] + value[1]) + ' #latency').css("color", "#19A652");
@@ -1580,13 +1580,13 @@ jQuery(document).ready(function() {
 });
 function best(name,data) { //For when the best is the highest number
 	var oldData = localStorage.getItem("best_"+name);
-	if (typeof localStorage.getItem("best_"+name) == 'undefined') {
+	if (typeof localStorage.getItem("best_"+name) == undefined) {
 		oldData = 0;
 	}
 	if (data > oldData) {
 		localStorage.setItem("best_"+name,data);
 	}
-	return localStorage.getItem("best_"+name);
+	if(localStorage.getItem("best_"+name)!=null){return localStorage.getItem("best_"+name)}else{return '0'};
 }
 function bestLow(name,data) { //For when the best is the lowest number
 	var oldDataLow = localStorage.getItem("best_"+name);
