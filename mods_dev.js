@@ -1419,7 +1419,7 @@ socketscript.setAttribute("src", "https://cdn.socket.io/socket.io-1.3.5.js");
 var socket;
 
 jQuery(document).keypress(function(e) {
-    if(e.which == 13|191) {
+    if(e.which == 13||e.which == 191) {
        	if (jQuery('#chatinput').is(':visible')) { 
        		if($('#chatinputfield').val() != "")
        			sendMSG();
