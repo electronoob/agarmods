@@ -1199,9 +1199,10 @@ $(document).keydown(function(e) {
 		deleteScores();
 	}
 	//Chat Toggle
-	if (e.keyCode == 84&&!e.altKey&&document.activeElement.type!="text") {
+	if (e.keyCode == 67&&document.activeElement.type!="text") {
 		chatEnabled = !chatEnabled;
 		localStorage.setItem("chatEnabled",chatEnabled);
+		openChat();
 	}
 	//FPS Hotkey
 	if (e.altKey && e.keyCode == 49) {
@@ -1436,6 +1437,10 @@ window.connectPrivate = function(location, i) {
 	var port = (1500+parseInt(i));
 	connect("ws://"+ ip + ":" + port, "");
 	var apikey = jQuery('#apikey').val().replace(" ", "");
+	openChat();
+}
+
+function openChat(){
 	if(chatEnabled) {
 		socket = io.connect("http://"+ip+":" + (12040+parseInt(i)), {
 			forceNew : true,
@@ -1463,6 +1468,7 @@ window.connectPrivate = function(location, i) {
 		});
   	}
 }
+
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
