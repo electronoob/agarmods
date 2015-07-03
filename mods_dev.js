@@ -8,7 +8,7 @@ var version = 199; //DO NOT USE PERIODS
 var old_version = localStorage.getItem("version");
 var updated = false;
 var noob = false;
-var server = {ip:"",i:""};
+var server = {ip:"",i:"",location:""};
 if(old_version!=version){
 	updated=true;
 	if(old_version==null){
@@ -142,7 +142,7 @@ var chart_Na= '';
 var chart_k = '';
 var sd = '';
 var mainout = window.location.protocol+"//agar.io/main_out.js";
-
+document.getElementById("helloDialog").style.display="none";
 httpGet(mainout, function(data) {
 	gamejs = "window.agariomods = " + data.replace("socket open","socket open (agariomods.com mod in place)");
 	gamejs = gamejs.replace(/\n/g, "");
@@ -185,6 +185,13 @@ function httpGet(theUrl, callback) {
 		}
 	};
 }
+window.connect2 = window.connect;
+function killWebSocket(){
+	try{//Starter Function(s)
+	connect2("Killing Old Websocket");
+	}catch(e){console.log("Websocket Killed")}
+}
+killWebSocket()
 function agariomodsRuntimeInjection() {
 	var script = document.createElement("script");
 	script.src='//cdnjs.cloudflare.com/ajax/libs/canvasjs/1.4.1/canvas.min.js';
@@ -202,13 +209,12 @@ function agariomodsRuntimeInjection() {
 	var script = document.createElement("script");
 	agariomodsRuntimePatches();
 	script.innerHTML = gamejs;
-	for(i=0;i<ss.length;i++){ss[i].src.search('agar.io/main_out.js')>-1&&ss[i].parentNode.removeChild(ss[i])}
-	try{//Starter Function(s)
-	window.connect("Killing Old Websocket");
-	}catch(e){console.log("Websocket Killed")}
+	//for(i=0;i<ss.length;i++){ss[i].src.search('agar.io/main_out.js')>-1&&ss[i].parentNode.removeChild(ss[i])}
+	killWebSocket();killWebSocket();
 	var oc = document.getElementById("canvas");
 	var nc = document.createElement("canvas");nc.id="canvas";nc.width=oc.width;nc.height=oc.height;oc.parentNode.replaceChild(nc,oc);
 	document.head.appendChild(script);
+	document.getElementById("helloDialog").style.display="block";
 	agariomodsRuntimeHacks();
 	bgmusic = $('#audiotemplate').clone()[0];
     bgmusic.src = "//skins.agariomods.com/botb/" + tracks[Math.floor(Math.random() * tracks.length)];
@@ -230,7 +236,6 @@ function agariomodsRuntimeInjection() {
 	$("#chart-container-agariomods").css("pointerEvents", "none");
 	$("#fps-agariomods").css("pointerEvents", "none");
 	$("#pi-agariomods").css("pointerEvents", "none");
-
 }
 
 window.log=function(stuff){console.log(stuff);}
@@ -1203,7 +1208,7 @@ $(document).keydown(function(e) {
 	if (e.keyCode == 67&&document.activeElement.type!="text") {
 		chatEnabled = !chatEnabled;
 		localStorage.setItem("chatEnabled",chatEnabled);
-		server.ip.substr(-11)==".iomods.com"&&openChat(getCookie("apikey"));//jQuery('#apikey').val().replace(" ", ""));
+		if(server.ip.substr(-11)==".iomods.com")chatEnabled?openChat():closeChat();//jQuery('#apikey').val().replace(" ", ""));
 	}
 	//FPS Hotkey
 	if (e.altKey && e.keyCode == 49) {
@@ -1434,19 +1439,19 @@ jQuery(document).keypress(function(e) {
 });
 
 window.connectPrivate = function(location, i) {
-	ip = location.toLowerCase().replace(" ", "") + '.iomods.com';
+	var ip = location.toLowerCase().replace(" ", "") + '.iomods.com';
 	var port = (1500+parseInt(i));
-	console.log(i);
-	server.ip=ip;server.i=i;
+	server.ip=ip;server.i=i;server.location=location;
 	connect("ws://"+ ip + ":" + port, "");
-	var apikey = getCookie("apikey");//jQuery('#apikey').val().replace(" ", "");
-	openChat(apikey);
+	openChat();
 }
 
-function openChat(apikey){
+function openChat(){
+	apikey = getCookie("apikey").replace(" ", "");
 	if(chatEnabled) {
 		var i = server.i;
 		var ip = server.ip;
+		var location = server.location;
 		socket = io.connect("http://"+ip+":" + (12040+parseInt(i)), {
 			forceNew : true,
 			reconnection : false
@@ -1518,14 +1523,14 @@ window.isVisible = function() {
 		return false;
 }
 
-window.onhashchange = handleHash();
-handleHash()
+window.onhashchange = handleHash;
+handleHash();
 
 function handleHash(){
 	if(window.location.hash=='#'||window.location.hash=='')return;
 	var api = window.location.hash.substr(1);
 	history.replaceState('agar.io', 'Agar.io', '/');
-	if (getCookie("apikey")!=api) {
+	if (getCookie("apikey")==api) {
 		alert("You already have this account linked with Agariomods.");
 		return;
 	}
@@ -1541,8 +1546,8 @@ function handleHash(){
 				}
 				else if(data.user_id==userid){
 					document.cookie="apikey="+api;
-					openChat(jQuery('#apikey').val().replace(" ", ""));
-					alert("Welcome "+data.username+", you can now chat in our private servers, use C to bring up chat, and Enter to type;");
+					openChat();
+					alert("Welcome "+data.username+", you can now chat in our private servers, press C to bring up chat, and press Enter to start typing.");
 				}
 				else {
 					alert("Error: Incorrect API Key");
