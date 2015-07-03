@@ -21,6 +21,7 @@ function preset(s,v){if(null==localStorage.getItem(s))localStorage.setItem(s,v)}
 preset("settingUse_Chat","true");
 preset("settingShow_Chart","true");
 preset("showt","true");
+preset("chatEnabled","true");
 
 //Version Related Code//
 if(noob){
@@ -37,6 +38,7 @@ document.head.appendChild(sc);
 
 var showsh = false;
 var showt = localStorage.getItem("showt")=="true";
+var chatEnabled = localStorage.getItem("chatEnabled")=="true";
 var extToggled = false;
 
 var ldown = false;
@@ -364,7 +366,7 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 		'background-color': '#428bca',
 		'color': 'white'
 	});
-	jQuery('#locationUnknown').prepend('<input id="apikey" value="'+getCookie("apikey")+'" type="password" style="margin-top: 2px; display: none;" class="form-control" placeholder="Api Key | Required to use chat" />');
+	jQuery('#locationUnknown').prepend('<input id="apikey" value="'+getCookie("apikey")+'" type="password" style="margin-top: 2px;" class="form-control" placeholder="Api Key | Required to use chat" />');
 	$('.link').hover(function(){$(this).css('background-color', '#529bda');$(this).removeClass("active");},function(){$(this).css('background-color', '#428bca');$(this).removeClass("active");});
 //	jQuery(playBtn).parent().get(0).appendChild(nodeInput);
 //	jQuery(playBtn).parent().get(0).appendChild(nodeSpan);
@@ -613,7 +615,6 @@ jQuery(document).ready(function()
 	jQuery('#settings').show();
   	var checkbox_div = jQuery('#settings input[type=checkbox]').closest('div');
     checkbox_div.append('<label><input type="checkbox" id="acid" onchange="setAcid($(this).is(\':checked\'));if($(this).is(\':checked\')){$(\'#bgimg\').attr(\'checked\',false);check(document.getElementById(\'bgimg\'));}">Acid</label>');
-	checkbox_div.append('<label><input type="checkbox" onchange="useChat(this.checked);">Use chat</label>');
 	checkbox_div.append('<label><input type="checkbox" onchange="if(this.checked){jQuery(\'#chart-container\').show()}else{jQuery(\'#chart-container\').hide()}">Show chart</label>');
 	checkbox_div.append('<label><input type="checkbox" onchange="setVColors($(this).is(\':checked\'));">Colorless Viruses</label>');
 	checkbox_div.append('<label><input id="custom" type="checkbox" onchange="setCustom($(this).is(\':checked\'));">No Custom Skins</label>');
@@ -1197,6 +1198,11 @@ $(document).keydown(function(e) {
 	if (e.keyCode == 84&&e.altKey) {
 		deleteScores();
 	}
+	//Chat Toggle
+	if (e.keyCode == 84&&!e.altKey&&document.activeElement.type!="text") {
+		chatEnabled = !chatEnabled;
+		localStorage.setItem("chatEnabled",chatEnabled);
+	}
 	//FPS Hotkey
 	if (e.altKey && e.keyCode == 49) {
 		showfps = !showfps;
@@ -1211,8 +1217,9 @@ $(document).keydown(function(e) {
 		tst(showfps+showpio>0);
 		document.getElementById("benchmarker").style.bottom=showfps+showpio>0?"25px":"10px";
 	}
-	//Suicide
+	//Suicide //Does not work anymoe ;n;
 	if (e.altKey && e.keyCode == 81 && in_game) {
+		return;
 		jQuery("#overlays").show()
 		OnShowOverlay(false);
 		Suicide();
@@ -1408,7 +1415,6 @@ socketscript.setAttribute("src", "https://cdn.socket.io/socket.io-1.3.5.js");
 //-----------------CHAT---------------//
 
 var socket;
-var chatEnabled = localStorage.getItem("settingUse_Chat");
 
 jQuery(document).keypress(function(e) {
     if(e.which == 13) {
@@ -1424,10 +1430,6 @@ jQuery(document).keypress(function(e) {
        	}
     }
 });
-
-function useChat(state) {
-	chatEnabled = state;
-}
 
 window.connectPrivate = function(location, i) {
 	ip = location.toLowerCase().replace(" ", "") + '.iomods.com';
@@ -1472,7 +1474,7 @@ function getCookie(cname) {
     return "";
 }
 
-function closeChat() {
+window.closeChat = function() {
 	jQuery('#chat').fadeOut();
 	socket.disconnect();
 }
@@ -1491,14 +1493,14 @@ function addLine(data) {
  	jQuery("#chatlines").animate({ scrollTop: $("#chatlines")[0].scrollHeight});
 }
 
-function sendMSG() {
+window.sendMSG = function() {
 	var msg = jQuery('#chatinputfield').val();
 	jQuery('#chatinputfield').val('');
 	socket.emit('chat', { text: msg });
 }
 
 
-function isVisible() {
+window.isVisible = function() {
 	if(jQuery('#chatinput').is(':visible'))
 		return true;
 	else
