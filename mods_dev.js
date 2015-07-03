@@ -367,7 +367,7 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 		'background-color': '#428bca',
 		'color': 'white'
 	});
-	jQuery('#locationUnknown').prepend('<input id="apikey" value="'+getCookie("apikey")+'" type="password" style="margin-top: 2px;" class="form-control" placeholder="Api Key for Chat | Get From connect.agariomods.com" />');
+	//jQuery('#locationUnknown').prepend('<input id="apikey" value="'+getCookie("apikey")+'" type="password" style="margin-top: 2px;" class="form-control" placeholder="Api Key for Chat | Get From connect.agariomods.com" />');
 	$('.link').hover(function(){$(this).css('background-color', '#529bda');$(this).removeClass("active");},function(){$(this).css('background-color', '#428bca');$(this).removeClass("active");});
 //	jQuery(playBtn).parent().get(0).appendChild(nodeInput);
 //	jQuery(playBtn).parent().get(0).appendChild(nodeSpan);
@@ -1203,7 +1203,7 @@ $(document).keydown(function(e) {
 	if (e.keyCode == 67&&document.activeElement.type!="text") {
 		chatEnabled = !chatEnabled;
 		localStorage.setItem("chatEnabled",chatEnabled);
-		openChat(server["ip"],server["i"]);
+		server.ip.substr(-11)==".iomods.com"&&openChat(getCookie("apikey"));//jQuery('#apikey').val().replace(" ", ""));
 	}
 	//FPS Hotkey
 	if (e.altKey && e.keyCode == 49) {
@@ -1437,16 +1437,16 @@ window.connectPrivate = function(location, i) {
 	ip = location.toLowerCase().replace(" ", "") + '.iomods.com';
 	var port = (1500+parseInt(i));
 	console.log(i);
-	server["ip"]=ip;server["i"]=i;
+	server.ip=ip;server.i=i;
 	connect("ws://"+ ip + ":" + port, "");
-	var apikey = jQuery('#apikey').val().replace(" ", "");
+	var apikey = getCookie("apikey");//jQuery('#apikey').val().replace(" ", "");
 	openChat(apikey);
 }
 
 function openChat(apikey){
 	if(chatEnabled) {
-		var i = server["i"];
-		var ip = server["ip"];
+		var i = server.i;
+		var ip = server.ip;
 		socket = io.connect("http://"+ip+":" + (12040+parseInt(i)), {
 			forceNew : true,
 			reconnection : false
@@ -1516,6 +1516,45 @@ window.isVisible = function() {
 		return true;
 	else
 		return false;
+}
+
+window.onhashchange = handleHash();
+handleHash()
+
+function handleHash(){
+	if(window.location.hash=='#'||window.location.hash=='')return;
+	var api = window.location.hash.substr(1);
+	history.replaceState('agar.io', 'Agar.io', '/');
+	if (getCookie("apikey")!=api) {
+		alert("You already have this account linked with Agariomods.");
+		return;
+	}
+	if (api.search(/^{agariomods.com:\d+:[a-f0-9]{8}:[a-zA-Z0-9]+==:[a-zA-Z0-9]+==}$/)==0) {
+		var userid = api.split(":")[1];
+		jQuery.ajax({
+			url: "http://connect.agariomods.com/json/nodechatcheck.php?u="+api,
+			dataType: 'json',
+			success: function(data){
+				if(getCookie("apikey")!==""){if(!confirm("You already have an account account linked with Agariomods!\nLinking this account will unlink the currently linked account.\nDo you want to continue?"))return;}
+				if(data.error!='0'){
+					alert("A Server Error Occured! Error Code: "+(data.error===null?"-1":data.error));
+				}
+				else if(data.user_id==userid){
+					document.cookie="apikey="+api;
+					openChat(jQuery('#apikey').val().replace(" ", ""));
+					alert("Welcome "+data.username+", you can now chat in our private servers, use C to bring up chat, and Enter to type;");
+				}
+				else {
+					alert("Error: Incorrect API Key");
+				}
+			},
+			error: function() {
+				alert("Error: Failed establish connection to connect.agariomods.com");
+			}
+		});
+	} else {
+		alert("Error: Invalid API Key")
+	}
 }
 
 //-------------------BROWSER-------------//
