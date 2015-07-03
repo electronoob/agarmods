@@ -1435,7 +1435,7 @@ window.connectPrivate = function(location, i) {
 	ip = location.toLowerCase().replace(" ", "") + '.iomods.com';
 	var port = (1500+parseInt(i));
 	connect("ws://"+ ip + ":" + port, "");
-	var apikey = jQuery('#apikey').val();
+	var apikey = jQuery('#apikey').val().replace(" ", "");
 	if(chatEnabled) {
 		socket = io.connect("http://"+ip+":" + (12040+parseInt(i)), {
 			forceNew : true,
