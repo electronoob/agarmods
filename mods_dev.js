@@ -848,10 +848,10 @@ function DrawStats(game_over)
     list.append('<li style="font-size: 12px; ">Game time: ' + secondsToHms(seconds) + ' (Best: ' + secondsToHms(best("time",seconds))  + ')<br>(Total time played: ' + secondsToHms(alltime(seconds)) + ')</li>');
     list.append('<li style="font-size: 12px; ">High score: ' + ~~(stats.high_score/100) + ' (Best: ' + best("highscore",~~(stats.high_score/100)) + ')</li>');
     if (stats.top_slot == Number.POSITIVE_INFINITY){
-        list.append('<li style="font-size: 12px; ">You didn\'t make the leaderboard.<br>(Best: ' + bestLow("rank",11) + ')</li>');
+        list.append('<li style="font-size: 12px; ">You didn\'t make the leaderboard.'+bestRank(11)+'</li>');
     }
     else{
-        list.append('<li style="font-size: 12px; ">Leaderboard max: ' + stats.top_slot + '<br>(Best: ' + bestLow("rank",stats.top_slot) + ')</li>');
+        list.append('<li style="font-size: 12px; ">Leaderboard max: ' + stats.top_slot + bestRank(stats.top_slot) + '</li>');
     }
     list.append('<li style="font-size: 12px; ">Games played: '+localStorage.getItem("played")+'</li>')
     list.append('<li style="font-size: 12px; padding-top: 15px">' + stats.pellets.num + " pellets eaten (" + ~~(stats.pellets.mass/100) + ' mass)</li>');
@@ -980,7 +980,7 @@ window.OnGameStart = function(cells)
 	}
 	StartBGM();
 	sfx_play(0);
-	if (typeof localStorage.getItem("played") == 'undefined') {localStorage.setItem("played",0);}
+	if (localStorage.getItem("played") === null) {localStorage.setItem("played",0);}
 }
 
 window.StartBGM = function ()
@@ -1594,19 +1594,21 @@ function best(name,data) { //For when the best is the highest number
 	}
 	if(localStorage.getItem("best_"+name)!=null){return localStorage.getItem("best_"+name)}else{return '0'};
 }
-function bestLow(name,data) { //For when the best is the lowest number
-	var oldDataLow = localStorage.getItem("best_"+name);
-	if (typeof localStorage.getItem("best_"+name) == 'undefined') {
-		oldDataLow = 11;
+function bestRank(data) { //For when the best is the lowest number
+	if (localStorage.getItem("best_rank") === null) {
+		localStorage.setItem("best_rank",11);
 	}
-	if (data < oldDataLow) {
-		localStorage.setItem("best_"+name,data);
+	if (data < localStorage.getItem("best_rank")) {
+		localStorage.setItem("best_rank",data);
 	}
-	
-	return localStorage.getItem("best_"+name);
+	if (localStorage.getItem("best_rank") != 11) {
+		return "<br>(Best: "+localStorage.getItem("best_rank")+")";
+	} else {
+		return " ";
+	}
 }
 function alltime(s) {
-	if (typeof localStorage.getItem("alltime") == 'undefined') {localStorage.setItem("alltime",0);}
+	if (localStorage.getItem("alltime") === null) {localStorage.setItem("alltime",0);}
 	localStorage.setItem("alltime",1*((localStorage.getItem("alltime")*1)+s*1));
 	return 1*(localStorage.getItem("alltime"));
 }
