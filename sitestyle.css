@@ -15,17 +15,47 @@
 .install {
 	background-color: rgba(50, 175, 125, 0.2);
 }
-.ff {
+.nff {
 	display: none;
 }
-@-moz-document url-prefix() {
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+    /* Safari and Chrome, if Chrome rule needed */
+    .nff {
+	display: none;
+	}
 	.ff {
-		display: block;
-	}	
-	.nff {
-		display: none;
-	}		
+	display: block;
+	}
+
+    /* Safari 5+ ONLY */
+    ::i-block-chrome, .nff {
+	display: block;
+	}
+	::i-block-chrome, .ff {
+	display: none;
+	}
+	/* safari 2-3 */
+	html[xmlns*=""] body:last-child .ff {
+	display: none;
+	}
+	html[xmlns*=""]:root .ff {
+	display: none;
+	}
+	html[xmlns*=""] body:last-child .nff {
+	display: block;
+	}
+	html[xmlns*=""]:root .nff {
+	display: block;
+	}
+	/* safari 3.1 */
+	*|html[xmlns*=""] .nff {
+	display: block;
+	}
+	*|html[xmlns*=""] .ff {
+	display: none;
+	}
 }
+
 .featureshead {
 	display: block;
 	font-weight: 600;
