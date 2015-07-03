@@ -21,38 +21,38 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) { 
     /* Safari and Chrome, if Chrome rule needed */
     .nff {
-	display: none;
+	display: block;
 	}
 	.ff {
-	display: block;
+	display: none;
 	}
 
     /* Safari 5+ ONLY */
     ::i-block-chrome, .nff {
-	display: block;
+	display: none;
 	}
 	::i-block-chrome, .ff {
-	display: none;
+	display: block;
 	}
 	/* safari 2-3 */
 	html[xmlns*=""] body:last-child .ff {
-	display: none;
+	display: block;
 	}
 	html[xmlns*=""]:root .ff {
-	display: none;
+	display: block;
 	}
 	html[xmlns*=""] body:last-child .nff {
-	display: block;
+	display: none;
 	}
 	html[xmlns*=""]:root .nff {
-	display: block;
+	display: none;
 	}
 	/* safari 3.1 */
 	*|html[xmlns*=""] .nff {
-	display: block;
+	display: none;
 	}
 	*|html[xmlns*=""] .ff {
-	display: none;
+	display: block;
 	}
 }
 
