@@ -8,6 +8,7 @@ var version = 199; //DO NOT USE PERIODS
 var old_version = localStorage.getItem("version");
 var updated = false;
 var noob = false;
+var server = {ip:"",i:""};
 if(old_version!=version){
 	updated=true;
 	if(old_version==null){
@@ -1202,7 +1203,7 @@ $(document).keydown(function(e) {
 	if (e.keyCode == 67&&document.activeElement.type!="text") {
 		chatEnabled = !chatEnabled;
 		localStorage.setItem("chatEnabled",chatEnabled);
-		openChat();
+		openChat(server["ip"],server["i"]);
 	}
 	//FPS Hotkey
 	if (e.altKey && e.keyCode == 49) {
@@ -1418,7 +1419,7 @@ socketscript.setAttribute("src", "https://cdn.socket.io/socket.io-1.3.5.js");
 var socket;
 
 jQuery(document).keypress(function(e) {
-    if(e.which == 13) {
+    if(e.which == 13|191) {
        	if (jQuery('#chatinput').is(':visible')) { 
        		if($('#chatinputfield').val() != "")
        			sendMSG();
@@ -1426,6 +1427,7 @@ jQuery(document).keypress(function(e) {
        		
        	}
        	else {
+			e.preventDefault()
        		jQuery('#chatinput').fadeToggle("fast"); 
        		jQuery('#chatinputfield').focus();
        	}
@@ -1435,13 +1437,17 @@ jQuery(document).keypress(function(e) {
 window.connectPrivate = function(location, i) {
 	ip = location.toLowerCase().replace(" ", "") + '.iomods.com';
 	var port = (1500+parseInt(i));
+	console.log(i);
+	server["ip"]=ip;server["i"]=i;
 	connect("ws://"+ ip + ":" + port, "");
 	var apikey = jQuery('#apikey').val().replace(" ", "");
-	openChat();
+	openChat(apikey);
 }
 
-function openChat(){
+function openChat(apikey){
 	if(chatEnabled) {
+		var i = server["i"];
+		var ip = server["ip"];
 		socket = io.connect("http://"+ip+":" + (12040+parseInt(i)), {
 			forceNew : true,
 			reconnection : false
