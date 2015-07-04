@@ -1529,7 +1529,7 @@ function handleHash(){
 		alert("You already have this account linked with Agariomods.");
 		return;
 	}
-	if (api.search(/^{agariomods.com:\d+:[a-f0-9]{8}:[a-zA-Z0-9]+==:[a-zA-Z0-9]+==}$/)==0) {
+	if (api.search(/^{agariomods.com:\d+:[a-f0-9]{8}:[a-zA-Z0-9=]+:[a-zA-Z0-9=]+}$/)==0) {
 		var userid = api.split(":")[1];
 		jQuery.ajax({
 			url: "http://connect.agariomods.com/json/nodechatcheck.php?u="+api,
