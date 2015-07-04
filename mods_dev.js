@@ -1582,7 +1582,7 @@ function getServers() {
 
 			serverid = value.toLowerCase().replace(" ", "") + i;
 			$('#serverlist'+i).append('<a href class="serveritem" id="' + serverid + '" onclick="connectPrivate(\''+value+'\', \''+i+'\');closeServerbrowser();return false;"><b style="color: #222">' + value + ' #' + i + '</b><br>\
-			<i style="color: #999"><span id="player">fetching data...</span> <i style="color: #ccc" class="fa fa-users" /> | </i><span id="latency"><i class="fa fa-signal"></i> <span id="latencyres"></span></span></a>'); //</i>
+			<i style="color: #999"><span id="player">fetching data...</span> <i style="color: #ccc" class="fa fa-users" /> | <span id="game"></span> | </i><span id="latency"><i class="fa fa-signal"></i> <span id="latencyres"></span></span></a>'); //</i>
 
 			latencylist.push(new Array(value.toLowerCase().replace(" ", ""), i));
 		};
@@ -1603,6 +1603,7 @@ function serverinfo(list, index) {
 		dataType: 'json',
 		success: function(data){
 			$('#' + (value[0] + value[1]) + ' #player').text(data.current_players + "/" + data.max_players);
+			$('#' + (value[0] + value[1]) + ' #game').text(data.gamemode);
 			latency = (Date.now() - started);
 			if(latency < 100) {
 				jQuery('#' + (value[0] + value[1]) + ' #latency').css("color", "#19A652");
