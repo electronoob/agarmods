@@ -517,7 +517,7 @@ function addOnShowOverlayHook(script) {
 function addConnectHook(script) {
 	var match = script.match(/console\.log\("Connecting to "\+a\);/);
     var split = script.split(match[0]);
-    return split[0] + 'try{connect2("...")}catch(a){};' + match[0] + 'if(typeof socket != "undefined" && socket.connected) { closeChat(); }' + split[1];
+    return split[0] + (crx?'':'try{connect2("...")}catch(a){};') + match[0] + 'if(typeof socket != "undefined" && socket.connected) { closeChat(); }' + split[1];
     // var match = script.match(/console\.log\("Connecting to "\+a\);/);
     // var split = script.split(match[0]);
     // return split[0] + match[0] + 'document.getElementById("ip").innerHTML=a.replace(/wss?:\\/\\//,"");' + split[1];
