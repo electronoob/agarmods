@@ -186,6 +186,7 @@ function httpGet(theUrl, callback) {
 	};
 }
 window.connect2 = window.connect;
+var rse = document.getElementById("region").cloneNode(true);
 
 function agariomodsRuntimeInjection() {
 	var script = document.createElement("script");
@@ -207,6 +208,7 @@ function agariomodsRuntimeInjection() {
 	if(!crx){
 	var oc = document.getElementById("canvas");
 	var nc = document.createElement("canvas");nc.id="canvas";nc.width=oc.width;nc.height=oc.height;oc.parentNode.replaceChild(nc,oc);
+	document.getElementById("region").parentNode.replaceChild(rse,document.getElementById("region"));
 	}
 	document.head.appendChild(script);
 	document.getElementById("helloDialog").style.display="block";
@@ -234,7 +236,6 @@ function agariomodsRuntimeInjection() {
 }
 
 window.log=function(stuff){console.log(stuff);}
-
 function agariomodsRuntimePatches() {
 	gamejs_patch('console.log("socket close");','onwsclose();console.log("socket close");',"Simulate player death on unexpected socket close");
 	gamejs_patch('.onclose=null;','.onclose=onwsclose;',"Simulate player death on intentional socket close.")
