@@ -1204,7 +1204,7 @@ $(document).keydown(function(e) {
 	if (e.keyCode == 67&&document.activeElement.type!="text") {
 		chatEnabled = !chatEnabled;
 		localStorage.setItem("chatEnabled",chatEnabled);
-		if(server.ip.substr(-11)==".iomods.com")chatEnabled?openChat():closeChat();//jQuery('#apikey').val().replace(" ", ""));
+		if(server.ip.substr(-11)==".iomods.com")chatEnabled?openChat():closeChat();//jQuery('#apikey').val().split(" ").join(""));
 	}
 	//FPS Hotkey
 	if (e.altKey && e.keyCode == 49) {
@@ -1434,7 +1434,7 @@ jQuery(document).keypress(function(e) {
 });
 
 window.connectPrivate = function(location, i) {
-	var ip = location.toLowerCase().replace(" ", "") + '.iomods.com';
+	var ip = location.toLowerCase().split(" ").join("") + '.iomods.com';
 	var port = (1500+parseInt(i));
 	server.ip=ip;server.i=i;server.location=location;
 	connect("ws://"+ ip + ":" + port, "");
@@ -1442,7 +1442,7 @@ window.connectPrivate = function(location, i) {
 }
 
 function openChat(){
-	apikey = getCookie("apikey").replace(" ", "");
+	apikey = getCookie("apikey").split(" ").join("");
 	if(chatEnabled) {
 		var i = server.i;
 		var ip = server.ip;
@@ -1518,7 +1518,8 @@ window.isVisible = function() {
 		return false;
 }
 
-//function handleHash(){
+handleHash();
+function handleHash(){
 	if(window.location.hash=='#'||window.location.hash=='')return;
 	var api = window.location.hash.substr(1);
 	history.replaceState('agar.io', 'Agar.io', '/');
@@ -1552,7 +1553,7 @@ window.isVisible = function() {
 	} else {
 		alert("Error: Invalid API Key")
 	}
-//}
+}
 
 //-------------------BROWSER-------------//
 window.openServerbrowser=function(a) {
@@ -1567,7 +1568,7 @@ window.openServerbrowser=function(a) {
 window.closeServerbrowser=function() {
 	jQuery('#serverBrowser').fadeOut();
 }
-var locations = new Array("Amsterdam", "Frankfurt", "London", "Quebec", "Paris", "Atlanta", "Chicago", "Dallas", "Los Angeles", "Miami", "New Jersey", "Seattle", "Silicon Valley", "Sydney", "Tokyo");
+var locations = new Array("Amsterdam", "Frankfurt Alpha", "Frankfurt", "London", "Quebec", "Paris", "Atlanta", "Chicago", "Dallas", "Los Angeles", "Miami", "New Jersey", "Seattle", "Silicon Valley", "Sydney", "Tokyo");
 locations.sort();
 locations[0] = [locations[1],locations[1]=locations[0]][0];
 function getServers() {
@@ -1577,11 +1578,11 @@ function getServers() {
 	jQuery.each(locations, function(index, value) {
 		for (var i = 1; i <= 2; i++) {
 
-			serverid = value.toLowerCase().replace(" ", "") + i;
+			serverid = value.toLowerCase().split(" ").join("") + i;
 			$('#serverlist'+i).append('<a href class="serveritem" id="' + serverid + '" onclick="connectPrivate(\''+value+'\', \''+i+'\');closeServerbrowser();return false;"><b style="color: #222">' + value + ' #' + i + '</b><br>\
 			<i style="color: #999"><span id="player">fetching data...</span> <i style="color: #ccc" class="fa fa-users" /> | <span id="game"></span> | </i><span id="latency"><i class="fa fa-signal"></i> <span id="latencyres"></span></span></a>'); //</i>
 
-			latencylist.push(new Array(value.toLowerCase().replace(" ", ""), i));
+			latencylist.push(new Array(value.toLowerCase().split(" ").join(""), i));
 		};
 	});
 	serverinfo(latencylist, 0);
