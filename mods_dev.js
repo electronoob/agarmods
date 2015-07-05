@@ -336,7 +336,7 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 	var nodeSpan = document.createElement("span");
 	var nodeBr = document.createElement("br");
 	var nodeLinks = document.createElement("div");
-	nodeLinks.innerHTML = "<ul style='position:relative;left:-25px;width:450px;background-color:#428bca;text-align:center;font:16px bold,sans-serif;list-style-type:none;margin:6px 0 3px;padding:0;overflow:hidden;'><li style='float:left;'><a class='link' href='http://skins.agariomods.com' target='_blank'>SKINS</a><li style='float:left;'><a class='link' href='http://agariomods.com/chat.html' target='_blank'>CHAT</a><li style='float:left;'><a class='link' href='http://agariomods.com' target='_blank'>WEBSITE</a><li style='float:left;'><a class='link' href='http://agariomods.com/help.html' target='_blank'>HELP</a></li><li style='float:left;'><a class='link' style='border-right:0 !important' href onclick=\"alert('---HOTKEYS---\\nHold Z - Show Stats In-Game\\nToggle Chat - C\\nInput Chat - Enter OR '/'\\nToggle Benchmarker - T\\nClear Benchmarks - Alt+T\\nFPS Counter - Alt+1\\nPackets In/Out Per Second - Alt+2\\nTry Script Lag Recover - Alt+R'+(navigator.userAgent.match('Firefox')?'\\nFirefox Fullscreen - Ctrl+F\\nShow Menu While in Fullscreen - Delete':''));return false;\" target='_blank'>HOTKEYS</a></li></ul>";
+	nodeLinks.innerHTML = "<ul style='position:relative;left:-25px;width:450px;background-color:#428bca;text-align:center;font:16px bold,sans-serif;list-style-type:none;margin:6px 0 3px;padding:0;overflow:hidden;'><li style='float:left;'><a class='link' href='http://skins.agariomods.com' target='_blank'>SKINS</a><li style='float:left;'><a class='link' href='http://agariomods.com/chat.html' target='_blank'>CHAT</a><li style='float:left;'><a class='link' href='http://agariomods.com' target='_blank'>WEBSITE</a><li style='float:left;'><a class='link' href='http://agariomods.com/help.html' target='_blank'>HELP</a></li><li style='float:left;'><a class='link' style='border-right:0 !important' href onclick=\"alert('---HOTKEYS---\\nHold Z - Show Stats In-Game\\nConnect To Private Server - Alt+C\\nToggle Chat - C\\nInput Chat - Enter OR '/'\\nToggle Benchmarker - T\\nClear Benchmarks - Alt+T\\nFPS Counter - Alt+1\\nPackets In/Out Per Second - Alt+2\\nAttempt Lag Recovery - Alt+R'+(navigator.userAgent.match('Firefox')?'\\nTrue Fullscreen for Firefox - Ctrl+F\\nShow Menu While in Fullscreen - Delete':''));return false;\" target='_blank'>HOTKEYS</a></li></ul>";
 	nodeLinks.style.marginLeft='10px';
 	nodeSpan.className = "glyphicon glyphicon-refresh btn btn-info";
 	nodeSpan.style.fontSize = "1.5em";
@@ -1205,10 +1205,20 @@ $(document).keydown(function(e) {
 		deleteScores();
 	}
 	//Chat Toggle
-	if (e.keyCode == 67&&document.activeElement.type!="text") {
+	if (e.keyCode == 67&&!e.altKey&&document.activeElement.type!="text") {
 		chatEnabled = !chatEnabled;
 		localStorage.setItem("chatEnabled",chatEnabled);
 		if(server.ip.substr(-11)==".iomods.com")chatEnabled?openChat():closeChat();//jQuery('#apikey').val().split(" ").join(""));
+	}
+	//Ogar Connect
+	if (e.keyCode == 67&&e.altKey) {
+		var a = localStorage.getItem("ip");
+		var b = prompt("Ogar Connect - Connect to a Private Ogar Server\nEnter IP or URL",(a==null?"":a));
+		if(b==null){return;}else if(b==""){alert("No IP/URL inputed")};
+		b = b.split("ws://").join("");
+		if(b.indexOf("/")==-1&&b.search(/:\d/)!==-1&&b.search(/[a-zA-Z]\.[a-zA-Z]/)!==-1&&encodeURI(b)==b){b="ws://"+b}else{alert("Invalid IP/URL");return;};
+		try{connect(b,"")}catch(e){alert("Illegal IP/URL");return;};
+		localStorage.setItem("ip",b);
 	}
 	//FPS Hotkey
 	if (e.altKey && e.keyCode == 49) {
