@@ -7,7 +7,7 @@ var version = 199; //DO NOT USE PERIODS
 var old_version = localStorage.getItem("version");
 var updated = false;
 var noob = false;
-var server = {ip:"",i:"",location:""};
+window.server = {ip:"",i:"",location:""};
 if(old_version!=version){
 	updated=true;
 	if(old_version==null){
@@ -42,7 +42,7 @@ var chatEnabled = localStorage.getItem("chatEnabled")=="true";
 var extToggled = false;
 
 var ldown = false;
-var crx = !window.connect;
+//var crx = !window.connect;
 
 var showfps = false;
 var showpio = false; //packets in/out per second
@@ -184,6 +184,10 @@ function httpGet(theUrl, callback) {
 			callback(xmlHttp.responseText);
 		}
 	};
+	/*var script = document.head.innerHTML.split("<script>")[1];
+	var result = script.substr(0,script.search("</script>")).split("\
+	").join();
+	callback(result);*/
 }
 window.connect2 = window.connect;
 var rse = document.getElementById("region").cloneNode(true);
@@ -205,11 +209,11 @@ function agariomodsRuntimeInjection() {
 	var script = document.createElement("script");
 	agariomodsRuntimePatches();
 	script.innerHTML = gamejs;
-	if(!crx){
+	//if(!crx){
 	var oc = document.getElementById("canvas");
 	var nc = document.createElement("canvas");nc.id="canvas";nc.width=oc.width;nc.height=oc.height;oc.parentNode.replaceChild(nc,oc);
 	document.getElementById("region").parentNode.replaceChild(rse,document.getElementById("region"));
-	}
+	//}
 	document.head.appendChild(script);
 	document.getElementById("helloDialog").style.display="block";
 	agariomodsRuntimeHacks();
@@ -518,7 +522,7 @@ function addOnShowOverlayHook(script) {
 function addConnectHook(script) {
 	var match = script.match(/console\.log\("Connecting to "\+a\);/);
     var split = script.split(match[0]);
-    return split[0] + (crx?'':'try{connect2("...")}catch(a){};') + match[0] + 'if(typeof socket != "undefined" && socket.connected) { closeChat(); }' + split[1];
+    return split[0] + ('try{connect2("...")}catch(a){};') + match[0] + 'if(typeof socket != "undefined" && socket.connected) { closeChat(); }' + split[1];
     // var match = script.match(/console\.log\("Connecting to "\+a\);/);
     // var split = script.split(match[0]);
     // return split[0] + match[0] + 'document.getElementById("ip").innerHTML=a.replace(/wss?:\\/\\//,"");' + split[1];
