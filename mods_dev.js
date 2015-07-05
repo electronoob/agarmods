@@ -1518,10 +1518,7 @@ window.isVisible = function() {
 		return false;
 }
 
-window.onhashchange = handleHash;
-handleHash();
-
-function handleHash(){
+//function handleHash(){
 	if(window.location.hash=='#'||window.location.hash=='')return;
 	var api = window.location.hash.substr(1);
 	history.replaceState('agar.io', 'Agar.io', '/');
@@ -1549,13 +1546,13 @@ function handleHash(){
 				}
 			},
 			error: function() {
-				alert("Error: Failed establish connection to connect.agariomods.com");
+				alert("Error: Failed to establish connection to connect.agariomods.com");
 			}
 		});
 	} else {
 		alert("Error: Invalid API Key")
 	}
-}
+//}
 
 //-------------------BROWSER-------------//
 window.openServerbrowser=function(a) {
