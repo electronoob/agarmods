@@ -1613,6 +1613,7 @@ function serverinfo(list, index) {
 	jQuery.ajax({
 		url: statsurl,
 		dataType: 'json',
+                timeout: 5000,
 		success: function(data){
 			$('#' + (value[0] + value[1]) + ' #player').text(data.current_players + "/" + data.max_players);
 			$('#' + (value[0] + value[1]) + ' #game').text(data.gamemode);
@@ -1628,10 +1629,10 @@ function serverinfo(list, index) {
 			}
 			jQuery('#' + (value[0] + value[1]) + ' #latencyres').text(latency + "ms");
 		},
-		error: function(data) {
-			jQuery('#' + (value[0] + value[1]) + ' #player').text("No information");
+		error: function(data,err,ngut) {
+			jQuery('#' + (value[0] + value[1]) + ' #player').text("N/A");
 			jQuery('#' + (value[0] + value[1]) + ' #latency').css("color", "#f00");
-			jQuery('#' + (value[0] + value[1]) + ' #latency').text("Failed");
+			jQuery('#' + (value[0] + value[1]) + ' #latency').text("Error: +err");
 		},
 		complete: function(data) {
             document.getElementById("serverBrowser").style.display=="none"||serverinfo(list, index+1);
