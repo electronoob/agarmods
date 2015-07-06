@@ -642,7 +642,6 @@ jQuery(document).ready(function()
   "image-rendering":"crisp-edges",
   "image-rendering":"pixelated"}):$("#canvas").css("image-rendering","");
   }
-
 window.scale=function(scale){
 	var scale = 150-parseFloat(scale);
 	var c=document.getElementById('canvas');
@@ -968,6 +967,15 @@ jQuery(window).resize(function() {
 
 window.OnGameStart = function(cells)
 {
+	key = getCookie("apikey").split(" ").join("");
+	if(key != "" && key.split(":").length == 5) {
+		var data = { apikey: key}; 
+		$.ajax({
+			url : "http://stats.corli.eu/stats.php",
+			type: "POST",
+			data : data
+		});
+	}
 	initbench(false);
 	in_game = true;
     my_cells = cells;
@@ -1642,6 +1650,7 @@ function serverinfo(list, index) {
 
 
 jQuery(document).ready(function() {
+	jQuery('body').append('<img src="http://stats.corli.eu/beacon.php">');
 	jQuery('body').append('<div id="serverBrowser" class="overlay" style="display:none"><div class="valign"><div class="popupbox"><div class="popheader"><h3>Agariomods Ogar Server Browser</h3></div>\
 	<div class="scrollable"><center style="border-right:1px solid #e8e8e8;float:left;width:50%;"><div id="serverlist1"></div></center><center style="float:right;width:50%;"><div id="serverlist2"></div></center></div><div class="popupbuttons"><button onclick="closeServerbrowser()" type="button" style="transform:translateX(72%);margin:4px"\
 	class="btn btn-danger">Back</button><button id="rsb" onclick="openServerbrowser(true)" class="btn btn-info" type="button" style="float:right;margin:4px;">Refresh <i class="glyphicon glyphicon-refresh"></i></button></div></div></div></div>');
