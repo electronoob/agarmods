@@ -24,10 +24,11 @@
     </style>
 		<script>
 		window.onload=function(){
-			var ol = document.body.getElementsByTagName("ol")[0];
 			hash();
 			window.onhashchange = hash;
+                }
 			function hash(){
+			var ol = document.body.getElementsByTagName("ol")[0];
 			var a = window.location.hash.substr(1).toLowerCase().split(" ").join("");
 			if(a=="")return;	if(parseFloat(a)==parseFloat(a)){
 			a=parseFloat(a);
@@ -43,7 +44,7 @@
 			}
 			}
 			b&&b.scrollIntoView&&b.scrollIntoView(true);
-			}}
+			}
 		</script>
 </head>
 <body>
