@@ -323,7 +323,7 @@ jQuery('#helloDialog').css({width: '450px'});
 	nodeDiv.style.marginTop = "0";
 	nodeDiv.style.maxHeight = "200px"; //The settings and the ad are being pushed down too far on some screens (1366*768). ~Mevin1
 	nodeDiv.style.overflow = "auto"; //add scroll bar
-	nodeDiv.innerHTML += '1.9.9: <big>Sign-in to <a href="http://connect.agariomods.com">connect.agariomods.com</a> and activate chat on our Private Servers from your profile!!!</big><br> \
+	nodeDiv.innerHTML += '1.9.9: <big style="font-weight:bold;">Sign-in to <a href="http://connect.agariomods.com">connect.agariomods.com</a> and activate chat on our Private Servers from your profile!!!</big><br> \
 <b>Use custom skins with *ACCOUNTNAME</b><br><h3>Stage 3 is dawning upon us</h3><a href="http://connect.agariomods.com/" target="_blank"><font color="pink">Register now with agariomods connect because you will need it for some soon to be released exciting new features.</font></a><br>\
 Go catch up with the <a target="_blank" href="http://agariomods.com/documentation.html">Documentation</a><br><h4><a href="http://www.agariomods.com/help.html" target="_blank"><font color="pink">CLICK HERE FOR HELP</font></a></h4>\
         <div style="background-color: #ffffff; color: #000000; padding: 2px; margin: 0px;">\
@@ -1178,11 +1178,11 @@ $(document).ready(function() {
 		$(this).attr("value",(localStorage.getItem("setting"+$(this).parent().text().replace(" ","_"))));
 	});
 	});
-
+	
 var kd = false;
 $(document).keydown(function(e) {
 	//Stats Shortcut
-	if (e.keyCode == 90) {
+	if (e.keyCode == 90&&!jQuery('#chatinput').is(':visible')) {
 		if (kd == false && document.getElementById("overlays").style.display == 'none') {
 			kd = true;
 			document.getElementById("overlays").style.display = "block";
@@ -1432,16 +1432,14 @@ socketscript.setAttribute("src", "https://cdn.socket.io/socket.io-1.3.5.js");
 //-----------------CHAT---------------//
 
 var socket;
-
-jQuery(document).keypress(function(e) {
-    if(e.which == 13) {
-       	if (jQuery('#chatinput').is(':visible')) { 
-       		if($('#chatinputfield').val() != "")
-       			sendMSG();
-       		jQuery('#chatinput').fadeToggle("fast");      			
+jQuery(document).keydown(function(e) {
+    if(e.keyCode == 13 || e.keyCode == 191) {
+       	if (jQuery('#chatinput').is(':visible')&&e.keyCode!=191) { 
+       		sendMSG();  			
        	}
        	else if (document.activeElement.type!="text") {
-       		jQuery('#chatinput').fadeToggle("fast"); 
+			e.preventDefault();
+       		tChat(); 
        		jQuery('#chatinputfield').focus();
        	}
     }
@@ -1519,11 +1517,14 @@ function addLine(data) {
 }
 
 window.sendMSG = function() {
+    if($('#chatinputfield').val().trim() == ""){tChat(!0);return}
 	var msg = jQuery('#chatinputfield').val();
 	jQuery('#chatinputfield').val('');
 	socket.emit('chat', { text: msg });
+    tChat(!0);
 }
 
+window.tChat=function(a){a?jQuery('#chatinput').fadeOut("fast"):jQuery('#chatinput').fadeIn("fast")};
 
 window.isVisible = function() {
 	if(jQuery('#chatinput').is(':visible'))
@@ -1647,7 +1648,7 @@ jQuery(document).ready(function() {
 	class="btn btn-danger">Back</button><button id="rsb" onclick="openServerbrowser(true)" class="btn btn-info" type="button" style="float:right;margin:4px;">Refresh <i class="glyphicon glyphicon-refresh"></i></button></div></div></div></div>');
 	jQuery('#settings').prepend('<button type="button" id="opnBrowser" onclick="openServerbrowser();" style="position:relative;top:-8px;width:100%" class="btn btn-success">Agariomods Private Servers</button><br>');
 	jQuery('body').append('<div id="chat" style="display:none"><div id="chatlines"></div><div id="chatinput" style="display:none" class="input-group">\
-	<input type="text" id="chatinputfield" class="form-control" maxlength="120"><span class="input-group-btn">\
+	<input type="text" id="chatinputfield" class="form-control" maxlength="120" onblur="tChat(!0)"><span class="input-group-btn">\
 	<button onclick="sendMSG()" class="btn btn-default" type="button">Send</button></span></div></div>');
 });
 function best(name,data) { //For when the best is the highest number
