@@ -336,7 +336,7 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 	var nodeSpan = document.createElement("span");
 	var nodeBr = document.createElement("br");
 	var nodeLinks = document.createElement("div");
-	nodeLinks.innerHTML = "<ul style='position:relative;left:-25px;width:450px;background-color:#428bca;text-align:center;font:16px bold,sans-serif;list-style-type:none;margin:6px 0 3px;padding:0;overflow:hidden;'><li style='float:left;'><a class='link' href='http://skins.agariomods.com' target='_blank'>SKINS</a><li style='float:left;'><a class='link' href='http://agariomods.com/chat.html' target='_blank'>CHAT</a><li style='float:left;'><a class='link' href='http://agariomods.com' target='_blank'>WEBSITE</a><li style='float:left;'><a class='link' href='http://agariomods.com/help.html' target='_blank'>HELP</a></li><li style='float:left;'><a class='link' style='border-right:0 !important' href onclick=\"alert('---HOTKEYS---\\nHold Z - Show Stats In-Game\\nConnect To Private Server - Alt+C\\nToggle Chat - C\\nInput Chat - Enter OR '/'\\nToggle Benchmarker - T\\nClear Benchmarks - Alt+T\\nFPS Counter - Alt+1\\nPackets In/Out Per Second - Alt+2\\nAttempt Lag Recovery - Alt+R'+(navigator.userAgent.match('Firefox')?'\\nTrue Fullscreen for Firefox - Ctrl+F\\nShow Menu While in Fullscreen - Delete':''));return false;\" target='_blank'>HOTKEYS</a></li></ul>";
+	nodeLinks.innerHTML = "<ul style='position:relative;left:-25px;width:450px;background-color:#428bca;text-align:center;font:16px bold,sans-serif;list-style-type:none;margin:6px 0 3px;padding:0;overflow:hidden;'><li style='float:left;'><a class='link' style='width:70px;' href='http://skins.agariomods.com' target='_blank'>SKINS</a><li style='float:left;'><a style='width:70px;' class='link' href='http://agariomods.com/chat.html' target='_blank'>CHAT</a><li style='float:left;'><a style='width:100px;' class='link' href='http://agariomods.com' target='_blank'>WEBSITE</a><li style='float:left;'><a style='width:110px;' class='link' href='http://agariomods.com/documentation.html' target='_blank'>FEATURES</a></li><li style='float:left;'><a style='width:100px;' class='link' style='border-right:0 !important' href onclick=\"alert('---HOTKEYS---\\nHold Z - Show Stats In-Game\\nConnect To Private Server - Alt+C\\nToggle Chat - C\\nInput Chat - Enter OR '/'\\nToggle Benchmarker - T\\nClear Benchmarks - Alt+T\\nFPS Counter - Alt+1\\nPackets In/Out Per Second - Alt+2\\nAttempt Lag Recovery - Alt+R'+(navigator.userAgent.match('Firefox')?'\\nTrue Fullscreen for Firefox - Ctrl+F\\nShow Menu While in Fullscreen - Delete':''));return false;\" target='_blank'>HOTKEYS</a></li></ul>";
 	nodeLinks.style.marginLeft='10px';
 	nodeSpan.className = "glyphicon glyphicon-refresh btn btn-info";
 	nodeSpan.style.fontSize = "1.5em";
@@ -366,7 +366,6 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 	jQuery('#locationUnknown').append(nodeDiv);
 	$('.link').css({
 		'display': 'block',
-		'width': '90px',
 		'border-right':'1px solid #0077CC',
 		'padding':'4px 0',
 		'background-color': '#428bca',
