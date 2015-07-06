@@ -1,11 +1,14 @@
 // ==UserScript==
 // @name        AgarioMods evergreen script
 // @namespace	 AgarioMods
-// @version      1.9.6
+// @version      1.9.9
 // @description  community run mod feature set for agar.io
 // @author       electronoob
+// @updateURL    http://agariomods.com/mods.user.js
 // @match        http://agar.io/
 // @match        https://agar.io/
+// @match        http://agar.io/#*
+// @match        https://agar.io/#*
 // @grant        none
 // ==/UserScript==
 
