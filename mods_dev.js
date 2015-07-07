@@ -1582,9 +1582,9 @@ window.openServerbrowser=function(a) {
 window.closeServerbrowser=function() {
 	jQuery('#serverBrowser').fadeOut();
 }
-var locations = new Array("Amsterdam", "Frankfurt Alpha", "Frankfurt", "London", "Quebec", "Paris", "Atlanta", "Chicago", "Dallas", "Los Angeles", "Miami", "New Jersey", "Seattle", "Silicon Valley", "Sydney", "Tokyo");
+var locations = new Array("Amsterdam", "Amsterdam Beta", "Frankfurt Alpha", "Frankfurt", "London", "Quebec", "Paris", "Atlanta", "Chicago", "Dallas", "Los Angeles", "Miami", "New Jersey", "Seattle", "Silicon Valley", "Sydney", "Tokyo");
 locations.sort();
-locations[0] = [locations[1],locations[1]=locations[0]][0];
+locations[0] = [locations[2],locations[2]=locations[1],locations[1]=locations[0]][0];
 function getServers() {
 	jQuery('#serverlist1').empty();
 	jQuery('#serverlist2').empty();
