@@ -1215,7 +1215,7 @@ $(document).keydown(function(e) {
 		var b = prompt("Ogar Connect - Connect to a Private Ogar Server\nEnter IP or URL",(a==null?"":a));
 		if(b==null){return;}else if(b==""){alert("No IP/URL inputed")};
 		b = b.split("ws://").join("");
-		if(b.indexOf("/")==-1&&b.search(/:\d/)!==-1&&b.search(/[a-zA-Z]\.[a-zA-Z]/)!==-1&&encodeURI(b)==b){b="ws://"+b}else{alert("Invalid IP/URL");return;};
+		if(b.indexOf("/")==-1&&b.search(/:\d/)!==-1&&b.search(/[a-zA-Z1-9]\.[a-zA-Z1-9]/)!==-1&&encodeURI(b)==b){b="ws://"+b}else{alert("Invalid IP/URL");return;};
 		try{connect(b,"")}catch(e){alert("Illegal IP/URL");return;};
 		localStorage.setItem("ip",b);
 	}
