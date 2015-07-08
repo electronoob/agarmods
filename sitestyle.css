@@ -178,7 +178,7 @@
 	display: none;
 }
 .inline[installed='1'] .inlinee::after{
-	content: "Checking...";
+	content: "Adding...";
 }
 .inline[installed='2'] .inlinee::after{
 	content: "Added To Chrome";
