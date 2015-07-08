@@ -36,12 +36,14 @@
 				var b = ol.children[Math.floor(a)-1];
 				if(a>Math.floor(a)){
 					b=b.children[0].children[Math.floor(a.toString().split(".",2)[1])-1];
+					if(a.toString().split(".",3)[2]!=null)b=b.children[0].children[Math.floor(a.toString().split(".",3)[2])-1];
 				}
 			}else{
 			var olc = ol.children;
 			for(i=0;i<olc.length;i++){
 				if(olc[i].childNodes[0].textContent.toLowerCase().split(" ").join("").trim()==a){b=olc[i];break;}
 			}
+			if(!b)b=
 			}
 			b&&b.scrollIntoView&&b.scrollIntoView(true);
 			}
