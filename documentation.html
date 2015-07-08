@@ -31,11 +31,11 @@
 			var ol = document.body.getElementsByTagName("ol")[0];
 			var a = window.location.hash.substr(1).toLowerCase().split(" ").join("");
 			if(a=="")return;	if(parseFloat(a)==parseFloat(a)){
-			a=parseFloat(a);
-			if(a>ol.children.length)return;
-				var b = ol.children[Math.floor(a)-1];
-				if(a>Math.floor(a)){
-					b=b.children[0].children[Math.floor(a.toString().split(".",2)[1])-1];
+			c=parseFloat(a);
+			if(c>ol.children.length)return;
+				var b = ol.children[Math.floor(c)-1];
+				if(c>Math.floor(c)){
+					b=b.children[0].children[Math.floor(c.toString().split(".",2)[1])-1];
 					if(a.toString().split(".",3)[2]!=null)b=b.children[0].children[Math.floor(a.toString().split(".",3)[2])-1];
 				}
 			}else{
