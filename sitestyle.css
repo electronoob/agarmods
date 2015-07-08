@@ -149,9 +149,9 @@
 }
 .inline{
 	transform-origin: 0 0;
-	padding: 3px 20px 0 20px;
-	display: inline-block;
-	height: 35px;
+	padding: 6px 20px;
+	display: block;
+	height: 40px;
 	border-radius: 2px;
 	cursor: pointer;
 	line-height: 28px;
