@@ -338,7 +338,7 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 	var nodeSpan = document.createElement("span");
 	var nodeBr = document.createElement("br");
 	var nodeLinks = document.createElement("div");
-	nodeLinks.innerHTML = "<ul style='position:relative;left:-25px;width:450px;background-color:#428bca;text-align:center;font:16px bold,sans-serif;list-style-type:none;margin:6px 0 3px;padding:0;overflow:hidden;'><li style='float:left;'><a class='link' style='width:70px;' href='http://skins.agariomods.com' target='_blank'>SKINS</a><li style='float:left;'><a style='width:70px;' class='link' href='http://agariomods.com/chat.html' target='_blank'>CHAT</a><li style='float:left;'><a style='width:100px;' class='link' href='http://agariomods.com' target='_blank'>WEBSITE</a><li style='float:left;'><a style='width:110px;' class='link' href='http://agariomods.com/documentation.html' target='_blank'>FEATURES</a></li><li style='float:left;'><a style='width:100px;' class='link' style='border-right:0 !important' href onclick=\"alert('---HOTKEYS---\\nHold Z - Show Stats In-Game\\nConnect To Private Server - Alt+C\\nToggle Chat - C\\nInput Chat - Enter OR \'/\'\\nToggle Benchmarker - T\\nClear Benchmarks - Alt+T\\nTime On Page - Alt+1\\nFPS Counter - Alt+2\\nPackets In/Out Per Second - Alt+3\\nBytes In/Out Per Second - Alt+4\\nAttempt Lag Recovery - Alt+R'+(navigator.userAgent.match('Firefox')?'\\nTrue Fullscreen for Firefox - Ctrl+F\\nShow Menu While in Fullscreen - Delete':''));return false;\" target='_blank'>HOTKEYS</a></li></ul>";
+	nodeLinks.innerHTML = "<ul style='position:relative;left:-25px;width:450px;background-color:#428bca;text-align:center;font:16px bold,sans-serif;list-style-type:none;margin:6px 0 3px;padding:0;overflow:hidden;'><li style='float:left;'><a class='link' style='width:70px;' href='http://skins.agariomods.com' target='_blank'>SKINS</a><li style='float:left;'><a style='width:70px;' class='link' href='http://agariomods.com/chat.html' target='_blank'>CHAT</a><li style='float:left;'><a style='width:100px;' class='link' href='http://agariomods.com' target='_blank'>WEBSITE</a><li style='float:left;'><a style='width:110px;' class='link' href='http://agariomods.com/documentation.html' target='_blank'>FEATURES</a></li><li style='float:left;'><a style='width:100px;' class='link' style='border-right:0 !important' href onclick=\"alert('---HOTKEYS---\\nHold Z - Show Stats In-Game\\nConnect To Private Server - Alt+C\\nToggle Chat - C\\nInput Chat - Enter OR \\'/\\'\\nToggle Benchmarker - T\\nClear Benchmarks - Alt+T\\nTime On Page - Alt+1\\nFPS Counter - Alt+2\\nPackets In/Out Per Second - Alt+3\\nBytes In/Out Per Second - Alt+4\\nAttempt Lag Recovery - Alt+R'+(navigator.userAgent.match('Firefox')?'\\nTrue Fullscreen for Firefox - Ctrl+F\\nShow Menu While in Fullscreen - Delete':''));return false;\" target='_blank'>HOTKEYS</a></li></ul>";
 	nodeLinks.style.marginLeft='10px';
 	nodeSpan.className = "glyphicon glyphicon-refresh btn btn-info";
 	nodeSpan.style.fontSize = "1.5em";
@@ -1631,9 +1631,10 @@ window.openServerbrowser=function(a) {
 window.closeServerbrowser=function() {
 	jQuery('#serverBrowser').fadeOut();
 }
-var locations = new Array("Amsterdam", "Amsterdam Beta", "Frankfurt Alpha", "Frankfurt", "London", "Quebec", "Paris", "Atlanta", "Chicago", "Dallas", "Los Angeles", "Miami", "New Jersey", "Seattle", "Silicon Valley", "Sydney", "Tokyo");
+var locations = new Array("Amsterdam", "Amsterdam Beta", "Atlanta Beta", "Frankfurt Alpha", "Frankfurt", "London", "Quebec", "Paris", "Atlanta", "Chicago", "Dallas", "Los Angeles", "Miami", "New Jersey", "Seattle", "Silicon Valley", "Sydney", "Tokyo");
 locations.sort();
 locations[0] = [locations[2],locations[2]=locations[1],locations[1]=locations[0]][0];
+locations[1] = [locations[3],locations[3]=locations[2],locations[2]=locations[1]][0];
 function getServers() {
 	jQuery('#serverlist1').empty();
 	jQuery('#serverlist2').empty();
@@ -1681,7 +1682,9 @@ function serverinfo(list, index) {
 		error: function(data,err,ngut) {
 			jQuery('#' + (value[0] + value[1]) + ' #player').parent().css("display","none");
 			jQuery('#' + (value[0] + value[1]) + ' #latency').css("color", "#f00");
-			jQuery('#' + (value[0] + value[1]) + ' #latency').text((err=="error"&&"Connection Failed")||(err=="timeout"&&"Connection Timed Out")||("Error: "+err.charAt(0).toUpperCase()+err.substr(1)));
+			var errc = '';
+		if(err=="error"){errc="Connection Failed"}else if(err=="timeout"){errc="Connection Timed Out"}else{"Error: "+err.charAt(0).toUpperCase()+err.substr(1)};
+			jQuery('#' + (value[0] + value[1]) + ' #latency').text(errc);
 		},
 		complete: function(data) {
             document.getElementById("serverBrowser").style.display=="none"||serverinfo(list, index+1);
