@@ -133,7 +133,7 @@ var chart_G = '';
 var chart_Na= '';
 var chart_k = '';
 var sd = '';
-var mainout = window.location.protocol+"//connect.agariomods.com/main_out.js";
+var mainout = window.location.protocol+"//agar.io/main_out.js";
 document.getElementsByClassName("agario-panel")[0].style.display="none";
 httpGet(mainout, function(data) {
 	winvar=data.substr(10,1);
@@ -201,7 +201,7 @@ function agariomodsRuntimeInjection() {
 	oldhtml = oldhtml.replace('transform:translate(-50%,-50%);', '');
 	oldhtml = oldhtml.replace('top:50%;left:50%;','margin:10px;');
 	oldhtml = oldhtml.replace('width:100%;height:100%;', '');
-	oldhtml = oldhtml.replace('.agario-panel{','.connecting-panel{margin:0 0 !important;position:absolute;top:5px;right:5px;}.ui{pointerEvents:none}br+div:not([style]){height:35px;}#helloContainer>.agario-panel{float:left}#helloContainer>.side-container{float:right}.agario-panel{transform: none !important;');
+	oldhtml = oldhtml.replace('.agario-panel{','.agario-promo{display:none !important;}.connecting-panel{margin:0 0 !important;position:absolute;top:5px;right:5px;}.ui{pointerEvents:none}br+div:not([style]){height:35px;}#helloContainer>.agario-panel{float:left}#helloContainer>.side-container{float:right}.agario-panel{transform: none !important;');
 	tester[0].innerHTML = oldhtml;
 	var script = document.createElement("script");
 	script.id="agariomods";
@@ -253,7 +253,7 @@ function agariomodsRuntimePatches() {
         gamejs_patch(W +'['+b+'].src="skins/"+'+b+'+".png"', W+'['+b+'].src=agariomods', "check for agariomods img src variable");
         gamejs_patch("this."+pandb+"&&c.strokeText("+c3eg2+");c.fillText("+c3eg2+")", "if (String(b).substring(0, 2) != \"i/\" || custom) {this."+pandb+"&&c.strokeText("+c3eg2+");c.fillText("+c3eg2+")}", "add imgur skins check for hiding username when using imgur id aka c3eg2");
         gamejs_patch(b+"=this.name.toLowerCase();", b+"=this.name.toLowerCase(); if (("+b+".substring(0, 2) == \"i/\"||"+b+".substring(0, 1) == \"*\")&&!custom&&"+Ja+".indexOf("+b+")==-1) {" +Ja+ ".push("+b+")} ;", "add imgur check #2.");
-    gamejs = addKeyboardHook(gamejs);
+	gamejs = addKeyboardHook(gamejs);
 	gamejs = addSkinHook(gamejs);
     gamejs = addChartHooks(gamejs);
     gamejs = addOnCellEatenHook(gamejs);
@@ -542,9 +542,9 @@ function addOnCellEatenHook(script) {
 }
 
 function addOnShowOverlayHook(script) {
-    var match = script.match(/\w+\("#overlays"\)\.fadeIn\((\w+)\?\w+:\w+\);/);    
+    var match = script.match(/\w+\("#overlays"\)\.fadeIn\((\w+)\?\w+:\w+\)/);    
     var split = script.split(match[0]);
-    return split[0] + match[0] + 'OnShowOverlay(' + match[1] + ');' + split[1];
+    return split[0] + match[0] + ',OnShowOverlay(' + match[1] + ')' + split[1];
 }
 
 function addConnectHook(script) {
