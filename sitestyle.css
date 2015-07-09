@@ -16,7 +16,7 @@
 	background-color: rgba(50, 175, 125, 0.2);
 }
 .nff {
-	display: none !important;
+	display: none;
 }
 @media screen and (-webkit-min-device-pixel-ratio:0) { 
     /* Safari and Chrome, if Chrome rule needed */
@@ -150,7 +150,6 @@
 .inline{
 	transform-origin: 0 0;
 	padding: 6px 20px;
-	display: block;
 	height: 40px;
 	border-radius: 2px;
 	cursor: pointer;
