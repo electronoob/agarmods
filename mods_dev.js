@@ -649,6 +649,7 @@ jQuery(document).ready(function()
 	jQuery('.glyphicon-cog').addClass("glyphicon-refresh")
 	jQuery('.glyphicon-cog').removeClass("glyphicon-cog");
 	jQuery('.btn-settings').attr('onclick','setR()');
+	jQuery('.btn-login').attr('type','button');
 	jQuery('.btn-settings').attr('type','button');
 	//jQuery('#gamemode').removeAttr('required');
 	jQuery('.btn-settings').css({'width':'15%','height': '35px'});
