@@ -1,35 +1,22 @@
+document.getElementById("helloContainer").style.display='none';
 //Skin List
 var ourskins = "0chan;18-25;1up;360nati0n;8ball;UmguwJ0;aa9skillz;ace;adamzonetopmarks;advertisingmz;agar youtube;agariomods.com;al sahim;alaska;albania;alchestbreach;alexelcapo;algeria;am3nlc;amoodiesqueezie;amway921wot;amyleethirty3;anarchy;android;angrybirdsnest;angryjoeshow;animebromii;anonymous;antvenom;aperture;apple;arcadego;assassinscreed;atari;athenewins;authenticgames;avatar;aviatorgaming;awesome;awwmuffin;aypierre;baka;balenaproductions;bandaid;bane;baseball;bashurverse;basketball;bateson87;batman;battlefield;bdoubleo100;beats;bebopvox;belarus;belgium;bender;benderchat;bereghostgames;bert;bestcodcomedy;bielarus;bitcoin;bjacau1;bjacau2;black widow;blackiegonth;blitzwinger;blobfish;bluexephos;bluh;blunty3000;bobross;bobsaget;bodil30;bodil40;bohemianeagle;boo;boogie2988;borg;bowserbikejustdance;bp;breakfast;breizh;brksedu;buckballs;burgundy;butters;buzzbean11;bystaxx;byzantium;calfreezy;callofduty;captainsparklez;casaldenerd;catalonia;catalunya;catman;cavemanfilms;celopand;chaboyyhd;chaika;chaosxsilencer;chaoticmonki;charlie615119;charmander;chechenya;checkpointplus;cheese;chickfila;chimneyswift11;chocolate;chrisandthemike;chrisarchieprods;chrome;chucknorris;chuggaaconroy;cicciogamer89;cinnamontoastken;cirno;cj;ckaikd0021;clanlec;clashofclansstrats;cling on;cobanermani456;coca cola;codqg;coisadenerd;cokacola;colombia;colombiaa;commanderkrieger;communitygame;concrafter;consolesejogosbrasil;controless ;converse;cookie;coolifegame;coookie;cornella;cornellà;coruja;craftbattleduty;creeper;creepydoll;criken2;criousgamers;crispyconcords;cristian4games;csfb;cuba;cubex55;cyberman65;cypriengaming;cyprus;czech;czechia;czechrepublic;d7297ut;d7oomy999;dagelijkshaadee;daithidenogla;darduinmymenlon;darksideofmoon;darksydephil;darkzerotv;dashiegames;day9tv;deadloxmc;deadpool;deal with it;deathly hallows;deathstar;debitorlp;deigamer;demon;derp;desu;dhole;diabl0x9;dickbutt;dilleron;dilleronplay;direwolf20;dissidiuswastaken;dnb;dnermc;doge;doggie;dolan;domo;domokun;donald;dong;donut;doraemon;dotacinema;douglby;dpjsc08;dreamcast;drift0r;drunken;dspgaming;dusdavidgames;dykgaming;ea;easports;easportsfootball;eatmydiction1;eavision;ebin;eeoneguy;egg;egoraptor;eguri89games;egypt;eksi;electrokitty;electronicartsde;elementanimation;elezwarface;eligorko;elrubiusomg;enzoknol;eowjdfudshrghk;epicface;ethoslab;exetrizegamer;expand;eye;facebook;fantabobgames;fast forward;fastforward;favijtv;fazeclan;fbi;fer0m0nas;fernanfloo;fgteev;fidel;fiji;finn;fir4sgamer;firefox;fishies;flash;florida;fnatic;fnaticc;foe;folagor03;forcesc2strategy;forocoches;frankieonpcin1080p;freeman;freemason;friesland;frigiel;frogout;fuckfacebook;fullhdvideos4me;funkyblackcat;gaben;gabenn;gagatunfeed;gamebombru;gamefails;gamegrumps;gamehelper;gameloft;gamenewsofficial;gameplayrj;gamerspawn;games;gameshqmedia;gamespot;gamestarde;gametrailers;gametube;gamexplain;garenavietnam;garfield;gassymexican;gaston;geilkind;generikb;germanletsfail;getinmybelly;getinthebox;ghostrobo;giancarloparimango11;gimper;gimperr;github;giygas;gizzy14gazza;gnomechild;gocalibergaming;godsoncoc;gogomantv;gokoutv;goldglovetv;gommehd;gona89;gonzo;gonzossm;grammar nazi;grayhat;grima;gronkh;grumpy;gtamissions;gtaseriesvideos;guccinoheya;guilhermegamer;guilhermeoss;gurren lagann;h2odelirious;haatfilms;hagrid;halflife;halflife3;halo;handicapped;hap;hassanalhajry;hatty;hawaii;hawkeye;hdluh;hdstarcraft;heartrockerchannel;hebrew;heisenburg;helix;helldogmadness;hikakingames;hikeplays;hipsterwhale;hispachan;hitler;homestuck;honeycomb;hosokawa;hue;huskymudkipz;huskystarcraft;hydro;iballisticsquid;iceland;ie;igameplay1337;ignentertainment;ihascupquake;illuminati;illuminatiii;ilvostrocarodexter;imaqtpie;imgur;immortalhdfilms;imperial japan;imperialists;imperialjapan;imvuinc;insanegaz;insidegaming;insidersnetwork;instagram;instalok;inthelittlewood;ipodmail;iron man;isaac;isamuxpompa;isis;isreal;itchyfeetleech;itsjerryandharry;itsonbtv;iulitm;ivysaur;izuniy;jackfrags;jacksepticeye;jahovaswitniss;jahrein;jaidefinichon;james bond;jamesnintendonerd;jamonymow;java;jellyyt;jeromeasf;jew;jewnose;jibanyan;jimmies;jjayjoker;joeygraceffagames;johnsju;jontronshow;josemicod5;joueurdugrenier;juegagerman;jumpinthepack;jupiter;kalmar union;kame;kappa;karamba728;kenny;keralis;kiloomobile;kingdomoffrance;kingjoffrey;kinnpatuhikaru;kirby;kitty;kjragaming;klingon;knekrogamer;knights templar;knightstemplar;knowyourmeme;kootra;kripparrian;ksiolajidebt;ksiolajidebthd;kuplinovplay;kurdistan;kwebbelkop;kyle;kyokushin4;kyrsp33dy;ladle;laggerfeed;lazuritnyignom;ldshadowlady;le snake;lenny;letsplay;letsplayshik;letstaddl;level5ch;levelcapgaming;lgbt;liberland;libertyy;liechtenstien;lifesimmer;linux;lisbug;littlelizardgaming;llessur;loadingreadyrun;loki;lolchampseries;lonniedos;love;lpmitkev;luigi;luke4316;m3rkmus1c;macedonia;machinimarealm;machinimarespawn;magdalenamariamonika;mahalovideogames;malena010102;malta;mario;mario11168;markipliergame;mars;maryland;masterball;mastercheif;mateiformiga;matroix;matthdgamer;matthewpatrick13;mattshea;maxmoefoegames;mcdonalds;meatboy;meatwad;meatwagon22;megamilk;messyourself;mickey;mike tyson;mike;miles923;minecraftblow;minecraftfinest;minecraftuniverse;miniladdd;miniminter;minnesotaburns;minnie;mkiceandfire;mlg;mm7games;mmohut;mmoxreview;mod3rnst3pny;moldova;morealia;mortalkombat;mr burns;mr.bean;mr.popo;mrchesterccj;mrdalekjd;mredxwx;mrlev12;mrlololoshka;mrvertez;mrwoofless;multirawen;munchingorange;n64;naga;namcobandaigameseu;nasa;natusvinceretv;nauru;nazi;nbgi;needforspeed;nepenthez;nextgentactics;nextgenwalkthroughs;ngtzombies;nick fury;nick;nickelodeon;niichts;nintendo;nintendocaprisun;nintendowiimovies;nipple;nislt;nobodyepic;node;noobfromua;northbrabant;northernlion;norunine;nosmoking;notch;nsa;obama;obey;officialclashofclans;officialnerdcubed;oficialmundocanibal;olafvids;omfgcata;onlyvgvids;opticnade;osu;ouch;outsidexbox;p3rvduxa;packattack04082;palau;paluten;pandaexpress;paulsoaresjr;pauseunpause;pazudoraya;pdkfilms;peanutbuttergamer;pedo;pedobear;peinto1008;peka;penguin;penguinz0;pepe;pepsi;perpetuumworld;pewdiepie;pi;pietsmittie;pig;piggy;pika;pimpnite;pinkfloyd;pinkstylist;pirate;piratebay;pizza;pizzaa;plagasrz;plantsvszombies;playclashofclans;playcomedyclub;playscopetrailers;playstation;playstation3gaminghd;pockysweets;poketlwewt;pooh;poop;popularmmos;potato;prestonplayz;protatomonster;prowrestlingshibatar;pt;pur3pamaj;quantum leap;question;rageface;rajmangaminghd;retard smile;rewind;rewinside;rezendeevil;reziplaygamesagain;rfm767;riffer333;robbaz;rockalone2k;rockbandprincess1;rockstar;rockstargames;rojov13;rolfharris;roomba;roosterteeth;roviomobile;rspproductionz;rss;rusgametactics;ryukyu;s.h.e.i.l.d;sah4rshow;samoa;sara12031986;sarazarlp;satan;saudi arabia;scream;screwattack;seal;seananners;serbia;serbiangamesbl;sethbling;sharingan;shell;shine;shofu;shrek;shufflelp;shurikworld;shuuya007;sinistar;siphano13;sir;skillgaming;skinspotlights;skkf;skull;skydoesminecraft;skylandersgame;skype;skyrim;slack;slovakia;slovenia;slowpoke;smash;smikesmike05;smoothmcgroove;smoove7182954;smoshgames;snafu;snapchat;snoop dogg;soccer;soliare;solomid;somalia;sp4zie;space ace;space;sparklesproduction;sparkofphoenix;spawn;speedyw03;speirstheamazinghd;spiderman;spongegar;spore;spqr;spy;squareenix;squirtle;ssohpkc;sssniperwolf;ssundee;stalinjr;stampylonghead;star wars rebel;starbucks;starchild;starrynight;staxxcraft;stitch;stupid;summit1g;sunface;superevgexa;superman;superskarmory;swiftor;swimmingbird941;syria;t3ddygames;tackle4826;taco;taltigolt;tasselfoot;tazercraft;tbnrfrags;tctngaming;teamfortress;teamgarrymoviethai;teammojang;terrorgamesbionic;tetraninja;tgn;the8bittheater;thealvaro845;theatlanticcraft;thebajancanadian;thebraindit;thecraftanos;thedanirep;thedeluxe4;thediamondminecart;theescapistmagazine;thefantasio974;thegaminglemon;thegrefg;thejoves;thejwittz;themasterov;themaxmurai;themediacows;themrsark;thepolishpenguinpl;theradbrad;therelaxingend;therpgminx;therunawayguys;thesims;theskylanderboy;thesw1tcher;thesyndicateproject;theuselessmouth;thewillyrex;thnxcya;thor;tintin;tmartn;tmartn2;tobygames;tomo0723sw;tonga;topbestappsforkids;totalhalibut;touchgameplay;transformer;transformers;trickshotting;triforce;trollarchoffice;trollface;trumpsc;tubbymcfatfuck;turkey;tv;tvddotty;tvongamenet;twitch;twitter;twosyncfifa;typicalgamer;uberdanger;uberhaxornova;ubisoft;uguu;ukip;ungespielt;uppercase;uruguay;utorrent;vanossgaming;vatican;venomextreme;venturiantale;videogamedunkey;videogames;vietnam;vikkstar123;vikkstar123hd;vintagebeef;virus;vladnext3;voat;voyager;vsauce3;w1ldc4t43;wakawaka;wales;walrus;wazowski;wewlad;white  light;whiteboy7thst;whoyourenemy;wiiriketopray;willyrex;windows;wingsofredemption;wit my woes;woodysgamertag;worldgamingshows;worldoftanks;worldofwarcraft;wowcrendor;wqlfy;wroetoshaw;wwf;wykop;xalexby11;xbox;xboxviewtv;xbulletgtx;xcalizorz;xcvii007r1;xjawz;xmandzio;xpertthief;xrpmx13;xsk;yamimash;yarikpawgames;ycm;yfrosta;yinyang;ylilauta;ylilautaa;yoba;yobaa;yobaaa;yogscast2;yogscastlalna;yogscastsips;yogscastsjin;yoteslaya;youalwayswin;yourheroes;yourmom;youtube;zackscottgames;zangado;zazinombies;zeecrazyatheist;zeon;zerkaahd;zerkaaplays;zexyzek;zimbabwe;zng;zoella;zoidberg;zombey;zoomingames";
-////START VERSION CODE////
-//Current Script Version
-var version = 199; //DO NOT USE PERIODS
-//Last Used Script Version
-var old_version = localStorage.getItem("version");
-var updated = false;
-var noob = false;
-window.server = {ip:"",i:"",location:""};
-if(old_version!=version){
-	updated=true;
-	if(old_version==null){
-		noob=true;
-	} else {
-		localStorage.setItem("version",version);
-	}
-}
+
+var version = 200;
+if (version != localStorage.getItem("version")){localStorage.setItem("version",version);
+var benchmarks = ["250mass", "500mass", "1000mass", "2500mass", "5000mass"];
+for (var i = 0; i < benchmarks.length; i++) {
+            var a = localStorage.getItem("best_" + benchmarks[i])
+			if(a!=null){a=a.split(":")}else{continue};
+			if(a.length==2)localStorage.getItem("best_" + benchmarks[i],((a[0]*60000)+(a[1]*1000)).toString());
+        }};
+
 function preset(s,v){if(null==localStorage.getItem(s))localStorage.setItem(s,v)}
 //preset("settingQuality",'50')
-preset("settingUse_Chat","true");
-preset("settingShow_Chart","true");
-preset("showt","true");
 preset("chatEnabled","true");
+preset("settingShow_chart","true");
+preset("showt","true");
 
-//Version Related Code//
-if(noob){
-	localStorage.setItem("version",version);
-}
-if(updated){
-}
-////END VERSION CODE////
 
 /*var sc = document.createElement('script');
 sc.setAttributeNode(document.createAttribute("async"));
@@ -40,18 +27,23 @@ var showsh = false;
 var showt = localStorage.getItem("showt")=="true";
 var chatEnabled = localStorage.getItem("chatEnabled")=="true";
 var extToggled = false;
+var rse = document.getElementById("region").cloneNode(true);
+window.server = {ip:"",i:"",location:""};
 
 var ldown = false;
 //var crx = !window.connect;
 
+var pload = 0;
+var ptime = false; //Time since pageshow
 var showfps = false;
 var showpio = false; //packets in/out per second
+var showbio = false; //bytes in/out per second
 
 window.addEventListener('message', function(e){if(e.data=="ScriptDisable"){extToggled=true;window.top.location=window.top.location;}}, false); //Prevent Reload Prompt When Disabling The Extension.
 
 if(showt===null){localStorage.setItem("showt","true");showt=true;}
 
-setInterval(function(){if(showsh)DrawStats(false);if(showt)count();},300);
+setInterval(function(){if(showsh)DrawStats(false);if(showt&&in_game)count();if(ptime)time(Date.now());},1000);
 
 var gamejs = "", modBlocking = true;
 var tester = document.getElementsByTagName("script");
@@ -65,7 +57,7 @@ var in_game = false;
 var pandb = '';		
 /*bgm*/
 var bgmusic = '';
-$('#audiotemplate').clone()[0];
+//$('#audiotemplate').clone()[0];
 var tracks = ['BotB 17936 Isolation Tank.mp3','BotB 17934 bubblybubblebubblingbubbles.mp3','BotB 17935 bloblobloblboblbolboblboblbobolbloblob.mp3','BotB 17937 Woofytunes.mp3','BotB 17938 slowgrow.mp3'];
 /*sfx*/
 //sfx play on event (only one of each sfx can play - for sfx that won't overlap with itself)
@@ -141,9 +133,10 @@ var chart_G = '';
 var chart_Na= '';
 var chart_k = '';
 var sd = '';
-var mainout = window.location.protocol+"//agar.io/main_out.js";
-document.getElementById("helloDialog").style.display="none";
+var mainout = window.location.protocol+"//connect.agariomods.com/main_out.js";
+document.getElementsByClassName("agario-panel")[0].style.display="none";
 httpGet(mainout, function(data) {
+	winvar=data.substr(10,1);
 	gamejs = "window.agariomods = " + data.replace("socket open","socket open (agariomods.com mod in place)");
 	gamejs = gamejs.replace(/\n/g, "");
 	sd=gamejs.substr(gamejs.search(/\w.send/),1);
@@ -158,11 +151,11 @@ httpGet(mainout, function(data) {
 	//this.P&&b.strokeText
 	var components = /this\.(.)&&.\.strokeText/.exec(gamejs);
 	pandb = components[1];
-	var components = /strokeText\((.{1,14})\);/.exec(gamejs);
+	var components =/strokeText\((.{1,14})\);/.exec(gamejs);
 	c3eg2 = components[1];
-	var components = /\((.)\=..x,.\=..y\)/.exec(gamejs);		
+	var components = /\((.)\=..x,.\=..y,/.exec(gamejs);		
 	chart_s = components[1];
-	var components = /\(.\=(.).x,.\=..y\)/.exec(gamejs);
+	var components = /\(.\=(.).x,.\=..y,/.exec(gamejs);
 	chart_m = components[1];
 	var components = /(.)\=Math.max\(.,..\(\)\);/.exec(gamejs);
 	chart_G = components[1];
@@ -190,7 +183,6 @@ function httpGet(theUrl, callback) {
 	callback(result);*/
 }
 window.connect2 = window.connect;
-var rse = document.getElementById("region").cloneNode(true);
 
 function agariomodsRuntimeInjection() {
 	var script = document.createElement("script");
@@ -198,16 +190,23 @@ function agariomodsRuntimeInjection() {
         document.head.appendChild(script);
 	var tester = document.getElementsByTagName("head");
 	var oldhtml = tester[0].innerHTML;
-	oldhtml = oldhtml.replace('width:350px;', '');
+	oldhtml = oldhtml.replace('#helloContainer,.connecting-panel{','#helloContainer{left:-2px;top:-6px;width:682px;');
+	oldhtml = oldhtml.replace('width:94px;','margin-right:10px;');
+	oldhtml = oldhtml.replace('#locationKnown', '#locationKnown{height:40px}#locationKnown');
+	oldhtml = oldhtml.replace('#region{width:100%', '#region{width:300px;float:left');
+	oldhtml = oldhtml.replace('.btn-spectate{', '.btn-spectate{width:110px;');
+	oldhtml = oldhtml.replace('margin-left:5px;width:275px', 'width:357px');
 	oldhtml = oldhtml.replace('-webkit-transform:translate(-50%,-50%);', '');
 	oldhtml = oldhtml.replace('-ms-transform:translate(-50%,-50%);', '');
 	oldhtml = oldhtml.replace('transform:translate(-50%,-50%);', '');
 	oldhtml = oldhtml.replace('top:50%;left:50%;','margin:10px;');
 	oldhtml = oldhtml.replace('width:100%;height:100%;', '');
-	oldhtml = oldhtml.replace('#helloDialog{','#helloDialog{transform: none !important;');
+	oldhtml = oldhtml.replace('.agario-panel{','.connecting-panel{margin:0 0 !important;position:absolute;top:5px;right:5px;}.ui{pointerEvents:none}br+div:not([style]){height:35px;}#helloContainer>.agario-panel{float:left}#helloContainer>.side-container{float:right}.agario-panel{transform: none !important;');
 	tester[0].innerHTML = oldhtml;
 	var script = document.createElement("script");
+	script.id="agariomods";
 	agariomodsRuntimePatches();
+	if(document.getElementById("agariomods")){alert("You are currently running multiple instances of Agariomods simultaneously!\nCheck that you dont have Tampermonkey Script and the Chrome Extension running at the same time if you're on Chrome;\nYou will see visual glicthes until YOU fix this.");/*throw new Error("Another instance of the Agariomods Evergreen Script is already running!");*/}
 	script.innerHTML = gamejs;
 	//if(!crx){
 	var oc = document.getElementById("canvas");
@@ -215,9 +214,9 @@ function agariomodsRuntimeInjection() {
 	document.getElementById("region").parentNode.replaceChild(rse,document.getElementById("region"));
 	//}
 	document.head.appendChild(script);
-	document.getElementById("helloDialog").style.display="block";
+	document.getElementsByClassName("agario-panel")[0].style.display="block";
 	agariomodsRuntimeHacks();
-	bgmusic = $('#audiotemplate').clone()[0];
+	bgmusic = new Audio()//$('#audiotemplate').clone()[0];
     bgmusic.src = "//skins.agariomods.com/botb/" + tracks[Math.floor(Math.random() * tracks.length)];
     bgmusic.load();
     bgmusic.loop = false;
@@ -233,28 +232,29 @@ function agariomodsRuntimeInjection() {
 	$("#canvas").on('mousedown', function(event){
 		event.preventDefault();
 	});
-	$("#chart-container").css("pointerEvents", "none");
-	$("#chart-container-agariomods").css("pointerEvents", "none");
-	$("#fps-agariomods").css("pointerEvents", "none");
-	$("#pi-agariomods").css("pointerEvents", "none");
+	var tempa = document.getElementById("connecting").style;
+	tempa.backgroundColor="rgba(0,0,0,0.6)";
+	tempa.zIndex="199";
+	document.getElementById("a300x250").style.backgroundImage="none";
 }
 
 window.log=function(stuff){console.log(stuff);}
 function agariomodsRuntimePatches() {
+	gamejs_patch(/#partyToken/g,'.partyToken',"Change id selector to class selector.");
 	gamejs_patch('console.log("socket close");','onwsclose();console.log("socket close");',"Simulate player death on unexpected socket close");
 	gamejs_patch('.onclose=null;','.onclose=onwsclose;',"Simulate player death on intentional socket close.")
-	gamejs_patch(")&&this",")&&(this","for adding name to nameless cell(for team mass)");
-	gamejs_patch(/\w>\w\/1\.1\?.*-50%\)"\);/,"","fixing menu on resize");
-	gamejs_patch('c=null:c=null;','c=null:c=null;if(custom&&('+b+'.substring(0,2).match(/^(i\\/|\\*.)$/))){c=null;}','Stop showing of custom skins(when enabled)');
+	//gamejs_patch(")&&this",")&&(this","for adding name to nameless cell(for team mass)");
+	gamejs_patch(/\w>\w\/1\.1\?.*-50%\)"\);/,'',"fixing menu on resize");
 		gamejs_patch(';reddit;', ';reddit;'+ourskins+';', "add our skinlist to the original game skinlist.");
 //        gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();var agariomods="";var ourskins = "'+ourskins+'";if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}else if('+b+'.substring(0,2)=="i/"){if(!custom){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";}}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}', "add check for which skin mode we are in. be it no skin, default skin, custom skin, or an agariomods skin.");
         gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();var agariomods="";var ourskins = "'+ourskins+'";if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}else if('+b+'.substring(0,1)=="*"){if(!custom){agariomods="//connect.agariomods.com/img_"+this.name.substring(1)+".png";}}else if('+b+'.substring(0,2)=="i/"){if(!custom){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";}}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}', "add check for which skin mode we are in. be it no skin, default skin, custom skin, or an agariomods skin.");
 
-		gamejs_patch('=1E4,', '=1E4,'+'zz=!1,yq=!1,xx=!1,xz=!1,ts=!1,custom=!1'+',', "adding variables");
+		gamejs_patch('=1E4,', '=1E4,'+'zz=!1,yq=!1,xx=!1,xz=!1,ts=!1,custom=!1,opv=!1'+',', "adding variables");
         gamejs_patch(W +'['+b+'].src="skins/"+'+b+'+".png"', W+'['+b+'].src=agariomods', "check for agariomods img src variable");
-        gamejs_patch("this."+pandb+"&&b.strokeText("+c3eg2+");b.fillText("+c3eg2+")", "if (String(c).substring(0, 2) != \"i/\" || custom) {this."+pandb+"&&b.strokeText("+c3eg2+");b.fillText("+c3eg2+")}", "add custom skins check for hiding username when using imgur id aka c3eg2");
+        gamejs_patch("this."+pandb+"&&c.strokeText("+c3eg2+");c.fillText("+c3eg2+")", "if (String(b).substring(0, 2) != \"i/\" || custom) {this."+pandb+"&&c.strokeText("+c3eg2+");c.fillText("+c3eg2+")}", "add imgur skins check for hiding username when using imgur id aka c3eg2");
         gamejs_patch(b+"=this.name.toLowerCase();", b+"=this.name.toLowerCase(); if (("+b+".substring(0, 2) == \"i/\"||"+b+".substring(0, 1) == \"*\")&&!custom&&"+Ja+".indexOf("+b+")==-1) {" +Ja+ ".push("+b+")} ;", "add imgur check #2.");
     gamejs = addKeyboardHook(gamejs);
+	gamejs = addSkinHook(gamejs);
     gamejs = addChartHooks(gamejs);
     gamejs = addOnCellEatenHook(gamejs);
 	gamejs = addTeamMassHook(gamejs);
@@ -270,7 +270,8 @@ function agariomodsRuntimePatches() {
 	gamejs = addRecieveHook(gamejs);
 	gamejs = addOnSendHook(gamejs);
     gamejs = addOnDrawHook(gamejs);
-	//gamejs = gamejs.replace(/;/g, '\n');
+	gamejs = gamejs.replace(/=\w\.innerHeight/g, '=opv&&'+winvar+'.innerHeight/'+winvar+'.innerWidth>=0.5625?('+winvar+'.innerWidth*0.5625):('+winvar+'.innerHeight)');
+	gamejs = gamejs.replace(/=\w\.innerWidth/g, '=opv&&'+winvar+'.innerHeight/'+winvar+'.innerWidth<=0.5625?('+winvar+'.innerHeight/0.5625):('+winvar+'.innerWidth)');
 	console.log("Testing complete, "+passed+" units passed and "+failed+" units failed.");
 	if (failed) console.log(new Error("UNIT FAILED"));
 }
@@ -290,45 +291,46 @@ function testCondition (condition, id, comment) {
 
 
 function agariomodsRuntimeHacks() {
-	jQuery('#helloDialog').css({left: '5px'});
-	jQuery('#helloDialog').css({top: '5px'});
-	jQuery('#helloDialog').css({margin: '0px'});
-	jQuery('#helloDialog').css({marginLeft: 'auto'});
-	jQuery('#helloDialog').css({marginRight: 'auto'});
 //   opacity: 0.5;
 //
 
-jQuery('#helloDialog').css({opacity: '0.85'});	
-jQuery('#helloDialog').css({width: '450px'});
-    document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundRepeat = 'no-repeat';
-	document.body.style.backgroundAttachment = "fixed";
+jQuery('div.agario-panel:has(#locationUnknown)').css({width: '450px'});
+jQuery('div#settings div:has(#locationKnown)').css({float: 'none'});
+var bg = document.getElementById("canvas");
+    bg.style.backgroundSize = 'cover';
+    bg.style.backgroundRepeat = 'no-repeat';
+	bg.style.backgroundAttachment = "fixed";
+	document.body.style.backgroundColor = "grey";
 	
 	var nodeDiv = document.createElement("div");
+	var nodeDiv2 = document.createElement("div");
 	$( document ).ready(function() {
-		hd = document.getElementById("helloDialog");
+		hd = document.getElementsByClassName("agario-panel")[0];
 		cachedhd = hd.innerHTML;
 		hd.innerHTML = cachedhd.replace("<center>Agar.io</center>", "<a target=\"_blank\" style=\"position:absolute; padding-left:435px;top:-10px; z-index: -1; height:120px;\" href=\"https://www.reddit.com/r/Agario/\"><img src=\"//i.imgur.com/TkTWOrc.png\" height=\"120px\"/></a>");
 	});
 	document.getElementById("nick").placeholder = "agariomods.com";
 	nodeDiv.id = "includedContent";
-	nodeDiv.style.width = "400px"
+	nodeDiv.style.width = "calc(100% + 10px)"
 	nodeDiv.style.backgroundColor = "#000000";
 	nodeDiv.style.zIndex = 999;
 	nodeDiv.style.position = "relative";
-	nodeDiv.style.padding = "8px";
+	nodeDiv2.style.padding = "8px";
 	nodeDiv.style.borderRadius = "5px";
 	nodeDiv.style.color = "#dddddd";
-	nodeDiv.style.margin = "10px";
-	nodeDiv.style.marginTop = "0";
-	nodeDiv.style.maxHeight = "200px"; //The settings and the ad are being pushed down too far on some screens (1366*768). ~Mevin1
-	nodeDiv.style.overflow = "auto"; //add scroll bar
-	nodeDiv.innerHTML += '1.9.9: <big style="font-weight:bold;">Sign-in to <a href="http://connect.agariomods.com">connect.agariomods.com</a> and activate chat on our Private Servers from your profile!!!</big><br> \
+	nodeDiv2.style.color = "#dddddd";
+	nodeDiv.style.margin = "3px -5px 8px";
+	nodeDiv2.style.maxHeight = "200px";	//The settings and the ad are being pushed down too far on some screens (1366*768). ~Mevin1
+	nodeDiv2.style.width = "calc(100% - 5px)";
+	nodeDiv.style.overflow = "none";
+	nodeDiv2.style.overflow = "auto"; //add scroll bar
+	nodeDiv2.innerHTML += '1.9.9: <big style="font-weight:bold;">Sign-in to <a href="http://connect.agariomods.com">connect.agariomods.com</a> and activate chat on our Private Servers from your profile!!!</big><br> \
 <b>Use custom skins with *ACCOUNTNAME</b><br><h3>Stage 3 is dawning upon us</h3><a href="http://connect.agariomods.com/" target="_blank"><font color="pink">Register now with agariomods connect because you will need it for some soon to be released exciting new features.</font></a><br>\
 Go catch up with the <a target="_blank" href="http://agariomods.com/documentation.html">Documentation</a><br><h4><a href="http://www.agariomods.com/help.html" target="_blank"><font color="pink">CLICK HERE FOR HELP</font></a></h4>\
         <div style="background-color: #ffffff; color: #000000; padding: 2px; margin: 0px;">\
                 <small><b>Disable ad blockers</b>&nbsp;- They are breaking the game and our modifications in random and unexpected ways.</small>\
         </div>';
+	nodeDiv.appendChild(nodeDiv2);
 	jQuery(".form-group:first").replaceWith('<br>');
 	var selector = jQuery('#region');
 	var playBtn = jQuery('#playBtn');
@@ -336,7 +338,7 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 	var nodeSpan = document.createElement("span");
 	var nodeBr = document.createElement("br");
 	var nodeLinks = document.createElement("div");
-	nodeLinks.innerHTML = "<ul style='position:relative;left:-25px;width:450px;background-color:#428bca;text-align:center;font:16px bold,sans-serif;list-style-type:none;margin:6px 0 3px;padding:0;overflow:hidden;'><li style='float:left;'><a class='link' style='width:70px;' href='http://skins.agariomods.com' target='_blank'>SKINS</a><li style='float:left;'><a style='width:70px;' class='link' href='http://agariomods.com/chat.html' target='_blank'>CHAT</a><li style='float:left;'><a style='width:100px;' class='link' href='http://agariomods.com' target='_blank'>WEBSITE</a><li style='float:left;'><a style='width:110px;' class='link' href='http://agariomods.com/documentation.html' target='_blank'>FEATURES</a></li><li style='float:left;'><a style='width:100px;' class='link' style='border-right:0 !important' href onclick=\"alert('---HOTKEYS---\\nHold Z - Show Stats In-Game\\nConnect To Private Server - Alt+C\\nToggle Chat - C\\nInput Chat - Enter OR \\'/\\'\\nToggle Benchmarker - T\\nClear Benchmarks - Alt+T\\nFPS Counter - Alt+1\\nPackets In/Out Per Second - Alt+2\\nAttempt Lag Recovery - Alt+R'+(navigator.userAgent.match('Firefox')?'\\nTrue Fullscreen for Firefox - Ctrl+F\\nShow Menu While in Fullscreen - Delete':''));return false;\" target='_blank'>HOTKEYS</a></li></ul>";
+	nodeLinks.innerHTML = "<ul style='position:relative;left:-25px;width:450px;background-color:#428bca;text-align:center;font:16px bold,sans-serif;list-style-type:none;margin:6px 0 3px;padding:0;overflow:hidden;'><li style='float:left;'><a class='link' style='width:70px;' href='http://skins.agariomods.com' target='_blank'>SKINS</a><li style='float:left;'><a style='width:70px;' class='link' href='http://agariomods.com/chat.html' target='_blank'>CHAT</a><li style='float:left;'><a style='width:100px;' class='link' href='http://agariomods.com' target='_blank'>WEBSITE</a><li style='float:left;'><a style='width:110px;' class='link' href='http://agariomods.com/documentation.html' target='_blank'>FEATURES</a></li><li style='float:left;'><a style='width:100px;' class='link' style='border-right:0 !important' href onclick=\"alert('---HOTKEYS---\\nHold Z - Show Stats In-Game\\nConnect To Private Server - Alt+C\\nToggle Chat - C\\nInput Chat - Enter OR \'/\'\\nToggle Benchmarker - T\\nClear Benchmarks - Alt+T\\nTime On Page - Alt+1\\nFPS Counter - Alt+2\\nPackets In/Out Per Second - Alt+3\\nBytes In/Out Per Second - Alt+4\\nAttempt Lag Recovery - Alt+R'+(navigator.userAgent.match('Firefox')?'\\nTrue Fullscreen for Firefox - Ctrl+F\\nShow Menu While in Fullscreen - Delete':''));return false;\" target='_blank'>HOTKEYS</a></li></ul>";
 	nodeLinks.style.marginLeft='10px';
 	nodeSpan.className = "glyphicon glyphicon-refresh btn btn-info";
 	nodeSpan.style.fontSize = "1.5em";
@@ -378,7 +380,7 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 //	jQuery(playBtn).parent().get(0).appendChild(nodeBr);
 	//jQuery(playBtn).parent().prepend("<b>Current Server IP: </b><span id='ip'></span>");
 	//jQuery(playBtn).parent().prepend("Zeach, the owner of Agar.io has banned all direct connections as he has stopped the ability to connect to a server directly by it's IP for teaming up. Sorry folks.");
-	var nodeAudio = document.createElement("audio");
+	/*var nodeAudio = document.createElement("audio");
 	nodeAudio.id = 'audiotemplate';		
 	jQuery(playBtn).parent().get(0).appendChild(nodeAudio);
 	jQuery('#playBtn').off();
@@ -386,9 +388,20 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 	jQuery('#playBtn').click(function() {
 		setNick(document.getElementById('nick').value);
 		return false;
-	});
+	});*/
 	//jQuery('.form-group:first').after( "<hr style='margin: 7px; border-width: 2px'>" );
 	jQuery('.form-group:first').removeAttr("class");
+	//Party update
+	jQuery('.btn-play-guest').addClass("btn-danger");
+	jQuery('.btn-play-guest').css('width',"208px");
+	jQuery('.btn-play-guest').css('margin-left','0');
+	jQuery('.btn-play-guest').removeClass("btn-success");
+	jQuery('.btn-login').css("margin-right","4px");
+	jQuery('.btn-login').css("width","140px");
+	jQuery('#settings div:has(#locationKnown)').css("width","100%");
+	var oldc = jQuery("#settings div:has(.btn-spectate)");
+	jQuery(".btn-spectate").insertAfter($("#region"));
+	oldc.remove();
 }
 
 	
@@ -421,9 +434,15 @@ var g_layout_width = g_display_width;
 
 ////////////////////////////////////////////////////////////////
 function addKeyboardHook(script) {
-    var match = script.match(/onkeydown=function\(d\){/);
+    var match = script.match(/onkeydown=function\(\w\){/);
     var split = script.split(match[0]);
     return split[0] + match[0] + ' if(isVisible()) return;' + split[1];
+}
+
+function addSkinHook(script) {
+    var match = script.match(/(\w+)=null:\w+=null;/);
+    var split = script.split(match[0]);
+    return split[0] + match[1] + '=null:' + match[1] + '=null;if(custom&&('+b+'.substring(0,2).match(/^(i\\/|\\*.)$/))){' + match[1] + '=null;}' + split[1];
 }
 
 function addChartHooks(script) {
@@ -434,7 +453,7 @@ function addChartHooks(script) {
     var my_cells = match[1];
     var split = script.split(match[0]);
     script = split[0] + '1=='+my_cells+'.length&&(OnGameStart('+my_cells+'),' + split[1];
-    split = script.split(script.match(/"Score: "\+~~\(\w+\/100\)/)[0]);
+    split = script.split(script.match(/\w\("score"\)\+": "\+~~\(\w+\/100\)/)[0]);
     match = split[1].match(/-(\d+)\)\);/);
     var subSplit = split[1].split(match[0]);
     split[1] = subSplit[0] + '-'+match[1]+'),('+my_cells+'&&'+my_cells+'[0]&&OnUpdateMass('+current+'())));' + subSplit[1];
@@ -454,20 +473,31 @@ function addTeamSkinsHook(script) {
 }*/
 
 function addTeamMassHook(script) {
-	var match = script.match(/1==(\w+)\.length&&\(/);
+	var match = script.match(/":teams"!=(\w)/);
+	var tvar = match[1];
+	match = script.match(/this\.id&&(\w+)/);
+	var split = script.split(match[0]);
+	var c = match[1];
+	script = split[0]+"this.id&&("+c+"||yq)"+split[1];
+	var d = script.match(/\(!this\.\w\|\|this\.\w\)/);
+	match = script.match(/(\w)=-1!=(\w)\.indexOf\(this\);/);
+	split = script.split(match[0]);
+	var a = match[1];
+	var z = match[2];
+	return split[0]+"if(-1!="+z+".indexOf(this)){"+a+"="+c+"}else if(yq&&"+z+"[0]&&"+tvar+"==':teams'&&this.size>20&&"+d+"&&this.color.substr("+z+"[0].color.search('ff'),2)=='ff'){"+a+"=true}"+split[1];
+	/*var match = script.match(/1==(\w+)\.length&&\(/);
     var my_cells = match[1];
 	var match = script.match(/s"!=(\w+)/);
 	var ttt = match[1];
-	var match = script.match(/this\.k=new (\w+)/);
+	var match = script.match(/this\.\w+=new (\w+)/);
 	var namele = match[1];
 	var match = script.match(/;(\w+)\.(\w+)\(this\.name\)/);
 	var split = script.split(match[0]);
 	var avar = match[2];
-	script = split[0]+";"+match[1]+'.'+match[2]+'(this.name);if(yq){if('+my_cells+'[0]&&'+ttt+'==":teams"&&'+my_cells+'.indexOf(this)==-1){if(this.color.substr('+my_cells+'[0].color.search("ff"),2)=="ff"){this.k.'+match[2]+'(this.name+" ["+~~(this.size*this.size/100)+"]");}}}'+split[1];
+	script = split[0]+";"+match[1]+'.'+match[2]+'(this.name);if(yq){if('+my_cells+'[0]&&'+ttt+'==":teams"&&'+my_cells+'.indexOf(this)==-1){if(this.color.substr('+my_cells+'[0].color.search("ff"),2)=="ff"){this.o.'+match[2]+'(this.name+" ["+~~(this.size*this.size/100)+"]");}}}'+split[1];
 	var match = script.match(/indexOf\((\w+)\)\)\)\{/);
 	var split = script.split(match[0]);
-	return split[0]+'indexOf('+match[1]+')))||(this.size>=32&&p.length>0&&'+ttt+'==":teams"&&!this.d&&'+my_cells+'.indexOf(this)==-1)){if(yq){if(this.name==""){this.k=new '+namele+'(this.h(),"#FFFFFF",true,"#000000");this.k.'+avar+'(this.name);}};'+split[1];
-	var split = script.split(match[0]);
+	return split[0]+'indexOf('+match[1]+')))||(this.size>=32&&'+my_cells+'.length>0&&'+ttt+'==":teams"&&!this.h&&'+my_cells+'.indexOf(this)==-1)){if(yq){if(this.name==""){this.o=new '+namele+'(this.l(),"#FFFFFF",true,"#000000");this.o.'+avar+'(this.name);}};'+split[1];*/
 }
 
 
@@ -477,9 +507,8 @@ function addFunctions(script) {
 	var two = match[2];
     var match = script.match(/((\w)\.setAcid)/);
 	var split = script.split(match[0]);
-	script = split[0]+match[2]+'.setR=function(){'+one+'("#connecting").show(),'+two+'()};'+match[2]+'.Suicide=function(){var b=new ArrayBuffer(1);(new DataView(b)).setUint8(0, 20);'+sd+'.send(b)};'+match[2]+'.setTskins=function(a){ts=a};'+match[2]+'.setCustom=function(a){custom=a;};'+match[2]+'.setVColors=function(a){zz=a};'+match[2]+'.setTeamMass=function(a){yq=a;if(a){jQuery(\'#names\').attr(\'checked\',false);check(document.getElementById(\'names\'));}};'+match[2]+'.setBG=function(a){xx=a;if(a){var url=localStorage.getItem("bgurl");if(url==null){url=""};var promp=prompt("Image URL",url);if(null==promp){jQuery("#bgimg").attr("checked",false);check(document.getElementById("bgimg"));xx=!a;return;}localStorage.setItem("bgurl",promp);jQuery("#acid").attr("checked",false);check(document.getElementById("acid"));document.body.style.backgroundImage=\'url("\'+promp+\'")\';xz=confirm("Show Grid Lines?");}};'+match[1]+split[1]
-	var split = script.split("setNames=function(a){");
-	return split[0]+"setNames=function(a){if(!a){jQuery(\'#tmass\').attr(\'checked\',false);check(document.getElementById(\'tmass\'));}"+split[1];
+	return split[0]+match[2]+'.setR=function(){'+one+'("#connecting").show(),'+two+'()};'+match[2]+'.setMVR=function(a){opv=a;'+winvar+'.onresize()};'+match[2]+'.setTskins=function(a){ts=a};'+match[2]+'.setCustom=function(a){custom=a;};'+match[2]+'.setVColors=function(a){zz=a};'+match[2]+'.setTeamMass=function(a){yq=a};'+match[2]+'.setBG=function(a){xx=a;if(a){var url=localStorage.getItem("bgurl");if(url==null){url=""};var promp=prompt("Image URL",url);if(null==promp){jQuery("#bgimg").attr("checked",false);check(document.getElementById("bgimg"));xx=!a;return;}localStorage.setItem("bgurl",promp);jQuery("#acid").attr("checked",false);check(document.getElementById("acid"));document.getElementById("canvas").style.backgroundImage=\'url("\'+promp+\'")\';xz=confirm("Show Grid Lines?");}};'+match[1]+split[1]
+	//.Suicide=function(){var b=new ArrayBuffer(1);(new DataView(b)).setUint8(0, 20);'+sd+'.send(b)};
 }
 
 function addCanvasBGHook(script) {
@@ -494,7 +523,7 @@ function addCanvasBGHook(script) {
 function addVirusColorHook(script) {
     var match = script.match(/(\?\(\w\.fillStyle=")/);
     var split = script.split(match[0]);
-    return split[0]+'||zz&&this.d'+match[1]+split[1]   
+    return split[0]+'||zz&&this.h'+match[1]+split[1]   
 }
 
 function addLeaderboardHook(script) {
@@ -521,7 +550,7 @@ function addOnShowOverlayHook(script) {
 function addConnectHook(script) {
 	var match = script.match(/console\.log\("Connecting to "\+a\);/);
     var split = script.split(match[0]);
-    return split[0] + ('try{connect2("...")}catch(a){};') + match[0] + 'if(typeof socket != "undefined" && socket.connected) { closeChat(); }' + split[1];
+    return split[0] + ('try{connect2("...")}catch(a){};') + match[0] + 'if(a.indexOf(window.server.ip)==-1){window.server = {ip:"",i:"",location:""};closeChat();}' + split[1];
     // var match = script.match(/console\.log\("Connecting to "\+a\);/);
     // var split = script.split(match[0]);
     // return split[0] + match[0] + 'document.getElementById("ip").innerHTML=a.replace(/wss?:\\/\\//,"");' + split[1];
@@ -529,16 +558,16 @@ function addConnectHook(script) {
 
 function addRecieveHook(script) {
 //		  	     Za(new DataView(a.data))    
-var match = script.match(/\w\(new DataView\(..data\)\)/);    
+var match = script.match(/\w+\(new DataView\(..data\)\)/);    
 
     var split = script.split(match[0]);
-    return split[0] + match[0] + ';Recieve();' + split[1];
+    return split[0] + match[0] + ';Recieve(a.data.byteLength);' + split[1];
 }
 
 function addOnSendHook(script) {
     var match = script.match(/\w+\.send\(\w+\.buffer\)/);    
     var split = script.split(match[0]);
-    return split[0] + match[0] + ';OnSend();' + split[1];
+    return split[0] + match[0] + ';OnSend(a.byteLength);' + split[1];
 }
 
 function addOnHideOverlayHook(script) {
@@ -601,11 +630,19 @@ function tst(a){
 }
 jQuery(document).ready(function() 
 {
-    jQuery('body').append('<div id="chart-container" style="display:none; position:absolute; height:176px; width:300px; left:10px; bottom:44px"></div>\
-			   <div id="chart-container-agariomods" style="position:absolute; font-size:15px; right:5px; bottom:5px;">&nbsp;agariomods.com - modding <b>without</b> cheating</div>\
-			   <div id="debug" style="position:absolute; top:5px; left:10px;">\
-			   <div id="fps-agariomods" style="color: white; display: none; background-color: rgba(0,0,0,.5); padding:0 4px;"><b>FPS: </b><span>0</span></div>\
-			   <div id="pio-agariomods" style="color: white; display: none;  background-color: rgba(0,0,0,.5); padding:0 4px;"><b>PI/O/s: </b><span>0</span>/<span>0</span></div>\
+	/*var sdc = jQuery(".side-container:has(.agario-profile-panel)");
+	jQuery(".agario-profile-panel").insertAfter($('.agario-results-1'));
+	jQuery(".agario-profile-panel").insertAfter($('.agario-party'));
+	sdc.remove();*/
+    jQuery('body').append('<div id="chart-container" class="ui" style="display:none; position:absolute; height:176px; width:300px; left:10px; bottom:44px"></div>\
+			   <div id="chart-container-agariomods" class="ui" style="position:absolute; font-size:15px; right:5px; bottom:5px; /* -webkit-filter: invert(100%); filter: invert(100%); */">&nbsp;agariomods.com - modding <b>without</b> cheating</div>\
+			   <div id="debug" class="ui" style="position:absolute; top:5px; left:10px;">\
+			   <div id="time-agariomods" style="color: white; display: none; background-color: rgba(0,0,0,.5); padding:0 4px;"><b>Page Time: </b><span>0</span></div>\
+			   <div id="fps-agariomods" style="color: white; display: none; background-color: rgba(0,0,0,.5); padding:0 4px;"><b>Frame Rate: </b><span>0</span>/s</div>\
+			   <div id="pi" class="pio-agariomods" style="color: white; display: none;  background-color: rgba(0,0,0,.5); padding:0 4px;"><b>Packets In: </b><span>0</span>/s</div>\
+			   <div id="po" class="pio-agariomods" style="color: white; display: none;  background-color: rgba(0,0,0,.5); padding:0 4px;"><b>Packets Out: </b><span>0</span>/s</div>\
+			   <div id="bi" class="bio-agariomods" style="color: white; display: none;  background-color: rgba(0,0,0,.5); padding:0 4px;"><b>Download: </b><span>0</span> Bps</div>\
+			   <div id="bo" class="bio-agariomods" style="color: white; display: none;  background-color: rgba(0,0,0,.5); padding:0 4px;"><b>Upload: </b><span>0</span> Bps</div>\
 			   </div>\
 			   ');
 	jQuery('#instructions').remove();
@@ -618,19 +655,23 @@ jQuery(document).ready(function()
 	jQuery('.btn-settings').removeClass("btn-settings");
 	//jQuery('.btn-settings').hide();
 	jQuery('#settings').show();
+	
   	var checkbox_div = jQuery('#settings input[type=checkbox]').closest('div');
     checkbox_div.append('<label><input type="checkbox" id="acid" onchange="setAcid($(this).is(\':checked\'));if($(this).is(\':checked\')){$(\'#bgimg\').attr(\'checked\',false);check(document.getElementById(\'bgimg\'));}">Acid</label>');
 	checkbox_div.append('<label><input type="checkbox" onchange="if(this.checked){jQuery(\'#chart-container\').show()}else{jQuery(\'#chart-container\').hide()}">Show chart</label>');
 	checkbox_div.append('<label><input type="checkbox" onchange="setVColors($(this).is(\':checked\'));">Colorless Viruses</label>');
 	checkbox_div.append('<label><input id="custom" type="checkbox" onchange="setCustom($(this).is(\':checked\'));">No Custom Skins</label>');
-	checkbox_div.append('<label><input type="checkbox" id="tmass" onchange="setTeamMass($(this).is(\':checked\'));">Show Teamed Mass</label>');
+	checkbox_div.append('<label><input type="checkbox" onchange="setTeamMass($(this).is(\':checked\'));">Show Teamed Mass</label>');
 	checkbox_div.append('<label><input id="tskins" type="checkbox" onchange="setTskins($(this).is(\':checked\'));">Team Skins</label>');
 	checkbox_div.append('<label><input id="bgimg" type="checkbox" onchange="setBG($(this).is(\':checked\'));">Set Background</label>');
-	checkbox_div.append('<div id="sliders"><label>SFX<input id="sfx" type="range" value="0" step=".1" min="0" max="1"></label><label>BGM<input type="range" id="bgm" value="0" step=".1" min="0" max="1" oninput="volBGM(this.value);"></label></div>');
+	checkbox_div.append('<label><input type="checkbox" onchange="setMVR($(this).is(\':checked\'));">Maximize View</label>');
+	checkbox_div.append('<label><input id="setChat" type="checkbox" onchange="$(document).trigger(jQuery.Event(\'keydown\',{ keyCode:\'67\',which:\'67\'}));">Ogar Chat Enabled</label>');
+	checkbox_div.append('<div id="sliders" style="white-space:nowrap;display:inline;"><label>SFX<input id="sfx" type="range" value="0" step=".1" min="0" max="1"></label><label>BGM<input type="range" id="bgm" value="0" step=".1" min="0" max="1" oninput="volBGM(this.value);"></label></div>');
 	//checkbox_div.append('<label>Quality<input type="range" id="quality" step="5" min="0" max="100" oninput="scale(this.value);"></label><label><input id="blur" type="checkbox" onchange="pixelate($(this).is(\':checked\'));">Pixelated</label>');
-    jQuery('#overlays').append('<div id="stats" style="opacity: 0.85; position: absolute; top:330px; left: 460px; width: 480px; display: none; background-color: #FFFFFF; border-radius: 15px; padding: 5px 15px 5px 15px; transform: translate(0,-50%); white-space: nowrap; overflow:hidden;"><div id="statArea" style="vertical-align:top; width:250px; display:inline-block;"></div><div id="pieArea" style="vertical-align: top; width:200px; height:150px; display:inline-block; vertical-align:top"> </div><div id="gainArea" style="width:500px;  vertical-align:top"></div><div id="lossArea" style="width:500px; "></div><div id="chartArea" style="width:450px; display:inline-block; vertical-align:top"></div></div>');
+    jQuery('#overlays').append('<div id="stats" style="position: absolute; top:330px; left: 698px; width: 480px; display: none; background-color: #FFFFFF; border-radius: 15px; padding: 5px 15px 5px 15px; transform: translate(0,-50%); white-space: nowrap; overflow:hidden;"><div id="statArea" style="vertical-align:top; width:250px; display:inline-block;"></div><div id="pieArea" style="vertical-align: top; width:200px; height:150px; display:inline-block; vertical-align:top"> </div><div id="gainArea" style="width:500px;  vertical-align:top"></div><div id="lossArea" style="width:500px; "></div><div id="chartArea" style="width:450px; display:inline-block; vertical-align:top"></div></div>');
     jQuery('#stats').hide(0);   
 	//jQuery('#playBtn').width('74%');
+	document.getElementById("options").style.fontSize="14px";
 });
 
 /*window.pixelate=function(enabled){
@@ -704,10 +745,12 @@ function CreateChart(e, color, interactive)
 
 function UpdateChart(mass, color) 
 {
-	my_color = color;	
+	var diff = window.innerHeight-document.getElementById("canvas").height;
+	if(diff!=0){jQuery("div:not(#chartArea)>.canvasjs-chart-container>.canvasjs-chart-canvas").css("bottom",-176+diff)};
+	my_color = color;
 	if (chart === null)
 		chart = CreateChart("chart-container", color, false);	
-	if (UpdateChartData(mass) && display_chart)
+	if (UpdateChartData(mass) && document.getElementsByClassName(""))
 		chart.render();     
 	jQuery('.canvasjs-chart-credit').hide();
 };
@@ -733,7 +776,7 @@ function ResetStats()
 function OnGainMass(me, other)
 {
     var mass = other.size * other.size;
-    if (other.d){
+    if (other.h){
         stats.viruses.num++;
         if (document.getElementById("gamemode").value!=":teams") stats.viruses.mass += mass; /*DONE: shouldn't add if game mode is teams. TODO: Find a better way of doing this. ~Mevin1*/
 		sfx_event(6);
@@ -844,28 +887,28 @@ function DrawStats(game_over)
     if (game_over){
         sfx_play(1);
 		StopBGM();
-		localStorage.setItem("played",1*((localStorage.getItem("played")*1)+1));
+		//localStorage.setItem("played",1*((localStorage.getItem("played")*1)+1));
 	}
 	stats.time_of_death = Date.now();
     var time = stats.time_of_death ? stats.time_of_death : Date.now();
     var seconds = (time - stats.birthday)/1000;
 	
 	var list = jQuery('<ul>');
-    list.append('<li style="font-size: 12px; ">Game time: ' + secondsToHms(seconds) + ' (Best: ' + secondsToHms(best("time",seconds))  + ')<br>(Total time played: ' + secondsToHms(alltime(seconds)) + ')</li>');
-    list.append('<li style="font-size: 12px; ">High score: ' + ~~(stats.high_score/100) + ' (Best: ' + best("highscore",~~(stats.high_score/100)) + ')</li>');
+    list.append('<li style="font-size: 12px; ">Game time: ' + secondsToHms(seconds) + /*' (Best: ' + secondsToHms(best("time",seconds))  + ')<br>(Total time played: ' + secondsToHms(alltime(seconds)) + ')*/'</li>');
+    list.append('<li style="font-size: 12px; ">High score: ' + ~~(stats.high_score/100) + /*' (Best: ' + best("highscore",~~(stats.high_score/100)) + ')*/'</li>');
     if (stats.top_slot == Number.POSITIVE_INFINITY){
-        list.append('<li style="font-size: 12px; ">You didn\'t make the leaderboard.'+bestRank(11)+'</li>');
+        list.append('<li style="font-size: 12px; ">You didn\'t make the leaderboard.'/*+bestRank(11)*/+'</li>');
     }
     else{
-        list.append('<li style="font-size: 12px; ">Leaderboard max: ' + stats.top_slot + bestRank(stats.top_slot) + '</li>');
+        list.append('<li style="font-size: 12px; ">Leaderboard max: ' + stats.top_slot + /*bestRank(stats.top_slot) +*/ '</li>');
     }
-    list.append('<li style="font-size: 12px; ">Games played: '+localStorage.getItem("played")+'</li>')
+    //list.append('<li style="font-size: 12px; ">Games played: '+localStorage.getItem("played")+'</li>')
     list.append('<li style="font-size: 12px; padding-top: 15px">' + stats.pellets.num + " pellets eaten (" + ~~(stats.pellets.mass/100) + ' mass)</li>');
     list.append('<li style="font-size: 12px; ">' + stats.cells.num + " cells eaten (" + ~~(stats.cells.mass/100) + ' mass)</li>');
     list.append('<li style="font-size: 12px; ">' + stats.w.num + " masses eaten (" + ~~(stats.w.mass/100) + ' mass)</li>');
     list.append('<li style="font-size: 12px; ">' + stats.viruses.num + " viruses eaten (" + ~~(stats.viruses.mass/100) + ' mass)</li>');
     var totalMass = (~~(stats.pellets.mass/100)+~~(stats.cells.mass/100)+~~(stats.w.mass/100)+~~(stats.viruses.mass/100));
-	list.append('<li style="font-size: 12px; ">Total mass eaten: ' + totalMass +' (Best: '+best("totalMass",totalMass)+')</li>');
+	list.append('<li style="font-size: 12px; ">Total mass eaten: ' + totalMass +/*' (Best: '+best("totalMass",totalMass)+')*/'</li>');
     jQuery('#statArea').append('<b>Game Summary</b>');
     jQuery('#statArea').append(list);
 	
@@ -981,7 +1024,7 @@ window.OnGameStart = function(cells)
 		document.getElementById("overlays").style.backgroundColor = "rgba(0,0,0,.498039)";
 		document.getElementById("overlays").style.pointerEvents = "auto";
 		document.getElementById("stats").style.opacity = 0.85;
-		document.getElementById("helloDialog").style.display = "block";
+		document.getElementsByClassName("agario-panel")[0].style.display = "block";
 		kd = false;
 	}
 	StartBGM();
@@ -1025,7 +1068,7 @@ window.OnShowOverlay = function(game_in_progress)
 		document.getElementById("overlays").style.backgroundColor = "rgba(0,0,0,.498039)";
 		document.getElementById("overlays").style.pointerEvents = "auto";
 		document.getElementById("stats").style.opacity = 1;
-		document.getElementById("helloDialog").style.display = "block";
+		document.getElementsByClassName("agario-panel")[0].style.display = "block";
 		kd = false;
 	}
 	if (in_game) {
@@ -1045,7 +1088,7 @@ window.OnHideOverlay = function()
 {
 	if (fired == true) {fired = false; return;} else {fired = true;} //Only continue on first fire
 	if (showsh == true) showsh = false;
-	tst(showfps+showpio>0);
+	tst(showfps+showpio+showbio+ptime>0);
 }
 
 window.OnUpdateMass = function(mass) 
@@ -1076,89 +1119,81 @@ window.OnLeaderboard = function(position)
 
 window.OnDraw = function(context)
 {
-	if (showfps) document.getElementById("fps-agariomods").children[1].innerHTML = countFPS();
+	if (showfps) document.getElementById("fps-agariomods").children[1].innerHTML = rate('FPS');
     display_stats && stat_canvas && context.drawImage(stat_canvas, 10, 10);   
 }
 
-window.Recieve = function()
+window.Recieve = function(a)
 {
-	if (showpio) document.getElementById("pio-agariomods").children[1].innerHTML = countPI();
+	if (showbio) document.getElementById("bi").children[1].innerHTML = Math.floor(multirate('BI',a));
+	if (showpio) document.getElementById("pi").children[1].innerHTML = rate('PI');
 }
 
-window.OnSend = function()
+window.OnSend = function(a)
 {
-	if (showpio) document.getElementById("pio-agariomods").children[2].innerHTML = countPO();
+	if (showbio) document.getElementById("bo").children[1].innerHTML = Math.floor(multirate('BO',a))
+	if (showpio) document.getElementById("po").children[1].innerHTML = rate('PO');
 }
 
-window.countFPS = (function () {
-  var lastLoop = (new Date()).getMilliseconds();
-  var count = 1;
-  var fps = 0;
+function time(a)
+{
+	document.getElementById("time-agariomods").children[1].innerHTML = mToMs(a-pload);
+}
 
-  return function () {
-    var currentLoop = (new Date()).getMilliseconds();
-    if (lastLoop > currentLoop) {
-      fps = count;
-      count = 1;
-    } else {
-      count += 1;
-    }
-    lastLoop = currentLoop;
-    return fps;
-  };
-}());
+function rate(z) {
+	if(!rate[z]){
+	rate[z] = {};
+	rate[z].lastLoop = (new Date()).getMilliseconds();
+	rate[z].count = 1;
+	rate[z].packet = 0;
+	}
+	var currentLoop = (new Date()).getMilliseconds();
+	if (rate[z].lastLoop > currentLoop) {
+		rate[z].packet = rate[z].count;
+		rate[z].count = 1;
+	} else {
+		rate[z].count += 1;
+	}
+	rate[z].lastLoop = currentLoop;
+	return rate[z].packet;
+};
 
-window.countPI = (function () {
-  var lastLoop = (new Date()).getMilliseconds();
-  var count = 1;
-  var packet = 0;
-
-  return function () {
-    var currentLoop = (new Date()).getMilliseconds();
-    if (lastLoop > currentLoop) {
-      packet = count;
-      count = 1;
-    } else {
-      count += 1;
-    }
-    lastLoop = currentLoop;
-    return packet;
-  };
-}());
-
-window.countPO = (function () {
-  var lastLoop = (new Date()).getMilliseconds();
-  var count = 1;
-  var packet = 0;
-
-  return function () {
-    var currentLoop = (new Date()).getMilliseconds();
-    if (lastLoop > currentLoop) {
-      packet = count;
-      count = 1;
-    } else {
-      count += 1;
-    }
-    lastLoop = currentLoop;
-    return packet;
-  };
-}());
+function multirate(z,v) {
+	if(!multirate[z]){
+	multirate[z] = {};
+	multirate[z].lastLoop = (new Date()).getMilliseconds();
+	multirate[z].count = v;
+	multirate[z].packet = 0;
+	}
+	var currentLoop = (new Date()).getMilliseconds();
+	if (multirate[z].lastLoop > currentLoop) {
+		multirate[z].packet = multirate[z].count;
+		multirate[z].count = 0;
+	} else {
+		multirate[z].count += v;
+	}
+	multirate[z].lastLoop = currentLoop;
+	return multirate[z].packet;
+};
 
 window.onpageshow = function() {
+	pload = Date.now();
 	initbench(true);
 	document.getElementById("bgimg").checked=false;
-    $("div#settings label").change(function() {
-        $("div#settings.checkbox input").each(function() {
+    $("div#options label").change(function() {
+        $("div#options input:checkbox").each(function() {
 			if (this.id=="bgimg")return;
             localStorage.setItem("setting"+$(this).parent().text().replace(" ","_"),this.checked);
         });
-        $("div#settings input[type=range]").each(function() {
+        $("div#options input[type=range]").each(function() {
             localStorage.setItem("setting"+$(this).parent().text().replace(" ","_"),this.value);
         });
     });
-	$("div#settings input").each(function() {
+	$("div#options input").each(function() {
+			if (this.id=="setChat")return;
             check(this);
 	});
+	document.getElementById("helloContainer").style.display='';
 }
 
 window.check = function(elem){
@@ -1168,15 +1203,15 @@ window.check = function(elem){
 }
 
 $(document).ready(function() {
-	$("div#settings.checkbox input").each(function() {
+	$("div#options input:checkbox").each(function() {
 		if (this.id=="bgimg")return;
-		if ($(this).parent().text()==" No names")$(this).attr("id","names");
+		if (this.id=="setChat")document.getElementById("setChat").checked=chatEnabled;
 		$(this).attr("checked",(localStorage.getItem("setting"+$(this).parent().text().replace(" ","_")))=="true");
 	});
-	$("div#settings input[type=range]").each(function() {
+	$("div#options input[type=range]").each(function() {
 		$(this).attr("value",(localStorage.getItem("setting"+$(this).parent().text().replace(" ","_"))));
 	});
-	});
+});
 	
 var kd = false;
 $(document).keydown(function(e) {
@@ -1188,7 +1223,7 @@ $(document).keydown(function(e) {
 			document.getElementById("overlays").style.backgroundColor = "rgba(0,0,0,0)";
 			document.getElementById("overlays").style.pointerEvents = "none";
 			document.getElementById("stats").style.opacity = 1;
-			document.getElementById("helloDialog").style.display = "none";
+			document.getElementsByClassName("agario-panel")[0].style.display = "none";
 			showsh = true;
 			DrawStats(false);
 		}
@@ -1206,6 +1241,7 @@ $(document).keydown(function(e) {
 	//Chat Toggle
 	if (e.keyCode == 67&&!e.altKey&&document.activeElement.type!="text") {
 		chatEnabled = !chatEnabled;
+		document.getElementById("setChat").checked = chatEnabled;
 		localStorage.setItem("chatEnabled",chatEnabled);
 		if(server.ip.substr(-11)==".iomods.com")chatEnabled?openChat():closeChat();//jQuery('#apikey').val().split(" ").join(""));
 	}
@@ -1221,17 +1257,29 @@ $(document).keydown(function(e) {
 	}
 	//FPS Hotkey
 	if (e.altKey && e.keyCode == 49) {
+		ptime = !ptime;
+		document.getElementById("time-agariomods").style.display = ptime?"block":"none";
+		ptime?time(Date.now()):document.getElementById("time-agariomods").children[1].innerHTML = "";
+		tst(showfps+showpio+showbio+ptime>0);
+	}
+	//FPS Hotkey
+	if (e.altKey && e.keyCode == 50) {
 		showfps = !showfps;
 		document.getElementById("fps-agariomods").style.display = showfps?"block":"none";
-		tst(showfps+showpio>0);
-		document.getElementById("benchmarker").style.bottom=showfps+showpio>0?"25px":"10px";
+		tst(showfps+showpio+showbio+ptime>0);
 	}
 	//Packets In Per Second Hotkey
-	if (e.altKey && e.keyCode == 50) {
+	if (e.altKey && e.keyCode == 51) {
 		showpio = !showpio;
-		document.getElementById("pio-agariomods").style.display = showpio?"block":"none";
-		tst(showfps+showpio>0);
-		document.getElementById("benchmarker").style.bottom=showfps+showpio>0?"25px":"10px";
+		$(".pio-agariomods").css("display",showpio?"block":"none");
+		tst(showfps+showpio+showbio+ptime>0);
+	}
+	//Bytes In Per Second Hotkey
+	if (e.altKey && e.keyCode == 52) {
+		showbio = !showbio;
+		$(".bio-agariomods").css("display",showbio?"block":"none");
+		tst(showfps+showpio+showbio+ptime>0);
+		
 	}
 	//Suicide //Does not work anymoe ;n;
 	if (e.altKey && e.keyCode == 81 && in_game) {
@@ -1276,7 +1324,7 @@ $(document).keyup(function(e) {
 			document.getElementById("overlays").style.backgroundColor = "rgba(0,0,0,.498039)";
 			document.getElementById("overlays").style.pointerEvents = "auto";
 			document.getElementById("stats").style.opacity = 0.85;
-			document.getElementById("helloDialog").style.display = "block";
+			document.getElementsByClassName("agario-panel")[0].style.display = "block";
 			showsh = false;
 		}
 	}
@@ -1321,7 +1369,7 @@ function initbench(first) {
 			"display": "none"
 		});
 	}else{
-		tst(showfps+showpio>0);
+		tst(showfps+showpio+showbio+ptime>0);
 	}
     //Create HTML to be added to div
     var newHTML = '<table>' +
@@ -1344,7 +1392,7 @@ function initbench(first) {
     //Load local storage --- best times
     for (var i = 0; i < benchmarks.length; i++) {
         if (localStorage.getItem("best_" + benchmarks[i])) {
-            $("#" + benchmarks[i] + " .best").html(localStorage.getItem("best_" + benchmarks[i]));
+            $("#" + benchmarks[i] + " .best").html(mToMs(localStorage.getItem("best_" + benchmarks[i])));
         }
     }
     //Style the table
@@ -1370,9 +1418,8 @@ function initbench(first) {
     });
 }
 function count() { //Occurs every second
-	if (showt&&in_game){
     $("div#benchmarker span").html("Time Elapsed: " + mToMs(Date.now() - stats.birthday));
-}}
+}
 function mToMs(millis) {
     var minutes = Math.floor(millis / 60000);
     var seconds = ((millis % 60000) / 1000).toFixed(0);
@@ -1384,11 +1431,11 @@ function snp(y) { //Turns XX:XX to XXXX
 function logBenchmark(benchmark, time) {
     //Manuallly record benchmark.
     if ($("#" + benchmark + " .time").html() == "-----") { //Checks if the benchmark time is recorded yet
-        console.log("Benchmark set: " + benchmark + " at " + time);
-        $("#" + benchmark + " .time").html(time); //Record time
-        if (($("#" + benchmark + " .best").html() == "-----") || (snp(time) < snp(localStorage.getItem('best_' + benchmark)))) { //Checks if best time is beaten or undefined
-            console.log("Best time set: " + benchmark + " at " + time);
-            $("#" + benchmark + " .best").html(time); //Record time
+        console.log("Benchmark set: " + benchmark + " at " + mToMs(time));
+        $("#" + benchmark + " .time").html(mToMs(time)); //Record time
+        if (localStorage.getItem('best_' + benchmark)==null || (time < localStorage.getItem('best_' + benchmark))) { //Checks if best time is beaten or undefined
+            console.log("Best time set: " + benchmark + " at " + mToMs(time));
+            $("#" + benchmark + " .best").html(mToMs(time)); //Record time
             localStorage.setItem("best_" + benchmark, time); //Save to local storage
         }
     }
@@ -1407,7 +1454,7 @@ function benchcheck(mass) {
     for (var i = 0; i < mass_benchmarks.length; i++) {
         if ((massPrev < mass_benchmarks[i]) && (mass >= mass_benchmarks[i])) {
             //Check if mass has passed from below benchmark to above benchmark
-            logBenchmark(mass_benchmarks[i] + "mass", mToMs(Date.now() - stats.birthday));
+            logBenchmark(mass_benchmarks[i] + "mass", Date.now() - stats.birthday);
         }
     }
 }
@@ -1453,7 +1500,7 @@ window.connectPrivate = function(location, i) {
 }
 
 function openChat(){
-	apikey = getCookie("apikey").split(" ").join("");
+	apikey = getCookie("apikey");
 	if(chatEnabled) {
 		var i = server.i;
 		var ip = server.ip;
@@ -1470,7 +1517,6 @@ function openChat(){
 	  		});
 	  	});
 	  	socket.on('init', function () {
-	  		document.cookie="apikey=" + apikey;
    			jQuery('#chat').fadeIn();
    			jQuery('#chatlines').empty();
    			addServer("<b>You are now connected to: " + location + ' #' + i + "</b>");
@@ -1494,11 +1540,12 @@ function getCookie(cname) {
         if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
     }
     return "";
+	//return localStorage.getItem("apikey");
 }
 
 window.closeChat = function() {
 	jQuery('#chat').fadeOut();
-	socket.disconnect();
+	socket&&socket.disconnect();
 }
 
 function addServer(msg) {
@@ -1532,7 +1579,7 @@ window.isVisible = function() {
 		return false;
 }
 
-handleHash();
+window.onload=handleHash;
 function handleHash(){
 	if(window.location.hash=='#'||window.location.hash=='')return;
 	var api = window.location.hash.substr(1);
@@ -1553,8 +1600,9 @@ function handleHash(){
 				}
 				else if(data.user_id==userid){
 					document.cookie="apikey="+api;
-					openChat();
-					alert("Welcome "+data.username+", you can now chat in our private servers, press C to bring up chat, and press Enter to start typing.");
+					alert("Welcome "+data.username+", you can now chat in our private servers, press C to bring up chat, and press Enter to start typing.\nThe page will now reload.");		
+					extToggled=true;
+					window.location=window.location;
 				}
 				else {
 					alert("Error: Incorrect API Key");
@@ -1582,10 +1630,9 @@ window.openServerbrowser=function(a) {
 window.closeServerbrowser=function() {
 	jQuery('#serverBrowser').fadeOut();
 }
-var locations = new Array("Amsterdam", "Amsterdam Beta", "Atlanta Beta", "Frankfurt Alpha", "Frankfurt", "London", "Quebec", "Paris", "Atlanta", "Chicago", "Dallas", "Los Angeles", "Miami", "New Jersey", "Seattle", "Silicon Valley", "Sydney", "Tokyo");
+var locations = new Array("Amsterdam", "Amsterdam Beta", "Frankfurt Alpha", "Frankfurt", "London", "Quebec", "Paris", "Atlanta", "Chicago", "Dallas", "Los Angeles", "Miami", "New Jersey", "Seattle", "Silicon Valley", "Sydney", "Tokyo");
 locations.sort();
 locations[0] = [locations[2],locations[2]=locations[1],locations[1]=locations[0]][0];
-locations[1] = [locations[3],locations[3]=locations[2],locations[2]=locations[1]][0];
 function getServers() {
 	jQuery('#serverlist1').empty();
 	jQuery('#serverlist2').empty();
@@ -1631,9 +1678,9 @@ function serverinfo(list, index) {
 			jQuery('#' + (value[0] + value[1]) + ' #latencyres').text(latency + "ms");
 		},
 		error: function(data,err,ngut) {
-			jQuery('#' + (value[0] + value[1]) + ' #player').text("N/A");
+			jQuery('#' + (value[0] + value[1]) + ' #player').parent().css("display","none");
 			jQuery('#' + (value[0] + value[1]) + ' #latency').css("color", "#f00");
-			jQuery('#' + (value[0] + value[1]) + ' #latency').text("Error: "+err);
+			jQuery('#' + (value[0] + value[1]) + ' #latency').text((err=="error"&&"Connection Failed")||(err=="timeout"&&"Connection Timed Out")||("Error: "+err.charAt(0).toUpperCase()+err.substr(1)));
 		},
 		complete: function(data) {
             document.getElementById("serverBrowser").style.display=="none"||serverinfo(list, index+1);
@@ -1651,7 +1698,7 @@ jQuery(document).ready(function() {
 	<input type="text" id="chatinputfield" class="form-control" maxlength="120" onblur="tChat(!0)"><span class="input-group-btn">\
 	<button onclick="sendMSG()" class="btn btn-default" type="button">Send</button></span></div></div>');
 });
-function best(name,data) { //For when the best is the highest number
+/*function best(name,data) { //For when the best is the highest number
 	var oldData = localStorage.getItem("best_"+name);
 	if (typeof localStorage.getItem("best_"+name) == undefined) {
 		oldData = 0;
@@ -1678,4 +1725,4 @@ function alltime(s) {
 	if (localStorage.getItem("alltime") === null) {localStorage.setItem("alltime",0);}
 	localStorage.setItem("alltime",1*((localStorage.getItem("alltime")*1)+s*1));
 	return 1*(localStorage.getItem("alltime"));
-}
+}*/
