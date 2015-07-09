@@ -16,7 +16,7 @@
 	background-color: rgba(50, 175, 125, 0.2);
 }
 .nff {
-	display: none;
+	display: none !important;
 }
 @media screen and (-webkit-min-device-pixel-ratio:0) { 
     /* Safari and Chrome, if Chrome rule needed */
