@@ -271,7 +271,7 @@ function agariomodsRuntimePatches() {
 	gamejs = addRecieveHook(gamejs);
 	gamejs = addOnSendHook(gamejs);
     gamejs = addOnDrawHook(gamejs);
-    gamejs = addTest(gamejs);
+    gamejs = addPCSHook(gamejs);
 	gamejs = gamejs.replace(/=\w\.innerHeight/g, '=opv&&'+winvar+'.innerHeight/'+winvar+'.innerWidth>=0.5625?('+winvar+'.innerWidth*0.5625):('+winvar+'.innerHeight)');
 	gamejs = gamejs.replace(/=\w\.innerWidth/g, '=opv&&'+winvar+'.innerHeight/'+winvar+'.innerWidth<=0.5625?('+winvar+'.innerHeight/0.5625):('+winvar+'.innerWidth)');
 	console.log("Testing complete, "+passed+" units passed and "+failed+" units failed.");
@@ -435,7 +435,7 @@ var g_display_width = 220;
 var g_layout_width = g_display_width;
 
 ////////////////////////////////////////////////////////////////
-function addTest(script) {
+function addPCSHook(script) {
     //var nam = script.match(/(\w+)=this\.na/)[1];
     var match = script.match(/-1!=\w+\.indexOf\((\w+)\)\?/);
     var split = script.split(match[0]);
@@ -767,7 +767,7 @@ function CreateChart(e, color, interactive)
 function UpdateChart(mass, color) 
 {
 	var diff = window.innerHeight-document.getElementById("canvas").height;
-	if(diff!=0){jQuery("div:not(#chartArea)>.canvasjs-chart-container>.canvasjs-chart-canvas").css("bottom",-176+diff)};
+	if(diff!=0){jQuery("div:not(#chartArea)>.canvasjs-chart-container>.canvasjs-chart-canvas").css({bottom:-176+diff,pointerEvents:"none"})};
 	my_color = color;
 	if (chart === null)
 		chart = CreateChart("chart-container", color, false);	
@@ -1712,7 +1712,7 @@ function serverinfo(list, index) {
 
 jQuery(document).ready(function() {
 	jQuery('body').append('<div id="serverBrowser" class="overlay" style="display:none"><div class="valign"><div class="popupbox"><div class="popheader"><h3>Agariomods Ogar Server Browser</h3></div>\
-	<div class="scrollable"><center style="border-right:1px solid #e8e8e8;float:left;width:50%;"><div id="serverlist1"></div></center><center style="float:right;width:50%;"><div id="serverlist2"></div></center></div><div class="popupbuttons"><button onclick="closeServerbrowser()" type="button" style="transform:translateX(72%);margin:4px"\
+	<div class="scrollable"><center style="border-right:1px solid #e8e8e8;float:left;width:50%;"><div id="serverlist1"></div></center><center style="float:right;width:50%;"><div id="serverlist2"></div></center></div><div class="popupbuttons"><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style=" display: block; float: left; "> <input type="hidden" name="cmd" value="_s-xclick"> <input type="hidden" name="hosted_button_id" value="TJBQTYEC9NWZS"> <input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal â€“ The safer, easier way to pay online."> <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1"> </form><button onclick="closeServerbrowser()" type="button" style="transform:translateX(-74%);margin:4px"\
 	class="btn btn-danger">Back</button><button id="rsb" onclick="openServerbrowser(true)" class="btn btn-info" type="button" style="float:right;margin:4px;">Refresh <i class="glyphicon glyphicon-refresh"></i></button></div></div></div></div>');
 	jQuery('#settings').prepend('<button type="button" id="opnBrowser" onclick="openServerbrowser();" style="position:relative;top:-8px;width:100%" class="btn btn-success">Agariomods Private Servers</button><br>');
 	jQuery('body').append('<div id="chat" style="display:none"><div id="chatlines"></div><div id="chatinput" style="display:none" class="input-group">\
