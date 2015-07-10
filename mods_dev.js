@@ -149,6 +149,7 @@ httpGet(mainout, function(data) {
 	offset = gamejs.search(".."+b+"..src");
 	W = gamejs.substr(offset,1);
 	//this.P&&b.strokeText
+    mycells = gamejs.match(/1==(\w+)\.length&&\(/)[1];
 	var components = /this\.(.)&&.\.strokeText/.exec(gamejs);
 	pandb = components[1];
 	var components =/strokeText\((.{1,14})\);/.exec(gamejs);
@@ -201,6 +202,7 @@ function agariomodsRuntimeInjection() {
 	oldhtml = oldhtml.replace('transform:translate(-50%,-50%);', '');
 	oldhtml = oldhtml.replace('top:50%;left:50%;','margin:10px;');
 	oldhtml = oldhtml.replace('width:100%;height:100%;', '');
+	oldhtml = oldhtml.replace('#FFFFFF;m', 'rgba(255,255,255,0.85);opacity:0.93;m');
 	oldhtml = oldhtml.replace('.agario-panel{','.agario-promo{display:none !important;}.connecting-panel{margin:0 0 !important;position:absolute;top:5px;right:5px;}.ui{pointerEvents:none}br+div:not([style]){height:35px;}#helloContainer>.agario-panel{float:left}#helloContainer>.side-container{float:right}.agario-panel{transform: none !important;');
 	tester[0].innerHTML = oldhtml;
 	var script = document.createElement("script");
@@ -240,6 +242,7 @@ function agariomodsRuntimeInjection() {
 
 window.log=function(stuff){console.log(stuff);}
 function agariomodsRuntimePatches() {
+	//gamejs_patch(/#partyToken/g,'.partyToken',"Change id selector to class selector.");
 	gamejs_patch(/#partyToken/g,'.partyToken',"Change id selector to class selector.");
 	gamejs_patch('console.log("socket close");','onwsclose();console.log("socket close");',"Simulate player death on unexpected socket close");
 	gamejs_patch('.onclose=null;','.onclose=onwsclose;',"Simulate player death on intentional socket close.")
@@ -247,12 +250,12 @@ function agariomodsRuntimePatches() {
 	gamejs_patch(/\w>\w\/1\.1\?.*-50%\)"\);/,'',"fixing menu on resize");
 		gamejs_patch(';reddit;', ';reddit;'+ourskins+';', "add our skinlist to the original game skinlist.");
 //        gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();var agariomods="";var ourskins = "'+ourskins+'";if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}else if('+b+'.substring(0,2)=="i/"){if(!custom){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";}}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}', "add check for which skin mode we are in. be it no skin, default skin, custom skin, or an agariomods skin.");
-        gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();var agariomods="";var ourskins = "'+ourskins+'";if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}else if('+b+'.substring(0,1)=="*"){if(!custom){agariomods="//connect.agariomods.com/img_"+this.name.substring(1)+".png";}}else if('+b+'.substring(0,2)=="i/"){if(!custom){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";}}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}', "add check for which skin mode we are in. be it no skin, default skin, custom skin, or an agariomods skin.");
+        gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();var agariomods="";var ourskins = "'+ourskins+'";if(pcs&&'+mycells+'.indexOf(this)!=-1){agariomods=pcsrc}else if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}else if('+b+'.substring(0,1)=="*"){if(!custom){agariomods="//connect.agariomods.com/img_"+this.name.substring(1)+".png";}}else if('+b+'.substring(0,2)=="i/"){if(!custom){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";}}else if('+b+'.substring(0,1)=="+"){agariomods="http://server.kelvin.tk/yt/icon.php?"+this.name.substring(1).toLowerCase();}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}', "add check for which skin mode we are in. be it no skin, default skin, custom skin, or an agariomods skin.");
 
-		gamejs_patch('=1E4,', '=1E4,'+'zz=!1,yq=!1,xx=!1,xz=!1,ts=!1,custom=!1,opv=!1'+',', "adding variables");
+		gamejs_patch('=1E4,', '=1E4,'+'zz=!1,yq=!1,xx=!1,xz=!1,ts=!1,custom=!1,opv=!1,pcs=!1,pcsrc=""'+',', "adding variables");
         gamejs_patch(W +'['+b+'].src="skins/"+'+b+'+".png"', W+'['+b+'].src=agariomods', "check for agariomods img src variable");
         gamejs_patch("this."+pandb+"&&c.strokeText("+c3eg2+");c.fillText("+c3eg2+")", "if (String(b).substring(0, 2) != \"i/\" || custom) {this."+pandb+"&&c.strokeText("+c3eg2+");c.fillText("+c3eg2+")}", "add imgur skins check for hiding username when using imgur id aka c3eg2");
-        gamejs_patch(b+"=this.name.toLowerCase();", b+"=this.name.toLowerCase(); if (("+b+".substring(0, 2) == \"i/\"||"+b+".substring(0, 1) == \"*\")&&!custom&&"+Ja+".indexOf("+b+")==-1) {" +Ja+ ".push("+b+")} ;", "add imgur check #2.");
+        gamejs_patch(b+"=this.name.toLowerCase();", b+"=this.name.toLowerCase(); if (("+b+".substring(0, 2) == \"i/\"||"+b+".substring(0, 1) == \"*\"||"+b+".substring(0, 1) == \"+\")&&!custom&&"+Ja+".indexOf("+b+")==-1) {" +Ja+ ".push("+b+")} ;", "add imgur check #2.");
 	gamejs = addKeyboardHook(gamejs);
 	gamejs = addSkinHook(gamejs);
     gamejs = addChartHooks(gamejs);
@@ -270,6 +273,7 @@ function agariomodsRuntimePatches() {
 	gamejs = addRecieveHook(gamejs);
 	gamejs = addOnSendHook(gamejs);
     gamejs = addOnDrawHook(gamejs);
+    gamejs = addTest(gamejs);
 	gamejs = gamejs.replace(/=\w\.innerHeight/g, '=opv&&'+winvar+'.innerHeight/'+winvar+'.innerWidth>=0.5625?('+winvar+'.innerWidth*0.5625):('+winvar+'.innerHeight)');
 	gamejs = gamejs.replace(/=\w\.innerWidth/g, '=opv&&'+winvar+'.innerHeight/'+winvar+'.innerWidth<=0.5625?('+winvar+'.innerHeight/0.5625):('+winvar+'.innerWidth)');
 	console.log("Testing complete, "+passed+" units passed and "+failed+" units failed.");
@@ -324,7 +328,7 @@ var bg = document.getElementById("canvas");
 	nodeDiv2.style.width = "calc(100% - 5px)";
 	nodeDiv.style.overflow = "none";
 	nodeDiv2.style.overflow = "auto"; //add scroll bar
-	nodeDiv2.innerHTML += '1.9.9: <big style="font-weight:bold;">Sign-in to <a href="http://connect.agariomods.com">connect.agariomods.com</a> and activate chat on our Private Servers from your profile!!!</big><br> \
+	nodeDiv2.innerHTML += '1.9.9.01: <big>Youtube Channel Icon skins! For youtube channels with a short channel url! Put their youtube username after a plus, for example, "+VanossGaming".</big><br> \
 <b>Use custom skins with *ACCOUNTNAME</b><br><h3>Stage 3 is dawning upon us</h3><a href="http://connect.agariomods.com/" target="_blank"><font color="pink">Register now with agariomods connect because you will need it for some soon to be released exciting new features.</font></a><br>\
 Go catch up with the <a target="_blank" href="http://agariomods.com/documentation.html">Documentation</a><br><h4><a href="http://www.agariomods.com/help.html" target="_blank"><font color="pink">CLICK HERE FOR HELP</font></a></h4>\
         <div style="background-color: #ffffff; color: #000000; padding: 2px; margin: 0px;">\
@@ -433,6 +437,21 @@ var g_display_width = 220;
 var g_layout_width = g_display_width;
 
 ////////////////////////////////////////////////////////////////
+function addTest(script) {
+    //var nam = script.match(/(\w+)=this\.na/)[1];
+    var match = script.match(/-1!=\w+\.indexOf\((\w+)\)\?/);
+    var split = script.split(match[0]);
+    script = split[0] + '(pcs&&-1!='+mycells+'.indexOf(this))||' + match[0] + split[1];
+	match = script.match(/\(\w\.hasOwnProperty\(\w\)/);
+	split = script.split(match[0]);
+	script = split[0]+'('+match[0]+split[1];
+	match = script.match(/\|\|\((\w)\[(\w)/);
+	split = script.split(match[0]);
+	var ta = match[1];
+	var tb = match[2];
+	return split[0] + '&&!(pcs&&pcsrc!='+ta+'['+tb+']))' + match[0] + split[1];
+}
+
 function addKeyboardHook(script) {
     var match = script.match(/onkeydown=function\(\w\){/);
     var split = script.split(match[0]);
@@ -442,6 +461,7 @@ function addKeyboardHook(script) {
 function addSkinHook(script) {
     var match = script.match(/(\w+)=null:\w+=null;/);
     var split = script.split(match[0]);
+    //return split[0] + match[1] + '=null:' + match[1] + '=null;if(custom&&('+b+'.substring(0,2).match(/^(i\\/|\\*.)$/))){' + match[1] + '=null;}' + split[1];
     return split[0] + match[1] + '=null:' + match[1] + '=null;if(custom&&('+b+'.substring(0,2).match(/^(i\\/|\\*.)$/))){' + match[1] + '=null;}' + split[1];
 }
 
@@ -450,13 +470,13 @@ function addChartHooks(script) {
     var high = match[1];
     var current = match[2];
     match = script.match(/1==(\w+)\.length&&\(/);
-    var my_cells = match[1];
+    //var my_cells = match[1];
     var split = script.split(match[0]);
-    script = split[0] + '1=='+my_cells+'.length&&(OnGameStart('+my_cells+'),' + split[1];
+    script = split[0] + '1=='+mycells+'.length&&(OnGameStart('+mycells+'),' + split[1];
     split = script.split(script.match(/\w\("score"\)\+": "\+~~\(\w+\/100\)/)[0]);
     match = split[1].match(/-(\d+)\)\);/);
     var subSplit = split[1].split(match[0]);
-    split[1] = subSplit[0] + '-'+match[1]+'),('+my_cells+'&&'+my_cells+'[0]&&OnUpdateMass('+current+'())));' + subSplit[1];
+    split[1] = subSplit[0] + '-'+match[1]+'),('+mycells+'&&'+mycells+'[0]&&OnUpdateMass('+current+'())));' + subSplit[1];
     return split[0] + '"Current: "+~~('+current+'()/100)+"  High: "+~~('+high+'/100)' + split[1];
 }
 
@@ -485,19 +505,17 @@ function addTeamMassHook(script) {
 	var a = match[1];
 	var z = match[2];
 	return split[0]+"if(-1!="+z+".indexOf(this)){"+a+"="+c+"}else if(yq&&"+z+"[0]&&"+tvar+"==':teams'&&this.size>20&&"+d+"&&this.color.substr("+z+"[0].color.search('ff'),2)=='ff'){"+a+"=true}"+split[1];
-	/*var match = script.match(/1==(\w+)\.length&&\(/);
-    var my_cells = match[1];
-	var match = script.match(/s"!=(\w+)/);
+	/*	var match = script.match(/s"!=(\w+)/);
 	var ttt = match[1];
 	var match = script.match(/this\.\w+=new (\w+)/);
 	var namele = match[1];
 	var match = script.match(/;(\w+)\.(\w+)\(this\.name\)/);
 	var split = script.split(match[0]);
 	var avar = match[2];
-	script = split[0]+";"+match[1]+'.'+match[2]+'(this.name);if(yq){if('+my_cells+'[0]&&'+ttt+'==":teams"&&'+my_cells+'.indexOf(this)==-1){if(this.color.substr('+my_cells+'[0].color.search("ff"),2)=="ff"){this.o.'+match[2]+'(this.name+" ["+~~(this.size*this.size/100)+"]");}}}'+split[1];
+	script = split[0]+";"+match[1]+'.'+match[2]+'(this.name);if(yq){if('+mycells+'[0]&&'+ttt+'==":teams"&&'+mycells+'.indexOf(this)==-1){if(this.color.substr('+mycells+'[0].color.search("ff"),2)=="ff"){this.o.'+match[2]+'(this.name+" ["+~~(this.size*this.size/100)+"]");}}}'+split[1];
 	var match = script.match(/indexOf\((\w+)\)\)\)\{/);
 	var split = script.split(match[0]);
-	return split[0]+'indexOf('+match[1]+')))||(this.size>=32&&'+my_cells+'.length>0&&'+ttt+'==":teams"&&!this.h&&'+my_cells+'.indexOf(this)==-1)){if(yq){if(this.name==""){this.o=new '+namele+'(this.l(),"#FFFFFF",true,"#000000");this.o.'+avar+'(this.name);}};'+split[1];*/
+	return split[0]+'indexOf('+match[1]+')))||(this.size>=32&&'+mycells+'.length>0&&'+ttt+'==":teams"&&!this.h&&'+mycells+'.indexOf(this)==-1)){if(yq){if(this.name==""){this.o=new '+namele+'(this.l(),"#FFFFFF",true,"#000000");this.o.'+avar+'(this.name);}};'+split[1];*/
 }
 
 
@@ -507,7 +525,7 @@ function addFunctions(script) {
 	var two = match[2];
     var match = script.match(/((\w)\.setAcid)/);
 	var split = script.split(match[0]);
-	return split[0]+match[2]+'.setR=function(){'+one+'("#connecting").show(),'+two+'()};'+match[2]+'.setMVR=function(a){opv=a;'+winvar+'.onresize()};'+match[2]+'.setTskins=function(a){ts=a};'+match[2]+'.setCustom=function(a){custom=a;};'+match[2]+'.setVColors=function(a){zz=a};'+match[2]+'.setTeamMass=function(a){yq=a};'+match[2]+'.setBG=function(a){xx=a;if(a){var url=localStorage.getItem("bgurl");if(url==null){url=""};var promp=prompt("Image URL",url);if(null==promp){jQuery("#bgimg").attr("checked",false);check(document.getElementById("bgimg"));xx=!a;return;}localStorage.setItem("bgurl",promp);jQuery("#acid").attr("checked",false);check(document.getElementById("acid"));document.getElementById("canvas").style.backgroundImage=\'url("\'+promp+\'")\';xz=confirm("Show Grid Lines?");}};'+match[1]+split[1]
+	return split[0]+match[2]+'.setPCS=function(a){pcs=a;if(a){var url=localStorage.getItem("pcsrc");if(url==null){url=""};var promp=prompt("Input Skin URL\\nRemember ONLY YOU will see this skin.",url);if(null==promp){jQuery("#pcson").attr("checked",false);check(document.getElementById("bgimg"));pcs=!a;return;}localStorage.setItem("pcsrc",promp);pcsrc=promp;}};'+match[2]+'.setR=function(){'+one+'("#connecting").show(),'+two+'()};'+match[2]+'.setMVR=function(a){opv=a;'+winvar+'.onresize()};'+match[2]+'.setTskins=function(a){ts=a};'+match[2]+'.setCustom=function(a){custom=a;};'+match[2]+'.setVColors=function(a){zz=a};'+match[2]+'.setTeamMass=function(a){yq=a};'+match[2]+'.setBG=function(a){xx=a;if(a){var url=localStorage.getItem("bgurl");if(url==null){url=""};var promp=prompt("Image URL",url);if(null==promp){jQuery("#bgimg").attr("checked",false);check(document.getElementById("bgimg"));xx=!a;return;}localStorage.setItem("bgurl",promp);jQuery("#acid").attr("checked",false);check(document.getElementById("acid"));document.getElementById("canvas").style.backgroundImage=\'url("\'+promp+\'")\';xz=confirm("Show Grid Lines?");}};'+match[1]+split[1]
 	//.Suicide=function(){var b=new ArrayBuffer(1);(new DataView(b)).setUint8(0, 20);'+sd+'.send(b)};
 }
 
@@ -664,15 +682,19 @@ jQuery(document).ready(function()
 	checkbox_div.append('<label><input id="custom" type="checkbox" onchange="setCustom($(this).is(\':checked\'));">No Custom Skins</label>');
 	checkbox_div.append('<label><input type="checkbox" onchange="setTeamMass($(this).is(\':checked\'));">Show Teamed Mass</label>');
 	checkbox_div.append('<label><input id="tskins" type="checkbox" onchange="setTskins($(this).is(\':checked\'));">Team Skins</label>');
-	checkbox_div.append('<label><input id="bgimg" type="checkbox" onchange="setBG($(this).is(\':checked\'));">Set Background</label>');
 	checkbox_div.append('<label><input type="checkbox" onchange="setMVR($(this).is(\':checked\'));">Maximize View</label>');
-	checkbox_div.append('<label><input id="setChat" type="checkbox" onchange="$(document).trigger(jQuery.Event(\'keydown\',{ keyCode:\'67\',which:\'67\'}));">Ogar Chat Enabled</label>');
+	checkbox_div.append('\
+	<label nosave><input id="setChat" type="checkbox" onchange="$(document).trigger(jQuery.Event(\'keydown\',{ keyCode:\'67\',which:\'67\'}));">Ogar Chat Enabled</label>\
+	<label nosave><input id="bgimg" type="checkbox" onchange="setBG($(this).is(\':checked\'));">Set Background</label>\
+	<label nosave><input id="pcson" type="checkbox" onchange="setPCS($(this).is(\':checked\'));">Set Client Skin</label>\
+	');
 	checkbox_div.append('<div id="sliders" style="white-space:nowrap;display:inline;"><label>SFX<input id="sfx" type="range" value="0" step=".1" min="0" max="1"></label><label>BGM<input type="range" id="bgm" value="0" step=".1" min="0" max="1" oninput="volBGM(this.value);"></label></div>');
 	//checkbox_div.append('<label>Quality<input type="range" id="quality" step="5" min="0" max="100" oninput="scale(this.value);"></label><label><input id="blur" type="checkbox" onchange="pixelate($(this).is(\':checked\'));">Pixelated</label>');
     jQuery('#overlays').append('<div id="stats" style="position: absolute; top:330px; left: 698px; width: 480px; display: none; background-color: #FFFFFF; border-radius: 15px; padding: 5px 15px 5px 15px; transform: translate(0,-50%); white-space: nowrap; overflow:hidden;"><div id="statArea" style="vertical-align:top; width:250px; display:inline-block;"></div><div id="pieArea" style="vertical-align: top; width:200px; height:150px; display:inline-block; vertical-align:top"> </div><div id="gainArea" style="width:500px;  vertical-align:top"></div><div id="lossArea" style="width:500px; "></div><div id="chartArea" style="width:450px; display:inline-block; vertical-align:top"></div></div>');
     jQuery('#stats').hide(0);   
 	//jQuery('#playBtn').width('74%');
 	document.getElementById("options").style.fontSize="14px";
+	document.getElementById("setChat").checked=chatEnabled;
 });
 
 /*window.pixelate=function(enabled){
@@ -1012,6 +1034,7 @@ jQuery(window).resize(function() {
 
 window.OnGameStart = function(cells)
 {
+	onwsclose();
 	initbench(false);
 	in_game = true;
     my_cells = cells;
@@ -1181,17 +1204,15 @@ window.onpageshow = function() {
 	pload = Date.now();
 	initbench(true);
 	document.getElementById("bgimg").checked=false;
-    $("div#options label").change(function() {
+    $("div#options label:not([nosave])").change(function() {
         $("div#options input:checkbox").each(function() {
-			if (this.id=="bgimg")return;
             localStorage.setItem("setting"+$(this).parent().text().replace(" ","_"),this.checked);
         });
         $("div#options input[type=range]").each(function() {
             localStorage.setItem("setting"+$(this).parent().text().replace(" ","_"),this.value);
         });
     });
-	$("div#options input").each(function() {
-			if (this.id=="setChat")return;
+	$("div#options input:not([nosave])").each(function() {
             check(this);
 	});
 	document.getElementById("helloContainer").style.display='';
@@ -1204,12 +1225,10 @@ window.check = function(elem){
 }
 
 $(document).ready(function() {
-	$("div#options input:checkbox").each(function() {
-		if (this.id=="bgimg")return;
-		if (this.id=="setChat")document.getElementById("setChat").checked=chatEnabled;
+	$("div#options label:not([nosave]) input:checkbox").each(function() {
 		$(this).attr("checked",(localStorage.getItem("setting"+$(this).parent().text().replace(" ","_")))=="true");
 	});
-	$("div#options input[type=range]").each(function() {
+	$("div#options label:not([nosave]) input[type=range]").each(function() {
 		$(this).attr("value",(localStorage.getItem("setting"+$(this).parent().text().replace(" ","_"))));
 	});
 });
