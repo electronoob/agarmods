@@ -119,7 +119,7 @@ function sfx_event(id) {
     event.play();
 }
 /* lets start to deal with regressions */
-var test = 0;
+var test = 1;
 var passed = 0;
 var failed = 0;
 
@@ -204,7 +204,7 @@ function agariomodsRuntimeInjection() {
 	oldhtml = oldhtml.replace('top:50%;left:50%;','margin:10px;');
 	oldhtml = oldhtml.replace('width:100%;height:100%;', '');
 	oldhtml = oldhtml.replace('#FFFFFF;m', 'rgba(255,255,255,0.85);opacity:0.93;m');
-	oldhtml = oldhtml.replace('.agario-panel{','.agario-promo{display:none !important;}.connecting-panel{margin:0 0 !important;position:absolute;top:5px;right:5px;}.ui{pointerEvents:none}br+div:not([style]){height:35px;}#helloContainer>.agario-panel{float:left}#helloContainer>.side-container{float:right}.agario-panel{transform: none !important;');
+	oldhtml = oldhtml.replace('.agario-panel{','.agario-promo{display:none !important;}body>#chart-container{pointer-events:none}.connecting-panel{margin:0 0 !important;position:absolute;top:5px;right:5px;}.ui{pointerEvents:none}br+div:not([style]){height:35px;}#helloContainer>.agario-panel{float:left}#helloContainer>.side-container{float:right}.agario-panel{transform: none !important;');
 	tester[0].innerHTML = oldhtml;
 	var script = document.createElement("script");
 	script.id="agariomods";
@@ -768,7 +768,7 @@ function CreateChart(e, color, interactive)
 function UpdateChart(mass, color) 
 {
 	var diff = window.innerHeight-document.getElementById("canvas").height;
-	if(diff!=0){jQuery("div:not(#chartArea)>.canvasjs-chart-container>.canvasjs-chart-canvas").css({bottom:-176+diff,pointerEvents:"none"})};
+	if(diff!=0)jQuery("div:not(#chartArea)>.canvasjs-chart-container>.canvasjs-chart-canvas").css('bottom',-176+diff);
 	my_color = color;
 	if (chart === null)
 		chart = CreateChart("chart-container", color, false);	
