@@ -152,8 +152,9 @@ httpGet(mainout, function(data) {
     mycells = gamejs.match(/1==(\w+)\.length&&\(/)[1];
 	var components = /this\.(.)&&.\.strokeText/.exec(gamejs);
 	pandb = components[1];
-	var components =/strokeText\((.{1,14})\);/.exec(gamejs);
-	c3eg2 = components[1];
+	var components =/(\w)\.strokeText\((.{1,14})\);/.exec(gamejs);
+	c3eg2 = components[2];
+	bdot = components[1];
 	var components = /\((.)\=..x,.\=..y,/.exec(gamejs);		
 	chart_s = components[1];
 	var components = /\(.\=(.).x,.\=..y,/.exec(gamejs);
@@ -252,7 +253,7 @@ function agariomodsRuntimePatches() {
 
 		gamejs_patch('=1E4,', '=1E4,'+'zz=!1,yq=!1,xx=!1,xz=!1,ts=!1,custom=!1,opv=!1,pcs=!1,pcsrc=""'+',', "adding variables");
         gamejs_patch(W +'['+b+'].src="skins/"+'+b+'+".png"', W+'['+b+'].src=agariomods', "check for agariomods img src variable");
-        gamejs_patch("this."+pandb+"&&c.strokeText("+c3eg2+");c.fillText("+c3eg2+")", "if (String(b).substring(0, 2) != \"i/\" || custom) {this."+pandb+"&&c.strokeText("+c3eg2+");c.fillText("+c3eg2+")}", "add imgur skins check for hiding username when using imgur id aka c3eg2");
+        gamejs_patch("this."+pandb+"&&"+bdot+".strokeText("+c3eg2+");"+bdot+".fillText("+c3eg2+")", "if (String("+c3eg2.substr(0,1)+").substring(0, 2) != \"i/\" || custom) {this."+pandb+"&&"+bdot+".strokeText("+c3eg2+");"+bdot+".fillText("+c3eg2+")}", "add imgur skins check for hiding username when using imgur id aka c3eg2");
         gamejs_patch(b+"=this.name.toLowerCase();", b+"=this.name.toLowerCase(); if ((("+b+".substring(0, 2) == \"i/\"&&("+b+".length==7||"+b+".length==9))||"+b+".substring(0, 1) == \"*\"||("+b+".substring(0, 1) == \"+\"&&"+b+".length>6))&&!custom&&"+Ja+".indexOf("+b+")==-1) {" +Ja+ ".push("+b+")} ;", "add imgur check #2.");
 	gamejs = addKeyboardHook(gamejs);
 	gamejs = addSkinHook(gamejs);
@@ -1214,6 +1215,7 @@ window.onpageshow = function() {
             check(this);
 	});
 	document.getElementById("helloContainer").style.display='';
+	history.replaceState('agar.io', 'Agar.io', '/');
 }
 
 window.check = function(elem){
@@ -1599,7 +1601,7 @@ window.isVisible = function() {
 
 window.onload=handleHash;
 function handleHash(){
-	if(window.location.hash=='#'||window.location.hash=='')return;
+	if(window.location.hash=='#'||window.location.hash==''||window.location.hash.length>=6)return;
 	var api = window.location.hash.substr(1);
 	history.replaceState('agar.io', 'Agar.io', '/');
 	if (getCookie("apikey")==api) {
@@ -1648,7 +1650,7 @@ window.openServerbrowser=function(a) {
 window.closeServerbrowser=function() {
 	jQuery('#serverBrowser').fadeOut();
 }
-var locations = new Array("Amsterdam", "Amsterdam Beta", "Atlanta Beta", "Frankfurt Alpha", "Frankfurt", "London", "Quebec", "Paris", "Paris Gamma", "Atlanta", "Chicago", "Dallas", "Los Angeles", "Miami", "New Jersey", "Seattle", "Silicon Valley", "Sydney", "Tokyo");
+var locations = new Array("Amsterdam Beta", "Atlanta Beta", "Chicago Beta", "Dallas Beta", "Frankfurt Beta", "London Beta", "Losangeles Beta", "Miami Beta", "Newjersey Beta", "Paris Beta", "Seattle Beta", "Silicon Valley Beta", "Sydney Beta", "Amsterdam", "Amsterdam Beta", "Atlanta Beta", "Frankfurt Alpha", "Frankfurt", "London", "Quebec", "Paris", "Paris Gamma", "Atlanta", "Chicago", "Dallas", "Los Angeles", "Miami", "New Jersey", "Seattle", "Silicon Valley", "Sydney", "Tokyo");
 locations.sort();
 locations[0] = [locations[2],locations[2]=locations[1],locations[1]=locations[0]][0];
 locations[1] = [locations[3],locations[3]=locations[2],locations[2]=locations[1]][0];
