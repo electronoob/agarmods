@@ -908,28 +908,28 @@ function DrawStats(game_over)
     if (game_over){
         sfx_play(1);
 		StopBGM();
-		//localStorage.setItem("played",1*((localStorage.getItem("played")*1)+1));
+		ifEnd(localStorage.setItem("played",1*((localStorage.getItem("played")*1)+1)));
 	}
 	stats.time_of_death = Date.now();
     var time = stats.time_of_death ? stats.time_of_death : Date.now();
     var seconds = (time - stats.birthday)/1000;
 	
 	var list = jQuery('<ul>');
-    list.append('<li style="font-size: 12px; ">Game time: ' + secondsToHms(seconds) + /*' (Best: ' + secondsToHms(best("time",seconds))  + ')<br>(Total time played: ' + secondsToHms(alltime(seconds)) + ')*/'</li>');
-    list.append('<li style="font-size: 12px; ">High score: ' + ~~(stats.high_score/100) + /*' (Best: ' + best("highscore",~~(stats.high_score/100)) + ')*/'</li>');
+    list.append('<li style="font-size: 12px; ">Game time: ' + secondsToHms(seconds) + ifEnd(' (Best: ' + secondsToHms(best("time",seconds))  + ')<br>(Total time played: ' + secondsToHms(alltime(seconds)) + ')')+'</li>');
+    list.append('<li style="font-size: 12px; ">High score: ' + ~~(stats.high_score/100) + ifEnd(' (Best: ' + best("highscore",~~(stats.high_score/100)) + ')')+'</li>');
     if (stats.top_slot == Number.POSITIVE_INFINITY){
-        list.append('<li style="font-size: 12px; ">You didn\'t make the leaderboard.'/*+bestRank(11)*/+'</li>');
+        list.append('<li style="font-size: 12px; ">You didn\'t make the leaderboard.'+ifEnd(bestRank(11))+'</li>');
     }
     else{
-        list.append('<li style="font-size: 12px; ">Leaderboard max: ' + stats.top_slot + /*bestRank(stats.top_slot) +*/ '</li>');
+        list.append('<li style="font-size: 12px; ">Leaderboard max: ' + stats.top_slot + ifEnd(bestRank(stats.top_slot)) + '</li>');
     }
-    //list.append('<li style="font-size: 12px; ">Games played: '+localStorage.getItem("played")+'</li>')
+    ifEnd(list.append('<li style="font-size: 12px; ">Games played: '+localStorage.getItem("played")+'</li>'));
     list.append('<li style="font-size: 12px; padding-top: 15px">' + stats.pellets.num + " pellets eaten (" + ~~(stats.pellets.mass/100) + ' mass)</li>');
     list.append('<li style="font-size: 12px; ">' + stats.cells.num + " cells eaten (" + ~~(stats.cells.mass/100) + ' mass)</li>');
     list.append('<li style="font-size: 12px; ">' + stats.w.num + " masses eaten (" + ~~(stats.w.mass/100) + ' mass)</li>');
     list.append('<li style="font-size: 12px; ">' + stats.viruses.num + " viruses eaten (" + ~~(stats.viruses.mass/100) + ' mass)</li>');
     var totalMass = (~~(stats.pellets.mass/100)+~~(stats.cells.mass/100)+~~(stats.w.mass/100)+~~(stats.viruses.mass/100));
-	list.append('<li style="font-size: 12px; ">Total mass eaten: ' + totalMass +/*' (Best: '+best("totalMass",totalMass)+')*/'</li>');
+	list.append('<li style="font-size: 12px; ">Total mass eaten: ' + totalMass +ifEnd(' (Best: '+best("totalMass",totalMass)+')')+'</li>');
     jQuery('#statArea').append('<b>Game Summary</b>');
     jQuery('#statArea').append(list);
 	
@@ -1719,7 +1719,7 @@ jQuery(document).ready(function() {
 	<input type="text" id="chatinputfield" class="form-control" maxlength="120" onblur="tChat(!0)"><span class="input-group-btn">\
 	<button onclick="sendMSG()" class="btn btn-default" type="button">Send</button></span></div></div>');
 });
-/*function best(name,data) { //For when the best is the highest number
+function best(name,data) { //For when the best is the highest number
 	var oldData = localStorage.getItem("best_"+name);
 	if (typeof localStorage.getItem("best_"+name) == undefined) {
 		oldData = 0;
@@ -1746,4 +1746,11 @@ function alltime(s) {
 	if (localStorage.getItem("alltime") === null) {localStorage.setItem("alltime",0);}
 	localStorage.setItem("alltime",1*((localStorage.getItem("alltime")*1)+s*1));
 	return 1*(localStorage.getItem("alltime"));
-}*/
+}
+function ifEnd(data) {
+	if (in_game==false) {
+		return data;
+	} else {
+		return "";
+	}	
+}
