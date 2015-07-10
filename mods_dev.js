@@ -1648,7 +1648,7 @@ window.openServerbrowser=function(a) {
 window.closeServerbrowser=function() {
 	jQuery('#serverBrowser').fadeOut();
 }
-var locations = new Array("Amsterdam", "Amsterdam Beta", "Atlanta Beta", "Frankfurt Alpha", "Frankfurt", "London", "Quebec", "Paris", "Atlanta", "Chicago", "Dallas", "Los Angeles", "Miami", "New Jersey", "Seattle", "Silicon Valley", "Sydney", "Tokyo");
+var locations = new Array("Amsterdam", "Amsterdam Beta", "Atlanta Beta", "Frankfurt Alpha", "Frankfurt", "London", "Quebec", "Paris", "Paris Gamma", "Atlanta", "Chicago", "Dallas", "Los Angeles", "Miami", "New Jersey", "Seattle", "Silicon Valley", "Sydney", "Tokyo");
 locations.sort();
 locations[0] = [locations[2],locations[2]=locations[1],locations[1]=locations[0]][0];
 locations[1] = [locations[3],locations[3]=locations[2],locations[2]=locations[1]][0];
