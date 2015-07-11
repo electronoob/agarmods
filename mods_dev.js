@@ -401,7 +401,7 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 				url: "http://connect.agariomods.com/json/nodechatcheck.php?u="+getCookie("apikey"),
 				dataType: 'json',
 				success: function(data){
-					if(data.username==a){
+					if(data.username==a&&data.has_img==true){
 						localStorage.setItem("nick","*"+a);
 					} else localStorage.setItem("nick","");
 				},
