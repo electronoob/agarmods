@@ -397,11 +397,13 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 		var b = localStorage.getItem("nick");
 		if(a.substr(0,1)=='*'&&a.length>1&&b!=a){
 			a = a.substr(1);
-			jQuery.ajax({
-				url: "http://connect.agariomods.com/json/api.php?action=GSFUC&username="+a,
+				jQuery.ajax({
+				url: "http://connect.agariomods.com/json/nodechatcheck.php?u="+getCookie("apikey"),
 				dataType: 'json',
 				success: function(data){
-					if(data&&data.username)if(data.username!==null)localStorage.setItem("nick","*"+data.username); else localStorage.setItem("nick","");
+					if(data.username==a){
+						localStorage.setItem("nick","*"+a);
+					} else localStorage.setItem("nick","");
 				},
 				error: function() {
 					localStorage.setItem("nick","");
@@ -1633,8 +1635,8 @@ window.isVisible = function() {
 
 window.onload=handleHash;
 function handleHash(){
-	if(window.location.hash=='#'||window.location.hash==''||window.location.hash.length>=6)return;
-	var api = window.location.hash.substr(1);
+	if(window.location.hash=='#'||window.location.hash==''||window.location.hash.length==6)return;
+	var api = decodeURIComponent(window.location.hash.substr(1));
 	history.replaceState('agar.io', 'Agar.io', '/');
 	if (getCookie("apikey")==api) {
 		alert("You already have this account linked with Agariomods.");
