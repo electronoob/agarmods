@@ -134,7 +134,7 @@ var chart_Na= '';
 var chart_k = '';
 var sd = '';
 var mainout = window.location.protocol+"//agar.io/main_out.js";
-document.getElementsByClassName("agario-panel")[0].style.display="none";
+document.getElementById("overlays").style.display="none";
 httpGet(mainout, function(data) {
 	winvar=data.substr(10,1);
 	gamejs = "window.agariomods = " + data.replace("socket open","socket open (agariomods.com mod in place)");
@@ -204,7 +204,7 @@ function agariomodsRuntimeInjection() {
 	oldhtml = oldhtml.replace('top:50%;left:50%;','margin:10px;');
 	oldhtml = oldhtml.replace('width:100%;height:100%;', '');
 	oldhtml = oldhtml.replace('#FFFFFF;m', 'rgba(255,255,255,0.85);opacity:0.93;m');
-	oldhtml = oldhtml.replace('.agario-panel{','.agario-promo{display:none !important;}body>#chart-container{pointer-events:none}.connecting-panel{margin:0 0 !important;position:absolute;top:5px;right:5px;}.ui{pointerEvents:none}br+div:not([style]){height:35px;}#helloContainer>.agario-panel{float:left}#helloContainer>.side-container{float:right}.agario-panel{transform: none !important;');
+	oldhtml = oldhtml.replace('.agario-panel{','.agario-promo{display:none !important;}body>#chart-container{pointer-events:none}.connecting-panel{margin:0 0 !important;position:absolute;top:5px;right:5px;z-index:9999}.ui{pointerEvents:none}br+div:not([style]){height:35px;}#helloContainer>.agario-panel{float:left}#helloContainer>.side-container{float:right}.agario-panel{transform: none !important;');
 	tester[0].innerHTML = oldhtml;
 	var script = document.createElement("script");
 	script.id="agariomods";
@@ -217,7 +217,7 @@ function agariomodsRuntimeInjection() {
 	document.getElementById("region").parentNode.replaceChild(rse,document.getElementById("region"));
 	//}
 	document.head.appendChild(script);
-	document.getElementsByClassName("agario-panel")[0].style.display="block";
+	document.getElementById("overlays").style.display="block";
 	agariomodsRuntimeHacks();
 	bgmusic = new Audio()//$('#audiotemplate').clone()[0];
     bgmusic.src = "//skins.agariomods.com/botb/" + tracks[Math.floor(Math.random() * tracks.length)];
@@ -247,6 +247,8 @@ function agariomodsRuntimePatches() {
 	gamejs_patch('console.log("socket close");','onwsclose();console.log("socket close");',"Simulate player death on unexpected socket close");
 	gamejs_patch('.onclose=null;','.onclose=onwsclose;',"Simulate player death on intentional socket close.")
 	gamejs_patch(/\w>\w\/1\.1\?.*-50%\)"\);/,'',"fixing menu on resize");
+	gamejs_patch("else for","stillOnLeaderboard(ilead)}else for","adding function call for leaderboard checking")
+	gamejs=gamejs.replace(/(for\(\w\.f)/,"{var ilead=!1;$1")
 		gamejs_patch(';reddit;', ';reddit;'+ourskins+';', "add our skinlist to the original game skinlist.");
 //        gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();var agariomods="";var ourskins = "'+ourskins+'";if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}else if('+b+'.substring(0,2)=="i/"){if(!custom){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";}}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}', "add check for which skin mode we are in. be it no skin, default skin, custom skin, or an agariomods skin.");
         gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();var agariomods="";var ourskins = "'+ourskins+'";if(pcs&&'+mycells+'.indexOf(this)!=-1){agariomods=pcsrc}else if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}else if('+b+'.substring(0,1)=="*"){if(!custom){agariomods="//connect.agariomods.com/img_"+this.name.substring(1)+".png";}}else if('+b+'.substring(0,2)=="i/"&&('+b+'.length==7||'+b+'.length==9)){if(!custom){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";}}else if('+b+'.substring(0,1)=="+"&&'+b+'.length>6){agariomods="http://server.kelvin.tk/yt/icon.php?"+this.name.substring(1).toLowerCase();}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}', "add check for which skin mode we are in. be it no skin, default skin, custom skin, or an agariomods skin.");
@@ -255,6 +257,7 @@ function agariomodsRuntimePatches() {
         gamejs_patch(W +'['+b+'].src="skins/"+'+b+'+".png"', W+'['+b+'].src=agariomods', "check for agariomods img src variable");
         gamejs_patch("this."+pandb+"&&"+bdot+".strokeText("+c3eg2+");"+bdot+".fillText("+c3eg2+")", "if (String("+c3eg2.substr(0,1)+").substring(0, 2) != \"i/\" || custom) {this."+pandb+"&&"+bdot+".strokeText("+c3eg2+");"+bdot+".fillText("+c3eg2+")}", "add imgur skins check for hiding username when using imgur id aka c3eg2");
         gamejs_patch(b+"=this.name.toLowerCase();", b+"=this.name.toLowerCase(); if ((("+b+".substring(0, 2) == \"i/\"&&("+b+".length==7||"+b+".length==9))||"+b+".substring(0, 1) == \"*\"||("+b+".substring(0, 1) == \"+\"&&"+b+".length>6))&&!custom&&"+Ja+".indexOf("+b+")==-1) {" +Ja+ ".push("+b+")} ;", "add imgur check #2.");
+	gamejs_patch(".googletag.pubads&&",".googletag.pubads&&window.googletag.pubads.clear&&","Fix for users with Ghostery");
 	gamejs = addKeyboardHook(gamejs);
 	gamejs = addSkinHook(gamejs);
     gamejs = addChartHooks(gamejs);
@@ -327,8 +330,8 @@ var bg = document.getElementById("canvas");
 	nodeDiv2.style.width = "calc(100% - 5px)";
 	nodeDiv.style.overflow = "none";
 	nodeDiv2.style.overflow = "auto"; //add scroll bar
-	nodeDiv2.innerHTML += '1.9.9.01: <big>Youtube Channel Icon skins! For youtube channels with a short channel url! Put their youtube username after a plus, for example, "+VanossGaming".</big><br> \
-<b>Use custom skins with *ACCOUNTNAME</b><br><h3>Stage 3 is dawning upon us</h3><a href="http://connect.agariomods.com/" target="_blank"><font color="pink">Register now with agariomods connect because you will need it for some soon to be released exciting new features.</font></a><br>\
+	nodeDiv2.innerHTML += '1.9.9.02: <big>Ghostery Fix! If you were forced to turn off ghostery because you couldn\'t play, you can turn it back on!</big><br> \
+<b>Use custom skins with *ACCOUNTNAME</b><br>Stage 3 is delayed atm, as we are focusing on mataining the mod.<a href="http://connect.agariomods.com/" target="_blank"><font color="pink">Register now with agariomods connect because you will need it for some soon to be released exciting new features.</font></a><br>\
 Go catch up with the <a target="_blank" href="http://agariomods.com/documentation.html">Documentation</a><br><h4><a href="http://www.agariomods.com/help.html" target="_blank"><font color="pink">CLICK HERE FOR HELP</font></a></h4>\
         <div style="background-color: #ffffff; color: #000000; padding: 2px; margin: 0px;">\
                 <small><b>Disable ad blockers</b>&nbsp;- They are breaking the game and our modifications in random and unexpected ways.</small>\
@@ -546,7 +549,7 @@ function addVirusColorHook(script) {
 function addLeaderboardHook(script) {
     var match = script.match(/(fillStyle="#FFAAAA")(.+)(\w+)(\+1\+"\. ")/);
     var split = script.split(match[0]);
-    return split[0]+match[1]+',OnLeaderboard('+match[3]+'+1)'+match[2]+match[3]+match[4]+split[1]   
+    return split[0]+match[1]+',OnLeaderboard('+match[3]+'+1),ilead=true'+match[2]+match[3]+match[4]+split[1]   
 }
 
 function addOnCellEatenHook(script) {
@@ -689,7 +692,7 @@ jQuery(document).ready(function()
 	');
 	checkbox_div.append('<div id="sliders" style="white-space:nowrap;display:inline;"><label>SFX<input id="sfx" type="range" value="0" step=".1" min="0" max="1"></label><label>BGM<input type="range" id="bgm" value="0" step=".1" min="0" max="1" oninput="volBGM(this.value);"></label></div>');
 	//checkbox_div.append('<label>Quality<input type="range" id="quality" step="5" min="0" max="100" oninput="scale(this.value);"></label><label><input id="blur" type="checkbox" onchange="pixelate($(this).is(\':checked\'));">Pixelated</label>');
-    jQuery('#overlays').append('<div id="stats" style="position: absolute; top:330px; left: 698px; width: 480px; display: none; background-color: #FFFFFF; border-radius: 15px; padding: 5px 15px 5px 15px; transform: translate(0,-50%); white-space: nowrap; overflow:hidden;"><div id="statArea" style="vertical-align:top; width:250px; display:inline-block;"></div><div id="pieArea" style="vertical-align: top; width:200px; height:150px; display:inline-block; vertical-align:top"> </div><div id="gainArea" style="width:500px;  vertical-align:top"></div><div id="lossArea" style="width:500px; "></div><div id="chartArea" style="width:450px; display:inline-block; vertical-align:top"></div></div>');
+    jQuery('#overlays').append('<div id="stats" style="position: absolute; top:330px; left: 698px; width: 480px; display: none; background-color: rgba(255,255,255,0.93); border-radius: 15px; padding: 5px 15px 5px 15px; transform: translate(0,-50%); white-space: nowrap; overflow:hidden;"><div id="statArea" style="vertical-align:top; width:250px; display:inline-block;"></div><div id="pieArea" style="vertical-align: top; width:200px; height:150px; display:inline-block; vertical-align:top"> </div><div id="gainArea" style="width:500px;  vertical-align:top"></div><div id="lossArea" style="width:500px; "></div><div id="chartArea" style="width:450px; display:inline-block; vertical-align:top"></div></div>');
     jQuery('#stats').hide(0);   
 	//jQuery('#playBtn').width('74%');
 	document.getElementById("options").style.fontSize="14px";
@@ -788,6 +791,7 @@ function ResetStats()
         birthday: Date.now(),
         time_of_death: null,
         high_score: 0,
+        leader_time: 0,
         top_slot: Number.POSITIVE_INFINITY,
 
         gains: {},
@@ -909,28 +913,32 @@ function DrawStats(game_over)
     if (game_over){
         sfx_play(1);
 		StopBGM();
-		ifEnd(localStorage.setItem("played",1*((localStorage.getItem("played")*1)+1)));
+		stats.time_of_death = Date.now();
+		//localStorage.setItem("played",1*((localStorage.getItem("played")*1)+1));
 	}
-	stats.time_of_death = Date.now();
-    var time = stats.time_of_death ? stats.time_of_death : Date.now();
-    var seconds = (time - stats.birthday)/1000;
+	var time = stats.time_of_death ? stats.time_of_death : Date.now();
+    var seconds = time - stats.birthday;
+	count(seconds);	
 	
 	var list = jQuery('<ul>');
-    list.append('<li style="font-size: 12px; ">Game time: ' + secondsToHms(seconds) + ifEnd(' (Best: ' + secondsToHms(best("time",seconds))  + ')<br>(Total time played: ' + secondsToHms(alltime(seconds)) + ')')+'</li>');
-    list.append('<li style="font-size: 12px; ">High score: ' + ~~(stats.high_score/100) + ifEnd(' (Best: ' + best("highscore",~~(stats.high_score/100)) + ')')+'</li>');
+    list.append('<li style="font-size: 12px; ">Game time: ' + mToMs(seconds) + /*' (Best: ' + secondsToHms(best("time",seconds))  + ')<br>(Total time played: ' + secondsToHms(alltime(seconds)) + ')*/'</li>');
+    list.append('<li style="font-size: 12px; ">High score: ' + ~~(stats.high_score/100) + /*' (Best: ' + best("highscore",~~(stats.high_score/100)) + ')*/'</li>');
     if (stats.top_slot == Number.POSITIVE_INFINITY){
-        list.append('<li style="font-size: 12px; ">You didn\'t make the leaderboard.'+ifEnd(bestRank(11))+'</li>');
+        list.append('<li style="font-size: 12px; ">You didn\'t make the leaderboard.'/*+bestRank(11)*/+'</li>');
     }
     else{
-        list.append('<li style="font-size: 12px; ">Leaderboard max: ' + stats.top_slot + ifEnd(bestRank(stats.top_slot)) + '</li>');
+        list.append('<li style="font-size: 12px; ">Leaderboard max: ' + stats.top_slot + /*bestRank(stats.top_slot) +*/ '</li>');
     }
-    ifEnd(list.append('<li style="font-size: 12px; ">Games played: '+localStorage.getItem("played")+'</li>'));
+	if (stats.leader_time > 0){
+        list.append('<li style="font-size: 12px; ">Leaderboard Time: ' + mToMs(stats.leader_time) + /*bestRank(stats.top_slot) +*/ '</li>');
+    }
+    //list.append('<li style="font-size: 12px; ">Games played: '+localStorage.getItem("played")+'</li>')
     list.append('<li style="font-size: 12px; padding-top: 15px">' + stats.pellets.num + " pellets eaten (" + ~~(stats.pellets.mass/100) + ' mass)</li>');
     list.append('<li style="font-size: 12px; ">' + stats.cells.num + " cells eaten (" + ~~(stats.cells.mass/100) + ' mass)</li>');
     list.append('<li style="font-size: 12px; ">' + stats.w.num + " masses eaten (" + ~~(stats.w.mass/100) + ' mass)</li>');
     list.append('<li style="font-size: 12px; ">' + stats.viruses.num + " viruses eaten (" + ~~(stats.viruses.mass/100) + ' mass)</li>');
     var totalMass = (~~(stats.pellets.mass/100)+~~(stats.cells.mass/100)+~~(stats.w.mass/100)+~~(stats.viruses.mass/100));
-	list.append('<li style="font-size: 12px; ">Total mass eaten: ' + totalMass +ifEnd(' (Best: '+best("totalMass",totalMass)+')')+'</li>');
+	list.append('<li style="font-size: 12px; ">Total mass eaten: ' + totalMass +/*' (Best: '+best("totalMass",totalMass)+')*/'</li>');
     jQuery('#statArea').append('<b>Game Summary</b>');
     jQuery('#statArea').append(list);
 	
@@ -960,6 +968,7 @@ function DrawStats(game_over)
 	}
 jQuery('.canvasjs-chart-credit').hide();
 }
+
 
 var styles = {
 	heading: {font:"20px Ubuntu", spacing: 41, alpha: 1},
@@ -1044,10 +1053,9 @@ window.OnGameStart = function(cells)
 	if (kd == true) {
 		showsh = false;
 		document.getElementById("overlays").style.display = "none";
-		document.getElementById("overlays").style.backgroundColor = "rgba(0,0,0,.498039)";
 		document.getElementById("overlays").style.pointerEvents = "auto";
-		document.getElementById("stats").style.opacity = 0.85;
-		document.getElementsByClassName("agario-panel")[0].style.display = "block";
+		//document.getElementById("stats").style.opacity = 0.85;
+		document.getElementById("helloContainer").style.display = "block";
 		kd = false;
 	}
 	StartBGM();
@@ -1088,10 +1096,9 @@ window.OnShowOverlay = function(game_in_progress)
     DrawStats(!game_in_progress);
 	if (kd == true) {
 		document.getElementById("overlays").style.display = "block";
-		document.getElementById("overlays").style.backgroundColor = "rgba(0,0,0,.498039)";
 		document.getElementById("overlays").style.pointerEvents = "auto";
-		document.getElementById("stats").style.opacity = 1;
-		document.getElementsByClassName("agario-panel")[0].style.display = "block";
+		//document.getElementById("stats").style.opacity = 1;
+		document.getElementById("helloContainer").style.display = "block";
 		kd = false;
 	}
 	if (in_game) {
@@ -1139,6 +1146,18 @@ window.OnLeaderboard = function(position)
 {
     stats.top_slot = Math.min(stats.top_slot, position);
 }
+
+window.stillOnLeaderboard = function(a)
+{
+	if(a!=window.stillOnLeaderboard.leading){
+		window.stillOnLeaderboard.leading=a;
+		if(a)window.stillOnLeaderboard.time=Date.now();
+		return;
+	} else if(!a)return;
+	stats.leader_time+=(Date.now()-window.stillOnLeaderboard.time);
+	window.stillOnLeaderboard.time = Date.now();
+}
+window.stillOnLeaderboard.leading = false;
 
 window.OnDraw = function(context)
 {
@@ -1240,10 +1259,9 @@ $(document).keydown(function(e) {
 		if (kd == false && document.getElementById("overlays").style.display == 'none') {
 			kd = true;
 			document.getElementById("overlays").style.display = "block";
-			document.getElementById("overlays").style.backgroundColor = "rgba(0,0,0,0)";
 			document.getElementById("overlays").style.pointerEvents = "none";
-			document.getElementById("stats").style.opacity = 1;
-			document.getElementsByClassName("agario-panel")[0].style.display = "none";
+			//document.getElementById("stats").style.opacity = 0.85;
+			document.getElementById("helloContainer").style.display = "none";
 			showsh = true;
 			DrawStats(false);
 		}
@@ -1254,16 +1272,16 @@ $(document).keydown(function(e) {
 		localStorage.setItem("showt",showt);
 		document.getElementById("benchmarker").style.display = showt?"block":"none";
 	}
-	//Benchmarker Clear Shortcut
+	//Clear Localstorage
 	if (e.keyCode == 84&&e.altKey) {
-		deleteScores();
+		confirm("Are you sure you want to delete your saved data on agar.io?\nThis will delete your all of your 'Best' stats ands saved settings.\n(Note: Will not delete your Chat API key or logout of your facebook.)")&&localStorage.clear()&&(window.location=window.location);
 	}
 	//Chat Toggle
 	if (e.keyCode == 67&&!e.altKey&&document.activeElement.type!="text") {
 		chatEnabled = !chatEnabled;
 		document.getElementById("setChat").checked = chatEnabled;
 		localStorage.setItem("chatEnabled",chatEnabled);
-		if(server.ip.substr(-11)==".iomods.com")chatEnabled?openChat():closeChat();//jQuery('#apikey').val().split(" ").join(""));
+		if(server.ip.substr(-11)==".iomods.com")chatEnabled?openChat():closeChat();//jQuery('#apikey').val().replace(/ /g,""));
 	}
 	//Ogar Connect
 	if (e.keyCode == 67&&e.altKey) {
@@ -1341,10 +1359,9 @@ $(document).keyup(function(e) {
 		if (kd == true) {
 			kd = false;
 			document.getElementById("overlays").style.display = "none";
-			document.getElementById("overlays").style.backgroundColor = "rgba(0,0,0,.498039)";
 			document.getElementById("overlays").style.pointerEvents = "auto";
-			document.getElementById("stats").style.opacity = 0.85;
-			document.getElementsByClassName("agario-panel")[0].style.display = "block";
+			//document.getElementById("stats").style.opacity = 1;
+			document.getElementById("helloContainer").style.display = "block";
 			showsh = false;
 		}
 	}
@@ -1437,8 +1454,8 @@ function initbench(first) {
         "margin-top": "4px"
     });
 }
-function count() { //Occurs every second
-    $("div#benchmarker span").html("Time Elapsed: " + mToMs(Date.now() - stats.birthday));
+function count(alt) { //Occurs every second
+    $("div#benchmarker span").html("Time Elapsed: " + mToMs(alt?alt:(Date.now() - stats.birthday)));
 }
 function mToMs(millis) {
     var minutes = Math.floor(millis / 60000);
@@ -1460,7 +1477,7 @@ function logBenchmark(benchmark, time) {
         }
     }
 }
-function deleteScores() {
+/*function deleteScores() {
     var prompt = confirm("Are you sure you want to delete your best times?");
     if (prompt == true) {
         for (var i = 0; i < benchmarks.length; i++) {
@@ -1468,7 +1485,7 @@ function deleteScores() {
             $("#" + benchmarks[i] + " .best").html("-----");
         }
     }
-}
+}*/
 function benchcheck(mass) {
     mass = Math.floor(mass / 100);
     for (var i = 0; i < mass_benchmarks.length; i++) {
@@ -1481,7 +1498,7 @@ function benchcheck(mass) {
 
 
 var st = document.createElement("style");
-st.innerHTML = ".serveritem {display:block;border-bottom:1px solid #ccc;padding:4px;}.serveritem:hover{text-decoration:none;background-color:#E9FCFF;}.overlay{line-height:1.2;margin:0;font-family:sans-serif;text-align:center;position:absolute;top:0;left:0;width:100%;height:100%;z-index:1000;background-color:rgba(0,0,0,0.2)}.popupbox{position:absolute;height:100%;width:60%;left:20%;background-color:rgba(255,255,255,0.95);box-shadow:0 0 20px #000}.popheader{position:absolute;top:0;width:100%;height:50px;background-color:rgba(200,200,200,0.5)}.browserfilter{position:absolute;padding:5px;top:50px;width:100%;height:60px;background-color:rgba(200,200,200,0.5)}.scrollable{position:absolute;border-top:#eee 1px solid;border-bottom:#eee 1px solid;width:100%;top:50px;bottom:50px;overflow:auto}.popupbuttons{background-color:rgba(200,200,200,0.4);height:50px;position:absolute;bottom:0;width:100%}.popupbox td,th{padding:5px}.popupbox tbody tr{border-top:#ccc solid 1px}#tooltip{display:inline;position:relative}#tooltip:hover:after{background:#333;background:rgba(0,0,0,.8);border-radius:5px;bottom:26px;color:#fff;content:attr(title);left:20%;padding:5px 15px;position:absolute;z-index:98;width:220px}#chat{z-index:2000;width:500px;position:absolute;right:15px;bottom:25px}#chatinput{bottom:0;position:absolute;opacity:.8}#chatlines a{color:#086A87}#chatlines{pointer-events:none;position:absolute;bottom:40px;width:500px;color:#333;word-wrap:break-word;box-shadow:0 0 10px #111;background-color:rgba(0,0,0,0.1);border-radius:5px;padding:5px;height:200px;overflow:auto}.listing>span{display:block;font-size:11px;font-weight:400;color:#999}.list{padding:0 0;list-style:none;display:block;font:12px/20px 'Lucida Grande',Verdana,sans-serif}.listing{border-bottom:1px solid #e8e8e8;display:block;padding:10px 12px;font-weight:700;color:#555;text-decoration:none;cursor:pointer;line-height:18px}li:last-child > .listing{border-radius:0 0 3px 3px}.listing:hover{background:#e5e5e5}";
+st.innerHTML = ".serveritem {border-right:1px dotted #ccc;width:25%;display:table-cell;border-bottom:1px solid #ccc;padding:4px;}.serveritem:hover{text-decoration:none;background-color:#E9FCFF;}.overlay{line-height:1.2;margin:0;font-family:sans-serif;text-align:center;position:absolute;top:0;left:0;width:100%;height:100%;z-index:1000;background-color:rgba(0,0,0,0.2)}.popupbox{position:absolute;height:100%;width:60%;left:20%;background-color:rgba(255,255,255,0.95);box-shadow:0 0 20px #000}.popheader{position:absolute;top:0;width:100%;height:50px;background-color:rgba(200,200,200,0.5)}.browserfilter{position:absolute;padding:5px;top:50px;width:100%;height:60px;background-color:rgba(200,200,200,0.5)}.scrollable{position:absolute;border-top:#eee 1px solid;border-bottom:#eee 1px solid;width:100%;top:50px;bottom:50px;overflow:auto}.popupbuttons{background-color:rgba(200,200,200,0.4);height:50px;position:absolute;bottom:0;width:100%}.popupbox td,th{padding:5px}.popupbox tbody tr{border-top:#ccc solid 1px}#tooltip{display:inline;position:relative}#tooltip:hover:after{background:#333;background:rgba(0,0,0,.8);border-radius:5px;bottom:26px;color:#fff;content:attr(title);left:20%;padding:5px 15px;position:absolute;z-index:98;width:220px}#chat{z-index:2000;width:500px;position:absolute;right:15px;bottom:25px}#chatinput{bottom:0;position:absolute;opacity:.8}#chatlines a{color:#086A87}#chatlines{pointer-events:none;position:absolute;bottom:40px;width:500px;color:#333;word-wrap:break-word;box-shadow:0 0 10px #111;background-color:rgba(0,0,0,0.1);border-radius:5px;padding:5px;height:200px;overflow:auto}.listing>span{display:block;font-size:11px;font-weight:400;color:#999}.list{padding:0 0;list-style:none;display:block;font:12px/20px 'Lucida Grande',Verdana,sans-serif}.listing{border-bottom:1px solid #e8e8e8;display:block;padding:10px 12px;font-weight:700;color:#555;text-decoration:none;cursor:pointer;line-height:18px}li:last-child > .listing{border-radius:0 0 3px 3px}.listing:hover{background:#e5e5e5}";
 document.head.appendChild(st);
 
 var fontawesome=document.createElement("link");
@@ -1512,7 +1529,7 @@ jQuery(document).keydown(function(e) {
 });
 
 window.connectPrivate = function(location, i) {
-	var ip = location.toLowerCase().split(" ").join("") + '.iomods.com';
+	var ip = location.toLowerCase().replace(/ /g,"") + '.iomods.com';
 	var port = (1500+parseInt(i));
 	server.ip=ip;server.i=i;server.location=location;
 	connect("ws://"+ ip + ":" + port, "");
@@ -1650,25 +1667,28 @@ window.openServerbrowser=function(a) {
 window.closeServerbrowser=function() {
 	jQuery('#serverBrowser').fadeOut();
 }
-var locations = new Array("Chicago Beta", "Dallas Beta", "Frankfurt Beta", "London Beta", "Losangeles Beta", "Miami Beta", "Newjersey Beta", "Paris Beta", "Seattle Beta", "Silicon Valley Beta", "Sydney Beta", "Amsterdam", "Amsterdam Beta", "Atlanta Beta", "Frankfurt Alpha", "Frankfurt", "London", "Quebec", "Paris", "Paris Gamma", "Atlanta", "Chicago", "Dallas", "Los Angeles", "Miami", "New Jersey", "Seattle", "Silicon Valley", "Sydney", "Tokyo");
+var locations = new Array("Chicago Beta", "Dallas Beta", "Frankfurt Beta", "London Beta", "Los Angeles Beta", "Miami Beta", "New Jersey Beta", "Paris Beta", "Seattle Beta", "Silicon Valley Beta", "Sydney Beta", "Amsterdam", "Amsterdam Beta", "Atlanta Beta", "Frankfurt Alpha", "Frankfurt", "London", "Quebec", "Paris", "Paris Gamma", "Atlanta", "Chicago", "Dallas", "Los Angeles", "Miami", "New Jersey", "Seattle", "Silicon Valley", "Sydney", "Tokyo");
 locations.sort();
 locations[0] = [locations[2],locations[2]=locations[1],locations[1]=locations[0]][0];
 locations[1] = [locations[3],locations[3]=locations[2],locations[2]=locations[1]][0];
 function getServers() {
-	jQuery('#serverlist1').empty();
-	jQuery('#serverlist2').empty();
-	var latencylist = Array();
+	jQuery('#serverlist').empty();
+	var serverlist = Array();
+	var snippet = "";
 	jQuery.each(locations, function(index, value) {
+		if(index*.5==~~(index*.5))snippet+='<div style="display:table-row;">';
 		for (var i = 1; i <= 2; i++) {
 
-			serverid = value.toLowerCase().split(" ").join("") + i;
-			$('#serverlist'+i).append('<a href class="serveritem" id="' + serverid + '" onclick="connectPrivate(\''+value+'\', \''+i+'\');closeServerbrowser();return false;"><b style="color: #222">' + value + ' #' + i + '</b><br>\
-			<i style="color: #999"><span id="player">fetching data...</span> <i style="color: #ccc" class="fa fa-users" /> | <span id="game"></span> | </i><span id="latency"><i class="fa fa-signal"></i> <span id="latencyres"></span></span></a>'); //</i>
+			serverid = value.toLowerCase().replace(/ /g,"") + i;
+			snippet+='<a href class="serveritem" id="' + serverid + '" onclick="connectPrivate(\''+value+'\', \''+i+'\');closeServerbrowser();return false;"><b style="color: #222">' + value + ' #' + i + '</b><br>\
+			<i style="color: #999"><span id="player">fetching data...</span> <i style="color: #ccc" class="fa fa-users" /> | <span id="game" style="font-style:normal"></span></i><span id="server" style="display:none"></span></a>';
 
-			latencylist.push(new Array(value.toLowerCase().split(" ").join(""), i));
+			serverlist.push(new Array(value.toLowerCase().replace(/ /g,""), i));
 		};
+		if(index*.5!=~~(index*.5))snippet+='</div>';
 	});
-	serverinfo(latencylist, 0);
+	$('#serverlist').append(snippet);
+	serverinfo(serverlist, 0);
 }
 function serverinfo(list, index) {
     if (index >= list.length){
@@ -1677,7 +1697,6 @@ function serverinfo(list, index) {
 		return;
     }
 	value = list[index];
-	started = Date.now();
 	statsurl = 'http://' + value[0] + '.iomods.com:' + (8080 + value[1]);
 	jQuery.ajax({
 		url: statsurl,
@@ -1685,25 +1704,16 @@ function serverinfo(list, index) {
                 timeout: 5000,
 		success: function(data){
 			$('#' + (value[0] + value[1]) + ' #player').text(data.current_players + "/" + data.max_players);
-			$('#' + (value[0] + value[1]) + ' #game').text(data.gamemode);
-			latency = (Date.now() - started);
-			if(latency < 100) {
-				jQuery('#' + (value[0] + value[1]) + ' #latency').css("color", "#19A652");
-			}
-			else if(latency < 250) {
-				jQuery('#' + (value[0] + value[1]) + ' #latency').css("color", "#E1BD2C");
-			}
-			else {
-				jQuery('#' + (value[0] + value[1]) + ' #latency').css("color", "#F00");
-			}
-			jQuery('#' + (value[0] + value[1]) + ' #latencyres').text(latency + "ms");
+			var gm = data.gamemode;
+			gm=="[Arenas] Hunger Games"&&(gm="[A]HG")||gm=="Hunger Games"&&(gm="HG")||gm=="Free For All"&&(gm="FFA");
+			$('#' + (value[0] + value[1]) + ' #game').text(gm);
 		},
 		error: function(data,err,ngut) {
 			jQuery('#' + (value[0] + value[1]) + ' #player').parent().css("display","none");
-			jQuery('#' + (value[0] + value[1]) + ' #latency').css("color", "#f00");
+			jQuery('#' + (value[0] + value[1]) + ' #server').css({color:"#f00",display:"block"});
 			var errc = '';
 		if(err=="error"){errc="Connection Failed"}else if(err=="timeout"){errc="Connection Timed Out"}else{"Error: "+err.charAt(0).toUpperCase()+err.substr(1)};
-			jQuery('#' + (value[0] + value[1]) + ' #latency').text(errc);
+			jQuery('#' + (value[0] + value[1]) + ' #server').text(errc);
 		},
 		complete: function(data) {
             document.getElementById("serverBrowser").style.display=="none"||serverinfo(list, index+1);
@@ -1714,7 +1724,7 @@ function serverinfo(list, index) {
 
 jQuery(document).ready(function() {
 	jQuery('body').append('<div id="serverBrowser" class="overlay" style="display:none"><div class="valign"><div class="popupbox"><div class="popheader"><h3>Agariomods Ogar Server Browser</h3></div>\
-	<div class="scrollable"><center style="border-right:1px solid #e8e8e8;float:left;width:50%;"><div id="serverlist1"></div></center><center style="float:right;width:50%;"><div id="serverlist2"></div></center></div><div class="popupbuttons"><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style=" display: block; float: left; "> <input type="hidden" name="cmd" value="_s-xclick"> <input type="hidden" name="hosted_button_id" value="TJBQTYEC9NWZS"> <input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal â€“ The safer, easier way to pay online."> <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1"> </form><button onclick="closeServerbrowser()" type="button" style="transform:translateX(-74%);margin:4px"\
+	<div class="scrollable"><div id="serverlist" style="border:1px solid #e8e8e8;display:table;width:100%"></div></div><div class="popupbuttons"><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style=" display: block; float: left; "> <input type="hidden" name="cmd" value="_s-xclick"> <input type="hidden" name="hosted_button_id" value="TJBQTYEC9NWZS"> <input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal â€“ The safer, easier way to pay online."> <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1"> </form><button onclick="closeServerbrowser()" type="button" style="transform:translateX(-74%);margin:4px"\
 	class="btn btn-danger">Back</button><button id="rsb" onclick="openServerbrowser(true)" class="btn btn-info" type="button" style="float:right;margin:4px;">Refresh <i class="glyphicon glyphicon-refresh"></i></button></div></div></div></div>');
 	jQuery('#settings').prepend('<button type="button" id="opnBrowser" onclick="openServerbrowser();" style="position:relative;top:-8px;width:100%" class="btn btn-success">Agariomods Private Servers</button><br>');
 	jQuery('body').append('<div id="chat" style="display:none"><div id="chatlines"></div><div id="chatinput" style="display:none" class="input-group">\
@@ -1731,7 +1741,8 @@ function best(name,data) { //For when the best is the highest number
 	}
 	if(localStorage.getItem("best_"+name)!=null){return localStorage.getItem("best_"+name)}else{return '0'};
 }
-function bestRank(data) { //For when the best is the lowest number
+
+/*function bestRank(data) { //For when the best is the lowest number
 	if (localStorage.getItem("best_rank") === null) {
 		localStorage.setItem("best_rank",11);
 	}
@@ -1743,7 +1754,7 @@ function bestRank(data) { //For when the best is the lowest number
 	} else {
 		return " ";
 	}
-}
+}*/ //Useless once you've gotten to #1, which is pretty easy, then it just wastes space.
 function alltime(s) {
 	if (localStorage.getItem("alltime") === null) {localStorage.setItem("alltime",0);}
 	localStorage.setItem("alltime",1*((localStorage.getItem("alltime")*1)+s*1));
