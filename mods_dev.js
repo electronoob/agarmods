@@ -16,6 +16,7 @@ function preset(s,v){if(null==localStorage.getItem(s))localStorage.setItem(s,v)}
 preset("chatEnabled","true");
 preset("settingShow_chart","true");
 preset("showt","true");
+preset("nick","");
 
 
 /*var sc = document.createElement('script');
@@ -331,7 +332,7 @@ var bg = document.getElementById("canvas");
 	nodeDiv.style.overflow = "none";
 	nodeDiv2.style.overflow = "auto"; //add scroll bar
 	nodeDiv2.innerHTML += '1.9.9.02: <big>Ghostery Fix! If you were forced to turn off ghostery because you couldn\'t play, you can turn it back on!</big><br> \
-<b>Use custom skins with *ACCOUNTNAME</b><br>Stage 3 is delayed atm, as we are focusing on mataining the mod.<a href="http://connect.agariomods.com/" target="_blank"><font color="pink">Register now with agariomods connect because you will need it for some soon to be released exciting new features.</font></a><br>\
+<b>Use custom skins with *ACCOUNTNAME</b><br>Stage 3 is delayed atm, as we are focusing on mataining the mod.<br><a href="http://connect.agariomods.com/" target="_blank"><font color="pink">Register now with agariomods connect because you will need it for some soon to be released exciting new features.</font></a><br>\
 Go catch up with the <a target="_blank" href="http://agariomods.com/documentation.html">Documentation</a><br><h4><a href="http://www.agariomods.com/help.html" target="_blank"><font color="pink">CLICK HERE FOR HELP</font></a></h4>\
         <div style="background-color: #ffffff; color: #000000; padding: 2px; margin: 0px;">\
                 <small><b>Disable ad blockers</b>&nbsp;- They are breaking the game and our modifications in random and unexpected ways.</small>\
@@ -390,11 +391,24 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 	nodeAudio.id = 'audiotemplate';		
 	jQuery(playBtn).parent().get(0).appendChild(nodeAudio);
 	jQuery('#playBtn').off();
-	//$('.btn-needs-server').prop('disabled', true);
-	jQuery('#playBtn').click(function() {
-		setNick(document.getElementById('nick').value);
-		return false;
-	});*/
+	//$('.btn-needs-server').prop('disabled', true);*/
+	jQuery('.btn-play,.btn-play-guest').click(function() {
+		var a = document.getElementById('nick').value;
+		var b = localStorage.getItem("nick");
+		if(a.substr(0,1)=='*'&&a.length>1&&b!=a){
+			a = a.substr(1);
+			jQuery.ajax({
+				url: "http://connect.agariomods.com/json/api.php?action=GSFUC&username="+a,
+				dataType: 'json',
+				success: function(data){
+					if(data&&data.username)if(data.username!==null)localStorage.setItem("nick","*"+data.username); else localStorage.setItem("nick","");
+				},
+				error: function() {
+					localStorage.setItem("nick","");
+				}
+			});
+		}else localStorage.setItem("nick","");
+	});
 	//jQuery('.form-group:first').after( "<hr style='margin: 7px; border-width: 2px'>" );
 	jQuery('.form-group:first').removeAttr("class");
 	//Party update
@@ -1233,8 +1247,9 @@ window.onpageshow = function() {
 	$("div#options input:not([nosave])").each(function() {
             check(this);
 	});
-	document.getElementById("helloContainer").style.display='';
+	document.getElementById("nick").value=localStorage.getItem("nick");
 	history.replaceState('agar.io', 'Agar.io', '/');
+	document.getElementById("helloContainer").style.display='';
 }
 
 window.check = function(elem){
