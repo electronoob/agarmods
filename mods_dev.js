@@ -199,7 +199,7 @@ function agariomodsRuntimeInjection() {
 	oldhtml = oldhtml.replace('top:50%;left:50%;','margin:10px;');
 	oldhtml = oldhtml.replace('width:100%;height:100%;', '');
 	oldhtml = oldhtml.replace('#FFFFFF;m', 'rgba(255,255,255,0.85);opacity:0.93;m');
-	oldhtml = oldhtml.replace('.agario-panel{','.agario-profile-name-container{pointer-events: none;}.agario-panel.agario-side-panel.agario-profile-panel{overflow:hidden}.ribbon{margin-bottom:-100px;transform:rotate(26deg);background-color:#a00;overflow:hidden;white-space:nowrap;box-shadow:0 0 10px #888;right:-55px;top:-11px;position:relative;}.ribbon a {border:1px solid #faa;color:#fff;display:block;font:bold 11px "Helvetica Neue", Helvetica, Arial, sans-serif;margin:1px 0;padding:2px;text-align:center;text-decoration:none;text-shadow:0 0 5px #444;}.agario-promo{display:none !important;}body>#chart-container{pointer-events:none}.connecting-panel{margin:0 0 !important;position:absolute;top:5px;right:5px;z-index:9999}.ui{pointerEvents:none}br+div:not([style]){height:35px;}#helloContainer>.agario-panel{float:left}#helloContainer>.side-container{float:right}.agario-panel{transform:none !important;');
+	oldhtml = oldhtml.replace('.agario-panel{','.agario-profile-name-container{pointer-events: none;}.agario-panel.agario-side-panel.agario-profile-panel{overflow:hidden}.ribbon{margin-bottom:-100px;transform:rotate(26deg);background-color:#a00;overflow:hidden;white-space:nowrap;box-shadow:0 0 10px #888;right:-55px;top:-11px;position:relative;}.ribbon a {border:1px solid #faa;color:#fff;display:block;font:bold 11px "Helvetica Neue", Helvetica, Arial, sans-serif;margin:1px 0;padding:2px;text-align:center;text-decoration:none;text-shadow:0 0 5px #444;}.agario-promo{display:none !important;}body>#chart-container{pointer-events:none}.connecting-panel{margin:0 0 !important;position:absolute;top:5px;right:5px;z-index:9999}.ui{pointer-events:none}br+div:not([style]){height:35px;}#helloContainer>.agario-panel{float:left}#helloContainer>.side-container{float:right}.agario-panel{transform:none !important;');
 	tester[0].innerHTML = oldhtml;
 	var script = document.createElement("script");
 	script.id="agariomods";
@@ -238,19 +238,30 @@ function agariomodsRuntimeInjection() {
 
 window.log=function(stuff){console.log(stuff);}
 function agariomodsRuntimePatches() {
+	gamejs_patch("())};",'()||jQuery("#gps").fadeOut()&&window.nav&&window.nav(0,0,!1))};',"Toggle gps on gamemode change.");
+	gamejs_patch('attr("data-party-state","1")','attr("data-party-state","1");jQuery("#gps").fadeIn()',"party hook");
+	gamejs_patch('attr("data-party-state","5");','attr("data-party-state","5");jQuery("#gps").fadeIn();',"party hook");
+	gamejs_patch('attr("data-party-state","0");','attr("data-party-state","0");jQuery("#gps").fadeOut();(window.nav&&window.nav(0,0,!1));',"party hook");
+	gamejs_patch('attr("data-party-state","0"),','attr("data-party-state","0")&&jQuery("#gps").fadeOut()&&window.nav&&window.nav(0,0,!1),',"party hook");
+	gamejs_patch("location.hash)",'location.hash)&&jQuery("#gps").fadeIn()',"Gps on on start from party.");
 	gamejs_patch(/#partyToken/g,'.partyToken',"Change id selector to class selector.");
 	gamejs_patch('console.log("socket close");','onwsclose();console.log("socket close");',"Simulate player death on unexpected socket close");
 	gamejs_patch('.onclose=null;','.onclose=onwsclose;',"Simulate player death on intentional socket close.")
 	gamejs_patch(/\w>\w\/1\.1\?.*-50%\)"\);/,'',"fixing menu on resize");
+	gamejs_patch("cancelParty=function(",'cancelParty=function(a',"Leave party when connecting to private server - add funct var");
+	gamejs_patch(/""\);(\w+\(\))/,'"");jQuery("#gps").fadeOut();window.nav&&window.nav(0,0,!1);!a&&$1',"Leave party when connecting to private server - handle",!0);
 	gamejs_patch("else for","stillOnLeaderboard(ilead)}else for","adding function call for leaderboard checking")
-	gamejs=gamejs.replace(/(for\(\w\.f)/,"{var ilead=!1;$1")
+	gamejs_patch(/(for\(\w\.f)/,"{var ilead=!1;$1","Preset veriable to check if on leaderboard",!0)
 		gamejs_patch(';reddit;', ';reddit;'+ourskins+';', "add our skinlist to the original game skinlist.");
 //        gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();var agariomods="";var ourskins = "'+ourskins+'";if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}else if('+b+'.substring(0,2)=="i/"){if(!custom){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";}}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}', "add check for which skin mode we are in. be it no skin, default skin, custom skin, or an agariomods skin.");
         gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();var agariomods="";var ourskins = "'+ourskins+'";if(pcs&&'+mycells+'.indexOf(this)!=-1){agariomods=pcsrc}else if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}else if('+b+'.substring(0,1)=="*"){if(!custom){agariomods="//connect.agariomods.com/img_"+this.name.substring(1)+".png";}}else if('+b+'.substring(0,2)=="i/"&&('+b+'.length==7||'+b+'.length==9)){if(!custom){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";}}else if('+b+'.substring(0,1)=="+"&&'+b+'.length>6){agariomods="http://server.kelvin.tk/yt/icon.php?"+this.name.substring(1).toLowerCase();}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}', "add check for which skin mode we are in. be it no skin, default skin, custom skin, or an agariomods skin.");
-
+		
+		//gamejs_patch(/\(\w\[0\]\.name\)/,"('')","Trying to fix nodes not being removed.");
+		gamejs_patch(/(\w)\[0\]\.name\)\)/,"$1[0].name.search(/^(i\\/|\\*.|\\+.)/)==-1?$1[0].name:''))","Trying to fix nodes not being removed.",!0);
+		
 		gamejs_patch('=1E4,', '=1E4,'+'zz=!1,yq=!1,xx=!1,xz=!1,ts=!1,custom=!1,opv=!1,pcs=!1,pcsrc=""'+',', "adding variables");
         gamejs_patch(W +'['+b+'].src="skins/"+'+b+'+".png"', W+'['+b+'].src=agariomods', "check for agariomods img src variable");
-        gamejs_patch("this."+pandb+"&&"+bdot+".strokeText("+c3eg2+");"+bdot+".fillText("+c3eg2+")", "if (String("+c3eg2.substr(0,1)+").substring(0, 2) != \"i/\" || custom) {this."+pandb+"&&"+bdot+".strokeText("+c3eg2+");"+bdot+".fillText("+c3eg2+")}", "add imgur skins check for hiding username when using imgur id aka c3eg2");
+        //gamejs_patch("this."+pandb+"&&"+bdot+".strokeText("+c3eg2+");"+bdot+".fillText("+c3eg2+")", "if (String("+c3eg2.substr(0,1)+").substring(0, 2) != \"i/\" || custom) {this."+pandb+"&&"+bdot+".strokeText("+c3eg2+");"+bdot+".fillText("+c3eg2+")}", "add imgur skins check for hiding username when using imgur id aka c3eg2");
         gamejs_patch(b+"=this.name.toLowerCase();", b+"=this.name.toLowerCase(); if ((("+b+".substring(0, 2) == \"i/\"&&("+b+".length==7||"+b+".length==9))||"+b+".substring(0, 1) == \"*\"||("+b+".substring(0, 1) == \"+\"&&"+b+".length>6))&&!custom&&"+Ja+".indexOf("+b+")==-1) {" +Ja+ ".push("+b+")} ;", "add imgur check #2.");
 	gamejs_patch(".googletag.pubads&&",".googletag.pubads&&window.googletag.pubads.clear&&","Fix for users with Ghostery");
 	gamejs = addKeyboardHook(gamejs);
@@ -271,17 +282,19 @@ function agariomodsRuntimePatches() {
 	gamejs = addOnSendHook(gamejs);
     gamejs = addOnDrawHook(gamejs);
     gamejs = addPCSHook(gamejs);
-	gamejs = gamejs.replace(/=\w\.innerHeight/g, '=opv&&'+winvar+'.innerHeight/'+winvar+'.innerWidth>=0.5625?('+winvar+'.innerWidth*0.5625):('+winvar+'.innerHeight)');
-	gamejs = gamejs.replace(/=\w\.innerWidth/g, '=opv&&'+winvar+'.innerHeight/'+winvar+'.innerWidth<=0.5625?('+winvar+'.innerHeight/0.5625):('+winvar+'.innerWidth)');
+	gamejs_patch(/=\w\.innerHeight/g, '=opv&&'+winvar+'.innerHeight/'+winvar+'.innerWidth>=0.5625?('+winvar+'.innerWidth*0.5625):('+winvar+'.innerHeight)',"set height to 16:9",!0);
+	gamejs_patch(/=\w\.innerWidth/g, '=opv&&'+winvar+'.innerHeight/'+winvar+'.innerWidth<=0.5625?('+winvar+'.innerHeight/0.5625):('+winvar+'.innerWidth)',"set width to 16:9",!0);
 	console.log("Testing complete, "+passed+" units passed and "+failed+" units failed.");
 	if (failed) console.log(new Error("UNIT FAILED"));
 }
-function gamejs_patch(search, replace, purpose) {		
+function gamejs_patch(search, replace, purpose, donotcheck) {		
         gamejs = gamejs.replace(search,replace);		
-        testCondition((-1 != gamejs.indexOf(replace)), test++, purpose);		
+        testCondition(donotcheck==null?(-1 != gamejs.indexOf(replace)):2, test++, purpose);		
 }
 function testCondition (condition, id, comment) {
-        if(condition) {
+        if(condition==2) {
+			    console.log("test: #"+id+" EXECUTED - "+ comment);
+        } else if(condition) {
                 console.log("test: #"+id+" PASSED - "+ comment);
                 passed++;
         } else {
@@ -325,7 +338,7 @@ var bg = document.getElementById("canvas");
 	nodeDiv2.style.width = "calc(100% - 5px)";
 	nodeDiv.style.overflow = "none";
 	nodeDiv2.style.overflow = "auto"; //add scroll bar
-	nodeDiv2.innerHTML += '1.9.9.02: <big>Ghostery Fix! If you were forced to turn off ghostery because you couldn\'t play, you can turn it back on!</big><br> \
+	nodeDiv2.innerHTML += '1.9.9.03: <big>GPS for parties mode! Tell your party your coordinates(shown beside score), and have them put it in the gps!</big><br><small>1.9.9.02: Ghostery Fix!</small><br> \
 <b>Use custom skins with *ACCOUNTNAME</b><br>Stage 3 is delayed atm, as we are focusing on mataining the mod.<br><a href="http://connect.agariomods.com/" target="_blank"><font color="pink">Register now with agariomods connect because you will need it for some soon to be released exciting new features.</font></a><br>\
 Go catch up with the <a target="_blank" href="http://agariomods.com/documentation.html">Documentation</a><br><h4><a href="http://www.agariomods.com/help.html" target="_blank"><font color="pink">CLICK HERE FOR HELP</font></a></h4>\
         <div style="background-color: #ffffff; color: #000000; padding: 2px; margin: 0px;">\
@@ -418,10 +431,9 @@ Go catch up with the <a target="_blank" href="http://agariomods.com/documentatio
 	var oldc = jQuery("#settings div:has(.btn-spectate)");
 	jQuery(".btn-spectate").insertAfter($("#region"));
 	oldc.remove();
+	
 }
 
-	
-			
 
 
 
@@ -478,7 +490,9 @@ function addSkinHook(script) {
 }
 
 function addChartHooks(script) {
-    var match = script.match(/max\((\w+),(\w+)\(/);
+	var match = script.match(/":teams"!=(\w)/);
+	var gamd = match[1];
+    match = script.match(/max\((\w+),(\w+)\(/);
     var high = match[1];
     var current = match[2];
     match = script.match(/1==(\w+)\.length&&\(/);
@@ -489,11 +503,11 @@ function addChartHooks(script) {
     match = split[1].match(/-(\d+)\)\);/);
     var subSplit = split[1].split(match[0]);
     split[1] = subSplit[0] + '-'+match[1]+'),('+mycells+'&&'+mycells+'[0]&&OnUpdateMass('+current+'())));' + subSplit[1];
-    return split[0] + '"Current: "+~~('+current+'()/100)+"  High: "+~~('+high+'/100)' + split[1];
+return split[0] + '"Current: "+~~('+current+'()/100)+"  High: "+~~('+high+'/100)+(('+gamd+'==":party"&&'+mycells+'[0])?("  |  X:"+Math.round(~~('+mycells+'[0].x)*.1)+"0 Y:"+Math.round(~~('+mycells+'[0].y)*.1)+"0"):(""))'+ split[1];
 }
 
 function addTeamSkinsHook(script) {
-		var match = script.match(/":teams"!=(\w)/);
+	var match = script.match(/":teams"!=(\w)/);
 	var split = script.split(match[0]);
 	return split[0]+'(":teams"!='+match[1]+'||ts)'+split[1];
 }
@@ -532,12 +546,17 @@ function addTeamMassHook(script) {
 
 
 function addFunctions(script) {
-	var match = script.match(/(\w+)\("#connecting"\)\.show\(\),(\w+)\(\)/);
+	var match = script.match(/(\(\w+=)!0(,\w+=(\w+),\w+=(\w+)\))/);
+	var m0 = match[1];
+	var m1 = match[2];
+	var m2 = match[3];
+	var m3 = match[4];
+	match = script.match(/(\w+)\("#connecting"\)\.show\(\),(\w+)\(\)/);
 	var one = match[1];
 	var two = match[2];
     var match = script.match(/((\w)\.setAcid)/);
 	var split = script.split(match[0]);
-	return split[0]+match[2]+'.setPCS=function(a){pcs=a;if(a){var url=localStorage.getItem("pcsrc");if(url==null){url=""};var promp=prompt("Input Skin URL\\nRemember ONLY YOU will see this skin.",url);if(null==promp){jQuery("#pcson").attr("checked",false);check(document.getElementById("bgimg"));pcs=!a;return;}localStorage.setItem("pcsrc",promp);pcsrc=promp;}};'+match[2]+'.setR=function(){'+one+'("#connecting").show(),'+two+'()};'+match[2]+'.setMVR=function(a){opv=a;'+winvar+'.onresize()};'+match[2]+'.setTskins=function(a){ts=a};'+match[2]+'.setCustom=function(a){custom=a;};'+match[2]+'.setVColors=function(a){zz=a};'+match[2]+'.setTeamMass=function(a){yq=a};'+match[2]+'.setBG=function(a){xx=a;if(a){var url=localStorage.getItem("bgurl");if(url==null){url=""};var promp=prompt("Image URL",url);if(null==promp){jQuery("#bgimg").attr("checked",false);check(document.getElementById("bgimg"));xx=!a;return;}localStorage.setItem("bgurl",promp);jQuery("#acid").attr("checked",false);check(document.getElementById("acid"));document.getElementById("canvas").style.backgroundImage=\'url("\'+promp+\'")\';xz=confirm("Show Grid Lines?");}};'+match[1]+split[1]
+	return split[0]+match[2]+".nav=function(a,b,c){"+m2+"=a;"+m3+"=b;"+m0+"c"+m1+"};"+match[2]+'.setPCS=function(a){pcs=a;if(a){var url=localStorage.getItem("pcsrc");if(url==null){url=""};var promp=prompt("Input Skin URL\\nRemember ONLY YOU will see this skin.",url);if(null==promp){jQuery("#pcson").attr("checked",false);check(document.getElementById("bgimg"));pcs=!a;return;}localStorage.setItem("pcsrc",promp);pcsrc=promp;}};'+match[2]+'.setR=function(){'+one+'("#connecting").show(),'+two+'()};'+match[2]+'.setMVR=function(a){opv=a;'+winvar+'.onresize()};'+match[2]+'.setTskins=function(a){ts=a};'+match[2]+'.setCustom=function(a){custom=a;};'+match[2]+'.setVColors=function(a){zz=a};'+match[2]+'.setTeamMass=function(a){yq=a};'+match[2]+'.setBG=function(a){xx=a;if(a){var url=localStorage.getItem("bgurl");if(url==null){url=""};var promp=prompt("Image URL",url);if(null==promp){jQuery("#bgimg").attr("checked",false);check(document.getElementById("bgimg"));xx=!a;return;}localStorage.setItem("bgurl",promp);jQuery("#acid").attr("checked",false);check(document.getElementById("acid"));document.getElementById("canvas").style.backgroundImage=\'url("\'+promp+\'")\';xz=confirm("Show Grid Lines?");}};'+match[1]+split[1]
 	//.Suicide=function(){var b=new ArrayBuffer(1);(new DataView(b)).setUint8(0, 20);'+sd+'.send(b)};
 }
 
@@ -1249,6 +1268,31 @@ window.onpageshow = function() {
 	document.getElementById("nick").value=localStorage.getItem("nick");
 	history.replaceState('agar.io', 'Agar.io', '/');
 	document.getElementById("helloContainer").style.display='';
+	document.getElementsByClassName("coord")[0].onkeypress = function (e) {
+		var a = !1;
+		if (e.keyCode == (44 || 13)) {
+			e.preventDefault();
+			$(".coord")[1].focus()
+		} else if (48 > e.keyCode || e.keyCode > 57) {
+			e.preventDefault();
+			a = !0
+		}
+		if (this.value.length >= 3) {
+			$(".coord")[1].focus()
+		}
+	};
+	document.getElementsByClassName("coord")[1].onkeypress = function (e) {
+		if (48 > e.keyCode || e.keyCode > 57) {
+			e.preventDefault();
+			a = !0
+		}
+		if ((48 < e.keyCode && e.keyCode < 57)&&this.value.length == 4){
+			var a = document.getElementsByClassName("coord");
+			var b = String.fromCharCode(e.charCode != null ? e.charCode : e.keyCode);
+			window.nav(Math.floor(a[0].value), Math.floor(a[1].value),true);
+			$(".coord").blur();
+		}
+	};
 }
 
 window.check = function(elem){
@@ -1512,7 +1556,7 @@ function benchcheck(mass) {
 
 
 var st = document.createElement("style");
-st.innerHTML = ".serveritem {border-right:1px dotted #ccc;width:25%;display:table-cell;border-bottom:1px solid #ccc;padding:4px;}.serveritem:hover{text-decoration:none;background-color:#E9FCFF;}.overlay{line-height:1.2;margin:0;font-family:sans-serif;text-align:center;position:absolute;top:0;left:0;width:100%;height:100%;z-index:1000;background-color:rgba(0,0,0,0.2)}.popupbox{position:absolute;height:100%;width:60%;left:20%;background-color:rgba(255,255,255,0.95);box-shadow:0 0 20px #000}.popheader{position:absolute;top:0;width:100%;height:50px;background-color:rgba(200,200,200,0.5)}.browserfilter{position:absolute;padding:5px;top:50px;width:100%;height:60px;background-color:rgba(200,200,200,0.5)}.scrollable{position:absolute;border-top:#eee 1px solid;border-bottom:#eee 1px solid;width:100%;top:50px;bottom:50px;overflow:auto}.popupbuttons{background-color:rgba(200,200,200,0.4);height:50px;position:absolute;bottom:0;width:100%}.popupbox td,th{padding:5px}.popupbox tbody tr{border-top:#ccc solid 1px}#tooltip{display:inline;position:relative}#tooltip:hover:after{background:#333;background:rgba(0,0,0,.8);border-radius:5px;bottom:26px;color:#fff;content:attr(title);left:20%;padding:5px 15px;position:absolute;z-index:98;width:220px}#chat{z-index:2000;width:500px;position:absolute;right:15px;bottom:25px}#chatinput{bottom:0;position:absolute;opacity:.8}#chatlines a{color:#086A87}#chatlines{pointer-events:none;position:absolute;bottom:40px;width:500px;color:#333;word-wrap:break-word;box-shadow:0 0 10px #111;background-color:rgba(0,0,0,0.1);border-radius:5px;padding:5px;height:200px;overflow:auto}.listing>span{display:block;font-size:11px;font-weight:400;color:#999}.list{padding:0 0;list-style:none;display:block;font:12px/20px 'Lucida Grande',Verdana,sans-serif}.listing{border-bottom:1px solid #e8e8e8;display:block;padding:10px 12px;font-weight:700;color:#555;text-decoration:none;cursor:pointer;line-height:18px}li:last-child > .listing{border-radius:0 0 3px 3px}.listing:hover{background:#e5e5e5}";
+st.innerHTML = "#gps span{float:left;background-color:transparent;border:0;font:24px Ubuntu;font-weight:bold;color:#fff;outline:none;box-shadow:none;background-color:rgba(0,0,0,0)}#gps>span{margin-top:3px;font:20px Ubuntu;font-weight:bold}div#gps{position:absolute;top:0;left:50%;transform:translateX(-50%);padding:6px 10px;float:left;color:#fff;font-weight:700;background-color:rgba(0,0,0,0.49803);white-space:nowrap}div#coords{padding:2px;float:left;color:#fff;white-space:nowrap;background-color:rgba(0,0,0,0.49803)}input.coord{font:23px Ubuntu;float:left;width:70px;margin:0 2px;color:#fff;background:transparent;font-weight:normal;white-space:nowrap;outline:none}.serveritem {border-right:1px dotted #ccc;width:25%;display:table-cell;border-bottom:1px solid #ccc;padding:4px;}.serveritem:hover{text-decoration:none;background-color:#E9FCFF;}.overlay{line-height:1.2;margin:0;font-family:sans-serif;text-align:center;position:absolute;top:0;left:0;width:100%;height:100%;z-index:1000;background-color:rgba(0,0,0,0.2)}.popupbox{position:absolute;height:100%;width:60%;left:20%;background-color:rgba(255,255,255,0.95);box-shadow:0 0 20px #000}.popheader{position:absolute;top:0;width:100%;height:50px;background-color:rgba(200,200,200,0.5)}.browserfilter{position:absolute;padding:5px;top:50px;width:100%;height:60px;background-color:rgba(200,200,200,0.5)}.scrollable{position:absolute;border-top:#eee 1px solid;border-bottom:#eee 1px solid;width:100%;top:50px;bottom:50px;overflow:auto}.popupbuttons{background-color:rgba(200,200,200,0.4);height:50px;position:absolute;bottom:0;width:100%}.popupbox td,th{padding:5px}.popupbox tbody tr{border-top:#ccc solid 1px}#tooltip{display:inline;position:relative}#tooltip:hover:after{background:#333;background:rgba(0,0,0,.8);border-radius:5px;bottom:26px;color:#fff;content:attr(title);left:20%;padding:5px 15px;position:absolute;z-index:98;width:220px}#chat{z-index:2000;width:500px;position:absolute;right:15px;bottom:25px}#chatinput{bottom:0;position:absolute;opacity:.8}#chatlines a{color:#086A87}#chatlines{pointer-events:none;position:absolute;bottom:40px;width:500px;color:#333;word-wrap:break-word;box-shadow:0 0 10px #111;background-color:rgba(0,0,0,0.1);border-radius:5px;padding:5px;height:200px;overflow:auto}.listing>span{display:block;font-size:11px;font-weight:400;color:#999}.list{padding:0 0;list-style:none;display:block;font:12px/20px 'Lucida Grande',Verdana,sans-serif}.listing{border-bottom:1px solid #e8e8e8;display:block;padding:10px 12px;font-weight:700;color:#555;text-decoration:none;cursor:pointer;line-height:18px}li:last-child > .listing{border-radius:0 0 3px 3px}.listing:hover{background:#e5e5e5}";
 document.head.appendChild(st);
 
 var fontawesome=document.createElement("link");
@@ -1543,6 +1587,8 @@ jQuery(document).keydown(function(e) {
 });
 
 window.connectPrivate = function(location, i) {
+	jQuery("#gps").fadeOut()&&window.nav&&window.nav(0,0,!1)
+	$("#helloContainer").attr("data-party-state")!=0&&cancelParty(true);
 	var ip = location.toLowerCase().replace(/ /g,"") + '.iomods.com';
 	var port = (1500+parseInt(i));
 	server.ip=ip;server.i=i;server.location=location;
@@ -1743,7 +1789,7 @@ jQuery(document).ready(function() {
 	jQuery('#settings').prepend('<button type="button" id="opnBrowser" onclick="openServerbrowser();" style="position:relative;top:-8px;width:100%" class="btn btn-success">Agariomods Private Servers</button><br>');
 	jQuery('body').append('<div id="chat" style="display:none"><div id="chatlines"></div><div id="chatinput" style="display:none" class="input-group">\
 	<input type="text" id="chatinputfield" class="form-control" maxlength="120" onblur="tChat(!0)"><span class="input-group-btn">\
-	<button onclick="sendMSG()" class="btn btn-default" type="button">Send</button></span></div></div>');
+	<button onclick="sendMSG()" class="btn btn-default" type="button">Send</button></span></div></div><div id="gps" style="display:none"><span>GPS (X,Y):&nbsp</span><div id="coords"><span>(</span><input min="0" type="text" class="coord" maxlength="4"/><span>,</span><input min="0" type="text" class="coord"  maxlength="4"/><span>)</span></div><button style="margin-left:5px" class="btn btn-info" onclick="var a=document.getElementsByClassName(\'coord\');window.nav(Math.floor(a[0].value),Math.floor(a[1].value),true);$(\'.coord\').blur()">Go</button><button style="margin-left:5px" class="btn btn-danger" onclick="nav(0,0,false)">Stop</button></div>');
 });
 function best(name,data) { //For when the best is the highest number
 	var oldData = localStorage.getItem("best_"+name);
