@@ -285,7 +285,7 @@ function agariomodsRuntimePatches() {
 	gamejs = addConnectHook(gamejs); 
 	gamejs = addRecieveHook(gamejs);
 	gamejs = addOnSendHook(gamejs);
-    gamejs = addOnDrawHook(gamejs);
+    //gamejs = addOnDrawHook(gamejs);
     gamejs = addPCSHook(gamejs);
 	gamejs_patch(/=\w\.innerHeight/g, '=opv&&'+winvar+'.innerHeight/'+winvar+'.innerWidth>=0.5625?('+winvar+'.innerWidth*0.5625):('+winvar+'.innerHeight)',"set height to 16:9",!0);
 	gamejs_patch(/=\w\.innerWidth/g, '=opv&&'+winvar+'.innerHeight/'+winvar+'.innerWidth<=0.5625?('+winvar+'.innerHeight/0.5625):('+winvar+'.innerWidth)',"set width to 16:9",!0);
