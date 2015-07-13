@@ -274,24 +274,24 @@ function agariomodsRuntimePatches() {
         gamejs_patch("this."+pandb+"&&"+bdot+".strokeText("+c3eg2+");"+bdot+".fillText("+c3eg2+")", "if (String("+c3eg2.substr(0,1)+").substring(0, 2) != \"i/\" || custom) {this."+pandb+"&&"+bdot+".strokeText("+c3eg2+");"+bdot+".fillText("+c3eg2+")}", "add imgur skins check for hiding username when using imgur id aka c3eg2");
         gamejs_patch(b+"=this.name.toLowerCase();", b+"=this.name.toLowerCase(); if ((("+b+".substring(0, 2) == \"i/\"&&("+b+".length==7||"+b+".length==9))||"+b+".substring(0, 1) == \"*\"||("+b+".substring(0, 1) == \"+\"&&"+b+".length>6))&&!custom&&"+Ja+".indexOf("+b+")==-1) {" +Ja+ ".push("+b+")} ;", "add imgur check #2.");
 	gamejs_patch(".googletag.pubads&&",".googletag.pubads&&window.googletag.pubads.clear&&","Fix for users with Ghostery");
-	gamejs = addKeyboardHook(gamejs);log(gamejs.substr(-20));
-	gamejs = addSkinHook(gamejs);log(gamejs.substr(-20));
-    gamejs = addChartHooks(gamejs);log(gamejs.substr(-20));
-    gamejs = addOnCellEatenHook(gamejs);log(gamejs.substr(-20));
-	gamejs = addTeamMassHook(gamejs);log(gamejs.substr(-20));
-	gamejs = addTeamSkinsHook(gamejs);log(gamejs.substr(-20));
-	gamejs = addCanvasBGHook(gamejs);log(gamejs.substr(-20));
-	gamejs = addVirusColorHook(gamejs);log(gamejs.substr(-20));
+	gamejs = addKeyboardHook(gamejs);
+	gamejs = addSkinHook(gamejs);
+    gamejs = addChartHooks(gamejs);
+    gamejs = addOnCellEatenHook(gamejs);
+	gamejs = addTeamMassHook(gamejs);
+	gamejs = addTeamSkinsHook(gamejs);
+	gamejs = addCanvasBGHook(gamejs);
+	gamejs = addVirusColorHook(gamejs);
 	//gamejs = addScaleHook(gamejs);
-	gamejs = addFunctions(gamejs);log(gamejs.substr(-20));
-    gamejs = addOnShowOverlayHook(gamejs);log(gamejs.substr(-20));
-    gamejs = addOnHideOverlayHook(gamejs);log(gamejs.substr(-20)); //Because I don't want to detect when we hide it, only when the game does.
-    gamejs = addLeaderboardHook(gamejs);log(gamejs.substr(-20));
-	gamejs = addConnectHook(gamejs); log(gamejs.substr(-20));
-	gamejs = addRecieveHook(gamejs);log(gamejs.substr(-20));
-    gamejs = addPCSHook(gamejs);log(gamejs.substr(-20));
-	gamejs = addOnSendHook(gamejs);log(gamejs.substr(-20));
-    gamejs = addOnDrawHook(gamejs);log(gamejs.substr(-20));
+	gamejs = addFunctions(gamejs);
+    gamejs = addOnShowOverlayHook(gamejs);
+    gamejs = addOnHideOverlayHook(gamejs); //Because I don't want to detect when we hide it, only when the game does.
+    gamejs = addLeaderboardHook(gamejs);
+	gamejs = addConnectHook(gamejs);
+	gamejs = addRecieveHook(gamejs);
+    gamejs = addPCSHook(gamejs);
+	gamejs = addOnSendHook(gamejs);
+    gamejs = addOnDrawHook(gamejs);
 	gamejs_patch(/=\w\.innerHeight/g, '=opv&&'+winvar+'.innerHeight/'+winvar+'.innerWidth>=0.5625?('+winvar+'.innerWidth*0.5625):('+winvar+'.innerHeight)',"set height to 16:9",!0);
 	gamejs_patch(/=\w\.innerWidth/g, '=opv&&'+winvar+'.innerHeight/'+winvar+'.innerWidth<=0.5625?('+winvar+'.innerHeight/0.5625):('+winvar+'.innerWidth)',"set width to 16:9",!0);
 	console.log("Testing complete, "+passed+" units passed and "+failed+" units failed.");
@@ -1174,13 +1174,13 @@ window.OnUpdateMass = function(mass)
 window.OnCellEaten = function(predator, prey)
 {
     if (!my_cells) return;
-
     if (my_cells.indexOf(predator) != -1){
         OnGainMass(predator, prey);
         RenderStats(false);
     }
     if (my_cells.indexOf(prey) != -1){
         OnLoseMass(prey, predator);
+		if (my_cells.length==1&&in_game&&document.getElementById("overlays").style.display!="none"){in_game=!1;OnShowOverlay(false);}
         RenderStats(false);
     }    
 }
