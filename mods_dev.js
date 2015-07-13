@@ -344,9 +344,9 @@ var bg = document.getElementById("canvas");
 	nodeDiv2.style.width = "calc(100% - 5px)";
 	nodeDiv.style.overflow = "none";
 	nodeDiv2.style.overflow = "auto"; //add scroll bar
-	nodeDiv2.innerHTML += '1.9.9.03: <big>GPS for parties mode! Tell your party your coordinates(shown beside score), and have them put it in the gps!</big><br><small>1.9.9.02: Ghostery Fix!<br><small>1.9.9.01: \'+YoutubeUserName\' Skins</small></small><br> \
-<b>Use custom skins with *ACCOUNTNAME</b><br>Stage 3 is delayed atm, as we are focusing on mataining the mod.<br><a href="http://connect.agariomods.com/" target="_blank"><font color="pink">Register now with agariomods connect because you will need it for some soon to be released exciting new features.</font></a><br>\
-Go catch up with the <a target="_blank" href="http://agariomods.com/documentation.html">Documentation</a><br><h4><a href="http://www.agariomods.com/help.html" target="_blank"><font color="pink">CLICK HERE FOR HELP</font></a></h4>\
+	nodeDiv2.innerHTML += '1.9.9.04: connect with agar.io/?ip:port or agar.io/#ip:port (<b>PRIVATE SERVERS ONLY</b>)<br><small>1.9.9.03: GPS for parties mode! Tell your party your coordinates(shown beside score), and have them put it in the gps!<br><small>1.9.9.02: Ghostery Fix!<br><small>1.9.9.01: \'+YoutubeUserName\' Skins</small></small></small><br> \
+<b>Use custom skins with *ACCOUNTNAME</b><br><a href="http://connect.agariomods.com/" target="_blank"><font color="pink">Register now with agariomods connect to get custom skins!</font></a><br>\
+Go catch up with the <a target="_blank" href="http://agariomods.com/documentation.html">Documentation</a><br>\
         <div style="background-color: #ffffff; color: #000000; padding: 2px; margin: 0px;">\
                 <small><b>Disable ad blockers</b>&nbsp;- They are breaking the game and our modifications in random and unexpected ways.</small>\
         </div>';
@@ -1352,7 +1352,7 @@ $(document).keydown(function(e) {
 		var a = localStorage.getItem("ip");
 		var b = prompt("Ogar Connect - Connect to a Private Ogar Server\nEnter IP or URL",(a==null?"":a));
 		if(b==null){return;}else if(b==""){alert("No IP/URL inputed")};
-		b = b.split("ws://").join("");
+		b = b.split("ws://").join("").trim();
 		if(b.indexOf("/")==-1&&b.search(/:\d/)!==-1&&b.search(/[a-zA-Z0-9]\.[a-zA-Z0-9]/)!==-1&&encodeURI(b)==b){b="ws://"+b}else{alert("Invalid IP/URL");return;};
 		try{connect(b)}catch(e){alert("Illegal IP/URL");return;};
 		localStorage.setItem("ip",b);
@@ -1682,8 +1682,16 @@ window.isVisible = function() {
 
 window.onload=handleHash;
 function handleHash(){
+	//Query
+	if(window.location.toString().indexOf("?")!=-1){
+		var query = window.location.toString().substr(window.location.toString().indexOf("?")+1);
+		//history.replaceState('agar.io', 'Agar.io', '/');
+		if(query.indexOf("/")==-1&&query.search(/:\d/)!==-1&&query.search(/[a-zA-Z0-9]\.[a-zA-Z0-9]/)!==-1&&encodeURI(query)==query){try{connect("ws://"+query);alert("Joined: "+api);return;}catch(e){alert("Illegal IP/URL");return;}}else{alert("Invalid IP/URL");return;};
+	}
+	//Hash
 	if(window.location.hash=='#'||window.location.hash==''||window.location.hash.length==6)return;
-	var api = decodeURIComponent(window.location.hash.substr(1));
+	var api = decodeURIComponent(window.location.hash.substr(1)).trim();
+	if(api.indexOf("/")==-1&&api.search(/:\d/)!==-1&&api.search(/[a-zA-Z0-9]\.[a-zA-Z0-9]/)!==-1&&encodeURI(api)==api){try{connect("ws://"+api);alert("Joined: "+api);return;}catch(e){alert("Illegal IP/URL");return;}};
 	history.replaceState('agar.io', 'Agar.io', '/');
 	if (getCookie("apikey")==api) {
 		alert("You already have this account linked with Agariomods.");
@@ -1714,7 +1722,7 @@ function handleHash(){
 			}
 		});
 	} else {
-		alert("Error: Invalid API Key")
+		alert("Error: Invalid API Key/Server Location")
 	}
 }
 
