@@ -1,1 +1,1 @@
-alert("Agariomods is broken at the moment and we are working hard to fix it.\nIfg you are using the Chrome Extension you can temporarily disable the mod by clicking the blue (a) icon in the address bar.")
+alert("Agariomods is broken at the moment and we are working hard to fix it.\nYou do not need to disable the mod, it will start working again when we ppush the fix.")
