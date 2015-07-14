@@ -19,7 +19,7 @@ preset("settingShow_chart","true");
 preset("showt","true");
 preset("nick","");
 
-var skinblacklist = "boobs,naked,girl,realdrunken,*,porn";
+var skinblacklist = "boobs,naked,girl,*,porn,0*,pussy,censorship";
 //Mevin1 - "Yeah I did it, just going to make the trolls try harder, and the people who didn't make the skins can't just try '*boobs'"
 //Note: This is for either very bad skins or skins with simple names.
 
