@@ -147,6 +147,9 @@
 	background-color: #5fb000;
 	background-image: linear-gradient(to bottom,#71bf00,#4da100);
 }
+.inline[installed='3']{
+pointer-events: none;
+}
 .inline{
 	transform-origin: 0 0;
 	padding: 6px 20px;
