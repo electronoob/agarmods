@@ -19,7 +19,7 @@ preset("settingShow_chart","true");
 preset("showt","true");
 preset("nick","");
 
-var skinblacklist = "boobs,naked,girl,realdrunken,*,porn,0*,pussy";
+var skinblacklist = "boobs,naked,girl,realdrunken,*,porn";
 //Mevin1 - "Yeah I did it, just going to make the trolls try harder, and the people who didn't make the skins can't just try '*boobs'"
 //Note: This is for either very bad skins or skins with simple names.
 
@@ -350,7 +350,7 @@ var bg = document.getElementById("canvas");
 	nodeDiv.style.overflow = "none";
 	nodeDiv2.style.overflow = "auto"; //add scroll bar
 	nodeDiv2.innerHTML += '1.9.9.04: connect with agar.io/?ip:port or agar.io/#ip:port (<b>PRIVATE SERVERS ONLY</b>)<br><small>1.9.9.03: GPS for parties mode! Tell your party your coordinates(shown beside score), and have them put it in the gps!<br><small>1.9.9.02: Ghostery Fix!<br><small>1.9.9.01: \'+YoutubeUserName\' Skins</small></small></small><br> \
-<b>Connect is dead and being rebuild atm.</b><br><a href="http://connect.agariomods.com/" target="_blank"><font color="pink">Register now with agariomods connect to get custom skins!</font></a><br>\
+<b>Use custom skins with *ACCOUNTNAME</b><br><a href="http://connect.agariomods.com/" target="_blank"><font color="pink">Register now with agariomods connect to get custom skins!</font></a><br>\
 Go catch up with the <a target="_blank" href="http://agariomods.com/documentation.html">Documentation</a><br>\
         <div style="background-color: #ffffff; color: #000000; padding: 2px; margin: 0px;">\
                 <small><b>Disable ad blockers</b>&nbsp;- They are breaking the game and our modifications in random and unexpected ways.</small>\
