@@ -19,7 +19,7 @@ preset("settingShow_chart","true");
 preset("showt","true");
 preset("nick","");
 
-var skinblacklist = "boobs,naked,girl,*,porn,0*,pussy,censorship";
+var skinblacklist = "boobs,naked,girl,*,porn,0*,pussy,censorship,tits";
 //Mevin1 - "Yeah I did it, just going to make the trolls try harder, and the people who didn't make the skins can't just try '*boobs'"
 //Note: This is for either very bad skins or skins with simple names.
 
@@ -152,6 +152,7 @@ httpGet(mainout, function(data) {
 	sk = gamejs.substr(offset,2);
 	offset = gamejs.search(".."+b+"..src");
 	W = gamejs.substr(offset,1);
+	gamd = gamejs.match(/":teams"!=(\w)/)[1];
 	//this.P&&b.strokeText
     mycells = gamejs.match(/1==(\w+)\.length&&\(/)[1];
 	var components = /this\.(.)&&.\.strokeText/.exec(gamejs);
@@ -188,7 +189,7 @@ function httpGet(theUrl, callback) {
 	").join();
 	callback(result);*/
 }
-window.connect2=(window.connect2?window.connect:function(){return});
+window.connect2=(window.connect?window.connect:function(){return});
 
 function agariomodsRuntimeInjection() {
 	var script = document.createElement("script");
@@ -247,7 +248,7 @@ function agariomodsRuntimeInjection() {
 
 window.log=function(stuff){console.log(stuff);}
 function agariomodsRuntimePatches() {
-	gamejs_patch("(a,b){i","(a,b){if(!b){jQuery('#helloContainer').attr('data-party-state')!=0&&cancelParty(true);jQuery('#gps').fadeOut();window.nav(0,0,!1);var b=''};i","Kill parties and gps on private server connect");
+	gamejs_patch("(a,b){i","(a,b){if(!b){gamemode('')&&jQuery('#helloContainer').attr('data-party-state')!=0&&cancelParty(true);jQuery('#gps').fadeOut();window.nav(0,0,!1);var b=''};i","Kill parties and gps on private server connect");
 	gamejs_patch("())};",'()||jQuery("#gps").fadeOut()&&window.nav&&window.nav(0,0,!1))};',"Toggle gps on gamemode change.");
 	gamejs_patch('attr("data-party-state","1")','attr("data-party-state","1");jQuery("#gps").fadeIn()',"party hook");
 	gamejs_patch('attr("data-party-state","5");','attr("data-party-state","5");jQuery("#gps").fadeIn();',"party hook");
@@ -261,10 +262,11 @@ function agariomodsRuntimePatches() {
 	gamejs_patch("cancelParty=function(",'cancelParty=function(a',"Leave party when connecting to private server - add funct var");
 	gamejs_patch(/""\);(\w+\(\))/,'"");jQuery("#gps").fadeOut();window.nav&&window.nav(0,0,!1);!a&&$1',"Leave party when connecting to private server - handle",!0);
 	gamejs_patch("else for","stillOnLeaderboard(ilead)}else for","adding function call for leaderboard checking")
-	gamejs_patch(/(for\(\w\.f)/,"{var ilead=!1;$1","Preset veriable to check if on leaderboard",!0)
+	gamejs_patch(/(for\(\w\.f)/,"{var ilead=!1;$1","Preset veriable to check if on leaderboard",!0)//
+	gamejs_patch('b"];',"b\"],blklst='"+skinblacklist+"'.split(',');","blklst");
 		gamejs_patch(';reddit;', ';reddit;'+ourskins+';', "add our skinlist to the original game skinlist.");
 		//gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();var blklst="'+skinblacklist+'".split();var agariomods="";var ourskins = "'+ourskins+'";if(pcs&&'+mycells+'.indexOf(this)!=-1){agariomods=pcsrc}else if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}else if('+b+'.substring(0,1)=="*"){if(!custom){var emn = this.name.substring(1);if(blklst.indexOf(emn)>-1){agariomods="";if(window.lastBlock!=emn){console.log("Skin \\""+emn+"\\" is Blacklisted");window.lastBlock=emn}} else {agariomods="//connect.agariomods.com/img_"+this.name.substring(1)+".png";}}}else if('+b+'.substring(0,2)=="i/"&&('+b+'.length==7||'+b+'.length==9)){if(!custom){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";'+gamejs.match(/(\w+)=\["8/)[1]+'.indexOf(this.name)==-1&&'+gamejs.match(/(\w+)=\["8/)[1]+'.push(this.name)&&console.log('+gamejs.match(/(\w+)=\["8/)[1]+')}}else if('+b+'.substring(0,1)=="+"&&'+b+'.length>6){agariomods="http://server.kelvin.tk/yt/icon.php?"+this.name.substring(1).toLowerCase();}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}', "add check for which skin mode we are in. be it no skin, default skin, custom skin, or an agariomods skin.");
-        gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();var blklst="'+skinblacklist+'".split();var agariomods="";var ourskins = "'+ourskins+'";if(pcs&&'+mycells+'.indexOf(this)!=-1){agariomods=pcsrc}else if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}else if('+b+'.substring(0,1)=="*"){if(!custom){var emn = this.name.substring(1);if(blklst.indexOf(emn)>-1){agariomods="";if(window.lastBlock!=emn){console.log("Skin \\""+emn+"\\" is Blacklisted");window.lastBlock=emn}} else {agariomods="//connect.agariomods.com/img_"+this.name.substring(1)+".png";}}}else if('+b+'.substring(0,2)=="i/"&&('+b+'.length==7||'+b+'.length==9)){if(!custom){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";}}else if('+b+'.substring(0,1)=="+"&&'+b+'.length>6){agariomods="http://server.kelvin.tk/yt/icon.php?"+this.name.substring(1).toLowerCase();}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}', "add check for which skin mode we are in. be it no skin, default skin, custom skin, or an agariomods skin.");
+        gamejs_patch(b+'=this.name.toLowerCase();', b+'=this.name.toLowerCase();var agariomods="";var ourskins = "'+ourskins+'";if(pcs&&'+mycells+'.indexOf(this)!=-1){agariomods=pcsrc}else if(('+b+'.length >0)&&(ourskins.split(";").indexOf('+b+')>-1)){agariomods="//skins.agariomods.com/i/"+'+b+'+".png";}else if('+b+'.substring(0,1)=="*"){if(!custom){var emn = this.name.substring(1);if(blklst.indexOf(emn)>-1){agariomods="";if(window.lastBlock!=emn){console.log("Skin \\""+emn+"\\" is Blacklisted");window.lastBlock=emn}} else {agariomods="//connect.agariomods.com/img_"+this.name.substring(1)+".png";}}}else if('+b+'.substring(0,2)=="i/"&&('+b+'.length==7||'+b+'.length==9)){if(!custom){agariomods="//i.imgur.com/"+this.name.substring(2)+".jpg";}}else if('+b+'.substring(0,1)=="+"&&'+b+'.length>6){agariomods="http://server.kelvin.tk/yt/icon.php?"+this.name.substring(1).toLowerCase();}else if('+sk+'.indexOf('+b+')>-1){agariomods="//agar.io/skins/"+this.name.toLowerCase()+".png";}', "add check for which skin mode we are in. be it no skin, default skin, custom skin, or an agariomods skin.");
 		
 		//gamejs_patch(/\(\w\[0\]\.name\)/,"('')","Trying to fix nodes not being removed.");
 		gamejs_patch(/(\w)\[0\]\.name\)\)/,"$1[0].name.search(/^(i\\/|\\*.|\\+.)/)==-1?$1[0].name:''))","Trying to fix nodes not being removed.",!0);
@@ -501,8 +503,6 @@ function addSkinHook(script) {
 }
 
 function addChartHooks(script) {
-	var match = script.match(/":teams"!=(\w)/);
-	var gamd = match[1];
     match = script.match(/max\((\w+),(\w+)\(/);
     var high = match[1];
     var current = match[2];
@@ -557,7 +557,7 @@ function addTeamMassHook(script) {
 
 
 function addFunctions(script) {
-	var match = script.match(/(\(\w+=)!0(,\w+=(\w+),\w+=(\w+)\))/);
+	match = script.match(/(\(\w+=)!0(,\w+=(\w+),\w+=(\w+)\))/);
 	var m0 = match[1];
 	var m1 = match[2];
 	var m2 = match[3];
@@ -567,7 +567,7 @@ function addFunctions(script) {
 	var two = match[2];
     var match = script.match(/((\w)\.setAcid)/);
 	var split = script.split(match[0]);
-	return split[0]+match[2]+".nav=function(a,b,c){"+m2+"=a;"+m3+"=b;"+m0+"c"+m1+"};"+match[2]+'.setPCS=function(a){pcs=a;if(a){var url=localStorage.getItem("pcsrc");if(url==null){url=""};var promp=prompt("Input Skin URL\\nRemember ONLY YOU will see this skin.",url);if(null==promp){jQuery("#pcson").attr("checked",false);check(document.getElementById("bgimg"));pcs=!a;return;}localStorage.setItem("pcsrc",promp);pcsrc=promp;}};'+match[2]+'.setR=function(){'+one+'("#connecting").show(),'+two+'()};'+match[2]+'.setMVR=function(a){opv=a;'+winvar+'.onresize()};'+match[2]+'.setTskins=function(a){ts=a};'+match[2]+'.setCustom=function(a){custom=a;};'+match[2]+'.setVColors=function(a){zz=a};'+match[2]+'.setTeamMass=function(a){yq=a};'+match[2]+'.setBG=function(a){xx=a;if(a){var url=localStorage.getItem("bgurl");if(url==null){url=""};var promp=prompt("Image URL",url);if(null==promp){jQuery("#bgimg").attr("checked",false);check(document.getElementById("bgimg"));xx=!a;return;}localStorage.setItem("bgurl",promp);jQuery("#acid").attr("checked",false);check(document.getElementById("acid"));document.getElementById("canvas").style.backgroundImage=\'url("\'+promp+\'")\';xz=confirm("Show Grid Lines?");}};'+match[1]+split[1]
+	return split[0]+match[2]+".nav=function(a,b,c){"+m2+"=a;"+m3+"=b;"+m0+"c"+m1+"};"+match[2]+'.setPCS=function(a){pcs=a;if(a){var url=localStorage.getItem("pcsrc");if(url==null){url=""};var promp=prompt("Input Skin URL\\nRemember ONLY YOU will see this skin.",url);if(null==promp){jQuery("#pcson").attr("checked",false);check(document.getElementById("bgimg"));pcs=!a;return;}localStorage.setItem("pcsrc",promp);pcsrc=promp;}};'+match[2]+'.setR=function(){'+one+'("#connecting").show(),'+two+'()};'+match[2]+'.setMVR=function(a){opv=a;'+winvar+'.onresize()};'+match[2]+'.setTskins=function(a){ts=a};'+match[2]+'.setCustom=function(a){custom=a;};'+match[2]+'.setVColors=function(a){zz=a};'+match[2]+'.setTeamMass=function(a){yq=a};'+match[2]+'.setBG=function(a){xx=a;if(a){var url=localStorage.getItem("bgurl");if(url==null){url=""};var promp=prompt("Image URL",url);if(null==promp){jQuery("#bgimg").attr("checked",false);check(document.getElementById("bgimg"));xx=!a;return;}localStorage.setItem("bgurl",promp);jQuery("#acid").attr("checked",false);check(document.getElementById("acid"));document.getElementById("canvas").style.backgroundImage=\'url("\'+promp+\'")\';xz=confirm("Show Grid Lines?");}};'+match[2]+".gamemode=function(a){if(a){"+gamd+"=a;}else{return "+gamd+"}};"+match[1]+split[1]
 	//.Suicide=function(){var b=new ArrayBuffer(1);(new DataView(b)).setUint8(0, 20);'+sd+'.send(b)};
 }
 
@@ -847,7 +847,7 @@ function OnGainMass(me, other)
     var mass = other.size * other.size;
     if (other.h){
         stats.viruses.num++;
-        if (document.getElementById("gamemode").value!=":teams") stats.viruses.mass += mass; /*DONE: shouldn't add if game mode is teams. TODO: Find a better way of doing this. ~Mevin1*/
+        if (gamemode()!=":teams") stats.viruses.mass += mass; /*DONE: shouldn't add if game mode is teams. TODO: Find a better way of doing this. ~Mevin1*/
 		sfx_event(6);
     }
     else if (Math.floor(mass) <= 400 && !other.name){
@@ -1600,11 +1600,12 @@ jQuery(document).keydown(function(e) {
     }
 });
 
-window.connectPrivate = function(location, i) {
+window.connectPrivate = function(location, i, gm) {
 	var ip = location.toLowerCase().replace(/ /g,"") + '.iomods.com';
 	var port = (1500+parseInt(i));
 	server.ip=ip;server.i=i;server.location=location;
 	connect("ws://"+ ip + ":" + port);
+	(gm&&(gm=="Teams"||gm=="TeamZ"))?gamemode(":teams"):gamemode("");
 	openChat();
 }
 
@@ -1760,7 +1761,7 @@ function getServers() {
 		for (var i = 1; i <= 2; i++) {
 
 			serverid = value.toLowerCase().replace(/ /g,"") + i;
-			snippet+='<a href class="serveritem" id="' + serverid + '" onclick="connectPrivate(\''+value+'\', \''+i+'\');closeServerbrowser();return false;"><b style="color: #222">' + value + ' #' + i + '</b><br>\
+			snippet+='<a href class="serveritem" id="' + serverid + '" onclick="connectPrivate(\''+value+'\', \''+i+'\',this.gamemode);closeServerbrowser();return false;"><b style="color: #222">' + value + ' #' + i + '</b><br>\
 			<i style="color: #999"><span id="player">fetching data...</span> <i style="color: #ccc" class="fa fa-users" /> | <span id="game" style="font-style:normal;font-weight:bold"></span></i><span id="server" style="display:none"></span></a>';
 
 			serverlist.push(new Array(value.toLowerCase().replace(/ /g,""), i));
@@ -1787,6 +1788,7 @@ function serverinfo(list, index) {
 			var gm = data.gamemode;
 			gm=="[Arenas] Hunger Games"&&(gm="[A]HG")||gm=="Hunger Games"&&(gm="HG")||gm=="Free For All"&&(gm="FFA")||gm=="Zombie Team"&&(gm="TeamZ")||gm=="Experimental"&&(gm="Exp");
 			$('#' + (value[0] + value[1]) + ' #game').text(gm);
+			document.getElementById(value[0] + value[1]).gamemode=gm;
 		},
 		error: function(data,err,ngut) {
 			jQuery('#' + (value[0] + value[1]) + ' #player').parent().css("display","none");
