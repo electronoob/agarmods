@@ -188,7 +188,7 @@ function httpGet(theUrl, callback) {
 	").join();
 	callback(result);*/
 }
-window.connect2 = window.connect;
+window.connect2=(window.connect2?window.connect:function(){return});
 
 function agariomodsRuntimeInjection() {
 	var script = document.createElement("script");
@@ -1761,7 +1761,7 @@ function getServers() {
 
 			serverid = value.toLowerCase().replace(/ /g,"") + i;
 			snippet+='<a href class="serveritem" id="' + serverid + '" onclick="connectPrivate(\''+value+'\', \''+i+'\');closeServerbrowser();return false;"><b style="color: #222">' + value + ' #' + i + '</b><br>\
-			<i style="color: #999"><span id="player">fetching data...</span> <i style="color: #ccc" class="fa fa-users" /> | <span id="game" style="font-style:normal"></span></i><span id="server" style="display:none"></span></a>';
+			<i style="color: #999"><span id="player">fetching data...</span> <i style="color: #ccc" class="fa fa-users" /> | <span id="game" style="font-style:normal;font-weight:bold"></span></i><span id="server" style="display:none"></span></a>';
 
 			serverlist.push(new Array(value.toLowerCase().replace(/ /g,""), i));
 		};
@@ -1785,7 +1785,7 @@ function serverinfo(list, index) {
 		success: function(data){
 			$('#' + (value[0] + value[1]) + ' #player').text(data.current_players + "/" + data.max_players);
 			var gm = data.gamemode;
-			gm=="[Arenas] Hunger Games"&&(gm="[A]HG")||gm=="Hunger Games"&&(gm="HG")||gm=="Free For All"&&(gm="FFA");
+			gm=="[Arenas] Hunger Games"&&(gm="[A]HG")||gm=="Hunger Games"&&(gm="HG")||gm=="Free For All"&&(gm="FFA")||gm=="Zombie Team"&&(gm="TeamZ")||gm=="Experimental"&&(gm="Exp");
 			$('#' + (value[0] + value[1]) + ' #game').text(gm);
 		},
 		error: function(data,err,ngut) {
