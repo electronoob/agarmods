@@ -173,7 +173,7 @@
 .inlinec font{
 	font-size: 20px;
 }
-.inline[installed='1'] span,.inline[installed='2'],.inline[installed='3'],.inline[installed=""] span{
+.inline[installed='1'] span,.inline[installed='2'] span,.inline[installed='3'] span,.inline[installed=""] span{
 	display: none;
 }
 .inline[installed='1'] .inlinee::after{
@@ -187,6 +187,9 @@
 }
 .inline[installed='0'] .inlinee::after{
 	content: "Add To Chrome"
+}
+.inline[installed=''] .inlinee::after{
+	content: "Loading..."
 }
 .inlinee{
 	display: inline-block;
