@@ -136,7 +136,7 @@
 	background-color: #5c92ff;
 	background-image: linear-gradient(to bottom,#669eff,#5286ff);
 }
-.inline[installed='0'],.inline[installed='1']{
+.inline[installed='0'],.inline[installed='1'],.inline[installed='3'],.inline[installed=""]{
 	border: 1px solid #2d53af;
 	background-color: #4d7bd6;
 	background-image: linear-gradient(to bottom,#5689db,#4d7bd6);
@@ -173,7 +173,7 @@
 .inlinec font{
 	font-size: 20px;
 }
-.inline[installed='1'] span,.inline[installed='2'],.inline[installed='3'] span{
+.inline[installed='1'] span,.inline[installed='2'],.inline[installed='3'],.inline[installed=""] span{
 	display: none;
 }
 .inline[installed='1'] .inlinee::after{
