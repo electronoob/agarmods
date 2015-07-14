@@ -5,6 +5,7 @@
 			<title>AGARIOMODS - HOME</title>
 			<link rel="shortcut icon" href="//www.iconj.com/ico/o/x/oxfb9bqt6o.ico" type="image/x-icon" />
 			<meta charset="utf-8">
+			<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/nhjgdbihpkphlammdaeicdemggagfbdo">
 			<link rel="stylesheet" type="text/css" href="//agariomods.com/sitestyle.css">
   			<meta name="viewport" content="width=device-width, initial-scale=1">
   			<link href='//fonts.googleapis.com/css?family=Ubuntu:700' rel='stylesheet' type='text/css'>
@@ -79,9 +80,11 @@
 				<div><div class="col-sm-6">
 					<!--Button to install -->
                                         <h3 class="ff"><a id="ScriptButton" target="_self" href="//agariomods.com/pull.html">CLICK TO INSTALL SCRIPT</a></h3>
-<a class="nff" href="https://chrome.google.com/webstore/detail/agariomods-evergreen-scri/nhjgdbihpkphlammdaeicdemggagfbdo" target="_blank"><img src="//agariomods.com/chromebannerhuge.png" width="100%"/></a>
+<div role="button" class="inline nff" installed="" tabindex="0"><div class="inlinec"><div class="inlinee"><span>+ </span></div></div></div>
+<br><a class="nff" target="_self" href="//agariomods.com/pull.html">Alternative Installation Method</a>
+<script>jQuery(".inline").on("click",function(){$(".inline").attr("installed","1");chrome.webstore.install("https://chrome.google.com/webstore/detail/nhjgdbihpkphlammdaeicdemggagfbdo",function(){$(".inline").attr("installed","2")},function(a){$(".inline").attr("installed","0");if(a!="User cancelled install")if(confirm("Installation failed unexpectedly, would you like to try installing directly from the Chrome Webstore?"))window.location="https://goo.gl/AoeEME"})});if(navigator.userAgent.match("Chrome")){var a=new Image();a.onerror=function(){gotExt(false)};a.onload=function(){gotExt(true)};a.src="chrome-extension://nhjgdbihpkphlammdaeicdemggagfbdo/icon-48.png"};function gotExt(hasExt){var a=document.getElementsByClassName("inline")[0];a.setAttribute('installed',hasExt?2:0)}</script>
 <div style="font-size: 10px; text-align: right">*Disable Adblock before installing!<br>
-						*Approved by the r/Agario Moderation Team!<span class="nff"><br><a target="_self" href="//agariomods.com/pull.html">Alternative Installation Method</a>');</span></div>
+						*Approved by the r/Agario Moderation Team!<span class="nff"><br><a target="_self" href="//agariomods.com/pull.html">Alternative Installation Method</a></span></div>
 					</div></div></div></div>
 			<div style="padding-left: 30px; padding-bottom: 5px; padding-top: 5px; font-size: 12px !important">
 				<span class="ff">To run this script you require greasemonkey installed in your browser first.<br></span>
