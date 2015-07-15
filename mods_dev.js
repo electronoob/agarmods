@@ -1150,7 +1150,7 @@ window.OnShowOverlay = function(game_in_progress)
 	tst(true);
 	document.getElementById("benchmarker").style.bottom="25px";
 	if (!game_in_progress) in_game = false;
-    DrawStats(!game_in_progress);
+    if(game_in_progress)DrawStats();
 	if (kd == true) {
 		document.getElementById("overlays").style.display = "block";
 		document.getElementById("overlays").style.pointerEvents = "auto";
@@ -1194,7 +1194,7 @@ window.OnCellEaten = function(predator, prey)
     }
     if (my_cells.indexOf(prey) != -1){
         OnLoseMass(prey, predator);
-		if (my_cells.length==1&&in_game){in_game=!1;OnShowOverlay(false);}
+		if (my_cells.length==1&&in_game){OnDeath();}
         RenderStats(false);
     }    
 }
