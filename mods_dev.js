@@ -1778,7 +1778,7 @@ function getServers() {
 		for (var i = 1; i <= 2; i++) {
 			serverid = locations[x].toLowerCase().replace(/ /g,"") + i;
 			// icon="'+Math.floor(Math.random()*(4)+1)+'"
-			snippet+='<a href class="serveritem" id="' + serverid + '" onclick="connectPrivate(\''+locations[x]+'\', \''+i+'\',this.gamemode);closeServerbrowser();return false;">\
+			snippet+='<a href title="'+locations[x]+' #'+i+'" class="serveritem" id="' + serverid + '" onclick="connectPrivate(\''+locations[x]+'\', \''+i+'\',this.gamemode);closeServerbrowser();return false;">\
 			<i style="color: black"><span id="player">fetching data...</span> <i style="color: black" class="fa fa-users" /><br id="br"><span id="game" style="font-style:normal;font-weight:bold"></span></i></a>';
 			serverlist.push(new Array(locations[x].toLowerCase().replace(/ /g,""), i));
 		};
