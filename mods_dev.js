@@ -1758,7 +1758,7 @@ window.openServerbrowser=function(a) {
 window.closeServerbrowser=function() {
 	jQuery('#serverBrowser').fadeOut();
 }
-var locations = new Array("Chicago Beta", "Dallas Beta", "Frankfurt Beta", "London Beta", "Los Angeles Beta", "Miami Beta", "New Jersey Beta", "Paris Beta", "Seattle Beta", "Silicon Valley Beta", "Sydney Beta", "Amsterdam", "Amsterdam Beta", "Atlanta Beta", "Frankfurt Alpha", "Frankfurt", "London", "Quebec", "Paris", "Atlanta", "Chicago", "Dallas", "Los Angeles", "Miami", "New Jersey", "Seattle", "Silicon Valley", "Sydney", "Tokyo");
+var locations = new Array("Chicago Beta", "Dallas Beta", "Frankfurt Beta", "London Beta", "Los Angeles Beta", "Miami Beta", "New Jersey Beta", "Paris Beta", "Seattle Beta", "Silicon Valley Beta", "Sydney Beta", "Amsterdam", "Amsterdam Beta", "Atlanta Beta", "Frankfurt", "London", "Quebec", "Paris", "Atlanta", "Chicago", "Dallas", "Los Angeles", "Miami", "New Jersey", "Seattle", "Silicon Valley", "Sydney", "Tokyo");
 var lut = new Array("Amsterdam", "Frankfurt", "London", "Quebec", "Paris", "Atlanta", "Chicago", "Dallas", "Los Angeles", "Miami", "New Jersey", "Seattle", "Silicon Valley", "Sydney", "Tokyo");
 locations.sort();
 lut.sort();
