@@ -209,7 +209,7 @@ function agariomodsRuntimeInjection() {
 	oldhtml = oldhtml.replace('top:50%;left:50%;','margin:10px;');
 	oldhtml = oldhtml.replace('width:100%;height:100%;', '');
 	oldhtml = oldhtml.replace('#FFFFFF;m', 'rgba(255,255,255,0.85);opacity:0.93;m');
-	oldhtml = oldhtml.replace('.agario-panel{','.agario-profile-name-container{pointer-events: none;}.agario-panel.agario-side-panel.agario-profile-panel{overflow:hidden}.ribbon{margin-bottom:-100px;transform:rotate(26deg);background-color:#a00;overflow:hidden;white-space:nowrap;box-shadow:0 0 10px #888;right:-55px;top:-11px;position:relative;}.ribbon a {border:1px solid #faa;color:#fff;display:block;font:bold 11px "Helvetica Neue", Helvetica, Arial, sans-serif;margin:1px 0;padding:2px;text-align:center;text-decoration:none;text-shadow:0 0 5px #444;}.agario-promo{display:none !important;}body>#chart-container{pointer-events:none}.connecting-panel{margin:0 0 !important;position:absolute;top:5px;right:5px;z-index:2000}.ui{pointer-events:none}br+div:not([style]){height:35px;}#helloContainer>.agario-panel{float:left}#helloContainer>.side-container{float:right}.agario-panel{transform:none !important;');
+	oldhtml = oldhtml.replace('.agario-panel{','.agario-profile-name-container{pointer-events: none;}.tosBox{display:none}.agario-panel.agario-side-panel.agario-profile-panel{overflow:hidden}.ribbon{margin-bottom:-100px;transform:rotate(26deg);background-color:#a00;overflow:hidden;white-space:nowrap;box-shadow:0 0 10px #888;right:-55px;top:-11px;position:relative;}.ribbon a {border:1px solid #faa;color:#fff;display:block;font:bold 11px "Helvetica Neue", Helvetica, Arial, sans-serif;margin:1px 0;padding:2px;text-align:center;text-decoration:none;text-shadow:0 0 5px #444;}.agario-promo{display:none !important;}body>#chart-container{pointer-events:none}.connecting-panel{margin:0 0 !important;position:absolute;top:5px;right:5px;z-index:2000}.ui{pointer-events:none}br+div:not([style]){height:35px;}#helloContainer>.agario-panel{float:left}#helloContainer>.side-container{float:right}.agario-panel{transform:none !important;');
 	tester[0].innerHTML = oldhtml;
 	var script = document.createElement("script");
 	script.id="agariomods";
@@ -734,8 +734,8 @@ jQuery(document).ready(function()
 	');
 	checkbox_div.append('<div id="sliders" style="white-space:nowrap;display:inline;"><label>SFX<input id="sfx" type="range" value="0" step=".1" min="0" max="1"></label><label>BGM<input type="range" id="bgm" value="0" step=".1" min="0" max="1" oninput="volBGM(this.value);"></label></div>');
 	//checkbox_div.append('<label>Quality<input type="range" id="quality" step="5" min="0" max="100" oninput="scale(this.value);"></label><label><input id="blur" type="checkbox" onchange="pixelate($(this).is(\':checked\'));">Pixelated</label>');
-    jQuery('#overlays').append('<div id="stats" style="position: absolute; top:330px; left: 698px; width: 480px; display: none; background-color: rgba(255,255,255,0.93); border-radius: 15px; padding: 5px 15px 5px 15px; transform: translate(0,-50%); white-space: nowrap; overflow:hidden;"><div id="statArea" style="vertical-align:top; width:250px; display:inline-block;"></div><div id="pieArea" style="vertical-align: top; width:200px; height:150px; display:inline-block; vertical-align:top"> </div><div id="gainArea" style="width:500px;  vertical-align:top"></div><div id="lossArea" style="width:500px; "></div><div id="chartArea" style="width:450px; display:inline-block; vertical-align:top"></div></div>');
-    jQuery('#stats').hide(0);   
+    jQuery('#overlays').append('<div id="egstats" style="position: absolute; top:330px; left: 698px; width: 480px; display: none; background-color: rgba(255,255,255,0.93); border-radius: 15px; padding: 5px 15px 5px 15px; transform: translate(0,-50%); white-space: nowrap; overflow:hidden;"><div id="statArea" style="vertical-align:top; width:250px; display:inline-block;"></div><div id="pieArea" style="vertical-align: top; width:200px; height:150px; display:inline-block; vertical-align:top"> </div><div id="gainArea" style="width:500px;  vertical-align:top"></div><div id="lossArea" style="width:500px; "></div><div id="chartArea" style="width:450px; display:inline-block; vertical-align:top"></div></div>');
+    jQuery('#egstats').hide(0);   
 	
 	var q = $(".agario-profile-name-container");
 	q[0].outerHTML='<div class="ribbon"><a href onclick="confirm(\'You sure you want to log out?\')&&logout(); return false;">Logout</a></div>'+q[0].outerHTML;
@@ -953,7 +953,7 @@ function DrawStats(game_over)
     jQuery('#gainArea').empty();
     jQuery('#lossArea').empty();
     jQuery('#chartArea').empty();
-    jQuery('#stats').show();
+    jQuery('#egstats').show();
     
     if (game_over){
         sfx_play(1);
@@ -1133,6 +1133,18 @@ window.onwsclose = function(){
 	in_game&&OnShowOverlay(false);
 }
 
+window.OnDeath = function(){
+	in_game = false;
+	DrawStats(true);
+	if (kd == true) {
+		document.getElementById("overlays").style.display = "block";
+		document.getElementById("overlays").style.pointerEvents = "auto";
+		//document.getElementById("stats").style.opacity = 1;
+		document.getElementById("helloContainer").style.display = "block";
+		kd = false;
+	}
+}
+
 window.OnShowOverlay = function(game_in_progress)
 {
 	tst(true);
@@ -1182,7 +1194,7 @@ window.OnCellEaten = function(predator, prey)
     }
     if (my_cells.indexOf(prey) != -1){
         OnLoseMass(prey, predator);
-		if (my_cells.length==1&&in_game&&document.getElementById("overlays").style.display!="none"){in_game=!1;OnShowOverlay(false);}
+		if (my_cells.length==1&&in_game){in_game=!1;OnShowOverlay(false);}
         RenderStats(false);
     }    
 }
