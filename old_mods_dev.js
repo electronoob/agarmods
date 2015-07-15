@@ -647,12 +647,16 @@ function addOnHideOverlayHook(script) {
     return split[0] + match[0] + ';OnHideOverlay()' + split[1];
 }
 
-function addOnDrawHook(script) {
+function DISABLEDaddOnDrawHook(script) {
     var match = script.match(/,(\w+)\.drawImage\([a-z0-9,-]+\)\)(;\w=Math\.m)/);
     var split = script.split(match[2]);
     return split[0] + ';OnDraw(' + match[1] + ')' + match[2] + split[1];
 }
-
+function addOnDrawHook(script) {
+        var match=script.match(/(.)\.drawImage\(.{1,25}\);.=Math.max\(.,..\(\)\);/);
+        var split=script.split(match[0]);
+	return split[0] + 'OnDraw('+ match[1]+')&&' + match[0] + split[1];
+}
 var __STORAGE_PREFIX = "mikeyk730__";
 
 function LS_getValue(aKey, aDefault) {
