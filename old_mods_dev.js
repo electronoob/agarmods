@@ -594,6 +594,11 @@ function addLeaderboardHook(script) {
 }
 
 function addOnCellEatenHook(script) {
+	var match=script.match(/if\((\w+)&&(\w+)\){(\w+)\.(\w+)\(\);/);
+	var split=script.split(match[0]);
+	return split[0]+ match[0]+'OnCellEaten('+match[1]+','+match[2]+');' + split[1];
+}
+function DISABLEDaddOnCellEatenHook(script) {
 			 //   null!=p&&p.T();
 			   // l&&k&&(k.S()
 //    var match = script.match(/(\w+)&&(\w+)&&\((\w+)\.S/);
