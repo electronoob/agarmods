@@ -63,7 +63,7 @@ var pandb = '';
 /*bgm*/
 var bgmusic = '';
 //$('#audiotemplate').clone()[0];
-var tracks = ['BotB 17936 Isolation Tank.mp3','BotB 17934 bubblybubblebubblingbubbles.mp3','BotB 17935 bloblobloblboblbolboblboblbobolbloblob.mp3','BotB 17937 Woofytunes.mp3','BotB 17938 slowgrow.mp3', 'BotB 18549 a blob's life.mp3','BotB 18550 war of the orbs.mp3','BotB 18551 blob tower.mp3'];
+var tracks = ['BotB 17936 Isolation Tank.mp3','BotB 17934 bubblybubblebubblingbubbles.mp3','BotB 17935 bloblobloblboblbolboblboblbobolbloblob.mp3','BotB 17937 Woofytunes.mp3','BotB 17938 slowgrow.mp3', 'BotB 18549 a blob\'s life.mp3','BotB 18550 war of the orbs.mp3','BotB 18551 blob tower.mp3'];
 /*sfx*/
 //sfx play on event (only one of each sfx can play - for sfx that won't overlap with itself)
 var ssfxlist = [
