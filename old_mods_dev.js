@@ -615,7 +615,8 @@ function DISABLEDaddOnShowOverlayHook(script) {
 function addOnShowOverlayHook(script){
         var match = script.match(/fadeIn\((.)\):.\("#overlays"\).show\(\)/);
         var split=script.split(match[0]);
-	return split[0]+ match[0]+';OnShowOverlay('+ match[1]+';)'+ split[1];
+//   , OnShowOverlay(a));
+	return split[0]+ match[0]+',OnShowOverlay('+ match[1]+'));'+ split[1];
 }
 
 function addConnectHook(script) {
