@@ -14,8 +14,7 @@
 		}
 #information>form[action="https://www.paypal.com/cgi-bin/webscr"]{
   margin-top: -50px;
-  right: 20px;
-  position: absolute;
+  float: right;
 }
 .install {
 	background-color: rgba(50, 175, 125, 0.2);
