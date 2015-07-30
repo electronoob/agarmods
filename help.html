@@ -9,6 +9,32 @@
   			<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   			<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  			<style>ol *{font-weight:normal;}ol>li{font-weight:bold;}ol>li>ul{list-style-type:disc;}ol>li>ul>li>ul>{list-style-type:square;}ol>li>ul>li>ul>li>ul{list-style-type:circle;}ol>li>ul>li>ul>li ul{list-style-type:circle;}</style>
+			<script>
+				window.onload=function(){
+					hash();
+					window.onhashchange = hash;
+		                }
+				function hash(){
+					var ol = document.body.getElementsByTagName("ol")[0];
+					var a = window.location.hash.substr(1).toLowerCase().split(" ").join("");
+					if(a=="")return;	if(parseFloat(a)==parseFloat(a)){
+					c=parseFloat(a);
+					if(c>ol.children.length)return;
+						var b = ol.children[Math.floor(c)-1];
+						if(c>Math.floor(c)){
+							b=b.children[0].children[Math.floor(c.toString().split(".",2)[1])-1];
+							if(a.toString().split(".",3)[2]!=null)b=b.children[0].children[Math.floor(a.toString().split(".",3)[2])-1];
+						}
+					}else{
+					var olc = ol.children;
+					for(i=0;i<olc.length;i++){
+						if(olc[i].childNodes[0].textContent.toLowerCase().split(" ").join("").trim()==a){b=olc[i];break;}
+					}
+					}
+					b&&jQuery("body").scrollTop(b.offsetTop-50);
+				}
+			</script>
 		</head>
 		<!--DIVISION MARKER: HEAD - BODY-->
 		<body>
@@ -34,7 +60,6 @@
 			  </div>
 			</nav>
 			<main id="information"  class="container">
-<br>
 <div>
 
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -50,7 +75,6 @@
 
 </div>
 
-<br><br>
 
 
 
@@ -63,7 +87,7 @@
 <ul>
 <li>In light of the disablement of connecting to servers by ip, we decided to create private servers with an open source program called Ogar.
 </li>
-<li>While spectating, you can change the spectated player with e Q key.
+<li>While spectating, you can change the spectated player with the Q key.
 </li>
 <li>Game Modes
 <ul>
