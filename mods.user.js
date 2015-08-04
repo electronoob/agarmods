@@ -6,9 +6,8 @@
 // @author       electronoob
 // @updateURL    http://agariomods.com/mods.user.js
 // @match        http://agar.io/
-// @match        https://agar.io/
 // @match        http://agar.io/#*
-// @match        https://agar.io/#*
+// @match        http://agar.io/?*
 // @grant        none
 // ==/UserScript==
 
