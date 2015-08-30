@@ -13,6 +13,7 @@
 			background-size: 256px;
 		}
 #information>form[action="https://www.paypal.com/cgi-bin/webscr"]{
+  display: none;
   margin-top: -50px;
   float: right;
 }
